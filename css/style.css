@@ -1,0 +1,1567 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+
+/* Fontes */
+@font-face {
+  font-family: Montley;
+  src: url('../css/fonts/MotleyForcesRegular.ttf');
+}
+@font-face {
+  font-family: National;
+  src: url('../css/fonts/NationalPark-Bold.otf');
+}
+@font-face {
+  font-family: Park;
+  src: url('../css/fonts/NationalPark-Medium.otf');
+}
+@font-face {
+  font-family: Poppins;
+  src: url('../css/fonts/Poppins-Regular.ttf');
+}
+
+
+body{
+  font-family: Poppins;
+  background-color: #fff;
+}
+
+::selection{
+  background-color: #2a319e;
+  color: #fff;
+}
+
+
+/* Link para o topo */
+#link-top{
+  position: fixed;
+  z-index: 9900;
+  background-color: #F48503;
+  text-decoration: none;
+  padding: 1.5vh;
+  shape-outside: circle();
+  clip-path: circle();
+  right: 3%;
+  bottom: 3%;
+  opacity: 0.5;
+  visibility: hidden;
+}
+#link-top.visible{
+  visibility: visible;
+}
+#link-top i{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vh;
+  color: #F4F6FF;
+}
+#link-top:hover{
+  transition: all .85s ease, opacity .65s ease-in-out;
+  opacity: 1;
+}
+
+
+
+/* MENU */
+nav{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  background: transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 9900;
+}
+nav ul{
+  margin: 0;
+  padding: 0;
+}
+.nav-list {
+  position: relative;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+nav li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.nav-list li a{
+  font-family: Park;
+  color: #fff;
+  font-size: 1.5vw;
+  text-transform: uppercase;
+}
+.nav-list li.active a {
+  color: #ff9720;
+}
+.nav-list li a:hover{
+  transform: scale(1.1);
+  text-decoration: none;
+}
+nav .menu-btn i{
+  display: none;
+}
+.hr-menu{
+  background-color: #fff;
+  opacity: 0.9;
+  width: 2px;
+  min-height: 3vh;
+  display: block;
+  margin: 1.2vw;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.logo img{
+  width: 9vh;
+  margin-left: 1vw;
+}
+.area-links{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  margin: 0 3vw;
+  padding-bottom: 1vh;
+}
+
+/* Menu Fixo */
+nav.ativo{
+  background-color: rgba(18,43,173,0.8);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+nav.ativo .nav-links a{
+  color: #fff;
+}
+nav.ativo .pata-home-top{
+  height: 100%;
+}
+nav.ativo .pata-home-top img{
+  position: relative;
+  width: 12vh;
+  top: 0;
+  right: 0;
+}
+
+
+
+/* HOME */
+#home{
+  background-color: #122BAD;
+  min-height: 100vh;
+}
+.conteudo-home{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 85vh;
+}
+.pata-home-top img{
+  position: relative;
+  width: 10vw;
+  top: 0;
+  right: 0;
+}
+.pets-home{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  right: 11vw;
+}
+.pets-home img{
+  width: 34vw;
+}
+
+.logo-titulo h1{
+  font-family: Montley;
+  color: #fff;
+  font-size: 8.5vw;
+}
+.texto-home{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  left: 11vw;
+}
+
+/* Frase Home */
+.frase p{
+  color: #fff;
+  font-size: 1.6vw;
+  width: 28vw;
+  margin-bottom: 5vh;
+}
+.imgs-home-bottom{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 0;
+}
+.pata-home-bottom{
+  position: relative;
+  width: 10vw;
+  bottom: 0;
+  left: 0;
+  transform: scale(-1);
+}  
+.patinhas-home{
+  position: relative;
+  width: 5vw;
+  right: 1vw;
+}  
+
+/* Botão Saiba Mais */ 
+.area-saiba-mais{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+.area-saiba-mais a{
+  text-decoration: none;
+}
+.saiba-mais{
+  position: relative;
+  padding: 0.8vw 1.8vw;
+  border: none;
+  border-radius: 1.3vw;
+  background-color: #F48503;
+  color: #fff;
+  font-family: Park;
+  font-size: 1.4vw;
+  text-transform: uppercase;
+  text-align: center;
+}
+.saiba-mais:hover{
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+/* Botão Faça Parte ONGs */ 
+.area-btn-ong{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+.area-btn-ong a{
+  text-decoration: none;
+}
+.login-ongs{
+  position: relative;
+  padding: 0.5vw 2.2vw;
+  border: none;
+  border-radius: 1.5vw;
+  background-color: #F48503;
+  color: #fff;
+  font-family: Park;
+  font-size: 1.4vw;
+  text-transform: uppercase;
+  text-align: center;
+}
+.login-ongs:hover{
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+
+
+/* TÍTULOS */
+.titulo{
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: National;
+  font-size: 3.6vw;
+  color: #122BAD;
+  text-align: center;
+}
+
+
+#quem-somos, #servicos, #beneficios, #fale-conosco{
+  padding: 7vw 0;
+  padding-bottom: 4vw;
+  margin: 3vw 0;
+}
+#quem-somos{
+  padding-bottom: 1vw;
+}
+#fale-conosco{
+  padding: 11vw 0;
+  padding-bottom: 5vw;
+}
+
+
+
+/* QUEM SOMOS */
+#conteudo-quem-somos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 25vw;
+}
+.detalhe-quem-somos{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1vw;
+}
+.detalhe-quem-somos img{
+  position: absolute;
+  width: 17vw;
+  top: 8vw;
+  margin-right: 5.4vw;
+  z-index: 1;
+  transform: rotate(350deg);
+}
+
+/* Gato */
+#area-gato{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 4vw;
+}
+.gato-quem-somos{
+  position: relative; 
+  display: flex;
+  justify-content: left;
+  z-index: 10;
+  width: auto;
+}
+.gato-quem-somos img{
+  position: absolute;
+  width: 9vw;
+  top: -6.9vw;
+  left: 3vw;
+}
+
+#patinhas-esquerda{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 30vw;
+}
+#patinhas-esquerda img{
+  position: relative;
+  width: 7vw;
+  transform: scaleX(-1);
+  left: 45vw;
+}
+
+.area-laranja{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #F48503;
+  width: auto;
+  height: auto;
+  border-radius: 2vw;
+  right: 0.5vw;
+  z-index: 2;
+}
+.area-laranja p{
+  color: #fff;
+  width: 27vw;
+  text-align: center;
+  font-size: 1.4vw;
+  margin: 3.5vw;
+  margin-bottom: 2vw;
+}
+
+/* Cão */
+#area-cao{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 16vw;
+}
+
+.cao-quem-somos{
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  width: auto;
+}
+.cao-quem-somos img{
+  position: absolute;
+  width: 19vw;
+  top: -8vw;
+}
+
+#patinhas-direita{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30vw;
+}
+#patinhas-direita img{
+  position: relative;
+  width: 7vw;
+  right: 45vw;
+}
+
+.area-azul{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #122BAD;
+  width: auto;
+  height: auto;
+  border-radius: 2vw;
+  left: 0.5vw;
+  z-index: 2;
+}
+.area-azul p{
+  color: #fff;
+  width: 30vw;
+  text-align: center;
+  font-size: 1.4vw;
+  margin: 2.2vw;
+  margin-top: 6vw;
+}
+
+
+
+/* SERVIÇOS */
+.area-servicos{
+  position: relative;
+  margin-top: 8vw;
+}
+.area-servicos .colunas{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  --bs-gutter-x: 0;
+  width: 80vw;
+}
+.area-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 1vw 2vw;
+  margin-top: 0;
+}
+
+#cao-servicos{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  left: -10vw;
+  width: 22vw;
+}
+#cao-servicos img{
+  position: relative;
+  width: 19vw;
+  left: 0;
+  top: -9vw;
+}
+
+#gato-servicos{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+#gato-servicos img{
+  position: relative;
+  width: 22vw;
+  top: -2.5vw;
+}
+
+.area-servicos .serv-subtitulo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-servicos .serv-subtitulo img{
+  width: 5.2vw;
+  margin-right: 0.6vw;
+}
+.area-servicos .serv-subtitulo h3{
+  font-family: National;
+  margin-top: 1vw;
+  font-size: 1.8vw;
+  color: #000;
+}
+
+.area-servicos .serv-texto{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-servicos .area-card p{
+  font-size: 1.2vw;
+  color: #000;
+  text-align: center;
+  width: 20vw;
+}
+
+
+
+/* BENEFÍCIOS */
+.area-beneficios{
+  position: relative;
+  margin-top: 1.5vw;
+}
+.area-beneficios .row{
+  position: relative;
+  display: flex;
+  margin: auto;
+  align-items: flex-start;
+  justify-content: center;
+  --bs-gutter-x: 0;
+}
+#card-laranja, #card-azul{
+  border-radius: 2.5vw;
+  width: 32vw;
+  margin: 0 1vw;
+  z-index: 10;
+}
+
+.area-beneficios h2{
+  font-family: National;
+  font-size: 1.9vw;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2.2vw 4vw;
+}
+
+.area-beneficios #benef-patinhas{
+  position: relative;
+  bottom: 2vw;
+}
+.area-beneficios #benef-patinhas img{
+  position: absolute;
+  width: 6vw;
+}
+
+.area-beneficios .area-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-beneficios .area-img img{
+  margin: 0 2vw;
+  width: 22vw;
+}
+.area-beneficios .area-img p{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-size: 1.4vw;
+  text-align: center;
+  width: 15vw;
+  margin: 0;
+}
+
+/* Imagens Pets */
+.area-pets{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  height: 35vw;
+}
+
+#benef-gato{
+  position: relative;
+  margin: 0;
+  left: 0;
+}
+#benef-gato img{
+  width: 10vw;
+}
+
+#benef-cao{
+  position: relative;
+  margin: 0;
+  right: 0;
+}
+#benef-cao img{
+  position: relative;
+  width: 11vw;
+  right: 0;
+}
+
+/* Card Laranja */
+#card-laranja{
+  background-color: #FF9B35;
+}
+#card-laranja h2{
+  color: #001CAB;
+}
+#card-laranja #benef-patinhas img{
+  left: 1vw;
+}
+#card-laranja .area-img p{
+  color: #001CAB;
+}
+#card-laranja .secao-div-texto p{
+  color: #032068;
+}
+#card-laranja .cadastro h3{
+  color: #032068;
+}
+#card-laranja .cadastro .btn-cadastro{
+  background-color: #032068;
+}
+
+/* Card Azul */
+#card-azul{
+  background-color: #061E9D;
+}
+#card-azul h2{
+  color: #FF9B35;
+}
+#card-azul #benef-patinhas img{
+  transform: scaleX(-1);
+  right: 1vw;
+}
+#card-azul .area-img p{
+  color: #fff;
+}
+#card-azul .secao-div-texto p{
+  color: #fff;
+}
+#card-azul .cadastro h3{
+  color: #FF9B35;
+}
+#card-azul .cadastro .btn-cadastro{
+  background-color: #FF9B35;
+}
+
+/* Conteúdo */
+.area-beneficios .secao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5vw;
+  overflow: hidden;
+}
+
+.area-beneficios .secao-div-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-beneficios .secao-div-img img{
+  width: 7vw;
+}
+
+.area-beneficios .secao-div-texto{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-beneficios .secao-div-texto p{
+  font-size: 1.2vw;
+  text-align: left;
+  margin: auto;
+}
+
+.area-beneficios .cadastro{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+.area-beneficios .cadastro h3{
+  text-transform: uppercase;
+  font-family: National;
+  font-size: 1.8vw;
+  font-weight: bold;
+  margin: 0 3vw;
+}
+.area-beneficios .cadastro .area-img img{
+  width: 14vw;
+  margin: 1vw;
+}
+.area-beneficios .cadastro .area-btn-cadastro{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-beneficios .cadastro a{
+  text-decoration: none;
+}
+.area-beneficios .cadastro .btn-cadastro{
+  position: relative;
+  padding: 0.6vw 3.4vw;
+  border: none;
+  border-radius: 2vw;
+  color: #fff;
+  font-family: Park;
+  font-size: 1.4vw;
+  text-transform: uppercase;
+  text-align: center;
+}
+.area-beneficios .cadastro .btn-cadastro:hover{
+  transform: scale(1.1);
+}
+.area-beneficios .conteudo-cards{
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+}
+
+/** Read More/Less Button **/
+.area-beneficios .area-seta{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5vw;
+}
+.area-beneficios .card .read_button{
+  position: relative;
+  padding: 0.8vw;
+  shape-outside: circle();
+  clip-path: circle();
+  margin: 7vw 0;
+  top: 1.5vw;
+  cursor: pointer;
+}
+.area-beneficios .read_button i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.8vw;
+  margin-top: 0.5vw;
+}
+.area-beneficios .read_button:hover{
+  transform: scale(1.1);
+}
+#card-laranja .read_button{
+  background-color: #001CAB;
+}
+#card-azul .read_button{
+  background-color: #FF9B35;
+}
+
+/** Active **/
+.card.active .conteudo-cards {
+  flex-direction: column;
+  height: auto;
+  transition: all .5s;
+  transform: translateY(0);
+  overflow: hidden;
+}
+.card.active .conteudo-cards::before {
+  visibility: hidden;
+  overflow: hidden;
+}
+.card.active .read_button i{
+  transform: rotate(-180deg);
+  margin-top: 0;
+  margin-bottom: 0.5vw;
+}
+
+
+
+/* FALE CONOSCO */
+.area-fale-conosco{
+  margin: 0;
+  height: auto;
+  width: 100%;
+}
+.area-fale-conosco .form-control{
+  background-color: #CADDFF;
+  border: none;
+  border-radius: 1.2vw;
+  padding-top: 0.5vw;
+  padding-left: 1vw;
+  margin-bottom: 0.5vw;
+  color: #000;
+}
+.area-fale-conosco .form-control::placeholder{
+  margin: 1vw;
+  color: #001CAB;
+  font-size: 1.2vw;
+}
+.area-fale-conosco .form-control:focus{
+  box-shadow: 0px 0px 6px 0px #6e93d4;
+  border: none;
+}
+.form-group{
+  margin-top: 1vw;
+}
+.area-fale-conosco input{
+  height: 3vw;
+}
+.area-fale-conosco textarea{
+  min-height: 22vh;
+  max-height: 30vh;
+}
+
+.pata-azul-esquerda{
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.pata-azul-direita{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.pata-azul-esquerda img, .pata-azul-direita img{
+  width: 7vw;
+  height: auto;
+}
+.pata-azul-esquerda img{
+  position: absolute;
+  top: -5vw;
+  left: 0;
+}
+.pata-azul-direita img{
+  position: absolute;
+  bottom: -5vw; 
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.area-fale-conosco .secao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+.area-fale-conosco .secao-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35vw;
+  margin: 1vw;
+}
+.area-fale-conosco .secao-form .area-texto{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 1vw;
+  margin-bottom: 0.5vw;
+}
+.area-fale-conosco .secao-form h1{
+  font-family: National;
+  font-size: 2.4vw;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #001CAB;
+}
+.area-fale-conosco .secao-form p{
+  color: #000;
+  font-size: 1.2vw;
+  margin: 1vw 0;
+}
+.area-fale-conosco .secao-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1vw;
+}
+.area-fale-conosco .secao-img img{
+  width: 28vw;
+}
+
+.area-fale-conosco .botoes-contato{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.6vw;
+}
+.area-fale-conosco button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F48503;
+  border: none;
+  padding: 0.7vw 1.6vw;
+  border-radius: 2vw;
+}
+.area-fale-conosco button:hover{
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+.area-fale-conosco button span{
+  color: #fff;
+  font-size: 1.2vw;
+  font-family: Park;
+  text-transform: uppercase;
+  margin-right: 0.5vw;
+}
+.area-fale-conosco button i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4vw;
+  color: #fff;
+}
+.area-fale-conosco .icones-contato{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-fale-conosco .icones-contato i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vw;
+}
+#icon-phone{
+  color: #00c75a;
+  margin-right: 0.8vw;
+}
+#icon-email{
+  color: #115fe6;
+}
+.area-fale-conosco .icones-contato i:hover{
+  transform: scale(1.1);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+
+
+/* RODAPÉ */
+#rodape{
+  position: relative;
+  background-color: #6D8EB7;
+  bottom: 0;
+  width: 100%;
+  height: auto; 
+  text-align: center;
+}
+#rodape p, #rodape a{
+  color: #fff;
+  margin: 2vw auto;
+  font-size: 1vw;
+  text-decoration: none;
+}
+#rodape a:hover{
+  color: #F48503;
+  transition: color 500ms ease-in-out;
+}
+.area-rodape{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* MOBILE */
+@media (max-width: 1000px){
+
+  /* MENU */
+  nav .menu-btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+  }
+  nav .menu-btn i{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vh;
+    color: #fff;
+    cursor: pointer;
+    left: 8vw;
+    z-index: 10;
+  }
+  nav .area-links{
+    position: fixed;
+    top: 9.9vh;
+    left: -105%;
+    background-color: rgba(18,43,173,0.8);
+    height: 90.1vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+    z-index: 9900;
+    justify-content: center;
+    list-style: none;
+  }
+  nav .area-links.open{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-list {
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+  .nav-list li a{
+    font-size: 2.5vh;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 4vh 0;
+  }
+  .hr-menu{
+    display: none;
+  }
+
+  /* Botão Faça Parte ONGs */ 
+  .area-btn-ong{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    bottom: 20vh;
+  }
+  .login-ongs{
+    padding: 1vh 4vh;
+    border-radius: 3vh;
+    font-size: 2.5vh;
+  }
+
+  nav.ativo{
+    top: 0;
+  }
+  nav.ativo .nav-list{
+    top: 9.9vh;
+  }
+  .logo{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .logo img{
+    width: 8vh;
+    margin-left: initial;
+  }
+
+
+  
+  /* HOME */
+  .conteudo-home{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 2vh;
+  }
+  .pata-home-top img{
+    position: relative;
+    width: 12vh;
+    top: 0;
+    right: 0;
+  }
+  .pets-home{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    right: initial;
+  }
+  .pets-home img{
+    position: relative;
+    bottom: 9vh;
+    width: 38vh;
+  }
+  .logo-titulo h1{
+    font-family: Montley;
+    color: #fff;
+    font-size: 10vh;
+    text-align: center;
+  }
+  .texto-home{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    left: initial;
+  }
+
+  /* Frase Home */
+  .frase{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .frase p{
+    color: #fff;
+    font-size: 2.4vh;
+    width: 85%;
+  }
+  .imgs-home-bottom{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 0;
+  }
+  .pata-home-bottom{
+    position: relative;
+    width: 14vh;
+    bottom: 0;
+    left: 0;
+    transform: scale(-1);
+  }  
+  .patinhas-home{
+    position: relative;
+    width: 7vh;
+    right: 2vw;
+  }  
+
+  /* Botão Saiba Mais */ 
+  .area-saiba-mais{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .area-saiba-mais a{
+    text-decoration: none;
+  }
+  .saiba-mais{
+    padding: 1.6vh 4vh;
+    top: 41vh;
+    font-size: 2.5vh;
+    border-radius: 3vh;
+  }
+  .saiba-mais:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
+
+
+  /* Títulos */
+  .titulo{
+    font-size: 4.5vh;
+  }
+
+
+
+  /* QUEM SOMOS */
+  #quem-somos .titulo{
+    margin-top: 5vh;
+  }
+  #conteudo-quem-somos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 15vh;
+    margin-bottom: 0;
+  }
+  .detalhe-quem-somos{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 70vw;
+    height: 1vh;
+    background-color: #00c75a;
+  }
+  .detalhe-quem-somos img{
+    position: absolute;
+    width: 23vh;
+    top: 2vw;
+    margin-right: initial;
+    left: -9vw;
+    z-index: 1;
+    transform: rotate(390deg);
+  }
+
+  /* Gato */
+  .gato-quem-somos img{
+    width: 15vh;
+    top: -11.5vh;
+    left: 5vw;
+  }
+  .area-laranja{
+    border-radius: 3vh;
+  }
+  .area-laranja p{
+    width: 70vw;
+    font-size: 2.3vh;
+    margin: 5vh 4vh;
+    margin-bottom: 3vh;
+  }
+
+  #patinhas-esquerda{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 70vw;
+  }
+  #patinhas-esquerda img{
+    position: relative;
+    width: 9vh;
+    transform: scaleX(-1);
+    left: 10vw;
+    bottom: 18vh;
+  }
+
+  /* Cão */
+  #area-cao{
+    top: 18vh;
+  }
+  .cao-quem-somos{
+    justify-content: right;
+  }
+  .cao-quem-somos img{
+    width: 28vh;
+    top: -12vh;
+    right: -3vw;
+  }
+  .area-azul{
+    border-radius: 3vh;
+    left: initial;
+  }
+  .area-azul p{
+    width: 70vw;
+    font-size: 2.3vh;
+    margin: 8vh 4vh;
+    margin-bottom: 3vh;
+  }
+  #patinhas-direita{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70vw;
+  }
+  #patinhas-direita img{
+    position: relative;
+    width: 9vh;
+    right: 10vw;
+    top: 22vh;
+  }
+
+  
+
+  /* SERVIÇOS */
+  #servicos{
+    margin-top: 50vh;
+  }
+  .area-servicos .colunas{
+    margin-top: 22vh;
+    justify-content: center;
+    width: 97vw;
+  }
+  .area-servicos .serv-subtitulo{
+    flex-direction: column;
+    margin-right: 0;
+  }
+  .area-servicos .area-card{
+    margin: 1vh;
+    margin-bottom: 5vh;
+  }
+  .area-servicos .serv-subtitulo img{
+    width: 10vh;
+  }
+  .area-servicos .serv-subtitulo h3{
+    margin-top: 0;
+    font-size: 3vh;
+  }
+  .area-servicos .area-card p{
+    margin: 0;
+    font-size: 2.2vh;
+    width: 30vh;
+  }
+  #cao-servicos{
+    left: -2.5vw;
+    width: 32vh;
+  }
+  #cao-servicos img{
+    width: 21vh;
+    left: 0;
+    top: -17vh;
+  }
+  #gato-servicos img{
+    width: 32vh;
+    top: -1vh;
+  }
+
+
+
+  /* BENEFÍCIOS */
+  .area-beneficios{
+    margin-top: 2vh;
+  }
+  .area-beneficios .row{
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  #card-laranja, #card-azul{
+    border-radius: 4vh;
+    width: 40vh;
+    margin: 3vh;
+  }
+
+  .area-beneficios h2{
+    font-size: 2.5vh;
+    margin: 3vh 6vh;
+  }
+
+  .area-beneficios #benef-patinhas{
+    bottom: 2vh;
+  }
+  .area-beneficios #benef-patinhas img{
+    width: 7vh;
+  }
+
+  .area-beneficios .area-img img{
+    margin: 0 4vh;
+    width: 30vh;
+  }
+  .area-beneficios .area-img p{
+    font-size: 2.2vh;
+    width: 22vh;
+    margin: 0;
+  }
+
+  /* Imagens Pets */
+  .area-pets{
+    position: relative;
+    height: auto;
+  }
+  #benef-gato img{
+    width: 12vh;
+  }
+  #benef-cao img{
+    width: 14vh;
+  }
+
+  /* Card Laranja */
+  #card-laranja #benef-patinhas img{
+    left: 1vh;
+  }
+
+  /* Card Azul */
+  #card-azul #benef-patinhas img{
+    right: 1vh;
+  }
+
+  /* Conteúdo */
+  .area-beneficios .secao{
+    margin: 5vh 2vh;
+  }
+  .area-beneficios .secao-div-img img{
+    width: 10vh;
+  }
+  .area-beneficios .secao-div-texto p{
+    font-size: 2vh;
+    margin: 0 1vh;
+  }
+  .area-beneficios .cadastro h3{
+    font-size: 2.4vh;
+    margin: 0 2vh;
+  }
+  .area-beneficios .cadastro .area-img img{
+    width: 17vh;
+    margin: 2vh;
+  }
+  .area-beneficios .cadastro .btn-cadastro{
+    padding: 0.8vh 4vh;
+    border-radius: 3vh;
+    font-size: 2.1vh;
+  }
+
+  /** Read More/Less Button **/
+  .area-beneficios .area-seta{
+    height: 5vh;
+  }
+  .area-beneficios .card .read_button{
+    padding: 1.2vh;
+    margin: 4vh 0;
+    top: 2.5vh;
+  }
+  .area-beneficios .read_button i{
+    font-size: 4.2vh;
+    margin-top: 0.6vh;
+  }
+
+  /** Active **/
+  .card.active .read_button i{
+    margin-bottom: 0.6vh;
+  }
+
+
+  /* FALE CONOSCO */
+  #fale-conosco{
+    margin: 16vh 0;
+    margin-bottom: 22vh;
+  }
+  .area-fale-conosco .form-control{
+    border-radius: 1.5vh;
+    padding-top: 1vh;
+    padding-left: 1.5vh;
+    margin-bottom: 1vh;
+  }
+  .area-fale-conosco .form-control::placeholder{
+    margin: 1vh;
+    font-size: 2.2vh;
+  }
+  .form-group{
+    margin-top: 1vh;
+  }
+  .area-fale-conosco input{
+    height: 5vh;
+    width: 50vw;
+  }
+
+  .pata-azul-esquerda img, .pata-azul-direita img{
+    width: 9vh;
+  }
+  .pata-azul-esquerda img{
+    top: -12vh;
+  }
+  .pata-azul-direita img{
+    bottom: -19vh;
+  }
+
+  .area-fale-conosco .secao{
+    flex-direction: column;
+  }
+  .area-fale-conosco .secao-form{
+    width: 85vw;
+    margin: 1vw;
+  }
+  .area-fale-conosco .secao-form form{
+    position: relative;
+    top: 36vh;
+  }
+  .area-fale-conosco .secao-form h1{
+    font-size: 3.5vh;
+    width: 100%;
+    text-align: center;
+  }
+  .area-fale-conosco .secao-form p{
+    font-size: 2.2vh;
+    margin: 1vh 0;
+    width: 100%;
+    text-align: center;
+  }
+  .area-fale-conosco .secao-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
+  }
+  .area-fale-conosco .secao-img img{
+    position: relative;
+    width: 32vh;
+    bottom: 38vh;
+    right: 1.5vh;
+  }
+
+  .area-fale-conosco .botoes-contato{
+    margin-top: 1.5vh;
+  }
+  .area-fale-conosco button{
+    padding: 1.5vh 3vh;
+    border-radius: 3vh;
+  }
+  .area-fale-conosco button span{
+    font-size: 2.2vh;
+    margin-right: 1vh;
+  }
+  .area-fale-conosco button i{
+    font-size: 3vh;
+  }
+  .area-fale-conosco .icones-contato i{
+    font-size: 6vh;
+  }
+  #icon-phone{
+    margin-right: 1vh;
+  }
+
+
+
+  /* RODAPÉ */
+  #rodape{
+    padding: 2vh 1vh;
+  }
+  #rodape p, #rodape a{
+    margin: 3vh auto;
+    font-size: 2vh;
+  }
+  .area-rodape{
+    flex-direction: column;
+  }
+      
+}

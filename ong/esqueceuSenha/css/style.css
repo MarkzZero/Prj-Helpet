@@ -1,0 +1,14 @@
+
+
+  /* Esqueceu a senha */
+  #area-esqueceu-senha .secao-form{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+  }
+ 
+  #email {
+    margin-bottom: 5%;
+  }
