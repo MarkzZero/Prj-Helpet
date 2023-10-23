@@ -534,14 +534,7 @@
                             <i class="fi fi-rr-gallery"></i>
                         </div>
                         <div class="galeria">
-                            <img src="images/foto-cao.png">
-                            <img src="images/foto-cao.png">
-                            <img src="images/foto-cao.png">
-                            <img src="images/foto-cao.png">
-                            <img src="images/foto-cao.png">
-                            <img src="images/foto-cao.png">
-                            <img src="images/foto-cao.png">
-                            <img src="images/foto-cao.png">
+                            
                         </div>
                     </div>
                 </div>
