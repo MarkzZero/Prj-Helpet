@@ -1,5 +1,6 @@
 <?php 
     include('protect.php');
+    include('config/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -242,7 +243,7 @@
                         <div class="card-conteudo">
                             <img src="images/icon-adocoes.png">
                             <div class="card-name">Adoções</div>
-                            <div class="number">110</div>
+                            <div class="number"><?php echo $adocaoResult ?></div>
                         </div>
                     </div>
 
@@ -250,7 +251,7 @@
                         <div class="card-conteudo">
                             <img src="images/icon-pets.png">
                             <div class="card-name">Pets</div>
-                            <div class="number">200</div>
+                            <div class="number"><?php echo $petsResult ?></div>
                         </div>
                     </div>
 
@@ -258,7 +259,7 @@
                         <div class="card-conteudo">
                             <img src="images/icon-apadrinhar.png">
                             <div class="card-name">Apadrinhamentos</div>
-                            <div class="number">40</div>
+                            <div class="number"><?php echo $padrinResult ?></div>
                         </div>
                     </div>
 

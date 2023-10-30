@@ -12,8 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idadeSelecionada = $_POST['idade'];
     $opcaoEspecie = $_POST['especie'];
     $opcaoGenero = $_POST['genero'];
-    
     $racaSelecionada = $_POST['raca'];
+    $vacSelecionada = $_POST['vacina'];
+    $doencaSelecionada = $_POST['doenca'];
     $idOng = $_SESSION['id'];
 
     $dadosIdade = array(
@@ -55,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             move_uploaded_file($arquivo["tmp_name"], $caminho_arquivo);
  
-            $sql = "INSERT INTO tbAnimal (nomeAnimal, porteAnimal, descAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, idOng, idRaca) VALUES ('$nome', '$inserirPorte', '$inserirGenero', '$inserirIdade','$inserirEspecie', '$caminho_arquivo', '$idOng', '$racaSelecionada')";
+            $sql = "INSERT INTO tbAnimal (nomeAnimal, porteAnimal, descAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, idOng, idRaca, idVacina, idDoenca) VALUES ('$nome', '$inserirPorte', '$inserirGenero', '$inserirIdade','$inserirEspecie', '$caminho_arquivo', '$idOng', '$racaSelecionada', '$vacSelecionada', '$doencaSelecionada')";
             
             if($mysqli->query($sql) == true){
                 // Verifica se o animal foi inserido corretamente

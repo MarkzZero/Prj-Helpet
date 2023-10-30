@@ -15,7 +15,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-        <title>Login do ADM</title>
+        <title>Login do Usuário</title>
         <link rel="icon" href="./images/logo-azul.png">
     </head>
     <body>
@@ -56,7 +56,7 @@
 
                         <form action="login/login.php" method="post">
                             <div class="input_box">
-                                <input type="text" name="usuario" placeholder="Usuário">
+                                <input type="text" name="email" placeholder="E-mail">
                                 <i class="bi bi-person"></i>
                             </div>
 

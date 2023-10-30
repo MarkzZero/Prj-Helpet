@@ -1,3 +1,5 @@
+
+
 /* ÁREA FOTO DE PERFIL  DO PET */
 'use static'
 let photo = document.getElementById('imgPhoto');

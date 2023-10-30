@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Out-2023 às 23:21
--- Versão do servidor: 10.4.28-MariaDB
--- versão do PHP: 8.2.4
+-- Tempo de geração: 30-Out-2023 às 16:13
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `ligcampanunci` (
   `idLigCampAnunci` int(11) NOT NULL,
   `idCampanha` int(11) DEFAULT NULL,
   `idAnunciante` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `tbadocao` (
   `idAnimal` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -62,8 +62,29 @@ CREATE TABLE `tbanimal` (
   `especieAnimal` varchar(30) DEFAULT NULL,
   `fotoPerfilAnimal` varchar(500) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL,
-  `idRaca` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `idRaca` int(11) DEFAULT NULL,
+  `idVacina` int(11) DEFAULT NULL,
+  `idDoenca` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbanimal`
+--
+
+INSERT INTO `tbanimal` (`idAnimal`, `nomeAnimal`, `porteAnimal`, `descAnimal`, `idadeAnimal`, `especieAnimal`, `fotoPerfilAnimal`, `idOng`, `idRaca`, `idVacina`, `idDoenca`) VALUES
+(2, 'Lilith', '', 'Fêmea', '', 'Gato', 'arquivo/e5fb452e6e029ac736cc1b7205e286bd.jpg', NULL, 1, NULL, NULL),
+(3, 'Carlos', '', 'Macho', '', 'Cachorro', 'arquivo/edb8b7bdce47bac2a97f449b1ec091b5.jpg', NULL, 2, NULL, NULL),
+(5, 'Bob', 'Médio', 'Macho', '2 anos', 'Cachorro', NULL, 2, 6, NULL, NULL),
+(6, 'Maribel', 'Pequeno', 'Fêmea', '6 anos', 'Gato', NULL, 1, 7, NULL, NULL),
+(7, 'Flokinho', 'Pequeno', 'Macho', '4', 'Cachorro', NULL, 2, 4, NULL, NULL),
+(8, 'Mel', 'Grande', 'Fêmea ', '3 anos ', 'Cachorro', NULL, 1, 10, NULL, NULL),
+(9, 'Thor', 'Pequeno', 'Macho', '2 anos ', 'Gato', NULL, 2, 3, NULL, NULL),
+(10, 'Cookie ', 'Médio', 'Macho', '10 meses', 'Gato', NULL, 2, 9, NULL, NULL),
+(11, 'Café ', 'Grande', 'Macho', '1 ano', 'Cachorro', NULL, 2, 2, NULL, NULL),
+(12, 'Costela', 'Pequeno ', 'Macho', '3 anos ', 'Cachorro', NULL, 1, 8, NULL, NULL),
+(13, 'Jujuba ', 'Pequeno ', 'Fêmea ', '1 ano ', 'Gato', NULL, 2, 1, NULL, NULL),
+(38, 'poggers', 'Pequeno', 'Macho', 'Adulto (Entre 3 e 5 anos)', 'Gato', 'fotoPerfil/5e8caceadc7495b4fd9382d974fb467a.jpg', 3, 3, 7, 8),
+(39, 'Bilbo', 'Médio', 'Macho', 'Adulto (Entre 3 e 5 anos)', 'Cachorro', 'fotoPerfil/5cd37a7c62f3cb2215a93a974a1d7a73.jpg', 3, 4, 7, 8);
 
 -- --------------------------------------------------------
 
@@ -75,7 +96,6 @@ CREATE TABLE `tbanunciante` (
   `idAnunciante` int(11) NOT NULL,
   `nomeAnunciante` varchar(50) DEFAULT NULL,
   `emailAnunciante` varchar(70) DEFAULT NULL,
-  `senhaAnunciante` varchar(260) NOT NULL,
   `logradouroAnunciante` varchar(20) DEFAULT NULL,
   `cidadeAnunciante` varchar(40) DEFAULT NULL,
   `numLocalAnunciante` smallint(6) DEFAULT NULL,
@@ -86,7 +106,7 @@ CREATE TABLE `tbanunciante` (
   `cepAnunciante` char(8) DEFAULT NULL,
   `fotoAnunciante` varchar(500) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -97,10 +117,11 @@ CREATE TABLE `tbanunciante` (
 CREATE TABLE `tbapadrinhamento` (
   `idApadrinhamento` int(11) NOT NULL,
   `dataApadrinhamento` date DEFAULT NULL,
+  `valorApadrinhamento` double DEFAULT NULL,
   `idAnimal` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -123,7 +144,7 @@ CREATE TABLE `tbcampanha` (
   `cepCampanha` char(8) DEFAULT NULL,
   `fotoPerfilCampanha` varchar(600) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -135,7 +156,7 @@ CREATE TABLE `tbcartaovacina` (
   `idCartaoVacina` int(11) NOT NULL,
   `dataAplicacaoCartaoVacina` date DEFAULT NULL,
   `idAnimal` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -149,7 +170,7 @@ CREATE TABLE `tbchat` (
   `fotoChat` varchar(600) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -163,7 +184,7 @@ CREATE TABLE `tbdoacao` (
   `dataDoacao` date DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -174,7 +195,21 @@ CREATE TABLE `tbdoacao` (
 CREATE TABLE `tbdoenca` (
   `idDoenca` int(11) NOT NULL,
   `tipoDoenca` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbdoenca`
+--
+
+INSERT INTO `tbdoenca` (`idDoenca`, `tipoDoenca`) VALUES
+(1, 'Lacerações de córnea e esclera'),
+(2, 'Raiva'),
+(3, 'Cancer'),
+(4, 'Laringite'),
+(5, 'Laringopatia'),
+(6, 'Leptospirose'),
+(7, 'Leucemia Linfoide.'),
+(8, 'Nenhum');
 
 -- --------------------------------------------------------
 
@@ -186,7 +221,7 @@ CREATE TABLE `tbfotoanimal` (
   `idFotoAnimal` int(11) NOT NULL,
   `fotosAnimal` varchar(800) DEFAULT NULL,
   `idAnimal` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -198,7 +233,7 @@ CREATE TABLE `tbfotocampanha` (
   `idFotoCampanha` int(11) NOT NULL,
   `fotosCampanha` varchar(800) DEFAULT NULL,
   `idCampanha` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -210,7 +245,7 @@ CREATE TABLE `tbligprontudoen` (
   `idLigProntuDoen` int(11) NOT NULL,
   `idDoenca` int(11) DEFAULT NULL,
   `idProntuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -222,7 +257,7 @@ CREATE TABLE `tbligvacinacartao` (
   `idLigVacinaCartao` int(11) NOT NULL,
   `idCartaoVacina` int(11) DEFAULT NULL,
   `idVacina` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -249,14 +284,16 @@ CREATE TABLE `tbong` (
   `cepOng` char(8) DEFAULT NULL,
   `fotoOng` varchar(500) DEFAULT NULL,
   `statusChatOng` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tbong`
 --
 
 INSERT INTO `tbong` (`idOng`, `idUnicoOng`, `nomeOng`, `capacidadeOng`, `emailOng`, `senhaOng`, `logradouroOng`, `cidadeOng`, `numLogOng`, `complementoOng`, `estadoOng`, `bairroOng`, `cnpjOng`, `cnasOng`, `cebasOng`, `cepOng`, `fotoOng`, `statusChatOng`) VALUES
-(1, NULL, 'animais', 500, 'gabriel.fliv@gmail.com', '$2y$10$A7vtMoqCvPXJkQwluExI4OiLxQ6zxLAvc7654xaz2R7/XEI.dzfj.', 'Rua Gaspar Sardinha', NULL, 11, 'B', 'SP', 'Jardim Fanganiello', '64608155000198', '12512', '5235', '08450-48', '470b435b1a58070321e7ea6717e7ed01.jpg', '');
+(1, NULL, 'animais', 500, 'gabriel.fliv@gmail.com', '$2y$10$A7vtMoqCvPXJkQwluExI4OiLxQ6zxLAvc7654xaz2R7/XEI.dzfj.', 'Rua Gaspar Sardinha', NULL, 11, 'B', 'SP', 'Jardim Fanganiello', '64608155000198', '12512', '5235', '08450-48', '470b435b1a58070321e7ea6717e7ed01.jpg', ''),
+(2, NULL, 'Intituto Pet Maria ', 200, 'petMariaInstituto@gmail.com', 'pet@ma00', 'Rua Castelo de Leça', 'São Paulo', 12, NULL, 'São Paulo', 'Jardim Soares ', '12345678987655', NULL, NULL, '08460-16', NULL, NULL),
+(3, NULL, 'Teste', 12, 'lineu@gmail.com', '$2y$10$HvbVUPEmi2q6Osg45jzYwOYET7Ehq5bvGaCZXKl.dA2XSt242G7Ly', 'Rua Bernadete', NULL, 12, '', 'SP', 'Vila do Americano', '99116415000192', '456645', '3454555', '08533-25', 'upload/e532b50e0135c0bf7cc374338946b7f5.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -267,11 +304,13 @@ INSERT INTO `tbong` (`idOng`, `idUnicoOng`, `nomeOng`, `capacidadeOng`, `emailOn
 CREATE TABLE `tbprefeusuario` (
   `idPrefeUsuario` int(11) NOT NULL,
   `tipoPet` varchar(50) DEFAULT NULL,
-  `PortePet` varchar(50) DEFAULT NULL,
-  `PreferenciaUsuario` varchar(50) DEFAULT NULL,
+  `generoPet` varchar(50) DEFAULT NULL,
+  `portePet` varchar(50) DEFAULT NULL,
+  `preferenciaUsuario` varchar(100) DEFAULT NULL,
   `idadePet` smallint(6) DEFAULT NULL,
-  `idusuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `idRaca` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -284,7 +323,7 @@ CREATE TABLE `tbprontuario` (
   `tipoTratamento` varchar(40) DEFAULT NULL,
   `dataTratamento` date DEFAULT NULL,
   `idAnimal` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -296,7 +335,26 @@ CREATE TABLE `tbraca` (
   `idRaca` int(11) NOT NULL,
   `nomeRaca` varchar(20) DEFAULT NULL,
   `especieRaca` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbraca`
+--
+
+INSERT INTO `tbraca` (`idRaca`, `nomeRaca`, `especieRaca`) VALUES
+(1, ' Persa', 'Gato'),
+(2, 'Pinscher', 'Cachorro'),
+(3, 'Siamês', 'Gato'),
+(4, 'Pastor Alemão', 'Cachorro'),
+(5, 'Ragdoll', 'Gato'),
+(6, 'Pug', 'Cachorro'),
+(7, 'American Shorthair', 'Gato'),
+(8, 'Chow Chow', 'Cachorro'),
+(9, 'Sem Raça Definida', 'Gato'),
+(10, 'Yorkshire', 'Cachorro'),
+(11, 'vira-lata', 'Cachorro'),
+(12, 'Buldogue francês', 'Cachorro'),
+(13, 'Golden Retriever', 'Cachorro');
 
 -- --------------------------------------------------------
 
@@ -308,7 +366,7 @@ CREATE TABLE `tbtelefoneanunciante` (
   `idTelefoneAnunciante` int(11) NOT NULL,
   `numTelefoneAnunciante` varchar(11) DEFAULT NULL,
   `idAnunciante` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -320,14 +378,15 @@ CREATE TABLE `tbtelefoneong` (
   `idTelefoneOng` int(11) NOT NULL,
   `numTelefoneOng` varchar(11) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tbtelefoneong`
 --
 
 INSERT INTO `tbtelefoneong` (`idTelefoneOng`, `numTelefoneOng`, `idOng`) VALUES
-(1, '11986036737', 1);
+(1, '11986036737', 1),
+(2, '11964352175', 3);
 
 -- --------------------------------------------------------
 
@@ -339,7 +398,7 @@ CREATE TABLE `tbtelefoneusuario` (
   `idTelefoneUsuario` int(11) NOT NULL,
   `numTelefoneUsuario` varchar(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -362,7 +421,14 @@ CREATE TABLE `tbusuario` (
   `cepUsuario` char(8) DEFAULT NULL,
   `nivelUsuario` varchar(20) DEFAULT 'comum',
   `fotoUsuario` varchar(500) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbusuario`
+--
+
+INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `cpfUsusario`, `emailUsuario`, `senhaUsuario`, `bairroUsuario`, `logradouroUsuario`, `cidadeUsuario`, `numLocalUsuario`, `complementoUsuario`, `estadoUsuario`, `cepUsuario`, `nivelUsuario`, `fotoUsuario`) VALUES
+(1, 'Gabriel', '65458836235', 'gabriel@gmail.com', '123', 'Jd. fanganiello', 'Guaianases', 'Sao Paulo', 11, 'b', 'Sao Paulo', '08450-48', 'adm', NULL);
 
 -- --------------------------------------------------------
 
@@ -373,7 +439,20 @@ CREATE TABLE `tbusuario` (
 CREATE TABLE `tbvacina` (
   `idVacina` int(11) NOT NULL,
   `tipoVacina` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbvacina`
+--
+
+INSERT INTO `tbvacina` (`idVacina`, `tipoVacina`) VALUES
+(1, 'V8'),
+(2, 'V10'),
+(3, 'Gripe canina'),
+(4, 'Giárdia'),
+(5, 'Antirrábica'),
+(6, 'Leishmaniose'),
+(7, 'Nenhum');
 
 --
 -- Índices para tabelas despejadas
@@ -402,7 +481,9 @@ ALTER TABLE `tbadocao`
 ALTER TABLE `tbanimal`
   ADD PRIMARY KEY (`idAnimal`),
   ADD KEY `idOng` (`idOng`),
-  ADD KEY `idRaca` (`idRaca`);
+  ADD KEY `idRaca` (`idRaca`),
+  ADD KEY `idVacina` (`idVacina`),
+  ADD KEY `idDoenca` (`idDoenca`);
 
 --
 -- Índices para tabela `tbanunciante`
@@ -497,7 +578,8 @@ ALTER TABLE `tbong`
 --
 ALTER TABLE `tbprefeusuario`
   ADD PRIMARY KEY (`idPrefeUsuario`),
-  ADD KEY `idusuario` (`idusuario`);
+  ADD KEY `idRaca` (`idRaca`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- Índices para tabela `tbprontuario`
@@ -565,7 +647,7 @@ ALTER TABLE `tbadocao`
 -- AUTO_INCREMENT de tabela `tbanimal`
 --
 ALTER TABLE `tbanimal`
-  MODIFY `idAnimal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAnimal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `tbanunciante`
@@ -607,7 +689,7 @@ ALTER TABLE `tbdoacao`
 -- AUTO_INCREMENT de tabela `tbdoenca`
 --
 ALTER TABLE `tbdoenca`
-  MODIFY `idDoenca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDoenca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbfotoanimal`
@@ -637,7 +719,7 @@ ALTER TABLE `tbligvacinacartao`
 -- AUTO_INCREMENT de tabela `tbong`
 --
 ALTER TABLE `tbong`
-  MODIFY `idOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbprefeusuario`
@@ -655,7 +737,7 @@ ALTER TABLE `tbprontuario`
 -- AUTO_INCREMENT de tabela `tbraca`
 --
 ALTER TABLE `tbraca`
-  MODIFY `idRaca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `tbtelefoneanunciante`
@@ -667,7 +749,7 @@ ALTER TABLE `tbtelefoneanunciante`
 -- AUTO_INCREMENT de tabela `tbtelefoneong`
 --
 ALTER TABLE `tbtelefoneong`
-  MODIFY `idTelefoneOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idTelefoneOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbtelefoneusuario`
@@ -679,13 +761,13 @@ ALTER TABLE `tbtelefoneusuario`
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tbvacina`
 --
 ALTER TABLE `tbvacina`
-  MODIFY `idVacina` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idVacina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restrições para despejos de tabelas
@@ -710,6 +792,8 @@ ALTER TABLE `tbadocao`
 -- Limitadores para a tabela `tbanimal`
 --
 ALTER TABLE `tbanimal`
+  ADD CONSTRAINT `idDoenca` FOREIGN KEY (`idDoenca`) REFERENCES `tbdoenca` (`idDoenca`),
+  ADD CONSTRAINT `idVacina` FOREIGN KEY (`idVacina`) REFERENCES `tbvacina` (`idVacina`),
   ADD CONSTRAINT `tbanimal_ibfk_1` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`),
   ADD CONSTRAINT `tbanimal_ibfk_2` FOREIGN KEY (`idRaca`) REFERENCES `tbraca` (`idRaca`);
 
@@ -783,7 +867,8 @@ ALTER TABLE `tbligvacinacartao`
 -- Limitadores para a tabela `tbprefeusuario`
 --
 ALTER TABLE `tbprefeusuario`
-  ADD CONSTRAINT `tbprefeusuario_ibfk_1` FOREIGN KEY (`idusuario`) REFERENCES `tbusuario` (`idUsuario`);
+  ADD CONSTRAINT `tbprefeusuario_ibfk_1` FOREIGN KEY (`idRaca`) REFERENCES `tbraca` (`idRaca`),
+  ADD CONSTRAINT `tbprefeusuario_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
 -- Limitadores para a tabela `tbprontuario`

@@ -140,7 +140,7 @@
 
                                     <div class="campo">
                                         <?php $sql = mysqli_query($mysqli, "SELECT idVacina, tipoVacina FROM tbVacina");?>
-                                            <select style="width: 17.5rem;" class="select-btn" required name="raca" id="raca">
+                                            <select style="width: 17.5rem;" class="select-btn" required name="vacina" id="vacina">
                                                 <option value="" disabled selected>Vacinas:</option>
                                                 <?php 
                                                     while($resultado = mysqli_fetch_array($sql)){
@@ -184,7 +184,7 @@
                                     <br>
 
                                     <div id="selectIdade" class="campo">
-                                        <select style="width: 17.4rem;" class="select-btn" required name="idade" id="idade">
+                                        <select style="width: 17.4rem;" class="select-btn" name="idade" id="idade">
                                                 <option value="" disabled selected>Idade:</option>
                                                 <option value="opFilhote" name="idade">Filhote (Menos de 1 ano)</option>
                                                 <option value="opAdulto" name="idade">Adulto (Entre 1 e 3 anos)</option>
@@ -197,7 +197,7 @@
 
                                     <div class="campo">
                                     <?php $sql = mysqli_query($mysqli, "SELECT idDoenca, tipoDoenca FROM tbDoenca");?>
-                                            <select style="width: 17.5rem;" class="select-btn" required name="raca" id="raca">
+                                            <select style="width: 17.5rem;" class="select-btn" name="doenca" id="doenca">
                                                 <option value="" disabled selected>Doenças:</option>
                                                 <?php 
                                                     while($resultado = mysqli_fetch_array($sql)){
@@ -263,9 +263,10 @@
 
             <!-- PETS CADASTRADOS -->
             <div class="consulta">
-
-                <div id="area-cards">                        
-                    <?php while($raca_data = mysqli_fetch_assoc($resultRaca) and $user_data = mysqli_fetch_assoc($result)){ ?>
+                <div id="area-cards">  
+                <?php 
+                    while($user_data = mysqli_fetch_assoc($result) and $raca_data = mysqli_fetch_assoc($resultRaca)){  
+                    ?>                      
                     <div class="card">                
                         <div class="foto">
                             <img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal'];?>">
@@ -295,8 +296,10 @@
 
                             </div>
                         </div>
+                        
                     </div>
-                    <?php } ?>
+                    <?php } ?>  
+
                     <!-- Modal Alterar -->
                     <div class="fade hide"></div>
                     <div class="modal hide">
@@ -440,7 +443,7 @@
                         </div>
                     </div>
                 </div>
-                                          
+                                      
                 <!-- Modal Excluir -->
                 <div class="fadeExcluir hide"></div>
                 <div class="modalExcluir hide">
@@ -585,7 +588,6 @@
                     </thead>
 
                     <tbody>
-                        <?php while($user_data = mysqli_fetch_assoc($resultRaca)){ ?>
                         <tr>
                             <td><img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal'];?>"></td>
                             <td>
@@ -610,7 +612,7 @@
                                 <button class="open-modalExcluir btn-excluir" name="excluir"><i class="fi fi-sr-trash"></i></button>
                             </td>
                         </tr>
-                        <?php } ?>
+                        
                     </tbody>
                 </table>
                 
