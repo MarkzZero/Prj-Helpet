@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Out-2023 às 16:13
+-- Tempo de geração: 31-Out-2023 às 03:51
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -83,8 +83,7 @@ INSERT INTO `tbanimal` (`idAnimal`, `nomeAnimal`, `porteAnimal`, `descAnimal`, `
 (11, 'Café ', 'Grande', 'Macho', '1 ano', 'Cachorro', NULL, 2, 2, NULL, NULL),
 (12, 'Costela', 'Pequeno ', 'Macho', '3 anos ', 'Cachorro', NULL, 1, 8, NULL, NULL),
 (13, 'Jujuba ', 'Pequeno ', 'Fêmea ', '1 ano ', 'Gato', NULL, 2, 1, NULL, NULL),
-(38, 'poggers', 'Pequeno', 'Macho', 'Adulto (Entre 3 e 5 anos)', 'Gato', 'fotoPerfil/5e8caceadc7495b4fd9382d974fb467a.jpg', 3, 3, 7, 8),
-(39, 'Bilbo', 'Médio', 'Macho', 'Adulto (Entre 3 e 5 anos)', 'Cachorro', 'fotoPerfil/5cd37a7c62f3cb2215a93a974a1d7a73.jpg', 3, 4, 7, 8);
+(46, 'Bilbo', 'Pequeno', 'Macho', 'Filhote (Menos de 1 ano)', 'Cachorro', 'fotoPerfil/eb6bf6c3501f7dbd65e73882d7e4ea19.jpg', 3, 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -145,6 +144,14 @@ CREATE TABLE `tbcampanha` (
   `fotoPerfilCampanha` varchar(600) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbcampanha`
+--
+
+INSERT INTO `tbcampanha` (`idCampanha`, `nomeCampanha`, `informacaoCampanha`, `horarioCampanha`, `diaCampanha`, `bairroCampanha`, `logradouroCampanha`, `cidadeCampanha`, `numLocalCampanha`, `complementoCampanha`, `estadoCampanha`, `cepCampanha`, `fotoPerfilCampanha`, `idOng`) VALUES
+(7, 'Teste', 'Teste', '02:06:00', '2023-10-27', 'Vila do Americano', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', '08533-25', 'fotoCampanha/52dc92131feb0834c335b62e27f89116.jpg', NULL),
+(8, 'Bilbo', 'tretertret', '18:00:00', '2023-11-11', 'Vila do Americano', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', '08533-25', 'fotoCampanha/8a938807eda82784dd4f76b454197fc0.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -428,7 +435,8 @@ CREATE TABLE `tbusuario` (
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `cpfUsusario`, `emailUsuario`, `senhaUsuario`, `bairroUsuario`, `logradouroUsuario`, `cidadeUsuario`, `numLocalUsuario`, `complementoUsuario`, `estadoUsuario`, `cepUsuario`, `nivelUsuario`, `fotoUsuario`) VALUES
-(1, 'Gabriel', '65458836235', 'gabriel@gmail.com', '123', 'Jd. fanganiello', 'Guaianases', 'Sao Paulo', 11, 'b', 'Sao Paulo', '08450-48', 'adm', NULL);
+(1, 'Gabriel', '65458836235', 'gabriel@gmail.com', '123', 'Jd. fanganiello', 'Guaianases', 'Sao Paulo', 11, 'b', 'Sao Paulo', '08450-48', 'adm', NULL),
+(2, 'gustavo', NULL, 'teste@teste.com', '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'comum', NULL);
 
 -- --------------------------------------------------------
 
@@ -647,7 +655,7 @@ ALTER TABLE `tbadocao`
 -- AUTO_INCREMENT de tabela `tbanimal`
 --
 ALTER TABLE `tbanimal`
-  MODIFY `idAnimal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `idAnimal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de tabela `tbanunciante`
@@ -665,7 +673,7 @@ ALTER TABLE `tbapadrinhamento`
 -- AUTO_INCREMENT de tabela `tbcampanha`
 --
 ALTER TABLE `tbcampanha`
-  MODIFY `idCampanha` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCampanha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbcartaovacina`
@@ -761,7 +769,7 @@ ALTER TABLE `tbtelefoneusuario`
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbvacina`

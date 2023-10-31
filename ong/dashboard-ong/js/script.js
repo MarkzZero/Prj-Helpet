@@ -24,6 +24,29 @@ file.addEventListener('change', (event) => {
     reader.readAsDataURL(file.files[0]);
 });
 
+'use static'
+let photo2 = document.getElementById('imgPhoto2');
+let file2 = document.getElementById('flImage2');
+
+photo2.addEventListener("click", () => {
+    file2.click();   
+});
+
+file2.addEventListener('change', (event) => {
+    
+   if(file2.files.length <= 0){
+    return;
+   }
+
+    let reader = new FileReader()
+
+    reader.onload = () =>{
+        photo2.src = reader.result;
+    }
+
+    reader.readAsDataURL(file2.files[0]);
+});
+
 
 
 /* ÁREA OUTRAS FOTOS DO PET */

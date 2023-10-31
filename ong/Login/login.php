@@ -17,7 +17,7 @@
             $email =  $mysqli->real_escape_string($_POST['email']);
             $senha =  $mysqli->real_escape_string($_POST['senha']);
 
-            $sql_code = "SELECT * FROM tbOng WHERE emailOng = '$email' LIMIT 1";
+            $sql_code = "SELECT * FROM tbUsuario WHERE emailUsuario = '$email' LIMIT 1";
 
             $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: ". $mysqli->error);
 
@@ -25,20 +25,13 @@
 
             $_SESSION['email'] = $email;
 
-            $_SESSION['foto'] = $usuario['fotoOng'];
+            $_SESSION['foto'] = $usuario['fotoUsuario'];
 
-            $_SESSION['nome'] = $usuario['nomeOng'];
+            $_SESSION['nome'] = $usuario['nomeUsuario'];
 
-            $_SESSION['id'] = $usuario['idOng'];
+            $_SESSION['id'] = $usuario['idUsuario'];
 
-            if(password_verify($senha, $usuario['senhaOng'])){
-                header("Location: ../dashboard-ong/index.php");
-            }else{
-                $_SESSION['nao_autenticado'] = true;
-                header('Location: ../index.php');
-                exit();
-            }
-
+            header("Location: ../index.php");
 
 
         }

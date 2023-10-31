@@ -6,7 +6,6 @@ include('../../Login/login.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $arquivo = $_FILES['image'];
     $opcional =  $_FILES['opcional'];
-
     $nome = mysqli_real_escape_string($mysqli, trim($_POST['nome']));
     $porteSelecionado = $_POST['porte'];
     $idadeSelecionada = $_POST['idade'];
@@ -62,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Verifica se o animal foi inserido corretamente
                 $id_animal = $mysqli->insert_id;
             
+                // Inserção das fotos
                 if($opcional != null){
                     $total = count($opcional);
                     for($i=0; $i<$total; $i++){
@@ -70,22 +70,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $nome_opcional = md5(uniqid(time())) . "." . $ext[1];
             
                             $caminho_opcional = "Arquivos/" . $nome_opcional;
-                            move_uploaded_file($opcional["tmp_name"][$i], $caminho_opcional);
+                            if(move_uploaded_file($opcional["tmp_name"][$i], $caminho_opcional)){
+                                $sql_opcional = "INSERT INTO tbfotoAnimal (fotosAnimal, idAnimal) VALUES ('$caminho_opcional', '$id_animal')";
             
-                            $sql_opcional = "INSERT INTO tbfotoAnimal (fotosAnimal, idAnimal) VALUES ('$caminho_opcional', '$id_animal')";
-            
-                            if($mysqli->query($sql_opcional) === true){
-                                // Imagem registrada com sucesso
+                                if($mysqli->query($sql_opcional) === true){
+                                    echo "Imagem registrada com sucesso!";
+                                } else {
+                                    echo "Erro ao inserir imagem no banco de dados: " . $mysqli->error;
+                                }
                             } else {
-                                // Tratamento de erro na consulta SQL
+                                echo "Erro ao mover a imagem para o diretório.";
                             }
+                        } else {
+                            echo "A extensão da imagem não é suportada.";
                         }
                     }
                 }
+            
                 header('location: ../Pets.php');
-                exit(); // Adicionando exit() para encerrar a execução após o redirecionamento
+                exit();
             } else {
-                echo "Erro ao cadastrar: ", $mysqli->error;
+                echo "Erro ao inserir animal no banco de dados: " . $mysqli->error;
             }
 
             header("Location: ../Pets.php");

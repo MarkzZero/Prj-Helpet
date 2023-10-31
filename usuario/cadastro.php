@@ -215,5 +215,6 @@
     </div>
     </div>
 </body>
-    <script src="js/cadastro.js"></script>
+<script src="js/cadastro.js"></script>
+
 </html>

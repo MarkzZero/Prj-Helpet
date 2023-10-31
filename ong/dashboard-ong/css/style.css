@@ -638,6 +638,8 @@ body{
     color: #122BAD;
     justify-content: space-between;
 }
+
+
 .select-btn i{
     display: flex;
     align-items: center;
@@ -795,6 +797,21 @@ body{
     background-color: #d7e5ff;
     transform: scale(1.1);
 }
+
+#imgPhoto2{
+    width: 10.5vw;
+    height: 10.5vw;
+    padding: 0.5vw;
+    border: 0.5vw solid #122BAD;
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 50%;
+}
+#imgPhoto2:hover{
+    background-color: #d7e5ff;
+    transform: scale(1.1);
+}
+
 input[type='file']{
     display: none;
 }
@@ -1178,6 +1195,21 @@ input[type='file']{
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 5;
 }
+
+.modal-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Cor e opacidade do fundo escuro */
+    z-index: 1; /* Garante que o fade esteja acima de outros elementos */
+}
+
+.modal-fade.hide {
+    display: none;
+}
+
 
 
 .modal,

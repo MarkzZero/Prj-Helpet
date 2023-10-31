@@ -16,4 +16,6 @@ document.querySelector('.btn-voltar')
         formDados.style.display = 'flex'
         formEndereco.style.display = 'none'
         //btnColor.style.left = "0px"
-    })
+    });
+
+    
