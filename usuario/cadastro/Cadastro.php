@@ -12,12 +12,12 @@ $senha = mysqli_real_escape_string($mysqli, trim($_POST['senha']));
 $senhaConfirma = mysqli_real_escape_string($mysqli, trim($_POST['cpf']));
 $bairro = mysqli_real_escape_string($mysqli, trim($_POST['bairro']));
 $logradouro = mysqli_real_escape_string($mysqli, trim($_POST['numero']));
-$cidade = mysqli_real_escape_string($mysqli, trim($_POST['cpf']));
-$numero = mysqli_real_escape_string($mysqli, trim($_POST['cpf']));
-$complemento = mysqli_real_escape_string($mysqli, trim($_POST['cpf']));
-$estado = mysqli_real_escape_string($mysqli, trim($_POST['cpf']));
-$cep = mysqli_real_escape_string($mysqli, trim($_POST['cpf']));
-$nivel = mysqli_real_escape_string($mysqli, trim($_POST['cpf']));
+$cidade = mysqli_real_escape_string($mysqli, trim($_POST['cidade']));
+$numero = mysqli_real_escape_string($mysqli, trim($_POST['numero']));
+$complemento = mysqli_real_escape_string($mysqli, trim($_POST['complemento']));
+$estado = mysqli_real_escape_string($mysqli, trim($_POST['estado']));
+$cep = mysqli_real_escape_string($mysqli, trim($_POST['cep']));
+$nivel = mysqli_real_escape_string($mysqli, trim($_POST['nivel']));
 
 if ($senha == $senhaConfirma) {
     $passwordHash = password_hash($senha, PASSWORD_DEFAULT);
