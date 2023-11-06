@@ -1,8 +1,11 @@
 <?php
 
 include_once('../config/conexao.php');
+include('../config/config.php');
 
 if (isset($_POST['update'])) {
+
+    $user_data = mysqli_fetch_assoc($result);
 
     $id = $_POST['id'];
 
@@ -17,6 +20,7 @@ if (isset($_POST['update'])) {
     $doencaSelecionada = $_POST['doenca'];
 
     $dadosIdade = array(
+        "opExistente" => $user_data['idadeAnimal'],
         "opFilhote" => "Filhote (Menos de 1 ano)",
         "opAdulto" => "Adulto (Entre 1 e 3 anos)",
         "opAdulto2" => "Adulto (Entre 3 e 5 anos)",
@@ -34,6 +38,7 @@ if (isset($_POST['update'])) {
     );
 
     $dadosPorte = array(
+        "opExistente" => $user_data['porteAnimal'],
         "opPequeno" => "Pequeno",
         "opMedio" => "Médio",
         "opGrande" => "Grande"

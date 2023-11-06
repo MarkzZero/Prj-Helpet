@@ -13,7 +13,7 @@
 
     
 
-    $resultCamp = $mysqli->query("SELECT * FROM tbCampanha ORDER BY idCampanha ASC") or die($mysqli->error);
+    $resultCamp = $mysqli->query("SELECT * FROM tbCampanha ORDER BY idCampanha DESC") or die($mysqli->error);
 
     $petsCount = $mysqli->query("SELECT COUNT(idAnimal) FROM tbAnimal WHERE idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($petsCount);

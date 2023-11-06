@@ -1,56 +1,40 @@
-/* MODAL ALTERAR CAMPANHA */
-document.addEventListener('DOMContentLoaded', function() {
-    const openModalEdits = document.querySelectorAll(".open-modalEdit");
+function setupModal(openBtns, closeBtns, modal, fade) {
+    const toggleModal = (modal, fade) => {
+        modal.classList.toggle("hide");
+        fade.classList.toggle("hide");
+    };
 
-    openModalEdits.forEach(button => {
-        button.addEventListener('click', function() {
-            const IdEdit = this.dataset.idEdit;
-            const modal = document.querySelector(`#modalEdit-${IdEdit}`);
-            const fade = document.querySelector(`#fadeEdit-${IdEdit}`);
-            modal.classList.remove('hide');
-            fade.classList.remove('hide');
-        });
-
-    });
-
-    const closeModalCam = document.querySelectorAll(".modalEdit .close-modal");
-
-    closeModalCam.forEach(button => {
-        button.addEventListener('click', function() {
-            const modal = this.closest('.modalEdit');
-            const fade = document.querySelector(`#fadeEdit-${modal.idEdit.split('-')[1]}`);
-            modal.classList.add('hide');
-            fade.classList.add('hide');
-        });
-    });
-});
-
-
-
-
-/* MODAL VER MAIS CAMPANHA */
-
-document.addEventListener('DOMContentLoaded', function() {
-    const openModalCam = document.querySelectorAll(".open-modalCam");
-
-    openModalCam.forEach(button => {
-        button.addEventListener('click', function() {
-            const Id = this.dataset.id;
-            const modal = document.querySelector(`#modalCam-${Id}`);
-            const fade = document.querySelector(`#fadeCam-${Id}`);
-            modal.classList.remove('hide');
-            fade.classList.remove('hide');
+    openBtns.forEach((el, index) => {
+        el.addEventListener("click", () => {
+            toggleModal(modal[index], fade[index]);
         });
     });
 
-    const closeModalCam = document.querySelectorAll(".modalCam .close-modal");
-
-    closeModalCam.forEach(button => {
-        button.addEventListener('click', function() {
-            const modal = this.closest('.modalCam');
-            const fade = document.querySelector(`#fadeCam-${modal.id.split('-')[1]}`);
-            modal.classList.add('hide');
-            fade.classList.add('hide');
+    closeBtns.forEach((el, index) => {
+        el.addEventListener("click", () => {
+            toggleModal(modal[index], fade[index]);
         });
     });
-});
+}
+
+// Configuração do Modal "Alterar Campanha"
+const openModalEdit = document.querySelectorAll(".open-modal");
+const closeModalEdit = document.querySelectorAll(".modal .close-modal");
+const modalEdit = document.querySelectorAll(".modal");
+const fadeEdit = document.getElementById("fade");
+
+// Configuração do Modal "Ver Mais Campanha"
+const openModalVerCam = document.querySelectorAll(".open-modalCam");
+const closeModalVerCam = document.querySelectorAll(".modalCam .close-modal");
+const modalVerCam = document.querySelectorAll(".modalCam");
+const fadeVerCam = document.getElementById("modal-fade");
+
+// Configuração de outros modais, como Excluir, se necessário
+const openModalExcluir = document.querySelectorAll(".open-modalExcluir");
+const closeModalExcluir = document.querySelectorAll(".modalExcluir .close-modal");
+const modalExcluir = document.querySelectorAll(".modalExcluir");
+const fadeExcluir = document.querySelectorAll(".fadeExcluir");
+
+setupModal(openModalEdit, closeModalEdit, modalEdit, fadeEdit);
+setupModal(openModalVerCam, closeModalVerCam, modalVerCam, fadeVerCam);
+setupModal(openModalExcluir, closeModalExcluir, modalExcluir, fadeExcluir);

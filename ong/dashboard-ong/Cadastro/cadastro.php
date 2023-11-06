@@ -3,7 +3,8 @@ include('../config/conexao.php');
 include('../config/config.php');
 include('../../Login/login.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if (isset($_POST['cadastrar'])) {
     $arquivo = $_FILES['image'];
     $opcional =  $_FILES['opcional'];
     $nome = mysqli_real_escape_string($mysqli, trim($_POST['nome']));
@@ -34,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     $dadosPorte = array(
+        "opExistente" => "",
         "opPequeno" => "Pequeno",
         "opMedio" => "Médio",
         "opGrande" => "Grande"

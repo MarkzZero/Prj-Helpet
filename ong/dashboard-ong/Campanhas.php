@@ -240,9 +240,7 @@ if (isset($_GET[1]))
                                         </div>
                                     </div>
                                     <div class="area-botoes">
-                                        <button class="open-modalEdit btn-editar" name="editar" data-idEdit="<?php echo $user_data['idCampanha']; ?>">
-                                            <i class="fi fi-br-edit"></i>
-                                        </button>
+                                    <button class="open-modal btn-editar" name="editar" data-idEdit="<?php echo $user_data['idCampanha']; ?>"><i class="fi fi-br-edit"></i></button>
                                         <a style="text-decoration: none ;" href="Cadastro/deleteCampanha.php?id=<?php echo $user_data['idCampanha']; ?>">
                                             <button class="open-modalExcCam btn-excluir" name="excluir"><i class="fi fi-sr-trash"></i></button>
                                         </a>
@@ -260,8 +258,8 @@ if (isset($_GET[1]))
 
 
                             <!-- Modal Alterar -->
-                            <div class="fadeEdit hide" id="fadeEdit-<?php echo $user_data['idCampanha'] ?>"></div>
-                            <div class="modalEdit hide" id="modalEdit-<?php echo $user_data['idCampanha'] ?>">
+                            <div class="fade hide" id="fade"></div>
+                            <div class="modal hide" id="modalEdit-<?php echo $user_data['idCampanha']; ?>">
                                 <div class="modal-header">
                                     <div class="detalhe-modal">
                                         <img src="images/pag-campanhas.png" alt="">
@@ -381,6 +379,7 @@ if (isset($_GET[1]))
                                     </div>
                                 </div>
 
+
                                 <div class="area-botoes-modal">
                                     <button class="closeBtnModal botao-modal">Cancelar</button>
                                     <button class="botao-modal2">Salvar</button>
@@ -418,7 +417,7 @@ if (isset($_GET[1]))
 
                             <!-- Modal Ver Mais -->
 
-                            <div class="fadeCam hide"></div>
+                            <div class="fadeCam hide" id="modal-fade"></div>
                             <div class="modalCam hide" id="modalCam-<?php echo $user_data['idCampanha']; ?>">
 
                                 <div class="modal-header">
@@ -437,7 +436,7 @@ if (isset($_GET[1]))
 
                                         <div class="nome-cam">
                                             <span>Campanha</span>
-                                            <p><?php $user_data['nomeCampanha'] ?></p>
+                                            <p><?php echo $user_data['nomeCampanha'] ?></p>
                                         </div>
 
                                     </div>
@@ -546,7 +545,7 @@ if (isset($_GET[1]))
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="js/script.js"></script>
-        <script src="js/modal-campanha.js"></script>
+        <script src="js/modal-campanha.js" defer></script>
 
 </body>
 

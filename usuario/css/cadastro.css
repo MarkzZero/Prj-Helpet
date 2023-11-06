@@ -52,11 +52,6 @@ body{
 
 }
 
-#imgPhoto-login{
-    width: 100%;
-    height: 100%;
-}
-
 .input-dados{
     width: 65%;
     height: 6.3vh;
@@ -220,4 +215,17 @@ label{
   font-family: 'Poppins';
   font-size: 2vh;
   margin-bottom: 3%;
+}
+
+#imgPhoto-login{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+#imgPhoto-login:hover{
+  transform: scale(1.1);
+}
+
+input[type='file']{
+  display: none;
 }

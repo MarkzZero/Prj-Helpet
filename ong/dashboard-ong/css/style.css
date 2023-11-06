@@ -1196,6 +1196,9 @@ input[type='file']{
     z-index: 5;
 }
 
+
+
+
 .modal-fade {
     position: fixed;
     top: 0;
@@ -1209,6 +1212,7 @@ input[type='file']{
 .modal-fade.hide {
     display: none;
 }
+
 
 
 

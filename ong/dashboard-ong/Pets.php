@@ -214,7 +214,7 @@ if (isset($_GET[1]))
                         </div>
 
                         <div class="area-botao">
-                            <input type="submit" value="Cadastrar" class="botao-cadastrar" />
+                            <input type="submit" value="Cadastrar" name="cadastrar" class="botao-cadastrar" />
                         </div>
 
                     </div>
@@ -384,7 +384,7 @@ if (isset($_GET[1]))
                                                         text-indent: 1px;
                                                         text-overflow: '';
                                                         width: 17.1vw;" required name="porte" id="porte">
-                                                    <option style="color: black;" value="" disabled selected>Selecione</option>
+                                                    <option style="color: black;" value="opExistente" selected><?php echo $user_data['porteAnimal'] ?></option>
                                                     <option style="color: black;" value="opPequeno" name="porte">Pequeno</option>
                                                     <option style="color: black;" value="opMedio" name="porte">Médio</option>
                                                     <option style="color: black;" value="opGrande" name="porte">Grande</option>
@@ -407,7 +407,7 @@ if (isset($_GET[1]))
                                                         text-indent: 1px;
                                                         text-overflow: '';
                                                         width: 17.1vw;" class="select-btn" required name="vacina" id="vacina">
-                                                    <option value="" disabled selected>Selecione</option>
+                                                    <option value="opVac" selected><?php echo $vacData['vacina'] ?></option>
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
                                                         echo "<option style='color: black;' value='" . $resultado['idVacina'] . "' name='vacina'>"  . $resultado['tipoVacina'] . "</option>";
@@ -434,7 +434,7 @@ if (isset($_GET[1]))
                                                         text-indent: 1px;
                                                         text-overflow: '';
                                                         width: 14vw;" class="select-btn" name="doenca" id="doenca">
-                                                    <option value="" disabled selected>Selecione</option>
+                                                    <option value="opDenca" selected><?php echo $doenca_data['doenca'] ?></option>
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
                                                         echo "<option style='color: black;' value='" . $resultado['idDoenca'] . "' name='doenca'>"  . $resultado['tipoDoenca'] . "</option>";
@@ -458,7 +458,7 @@ if (isset($_GET[1]))
                                                         text-indent: 1px;
                                                         text-overflow: '';
                                                         width: 13.9vw;" class="select-btn" name="idade" id="idade">
-                                                    <option style='color: black;' value="" disabled selected>Selecione</option>
+                                                    <option style='color: black;' value="opExistente" selected><?php echo $user_data['idadeAnimal'] ?></option>
                                                     <option style='color: black;' value="opFilhote" name="idade">Filhote (Menos de 1 ano)</option>
                                                     <option style='color: black;' value="opAdulto" name="idade">Adulto (Entre 1 e 3 anos)</option>
                                                     <option style='color: black;' value="opAdulto2" name="idade">Adulto (Entre 3 e 5 anos)</option>
@@ -482,10 +482,10 @@ if (isset($_GET[1]))
                                                         text-indent: 1px;
                                                         text-overflow: '';
                                                         width: 13.9vw;" class="select-btn" required name="raca" id="raca">
-                                                    <option value="" disabled selected>Selecione</option>
+                                                    <option value="opRaca" selected><?php echo $raca_data['nome_raca'] ?></option>
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
-                                                        echo "<option style='color: black;' value='" . $resultado['idRaca'] . "' name='raca'>"  . $resultado['nomeRaca'] . "</option>";
+                                                        echo "<option style='color: black;'  value='" . $resultado['idRaca'] . "' name='raca'>"  . $resultado['nomeRaca'] . "</option>";
                                                     }
                                                     ?>
                                                 </select>
@@ -665,7 +665,7 @@ if (isset($_GET[1]))
                         </div>
 
 
-                    <?php } ?>
+
                 </div>
 
                 <br><br>
@@ -677,6 +677,7 @@ if (isset($_GET[1]))
                             <tr>
                                 <th>Foto de Perfil</th>
                                 <th>Nome do Pet</th>
+                                <th>Raça</th>
                                 <th>Informações</th>
                                 <th>Alterações</th>
                             </tr>
@@ -687,33 +688,49 @@ if (isset($_GET[1]))
                                 <td><img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>"></td>
                                 <td>
                                     <div class="nome">
-                                        <h3><?php echo $user_data['nomeAnimal'] ?></h3>
-                                        <!--<i class="fi fi-rr-mars"></i>-->
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="raca">
-                                        <span>Raça: </span> <?php echo $raca_data['nome_raca'] ?>
-                                    </div>
-                                    <div class="botao-modal">
-                                        <p>Ver Mais</p>
-                                        <div class="icon-btn">
-                                            <i class="fi fi-br-angle-small-right"></i>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button class="open-modal btn-editar" name="editar"><i class="fi fi-br-edit"></i></button>
-                                    <button class="open-modalExcluir btn-excluir" name="excluir"><i class="fi fi-sr-trash"></i></button>
-                                </td>
-                            </tr>
+                                        <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                            <h3><?php echo $user_data['nomeAnimal']; ?></h3>
+                                        <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                            <h3 style="color: #FC0FC0;"><?php echo $user_data['nomeAnimal']; ?></h3>
+                                        <?php } ?>
 
-                        </tbody>
-                    </table>
-
+                                        <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                            <i class="fi fi-rr-mars"></i>
+                                        <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                            <i style="color: #FC0FC0;" class="fi fi-rr-venus"></i>
+                                        <?php } ?>
+                                    </div>
                 </div>
+                </td>
+                <td>
+                    <div class="raca">
+                        <?php echo $raca_data['nome_raca'] ?>
+                    </div>
+                </td>
+                <td>
+                    <div class="area-btn-modal">
+                        <button style="border: none;" class="open-modalVer botao-modal" data-animalid="<?php echo $user_data['idAnimal']; ?>">
+                            <p>Ver Mais</p>
+                            <div class="icon-btn">
+                                <i class="fi fi-br-angle-small-right"></i>
+                            </div>
+                        </button>
+                    </div>
+                </td>
+                <td>
+                    <button class="open-modal btn-editar" name="editar"><i class="fi fi-br-edit"></i></button>
+                    <button class="open-modalExcluir btn-excluir" name="excluir"><i class="fi fi-sr-trash"></i></button>
+                </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+            </table>
 
-                <!-- TABELA 
+            
+
+            </div>
+
+            <!-- TABELA 
                 <main id="area-tabela" class="table">
                     <section class="table__body">
                         <table>
@@ -759,16 +776,16 @@ if (isset($_GET[1]))
                 </main>
                                 -->
 
-            </div>
         </div>
+    </div>
 
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script src="js/script.js"></script>
-        <script src="js/graficos.js"></script>
-        <script src="js/tabela.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/graficos.js"></script>
+    <script src="js/tabela.js"></script>
 
-        <script src="js/modal.js" defer></script>
+    <script src="js/modal.js" defer></script>
 
 </body>
 
