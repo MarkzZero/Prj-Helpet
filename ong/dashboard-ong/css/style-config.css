@@ -1,0 +1,1045 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+
+/* Fontes */
+@font-face {
+    font-family: National;
+    src: url('../../../css/fonts/NationalPark-Bold.otf');
+}
+@font-face {
+    font-family: Park;
+    src: url('../../../css/fonts/NationalPark-Medium.otf');
+}
+@font-face {
+    font-family: Regular;
+    src: url('../../../css/fonts/NationalPark-Regular.otf');
+}
+@font-face {
+    font-family: Poppins;
+    src: url('../../../css/fonts/Poppins-Regular.ttf');
+}
+
+
+/* CONTEÚDO */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blue: #122BAD;
+    --white: #F4F6FF;
+    --white2: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --orange: #FF901B;
+    --green: #00b300;
+    --red: #E60B00;
+}
+
+body{
+    background-color: #F4F6FF;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Poppins;
+}
+
+.container{
+    position: relative;
+    display: flex;
+}
+
+
+/* Área Logo Menu */
+.logo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: -1vh;
+}
+.logo img{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    margin-bottom: 1vh;
+}
+.title-ong{
+    color: #fff;
+    font-family: Park;
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.toggle{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.toggle i{
+    position: relative;
+    color: #fff;
+    font-size: 1.6vw;
+    cursor: pointer;
+    top: 1.8vh;
+    right: 1.4vw;
+    z-index: 10;
+}
+
+
+/* Menu Fixo Lateral */
+.navegation{
+    position: fixed;
+    width: 17vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #122BAD;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navegation ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    width: auto;
+    margin-left: 0.5vw;
+}
+.navegation ul li{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    border-top-left-radius: 10vh;
+    border-bottom-left-radius: 10vh;
+}
+.navegation ul li:hover,
+.navegation ul li.hovered{
+    background: var(--white);
+}
+.navegation ul li:hover a,
+.navegation ul li.hovered a{
+    color: var(--blue);
+}
+.navegation ul li:nth-child(7){
+    position: relative;
+    margin-top: 5vh;
+}
+.navegation ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 2.5vh 0;
+    text-decoration: none;
+    color: #fff;
+    z-index: 10;
+}
+.navegation ul li a .icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 1.5vw;    
+    padding-right: 0;
+}
+.navegation ul li a .icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8vw;
+    z-index: 10;
+}
+.navegation ul li a .title{
+    font-family: Regular;
+    position: relative;
+    display: block;
+    padding-left: 1vw;
+    font-size: 1.2vw;
+}
+
+
+.navegation ul li:hover a::before,
+.navegation ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+.navegation ul li:hover a::after,
+.navegation ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+
+/* Área Topo */
+.main{
+    position: relative;
+    width: 60vw;
+    height: auto;
+    right: -38vw !important;
+    transition: 0.5s;
+}
+
+
+.navegation.active{
+    width: 6vw;
+}
+.navegation.active ul{
+    margin-top: 11vh;
+    margin-left: 0.8vw;
+}
+.navegation.active ul .title{
+    display: none;
+}
+.navegation.active .logo img{
+    margin-top: 7vh;
+    width: 5vw;
+}
+.navegation.active .title-ong{
+    display: none;
+}
+.navegation.active ul li a .icon{
+    padding: 0 1vw;
+}
+.main.active{
+    min-width: 90vw;
+    max-width: 90vw;
+    left: 7.5vw;
+}
+.navegation.active .toggle{
+    justify-content: center;
+}
+.navegation.active .toggle i{
+    right: initial;
+}
+
+.topbar{
+    position: relative;
+    margin-top: 1vh;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.img-pag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-pag img{
+    width: 8vh;
+}
+
+
+/* Barra de Pesquisa */
+.search label{
+    position: relative;
+}
+.search label input{
+    display: flex;
+    align-items: center;
+    padding: 1vh 6vh;
+    border-radius: 20vh;
+    padding-left: 6vh;
+    font-size: 2.5vh;
+    outline: none;
+    border: 0.1vh solid var(--black2);
+}
+.search label ion-icon{
+    position: absolute;
+    display: flex;
+    top: 1vh;
+    left: 1.5vh;
+    font-size: 3.5vh;
+    color: var(--blue);
+}
+.img-logo{
+    height: 10vh;
+}
+.img-logo img{
+    width: 10vh;
+}
+
+/* Títulos */
+.sub-titulo{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 3.8vh;
+    color: #004FDA;
+}
+
+
+/* PÁGINA DASHBOARD */
+
+/* Gráficos */
+.area-grafico{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+#chartdiv{
+    font-family: Poppins;
+    position: relative;
+    width: 50vw;
+    height: 60vh;
+}
+.titulo-graficos span{
+    font-family: Park;
+    font-size: 3.5vh;
+    color: #004FDA;
+}
+
+
+/* Notificações */
+.area{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 3vh;
+}
+.area-notificacoes{
+    position: relative;
+    background-color: #fff;
+    border-radius: 4vh;
+    top: 2vh;
+    margin-right: 3vh;
+    z-index: 10;
+}
+.not{
+    position: relative;
+    overflow: hidden;
+    width: 24vw;
+    height: 34vh;
+}
+/** Active **/
+.not.active{
+    z-index: 20;
+    height: 52vh;
+    transition: all .5s;
+    overflow-y: auto;
+}
+.not.active::-webkit-scrollbar{
+    width: 1vh;
+}
+.not.active::-webkit-scrollbar-track{
+    background: #fff;
+    border-radius: 25px;
+}
+.not.active::-webkit-scrollbar-thumb{
+    background: #e7e6e6;
+    border-radius: 25px;
+}
+
+.topo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3vh;
+}
+.topo p{
+    font-size: 3vh;
+    font-family: Regular;
+    color: #004FDA;
+}
+.topo i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vh;
+    color: #122BAD;
+    cursor: pointer;
+}
+
+.area-perfil{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2.1vh 0;
+    padding: 0 4vh;
+    width: 100%;
+}
+.foto-not{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.foto-not img{
+    position: relative;
+    right: 1.8vh;
+    shape-outside: circle();
+    clip-path: circle();
+    width: 10vh;
+}
+.conteudo-mens{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-mens{
+    position: relative;
+    right: 2vh;   
+}
+.nome-not{
+    font-weight: 200;
+    color: #000;
+    font-size: 2.4vh;
+}
+.mens-not{
+    color: #504f4f;
+    font-size: 2vh;
+}
+.hora-not{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hora-not p{
+    color: #b3b3b3;
+    font-size: 1.7vh;
+}
+
+.hr-div{
+    width: 21vw;
+    height: 2px;
+    margin: 0 1.5vw;
+    border: none;
+    background-color: #e8e8e8;
+}
+
+#read_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 1vh 0;
+}
+#read_button p{
+    color: #122BAD;
+    font-size: 2.4vh;
+    margin-right: 0.5vh;
+}
+#read_button i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vh;
+    color: #122BAD;
+}
+
+/* MENU CONFIGURAÇÕES */
+.menu-config{
+    position: fixed;
+    width: 20vw;
+    height: 100%;
+    left: 17vw;
+    border-right: 0.1vw solid #8A8A8A;
+    z-index: 10;
+}
+
+.menu-config .titulo-config{
+    font-family: Regular;
+    position: relative;
+    color: #122BAD;
+    font-weight: bolder;
+    font-size: 2vw;  
+    left: 2vh;
+    top: 3vh;
+}
+
+.area-botao{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 10vh;
+    width: 20vw;
+}
+
+.area-botao hr{
+    position: relative;
+    width: 90%;
+    background-color: #8A8A8A;
+}
+
+.botao-ativo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F58614; 
+    padding: 2vh;
+    border-radius: 1vh;
+    cursor: pointer;
+    margin: 3vh 0;
+    width: 85%; 
+}
+
+.botao-ativo:hover,
+.botao:hover{
+    transform: scale(1.1);
+}
+
+.botao{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    margin: 3vh 0;
+    width: 60%;
+}
+
+.botao-ativo a,
+.botao a{
+    color: #F4F6FF;
+    font-family: Park;
+    font-weight: 500;
+    font-size: 1.4vw;
+    text-decoration: none;
+    text-align: center;
+}
+
+.botao a{
+    color: #122BAD;
+}
+
+.botao-ativo i,
+.botao i{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F4F6FF;
+    font-size: 2vw;
+    margin-right: 1vw;
+}
+
+.botao i{
+    color: #122BAD;
+}
+
+/* BOTÃO MODO ESCURO */
+.btn-modo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    top: 30vh;
+    font-family: Park;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    padding: 2vw 0;
+}
+
+.btn-modo i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 2vw;
+    color: #122BAD;
+}
+
+.btn-modo p{
+    font-size: 1.5vw;
+    position: relative;
+    color: #122BAD;
+    margin: 0 1vw;
+}
+
+
+/* FAZER AQUI O CSS DO MODO DARK */
+/* Botão Modo Escuro */
+.menu-config  input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+.menu-config  label{
+    cursor: pointer;
+    width: 4vw;
+    height: 2vw;
+    background: #c4c2c2;
+    display: block;
+    border-radius: 2vw;
+    position: relative;
+}
+.menu-config  label:after{
+    content: '';
+    position: absolute;
+    top: 0.3vw;
+    left: 0.3vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+} 
+.menu-config  input:checked + label{
+    background: #F48503;
+}
+.menu-config input:checked + label:after{
+    left: calc(100% - 0.5vw);
+    transform: translateX(-100%);
+}
+.menu-config label:active:after{
+    width: 3vw;
+}
+
+/* CSS DA AREA DE EDITAR PERFIL */
+.area-perfil-edit .enfeites{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: auto;
+}
+
+.enfeites .enfeiteUm img{
+    width: 5vw;
+    transform: scaleX(-1);
+}
+
+.enfeites .enfeiteDois img{
+    position: absolute;
+    top: -3vw;
+    right: -5vw;
+    width: 12vw;
+}
+
+.enfeites .enfeiteUm{
+    position: relative;
+    top: 1vw;
+    left: 1vw;
+}
+
+.enfeites .enfeiteDois{
+    position: relative;
+}
+
+/* CSS IMAGEM DE PERFIL */
+.imageContainer{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 2vw;
+}
+
+#area-foto{
+    width: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#imgPhoto{
+    width: 12vw;
+    height: 12vw;
+    padding: 0.5vw;
+    border: 0.3vw solid #122BAD;
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 20vh;
+}
+
+#imgPhoto:hover{
+    background-color:#d7e5ff;
+    transform: scale(1.1);
+}
+
+input[type='file']{
+    display: none;
+}
+
+.area-form{
+    position: relative;
+}
+
+.linhas{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.input-field {
+    position: relative;
+    width: 15vw;
+    margin: 1vh;
+    margin: 1vw 2vw;
+    flex-direction: column;
+    display: flex;
+}
+
+.input-field label{
+    position: relative;
+    color: #001CAB;
+    font-size: 1.3vw;
+}
+
+.input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 15vw;
+    bottom: -5px;
+    left: 0;
+    background: #F58614;
+}
+
+.input-field input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.2vw;
+    font-family: Poppins;
+    color: #8A8A8A;
+    width: 100%;
+}
+
+/* Botões */
+.botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3vw 0;
+}
+.botoes button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7vw 2vw;
+    font-family: Park;
+    font-size: 1.5vw;
+    border-radius: 2vw;
+    border: 0.2vw solid #004FDA;
+    outline: none;
+    margin: 1vw;
+    width: 10vw;
+    cursor: pointer;
+}
+.botoes button:hover{
+    transform: scale(1.1);
+}
+.botoes .btn-cancelar{
+    background-color: transparent;
+    color: #004FDA;
+}
+.botoes .btn-salvar{
+    background-color: #004FDA;
+    color: #fff;
+}
+
+/* CSS EXCLUIR PERFIL ONG */
+/* Modais */
+.modalExc{
+    transition: .5s;
+    opacity: 1;
+    pointer-events: all;
+}
+.fadeExc{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+    transition: .3s;
+}
+.modalExc.hide,
+.fadeExc.hide{
+    opacity: 0;
+    pointer-events: none;
+}
+.modalExc.hide{
+    top: 0;
+}
+.modalExc{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    background-color: #F4F6FF;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: auto;
+    padding: 1.5vw;
+    border-radius: 2vw;
+}
+.modalExc .modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.modalExc .modal-header i{
+    color: #c4bebe;
+    font-size: 1.3vw;
+    cursor: pointer;
+}
+.modalExc .area-excluir{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modalExc .area-excluir h4{
+    font-family: Regular;
+    font-size: 1.5vw;
+    color: #FF3131;
+    margin: 1vw 0;
+    margin-top: 2vw;
+}
+.modalExc .area-excluir p{
+    color: #000;
+    font-size: 1.2vw;
+}
+.modalExc .area-excluir i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8vw;
+    color: #FF3131;
+}
+.modalExc .area-excluir .underline::before {
+    background: #FF3131;
+}
+.modalExc .area-excluir .botoes{
+    margin: 0;
+}
+.modalExc .area-excluir .botoes .btn-cancelar{
+    background-color: transparent;
+    color: #FF3131;
+    border: 0.2vw solid #FF3131;
+}
+.modalExc .area-excluir .botoes .btn-excluir{
+    background: #FF3131;
+    color: #fff;
+    border: 0.2vw solid #FF3131;
+}
+
+/* MOBILE */
+@media (max-width: 1000px){
+    /* Área Conteúdo */
+    .main{
+        position: relative;
+        min-width: 100%;
+        max-width: 100%;
+        height: auto;
+        left: 0;
+        transition: 0.5s;
+    }
+    .main.active .toggle{
+        left: 40vw;
+        position: relative;
+        color: #fff;
+        z-index: 20;
+    }
+    .main.active .toggle ion-icon{
+        position: fixed;
+        color: #fff;
+    }
+
+    /* Área Topo */
+    .topbar{
+        justify-content: space-between;
+        margin-right: 1vw;
+    }
+    /* Ícone Menu */
+    .main .toggle{
+        margin-left: 2vw;
+    }
+    /* Barra de Pesquisa */
+    .search label input{
+        width: 60vw;
+        padding: 1vh;
+        padding-left: 6vh;
+    }
+    /* Logo */
+    .img-logo{
+        margin-right: 2vw;
+        height: 7vh;
+    }
+    .img-logo img{
+        width: 7vh;
+    }
+
+
+    /* Menu Fixo Lateral */
+    .navegation{
+        display: none;
+    }
+    .navegation.active{
+        display: block;
+        width: 60vw;
+        z-index: 10;
+    }
+    .navegation ul{
+        margin-left: 1vh;
+        margin-right: 1vh;
+    }
+    .navegation ul li{
+        padding-left: 1vh;
+        border-radius: 10vh;
+        border-radius: 10vh;
+    }
+    .navegation ul li a{
+        width: 100%;
+    }
+    .navegation ul li:hover a::before,
+    .navegation ul li.hovered a::before,
+    .navegation ul li:hover a::after,
+    .navegation ul li.hovered a::after{
+       display: none;
+    }
+    .navegation.active .logo{
+        position: relative;
+        margin-top: 3vh;
+    }
+    .navegation.active .logo img{
+        width: 15vh;
+    }
+    .navegation.active .title-adm{
+        display: block;
+    }
+    .navegation.active ul li a .icon{
+        padding-left: 0.5vh;    
+        padding-right: 0;
+    }
+    .navegation.active ul .title{
+        display: block;
+        padding-left: 1vh;
+    }
+
+
+    /* Títulos */
+    .sub-titulo{
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+    .sub-titulo span{
+        font-size: 3.8vh;
+    }
+
+    /* PÁGINA DASHBOARD */
+
+    /* Cards Box */
+    .card-box{
+        position: relative;
+        flex-direction: column;
+        top: 6vh;
+    }
+    .card-laranja, .card-azul{
+        width: 30vh;
+        margin-bottom: 2vh;
+    }
+    .card-box .card-conteudo img{
+        width: 10vh;
+    }
+    .card-box .card-name{
+        font-size: 2.5vh;
+    }
+    .card-box .number{
+        font-size: 3.5vh;
+    }
+
+    /* Gráficos */
+    #chartdiv{
+        width: 96%;
+        height: 60vh;
+        margin-bottom: 5vh;
+    }
+    .titulo-graficos{
+        margin-top: 10vh;
+        text-align: center;
+    }
+    .titulo-graficos span{
+        font-size: 3.2vh;
+    }
+
+
+    /* CONFIGURAÇÕES */
+    
+    .area-botao{
+        margin-top: 3vh;
+    }
+
+    .botao-cadastrar{
+        font-size: 2vh;
+        padding: 2vh 4vh;
+    }
+
+    .botao-cadastrar:hover{
+        box-shadow: 0 10px 10px rgba(160, 91, 0, 0.555);
+    }
+
+    .botao-cadastrar ion-icon{
+        background-color: #9abfff; 
+        position: fixed;
+        margin-top: -6px;
+        right: 78%;
+        font-size: 4vh;
+        color: #F4F6FF;
+    }
+        
+    .botao-cadastrar a{
+        text-decoration: none;
+        color: #F4F6FF;
+        font-size: 1%;
+    }
+
+    .botao-cadastrar span{
+        color: #F4F6FF;
+        font-family: 'Poppins';
+    }
+
+
+}
