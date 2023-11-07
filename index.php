@@ -42,8 +42,11 @@
                         </ul>
 
                         <div class="area-btn-ong">
+                            <a href="./usuario/index.php">
+                                <div class="login-ongs">Adote um pet!</div>
+                            </a>
                             <a href="./ong/index.php">
-                                <div class="login-ongs">Faça Parte ONGs!</div>
+                                <div class="login-ongs">Faça parte ONGs!</div>
                             </a>
                         </div>
                     </div>
@@ -268,13 +271,13 @@
                             <br>
 
                             <div class="cadastro">
-                                <h3>Baixe o app e cadastre-se</h3>
+                                <h3>Cadastre-se nesse sistema</h3>
                                 <div class="area-img">
-                                    <img src="images/img-beneficios/card-laranja/img-qrcode.png">
+                                    <img src="images/img-beneficios/card-laranja/img-adotar.png">
                                 </div>
                                 <div class="area-btn-cadastro">
-                                    <a href="#">
-                                        <div class="btn-cadastro">Adote um animal!</div>
+                                    <a href="./usuario/index.php">
+                                        <div class="btn-cadastro">Adote um pet!</div>
                                     </a>
                                 </div>
                             </div>
@@ -369,6 +372,33 @@
             
         </section>
 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Anunciantes -->
+        <section id="anunciantes">
+        <h1 class="titulo">Anunciantes</h1>
+          <div class="img-anunciante">
+            <img src="images/img-beneficios/img-anunciante.png" alt="">
+          </div> 
+          
+          <div class="desc-anunciante">
+            <p>Conosco os anunciantes como PetShops, veterinários, Banho&Tosa, entre outros serviços que poderão entrar em contato com o nosso sistema e 
+               poderão anunciar seus produtos na plataforma e realizar parcerias com as ongs cadastradas.</p>
+          </div>
+
+            <div class="botoes-contato-anunci">
+             <a class="link" href="#fale-conosco">
+                <button name="Enviar">
+                    <span>Contato</span>
+                    <!-- <ion-icon name="bookmark-outline"></ion-icon> -->
+                </button>
+             </a>   
+            </div>
+        </section>
+
 
         <!-- Fale Conosco -->
         <section id="fale-conosco">
@@ -445,7 +475,9 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
         <script src="js/script.js"></script>
         <script src="js/main.js"></script>
+
     </body>
 </html>
