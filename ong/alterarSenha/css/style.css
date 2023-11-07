@@ -1,0 +1,22 @@
+
+
+  /* Alterar a senha */
+  #area-alterar-senha .secao-form{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+  }
+ 
+  #nome {
+    margin-bottom: 5%;
+  }
+
+  #senha {
+    margin-bottom: 5%;
+  }
+
+  #confirmSenha {
+    margin-bottom: 5%;
+  }
