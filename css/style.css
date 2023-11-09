@@ -271,22 +271,23 @@ nav.ativo .pata-home-top img{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 70%;
 }
 .area-btn-ong a{
   text-decoration: none;
 }
 .login-ongs{
   position: relative;
-  padding: 0.5vw 2.2vw;
+  padding: 0.5vw 2vw;
   border: none;
   border-radius: 1.5vw;
   background-color: #F48503;
   color: #fff;
   font-family: Park;
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-transform: uppercase;
   text-align: center;
+  margin: 0 0.5vw;
 }
 .login-ongs:hover{
   transform: scale(1.1);
@@ -804,6 +805,69 @@ nav.ativo .pata-home-top img{
   margin-bottom: 0.5vw;
 }
 
+/* ANUNCIANTES */
+.img-anunciante{
+  /* background-color: #00c75a; */
+  width: 32%;
+  margin-left: 19%;
+  margin-top: 3%;
+}
+.img-anunciante img{
+  width: 70%;
+  margin-left: 10%;
+}
+.desc-anunciante{
+  /* background-color: #F48503; */
+  width: 35%;
+  margin-left: 51%;
+  margin-top: -19%;
+}
+.desc-anunciante p{
+  font-size: 2.8vh;
+  width: 80%;
+}
+.botoes-contato-anunci{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5vw;
+  margin-left: 51%;
+
+
+}
+.botoes-contato-anunci .link button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F48503;
+  width: 110%;
+  border: none;
+  padding: 0.7vw 1.6vw;
+  border-radius: 2vw;
+  transition: all 0.5s;
+}
+.botoes-contato-anunci .link button:hover{
+  transform: scale(1.1);
+}
+.botoes-contato-anunci a:hover{
+  text-decoration: none;
+}
+.botoes-contato-anunci .link button span{
+  color: #fff;
+  font-size: 1.2vw;
+  font-family: Park;
+  text-transform: uppercase;
+  margin-right: 0.5vw;
+  
+}
+.botoes-contato-anunci .link button ion-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4vw;
+  color: #fff;
+}
+
 
 
 /* FALE CONOSCO */
@@ -818,6 +882,7 @@ nav.ativo .pata-home-top img{
   border-radius: 1.2vw;
   padding-top: 0.5vw;
   padding-left: 1vw;
+  margin: 0;
   margin-bottom: 0.5vw;
   color: #000;
 }
@@ -881,7 +946,7 @@ nav.ativo .pata-home-top img{
 .area-fale-conosco .secao-form{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 35vw;
   margin: 1vw;
@@ -891,7 +956,7 @@ nav.ativo .pata-home-top img{
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-left: 1vw;
+  padding-left: 0;
   margin-bottom: 0.5vw;
 }
 .area-fale-conosco .secao-form h1{

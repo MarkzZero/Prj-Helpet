@@ -110,7 +110,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 2vh;
     width: auto;
     margin-left: 0.5vw;
 }
@@ -135,9 +135,9 @@ body{
 .navegation ul li.hovered a{
     color: var(--blue);
 }
-.navegation ul li:nth-child(6){
+.navegation ul li:nth-child(7){
     position: relative;
-    margin-top: 11vh;
+    margin-top: 5vh;
 }
 .navegation ul li a{
     position: relative;
@@ -829,6 +829,8 @@ input[type='file']{
     padding: 0.6vw 1.4vw;
     min-height: 10vw;
     max-height: 13vw;
+    min-width: 40vw;
+    max-width: 40vw;
     font-size: 1.2vw;    
     font-family: Poppins;
     outline: none;
@@ -1005,6 +1007,7 @@ input[type='file']{
     height: 14vw;
     border-top-left-radius: 1.5vw;
     border-top-right-radius: 1.5vw;
+    box-shadow: 0 3px 6px #0005;
 }
 .area-conteudo{
     position: relative;
@@ -1132,10 +1135,14 @@ input[type='file']{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
-.raca span{
-    margin-right: 0.3vw;
+.raca p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9.6vw;
+    color: #000;
 }
 .btn-editar, .btn-excluir{
     display: flex;
@@ -1212,6 +1219,7 @@ input[type='file']{
 .modal-fade.hide {
     display: none;
 }
+
 
 
 
@@ -2269,6 +2277,80 @@ form {
     visibility: visible;
 }
 
+
+
+
+
+/* Modal Editar Campanhas */
+.editar .modal-header img{
+    width: 5vw;
+}
+.editar .modal-header span{
+    font-size: 1.8vw;
+}
+.editar .modal-body1 .area-campos, .editar .area-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.editar .area-form{
+    position: relative;
+    bottom: 1vw;
+}
+.editar .titulo-info{
+    margin-top: 1vw;
+}
+.editar .titulo-info span{
+    font-size: 1.6vw;
+}
+.editar .titulo-info i{
+    font-size: 1.4vw;
+}
+.editar .modal-body1{
+    width: 30vw;
+}
+.editar  .input-field {
+    position: relative;
+    width: 13vw;
+    margin: 1vw;
+    float: left;
+}
+.editar .input-field label{
+    position: relative;
+    color: #001CAB;
+    font-size: 1.2vw;
+}
+.editar  .input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 13vw;
+    bottom: -5px;
+    left: 0;
+    background: #F58614;
+}
+
+.editar .modal-body2{
+    width: 45vw;
+}
+.editar .area-add-fotos .galeria{
+    height: 8vw;
+}
+.editar form .titulo-info{
+    position: relative;
+    bottom: 3vw;
+}
+.editar .area-botoes-modal{
+    position: relative;
+    top: 3vw;
+}
+
+
+
+
 /* Barra de Pesquisa */
 .table__header{
     width: 100%;
@@ -2686,3 +2768,41 @@ table span{
     height: 0;
 }
 
+
+.modalVer .area-add-fotos{
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #F58614;
+    border-radius: 3vh;
+    width: 35vw; 
+    height: auto;
+    top: 2vw;
+    left: 3vw;
+}
+
+.modalVer .campo-pet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 14vw !important;
+    margin: 0.5vw 0;
+}
+.modalVer .campo-pet div, .modalVer .campo-pet p{
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+}
+.modalVer .campo-pet p i{
+    margin-left: 0.5vw;
+}
+.modalVer .conteudo-pet{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 90% !important;
+    left: 1vw;
+}

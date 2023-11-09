@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estado = mysqli_real_escape_string($mysqli, trim($_POST['estado']));
     $cep = mysqli_real_escape_string($mysqli, trim($_POST['cep']));
     $image = $_FILES['image'];
+    $id = $_SESSION['id'];
 
     if ($image !== null) {
         preg_match("/\.(png|jpg|jpeg){1}$/i", $image["name"], $ext);
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             move_uploaded_file($image["tmp_name"], $caminho_image);
 
             $sql = "INSERT INTO tbCampanha (nomeCampanha, informacaoCampanha, horarioCampanha, diaCampanha, bairroCampanha, 
-            logradouroCampanha, numLocalCampanha, complementoCampanha, estadoCampanha, cepCampanha, fotoPerfilCampanha, cidadeCampanha) VALUES ('$nome', '$descricao', '$horario', '$data', '$bairro','$logradouro', '$numLog', '$complemento', '$estado', '$cep', '$caminho_image', '$cidade')";
+            logradouroCampanha, numLocalCampanha, complementoCampanha, estadoCampanha, cepCampanha, fotoPerfilCampanha, cidadeCampanha, idOng) VALUES ('$nome', '$descricao', '$horario', '$data', '$bairro','$logradouro', '$numLog', '$complemento', '$estado', '$cep', '$caminho_image', '$cidade', '$id')";
             if ($mysqli->query($sql) == true) {
                 header('Location: ../Campanhas.php');
             } else {

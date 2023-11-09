@@ -129,7 +129,7 @@ session_start();
 
               <div class="area-campos">
 
-                <h2 class="title-cadastro">Endereço</h2>
+                <h2 class="title-cadastro">Continuação</h2>
 
                 <div class="area-colunas">
                   <div class="coluna">

@@ -22,57 +22,66 @@ if (isset($_GET[1]))
 
 <body>
     <div class="container">
-        <div class="navegation">
-            <div class="toggle">
-                <i class="fi fi-br-menu-burger"></i>
-            </div>
+       <!-- Menu Fixo Lateral -->
+       <div class="navegation">
+                <div class="toggle">
+                    <i class="fi fi-br-menu-burger"></i>
+                </div>
+                
+                <div class="logo">
+                    <!-- Puxar do banco a imagem da ong aqui -->
+                    <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
 
-            <div class="logo">
-                <!-- Puxar do banco a imagem da ong aqui -->
-                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
-                <!-- conectar o nome das ongs com o  banco -->
-                <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome']; ?></span>
-            </div>
+                    <!-- Conectar o nome das ongs com o banco -->
+                    <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome'];?></span>
+                </div>
 
-            <ul>
-                <li>
-                    <a href="index.php">
-                        <span class="icon"><i class="fi fi-sr-chart-line-up"></i></span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Pets.php">
-                        <span class="icon"><i class="fi fi-rs-paw"></i></span>
-                        <span class="title">Pets</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Campanhas.php">
-                        <span class="icon"><i class="fi fi-rr-megaphone"></i></span>
-                        <span class="title">Campanhas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Chat.php">
-                        <span class="icon"><i class="fi fi-rr-messages"></i></span>
-                        <span class="title">Chat</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fi fi-rr-settings"></i></span>
-                        <span class="title">Configurações</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="logout.php">
-                        <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
-                        <span class="title">Sair</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+                <ul>
+                    <li>
+                        <a href="index.php">
+                            <span class="icon"><i class="fi fi-sr-chart-line-up"></i></span>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Pets.php">
+                            <span class="icon"><i class="fi fi-rs-paw"></i></span>
+                            <span class="title">Pets</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Campanhas.php">
+                            <span class="icon"><i class="fi fi-rr-megaphone"></i></span>
+                            <span class="title">Campanhas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="solicitacoes.php">
+                            <span class="icon"><i class="fi fi-rr-assept-document"></i></span>
+                            <span class="title">Solicitações</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Chat.php">
+                            <span class="icon"><i class="fi fi-rr-messages"></i></span>
+                            <span class="title">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracoes.php">
+                            <span class="icon"><i class="fi fi-rr-settings"></i></span>
+                            <span class="title">Configurações</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="logout.php">
+                            <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
+                            <span class="title">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
 
         <div class="main">
 
@@ -129,7 +138,7 @@ if (isset($_GET[1]))
 
                                 <div class="campo">
                                     <?php $sql = mysqli_query($mysqli, "SELECT idRaca, nomeRaca FROM tbRaca"); ?>
-                                    <select style="width: 17.5rem;" class="select-btn" required name="raca" id="raca">
+                                    <select class="select-btn" required name="raca" id="raca">
                                         <option value="" disabled selected>Raça:</option>
                                         <?php
                                         while ($resultado = mysqli_fetch_array($sql)) {
@@ -143,7 +152,7 @@ if (isset($_GET[1]))
 
                                 <div class="campo">
                                     <?php $sql = mysqli_query($mysqli, "SELECT idVacina, tipoVacina FROM tbVacina"); ?>
-                                    <select style="width: 17.5rem;" class="select-btn" required name="vacina" id="vacina">
+                                    <select class="select-btn" required name="vacina" id="vacina">
                                         <option value="" disabled selected>Vacinas:</option>
                                         <?php
                                         while ($resultado = mysqli_fetch_array($sql)) {
@@ -176,7 +185,7 @@ if (isset($_GET[1]))
                                 <br>
 
                                 <div id="selectPorte" class="campo">
-                                    <select style="width: 17.4rem;" class="select-btn" required name="porte" id="porte">
+                                    <select class="select-btn" required name="porte" id="porte">
                                         <option value="" disabled selected>Porte:</option>
                                         <option value="opPequeno" name="porte">Pequeno</option>
                                         <option value="opMedio" name="porte">Médio</option>
@@ -187,7 +196,7 @@ if (isset($_GET[1]))
                                 <br>
 
                                 <div id="selectIdade" class="campo">
-                                    <select style="width: 17.4rem;" class="select-btn" name="idade" id="idade">
+                                    <select class="select-btn" name="idade" id="idade">
                                         <option value="" disabled selected>Idade:</option>
                                         <option value="opFilhote" name="idade">Filhote (Menos de 1 ano)</option>
                                         <option value="opAdulto" name="idade">Adulto (Entre 1 e 3 anos)</option>
@@ -200,7 +209,7 @@ if (isset($_GET[1]))
 
                                 <div class="campo">
                                     <?php $sql = mysqli_query($mysqli, "SELECT idDoenca, tipoDoenca FROM tbDoenca"); ?>
-                                    <select style="width: 17.5rem;" class="select-btn" name="doenca" id="doenca">
+                                    <select class="select-btn" name="doenca" id="doenca">
                                         <option value="" disabled selected>Doenças:</option>
                                         <?php
                                         while ($resultado = mysqli_fetch_array($sql)) {
@@ -211,6 +220,12 @@ if (isset($_GET[1]))
                                 </div>
 
                             </div>
+                            
+                        </div>
+                        <br>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Descrição" required name="descricao"></textarea>
                         </div>
 
                         <div class="area-botao">
@@ -355,6 +370,10 @@ if (isset($_GET[1]))
                                             </div>
                                         </div>
 
+                                        <div class="area-botoes-modal">
+                                            <button type="submit" name="update" class="botao-modal2">Salvar</button>
+                                        </div>
+
                                 </div>
 
                                 <div class="modal-body2">
@@ -369,6 +388,12 @@ if (isset($_GET[1]))
                                         <div class="input-field">
                                             <label>Nome do Pet</label>
                                             <input type="text" value="<?php echo $user_data['nomeAnimal']; ?>" required name="nome" />
+                                            <div class="underline"></div>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label>Descrição</label>
+                                            <input type="text" name="descpet" id="descpet" value="">
                                             <div class="underline"></div>
                                         </div>
 
@@ -525,9 +550,7 @@ if (isset($_GET[1]))
                                         </div>
                                     </div>
                                     <input type="hidden" name="id" value="<?php echo $user_data['idAnimal'] ?>">
-                                    <div class="area-botoes-modal">
-                                        <button type="submit" name="update" class="botao-modal2">Salvar</button>
-                                    </div>
+                                    
                                     </form>
                                 </div>
                             </div>
@@ -567,7 +590,7 @@ if (isset($_GET[1]))
 
                             <div class="modal-header">
                                 <div class="detalhe-modal">
-                                    <img src="images/patinhas-azul.png" alt="">
+                                    <img src="images/pag-pets.png">
                                 </div>
 
                                 <i class="fi fi-br-cross close-modal"></i>
@@ -595,7 +618,7 @@ if (isset($_GET[1]))
 
                                     <div class="conteudo-pet">
                                         <div class="campo-pet">
-                                            <span>Tipo de Pet</span>
+                                            <span>Espécie de Pet</span>
                                             <p><?php echo $user_data['especieAnimal'] ?></p>
                                         </div>
 
@@ -606,13 +629,15 @@ if (isset($_GET[1]))
 
                                         <div class="campo-pet">
                                             <span>Gênero</span>
-                                            <p><?php echo $user_data['descAnimal'] ?>
-                                                <?php if ($user_data['descAnimal'] == 'Macho') { ?>
-                                                    <i class="fi fi-rr-mars"></i>
-                                                <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
-                                                    <i style="color: #FC0FC0;" class="fi fi-rr-venus"></i>
-                                                <?php } ?>
-                                            </p>
+                                            <div>
+                                                <p><?php echo $user_data['descAnimal'] ?>
+                                                    <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                                        <i class="fi fi-rr-mars"></i>
+                                                    <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                                        <i style="color: #FC0FC0;" class="fi fi-rr-venus"></i>
+                                                    <?php } ?>
+                                                </p>
+                                            </div>
                                         </div>
 
                                         <div class="campo-pet">
@@ -655,6 +680,13 @@ if (isset($_GET[1]))
                                                 <i class="fi fi-ss-syringe"></i>
                                             </div>
                                             <p><?php echo $vacData['vacina'] ?></p>
+                                        </div>
+
+                                        <div class="campo-info">
+                                            <div class="subtitulo">
+                                                <span>Descrição</span>
+                                            </div>
+                                            <p>Descrição do pet</p>
                                         </div>
                                     </div>
                                 </div>
@@ -704,7 +736,7 @@ if (isset($_GET[1]))
                 </td>
                 <td>
                     <div class="raca">
-                        <?php echo $raca_data['nome_raca'] ?>
+                        <p><?php echo $raca_data['nome_raca'] ?></p>
                     </div>
                 </td>
                 <td>
@@ -729,52 +761,6 @@ if (isset($_GET[1]))
             
 
             </div>
-
-            <!-- TABELA 
-                <main id="area-tabela" class="table">
-                    <section class="table__body">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Foto</th>
-                                    <th>Nome</th>
-                                    <th>Espécie</th>
-                                    <th>Raça</th>
-                                    <th>Gênero</th>
-                                    <th>Idade</th>
-                                    <th>Porte</th>
-                                    <th>Editar</th>
-                                    <th>Excluir</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <?php while ($raca_data = mysqli_fetch_assoc($resultRaca) and $user_data = mysqli_fetch_assoc($result)) { ?>
-                                <tr>
-                                    <td><?php echo $user_data['idAnimal']; ?></td>
-                                    <td><img height="100" src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>" alt=""></td>
-                                    <td><?php echo $user_data['nomeAnimal']; ?></td>
-                                    <td><?php echo $user_data['especieAnimal']; ?></td>
-                                    <td><?php echo $raca_data['nome_raca']; ?></td>
-                                    <td><?php echo $user_data['descAnimal']; ?></td>
-                                    <td><?php echo $user_data['idadeAnimal']; ?></td>
-                                    <td><?php echo $user_data['porteAnimal']; ?></td>
-                                    <div class="area-botoes">
-                                        <td> 
-                                            <button class="open-modal btn-editar" name="editar"><i class="fi fi-br-edit"></i></button>
-                                        </td>
-                                        <td> 
-                                            <button class="open-modalExcluir btn-excluir" name="excluir"><i class="fi fi-sr-trash"></i></button>
-                                        </td>
-                                    </div>
-                                </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </section>
-                </main>
-                                -->
 
         </div>
     </div>

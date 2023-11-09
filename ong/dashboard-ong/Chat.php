@@ -51,6 +51,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="solicitacoes.php">
+                            <span class="icon"><i class="fi fi-rr-assept-document"></i></span>
+                            <span class="title">Solicitações</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="Chat.php">
                             <span class="icon"><i class="fi fi-rr-messages"></i></span>
                             <span class="title">Chat</span>

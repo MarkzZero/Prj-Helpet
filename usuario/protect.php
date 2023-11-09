@@ -6,6 +6,6 @@
 
     #Se não estiver logado, voltará para o login.
     if(!isset($_SESSION['email'])){
-        die(header('location: ../index.php'));
+        die(header('location: index.php'));
     }
 ?>

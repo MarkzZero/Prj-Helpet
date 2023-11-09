@@ -32,7 +32,7 @@
             $_SESSION['id'] = $usuario['idUsuario'];
 
             if(password_verify($senha, $usuario['senhaUsuario'])){
-                header("Location: ../home.php");
+                header("Location: ../perfil-usuario/index.php");
             }else{
                 $_SESSION['nao_autenticado'] = true;
                 header('Location: ../index.php');

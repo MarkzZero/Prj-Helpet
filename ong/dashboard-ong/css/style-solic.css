@@ -1,0 +1,580 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+
+/* Fontes */
+@font-face {
+    font-family: National;
+    src: url('../../../css/fonts/NationalPark-Bold.otf');
+}
+@font-face {
+    font-family: Park;
+    src: url('../../../css/fonts/NationalPark-Medium.otf');
+}
+@font-face {
+    font-family: Regular;
+    src: url('../../../css/fonts/NationalPark-Regular.otf');
+}
+@font-face {
+    font-family: Poppins;
+    src: url('../../../css/fonts/Poppins-Regular.ttf');
+}
+
+
+/* CONTEÚDO */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blue: #122BAD;
+    --white: #F4F6FF;
+    --white2: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --orange: #FF901B;
+    --green: #00b300;
+    --red: #E60B00;
+}
+
+body{
+    background-color: #F4F6FF;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Poppins;
+}
+
+.container{
+    position: relative;
+    display: flex;
+}
+
+
+/* Área Logo Menu */
+.logo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.logo img{
+    width: 17vh;
+}
+.title-ong{
+    color: #fff;
+    font-family: Park;
+    font-size: 3.2vh;
+    text-align: center;
+}
+
+.toggle{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.toggle i{
+    position: relative;
+    color: #fff;
+    font-size: 3.5vh;
+    cursor: pointer;
+    top: 2vh;
+    right: 3vh;
+}
+
+
+/* Menu Fixo Lateral */
+.navegation{
+    position: fixed;
+    width: 17vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #122BAD;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navegation ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    width: auto;
+    margin-left: 0.5vw;
+}
+.navegation ul li{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    border-top-left-radius: 10vh;
+    border-bottom-left-radius: 10vh;
+}
+.navegation ul li:hover,
+.navegation ul li.hovered{
+    background: var(--white);
+}
+.navegation ul li:hover a,
+.navegation ul li.hovered a{
+    color: var(--blue);
+}
+.navegation ul li:nth-child(7){
+    position: relative;
+    margin-top: 5vh;
+}
+.navegation ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    z-index: 10;
+}
+.navegation ul li a .icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 1.5vw;    
+    padding-right: 0;
+}
+.navegation ul li a .icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vh;
+    z-index: 10;
+}
+.navegation ul li a .title{
+    font-family: Regular;
+    position: relative;
+    display: block;
+    padding: 3vh 0;
+    padding-left: 1vw;
+    font-size: 2.6vh;
+}
+
+
+.navegation ul li:hover a::before,
+.navegation ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+.navegation ul li:hover a::after,
+.navegation ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+
+/* Área Topo */
+.main{
+    position: relative;
+    min-width: 78vw;
+    max-width: 78vw;
+    height: auto;
+    left: 19vw;
+    transition: 0.5s;
+}
+
+
+.navegation.active{
+    width: 6vw;
+}
+.navegation.active ul{
+    top: 11vh;
+    margin-left: 0.8vw;
+}
+.navegation.active ul .title{
+    display: none;
+}
+.navegation.active .logo img{
+    margin-top: 7vh;
+    width: 10vh;
+}
+.navegation.active .title-ong{
+    display: none;
+}
+.navegation.active ul li:nth-child(6){
+    top: 10vh;
+}
+.navegation.active ul li a .icon{
+    padding: 2.5vh 2vh;
+}
+.main.active{
+    min-width: 90vw;
+    max-width: 90vw;
+    left: 7.5vw;
+}
+.navegation.active .toggle{
+    justify-content: center;
+}
+.navegation.active .toggle i{
+    right: initial;
+}
+
+
+.topbar{
+    position: relative;
+    margin-top: 1vh;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.img-pag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-pag img{
+    width: 8vh;
+}
+
+
+/* Barra de Pesquisa */
+.search label{
+    position: relative;
+}
+.search label input{
+    display: flex;
+    align-items: center;
+    padding: 1vh 6vh;
+    border-radius: 20vh;
+    padding-left: 6vh;
+    font-size: 2.5vh;
+    outline: none;
+    border: 0.1vh solid var(--black2);
+}
+.search label ion-icon{
+    position: absolute;
+    display: flex;
+    top: 1vh;
+    left: 1.5vh;
+    font-size: 3.5vh;
+    color: var(--blue);
+}
+.img-logo{
+    height: 10vh;
+}
+.img-logo img{
+    width: 10vh;
+}
+
+/* Títulos */
+.titulo-pagina span{
+    font-family: National;
+    font-size: 5vh;
+    color: #122BAD;
+}
+.sub-titulo{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 3.8vh;
+    color: #004FDA;
+}
+
+
+/* PÁGINA DASHBOARD */
+
+/* Gráficos */
+.area-grafico{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+#chartdiv{
+    font-family: Poppins;
+    position: relative;
+    width: 50vw;
+    height: 60vh;
+}
+.titulo-graficos span{
+    font-family: Park;
+    font-size: 3.5vh;
+    color: #004FDA;
+}
+
+
+
+/* CSS DO CAMPO DE PESQUISA */
+.input-group{
+    width: 35%;
+    background-color: #fff;
+    padding: 1.5vh;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+    margin-left: 30%;
+    margin-top: 4%;
+}
+.input-group:hover{
+    width: 45%;
+    background-color: #fff8;
+    box-shadow: 0 .1rem .4rem #0002;
+}
+.input-group ion-icon{
+    position: relative;
+    font-size: 2vh;
+    right: 1vh;
+}
+.input-group input{
+    width: 100%;
+    padding: 1vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+
+/*SOLICITAÇÕES */
+.area-geral-solict{
+    /* background-color: #001CAB; */
+    width: 100%;
+    height: 40%;
+    margin-left: -1%;
+}
+.area-geral-solict .area-campo{
+    background-color: #ffffff;
+    width: 90%;
+    height: 37%;
+    margin-left: 6%;
+    position: relative;
+    border-radius: 2vh;
+}
+.area-geral-solict .area-campo:hover{
+    background-color: #E3E9FF;
+}
+.area-campo .img-usu img{
+    /* background-color: #E60B00; */
+    width: 5vw;
+    height: 5vw;
+    margin-left: 1.5%;
+    border-radius: 50%;
+    margin-top: 1%;
+    
+}
+.nome-usu{
+    position: relative;
+    /* background-color: #E60B00; */
+    width: 17%;
+    margin-left: 11%;
+    margin-top: -9%;
+    top: 3vh;
+}
+.nome-usu p{
+    font-size: 2.6vh;
+    color: #000;
+}
+.data-solict{
+    /* background-color: #F58614;  */
+    width: 6%;
+    margin-left: 30%;
+    margin-top: -2%;
+}
+.tipo-solict{
+    /* background-color: #00b300; */
+    width: 10%;
+    margin-left: 11%;
+    margin-top: 4%;
+}
+.tipo-solict p{
+    font-size: 2.6vh;
+    color: #000;
+}
+.img-pet img{
+    /* background-color: pink; */
+    width: 5vw;
+    height: 5vw;
+    margin-left: 40%;
+    margin-bottom: 10%;
+    margin-top: -8.5%;
+    border-radius: 50%;
+}
+.nome-pet{
+    /* background-color: #E60B00; */
+    width: 8%;
+    margin-left: 53.5%;
+    margin-top: -18.5%;
+}
+.nome-pet p{
+    font-size: 2.6vh;
+    color: #000;
+}
+.raça-pet{
+    position: relative;
+    /* background-color: #4886e9; */
+    width: 13%;
+    margin-left: 53.5%;
+    margin-top: 3.5%;
+    bottom: 4vh;
+}
+.raça-pet p{
+    font-size: 2.6vh;
+    color: #000;
+}
+
+/* btn aceitar */
+.icon-aceitar{
+    /* background-color: #00b300; */
+    margin-left: 54.5%;
+    margin-top: -19.8%;
+    position: relative;
+    z-index: 500;
+}
+.icon-aceitar ion-icon{
+    color: #fff;
+    font-size: 2.5vh;
+}
+.area-botao-aceitar{
+    width: 100%;
+    margin-top: -4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-aceitar{
+    background-color: #0DC100;
+    color: #fff;
+    font-family: Park;
+    width: 12%;
+    margin-left: -2.5%;
+    margin-top: -20%;
+    font-size: 2.2vh;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 1vh 4.5vh;
+    border: none;
+    outline: none;
+    border-radius: 5vh;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.botao-aceitar:hover{
+    transform: scale(1.1);
+}
+
+/* btn recusar */
+.icon-recusar{
+    /* background-color: #00b300; */
+    margin-left: 54.5%;
+    margin-top: -14.7%;
+    position: relative;
+    z-index: 500;
+}
+.icon-recusar ion-icon{
+    color: #fff;
+    font-size: 2.5vh;
+}
+.area-botao-recusar{
+    width: 100%;
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-recusar{
+    background-color: #EA2D40;
+    color: #fff;
+    font-family: Park;
+    width: 12%;
+    margin-left: -2.5%;
+    margin-top: -15%;
+    font-size: 2.2vh;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 1vh 4.5vh;
+    border: none;
+    outline: none;
+    border-radius: 5vh;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.botao-recusar:hover{
+    transform: scale(1.1);
+}
+
+/* btn Chat */
+.icon-chat{
+    /* background-color: #00b300; */
+    margin-left: 88%;
+    margin-top: -34%;
+    position: relative;
+    z-index: 500;
+}
+.icon-chat ion-icon{
+    color: #001CAB;
+    font-size: 3vh;
+}
+.area-botao-chat{
+    width: 100%;
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-botao-chat p{
+    /* background-color: #EA2D40; */
+    color: #001CAB;
+    font-family: Park;
+    width: 12%;
+    margin-left: -2%;
+    margin-top: -34.5%;
+    font-size: 2.2vh;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 1vh 4.5vh;
+    border: none;
+    outline: none;
+    border-radius: 5vh;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.area-botao-chat p:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
