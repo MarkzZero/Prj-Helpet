@@ -1,3 +1,9 @@
+<?php
+
+include('../config/config.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -20,9 +26,12 @@
             <h2>Configurações</h2>
 
             <div class="info-user">
+                      <?php
+                     while ($user_data = mysqli_fetch_assoc($result)) {
+                    ?>  
                 <img src="images/foto-user.png">
-                <h4>Camila Martins</h4>
-                <p>camila@gmail.com</p>
+                <h4><?php echo $user_data['nomeUsuario'] ?></h4>
+                <p><?php echo $user_data['emailUsuario'] ?></p>
             </div>
 
             <div class="area-itens">
@@ -101,7 +110,7 @@
                 <div class="linhas">
                     <div class="input-field">
                         <label>Nome</label>
-                        <input type="text" name="nomeuser" id="nomeuser" value="Camila Martins">
+                        <input type="text" name="nomeuser" id="nomeuser" value="<?php echo $user_data['nomeUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
@@ -113,13 +122,13 @@
 
                     <div class="input-field">
                         <label>E-mail</label>
-                        <input type="email" name="emailuser" id="emailuser" value="camila@gmail.com">
+                        <input type="email" name="emailuser" id="emailuser" value="<?php echo $user_data['emailUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Senha</label>
-                        <input type="text" name="senhauser" id="senhauser" value="222">
+                        <input type="text" name="senhauser" id="senhauser" value="*****">
                         <div class="underline"></div>
                     </div>
                 </div>
@@ -130,43 +139,43 @@
                 <div class="linhas">
                     <div class="input-field">
                         <label>CEP</label>
-                        <input type="text" name="nomepet" id="nomepet" value="08380-290">
+                        <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['cepUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Estado</label>
-                        <input type="text" name="estado" id="estado" value="SP">
+                        <input type="text" name="estado" id="estado" value="<?php echo $user_data['estadoUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Cidade</label>
-                        <input type="text" name="cidade" id="cidade" value="São Paulo">
+                        <input type="text" name="cidade" id="cidade" value="<?php echo $user_data['cidadeUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Bairro</label>
-                        <input type="text" name="bairro" id="bairro" value="Jardim Iguatemi">
+                        <input type="text" name="bairro" id="bairro" value="<?php echo $user_data['bairroUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Logradouro</label>
-                        <input type="text" name="logradouro" id="logradouro" value="Rua João de Carvalho">
+                        <input type="text" name="logradouro" id="logradouro" value="<?php echo $user_data['logradouroUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Número</label>
-                        <input type="text" name="numero" id="numero" value="76">
+                        <input type="text" name="numero" id="numero" value="<?php echo $user_data['numLocalUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Complemento</label>
-                        <input type="text" name="complemento" id="complemento" value="Bloco C">
+                        <input type="text" name="complemento" id="complemento" value="<?php echo $user_data['complementoUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
                 </div>
@@ -177,9 +186,9 @@
                     <button class="btn-cancelar">Cancelar</button>
                     <button class="btn-salvar" type="submit">Salvar</button>
                 </div>
-
+                
             </form>
-
+            <?php } ?>
         </main>
 
         <!-- Links JS -->
