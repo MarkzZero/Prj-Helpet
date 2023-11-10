@@ -267,6 +267,7 @@ if (isset($_GET[1]))
                             <!-- Modal Alterar -->
                             <div class="fade hide" id="fade"></div>
                             <div class="editar modal hide" id="modalEdit-<?php echo $user_data['idCampanha']; ?>">
+
                                 <div class="modal-header">
                                     <div class="detalhe-modal">
                                         <img src="images/pag-campanhas.png" alt="">
@@ -278,118 +279,118 @@ if (isset($_GET[1]))
 
                                     <i class="fi fi-br-cross close-modal"></i>
                                 </div>
+                                <form action="cadastro/editarCampanha.php" method="POST" enctype="multipart/form-data">
+                                    <div class="conteudo-modal">
 
-                                <div class="conteudo-modal">
+                                        <div class="modal-body1">
 
-                                    <div class="modal-body1">
-
-                                        <div class="area-foto">
-                                            <div class="imageContainer">
-                                            <img src="<?php echo "cadastro/" . $user_data['fotoPerfilCampanha']; ?>" alt="Alterar foto" id="imgPhoto2">
-                                                <input type="file" id="flImage2" name="image" accept="image/*">
+                                            <div class="area-foto">
+                                                <div class="imageContainer">
+                                                    <input type="hidden" value="<?php echo $user_data['fotoPerfilCampanha']; ?>" name="foto" id="">
+                                                    <img src="<?php echo "cadastro/" . $user_data['fotoPerfilCampanha']; ?>" alt="Alterar foto" id="imgPhoto2">
+                                                    <input type="file" id="flImage2" name="image" accept="image/*">
+                                                </div>
                                             </div>
+                                            <br><br>
+
+                                            <div class="titulo-info">
+                                                <span>Informações</span>
+                                                <i class="fi fi-rr-file-circle-info"></i>
+                                            </div>
+
+                                            <div class="area-campos">
+                                                <div class="input-field">
+                                                    <input type="hidden" name="id" value="<?php echo $user_data['idCampanha'] ?>">
+                                                    <label>Nome da Campanha</label>
+                                                    <input type="text" name="nome" id="nomepet" value="<?php echo $user_data['nomeCampanha']; ?>">
+                                                    <div class="underline"></div>
+                                                </div>
+
+                                                <div class="input-field">
+                                                    <label>Data</label>
+                                                    <input type="text" name="data" id="data" value="<?php echo $user_data['diaCampanha'] ?>">
+                                                    <div class="underline"></div>
+                                                </div>
+
+                                                <div class="input-field">
+                                                    <label>Horário</label>
+                                                    <input type="text" name="horario" id="nomepet" value="<?php echo $user_data['horarioCampanha'] ?>">
+                                                    <div class="underline"></div>
+                                                </div>
+
+                                                <div class="input-field">
+                                                    <label>Descrição</label>
+                                                    <input type="text" name="desc" id="nomepet" value="<?php echo $user_data['informacaoCampanha'] ?>">
+                                                    <div class="underline"></div>
+                                                </div>
+
+                                                <div class="area-botoes-modal">
+                                                    <button type="submit" name="update" class="botao-modal2">Salvar</button>
+                                                </div>
+                                            </div>
+
                                         </div>
 
-                                        <div class="titulo-info">
-                                            <span>Informações</span>
-                                            <i class="fi fi-rr-file-circle-info"></i>
-                                        </div>
+                                        <div class="modal-body2">
 
-                                        <div class="area-campos">
-                                            <div class="input-field">
-                                                <label>Nome da Campanha</label>
-                                                <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['nomeCampanha']; ?>">
-                                                <div class="underline"></div>
+                                            <div class="area-add-fotos">
+                                                <div class="titulo-add">
+                                                    <p>Adicione outras fotos do pet (opcional)</p>
+                                                    <i id="photos" class="fi fi-sr-images"></i>
+                                                    <input type="file" id="filesImgs" multiple accept="image/*" multiple onchange="handleFileSelect(event)" name="opcional[]" multiple>
+                                                </div>
+                                                <div class="galeria"></div>
+                                            </div>
+                                            <br><br>
+
+                                            <div class="titulo-info">
+                                                <span>Localização</span>
+                                                <i class="fi fi-ss-marker"></i>
                                             </div>
 
-                                            <div class="input-field">
-                                                <label>Data</label>
-                                                <input type="text" name="data" id="data" value="<?php echo $user_data['diaCampanha'] ?>">
-                                                <div class="underline"></div>
-                                            </div>
-
-                                            <div class="input-field">
-                                                <label>Horário</label>
-                                                <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['horarioCampanha'] ?>">
-                                                <div class="underline"></div>
-                                            </div>
-
-                                            <div class="input-field">
-                                                <label>Descrição</label>
-                                                <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['informacaoCampanha'] ?>">
-                                                <div class="underline"></div>
-                                            </div>
-
-                                            <div class="area-botoes-modal">
-                                                <button class="botao-modal2">Salvar</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="modal-body2">
-
-                                        <div class="area-add-fotos">
-                                            <div class="titulo-add">
-                                                <p>Altere e/ou adicione fotos da campanha</p>
-                                                <i id="photos" class="fi fi-sr-images"></i>
-                                                <input type="file" id="files" multiple accept="image/*" onchange="handleFileSelect(event)"><br>
-                                            </div>
-                                            <div class="galeria">
-                                                <!-- COLOCAR AS IMAGENS DA CAMPANHA -->
-                                                <!--<img src="images/foto-cao.png">-->
-                                            </div>
-                                        </div>
-
-                                        <div class="titulo-info">
-                                            <span>Localização</span>
-                                            <i class="fi fi-ss-marker"></i>
-                                        </div>
-
-                                        <form action="">
                                             <div class="area-form">
                                                 <div class="input-field">
                                                     <label>CEP</label>
-                                                    <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['cepCampanha'] ?>">
+                                                    <input type="text" name="cep" id="nomepet" value="<?php echo $user_data['cepCampanha'] ?>">
                                                     <div class="underline"></div>
                                                 </div>
 
                                                 <div class="input-field">
                                                     <label>Logradouro</label>
-                                                    <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['logradouroCampanha'] ?>">
+                                                    <input type="text" name="logradouro" id="nomepet" value="<?php echo $user_data['logradouroCampanha'] ?>">
                                                     <div class="underline"></div>
                                                 </div>
 
                                                 <div class="input-field">
                                                     <label>Estado</label>
-                                                    <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['estadoCampanha'] ?>">
+                                                    <input type="text" name="estado" id="nomepet" value="<?php echo $user_data['estadoCampanha'] ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                                 <div class="input-field">
                                                     <label>Número</label>
-                                                    <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['numLocalCampanha'] ?>">
+                                                    <input type="text" name="numero" id="nomepet" value="<?php echo $user_data['numLocalCampanha'] ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                                 <div class="input-field">
                                                     <label>Cidade</label>
-                                                    <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['cidadeCampanha'] ?>">
+                                                    <input type="text" name="cidade" id="nomepet" value="<?php echo $user_data['cidadeCampanha'] ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                                 <div class="input-field">
                                                     <label>Complemento</label>
-                                                    <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['complementoCampanha'] ?>">
+                                                    <input type="text" name="complemento" id="nomepet" value="<?php echo $user_data['complementoCampanha'] ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                                 <div class="input-field">
                                                     <label>Bairro</label>
-                                                    <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['bairroCampanha'] ?>">
+                                                    <input type="text" name="bairro" id="nomepet" value="<?php echo $user_data['bairroCampanha'] ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                        </div>
 
+                                    </div>
+                                </form>
                             </div>
 
 
@@ -419,7 +420,6 @@ if (isset($_GET[1]))
                                 </div>
 
                             </div>
-
 
                             <!-- Modal Ver Mais -->
 

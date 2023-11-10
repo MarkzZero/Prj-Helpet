@@ -1,6 +1,7 @@
 <?php 
     include('conexao.php');
 
+
     $id = $_SESSION['id'];
 
     $resultRaca = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbRaca.nomeRaca as 'nome_raca' FROM tbAnimal INNER JOIN tbRaca ON tbAnimal.idRaca = tbRaca.idRaca WHERE idOng = '$id'") or die($mysqli->error);
