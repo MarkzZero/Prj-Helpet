@@ -7,7 +7,9 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-if(isset($_POST['Enviar'])){
+$email = $_POST['Email'];
+$nome = $_POST['Nome'];
+$mensagem = $_POST['Mensagem']; 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
@@ -40,9 +42,9 @@ try {
     $mail->Body = $assunto;
 
     $mail->send();
-    header("Location: ../index.php#fale-conosco");
+    echo json_encode('exito');
 } catch (Exception $e) {
-   
+    echo json_encode('error');
 }
-}
+
 ?>
