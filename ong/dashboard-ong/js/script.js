@@ -24,27 +24,27 @@ file.addEventListener('change', (event) => {
     reader.readAsDataURL(file.files[0]);
 });
 
-'use static'
-let photo2 = document.getElementById('imgPhoto2');
-let file2 = document.getElementById('flImage2');
+let photoElements = document.querySelectorAll('.imgPhoto');
+let fileElements = document.querySelectorAll('.flImage');
 
-photo2.addEventListener("click", () => {
-    file2.click();   
-});
+photoElements.forEach((photo, index) => {
+    photo.addEventListener("click", () => {
+        fileElements[index].click();
+    });
 
-file2.addEventListener('change', (event) => {
-    
-   if(file2.files.length <= 0){
-    return;
-   }
+    fileElements[index].addEventListener('change', (event) => {
+        if (fileElements[index].files.length <= 0) {
+            return;
+        }
 
-    let reader = new FileReader()
+        let reader = new FileReader();
 
-    reader.onload = () =>{
-        photo2.src = reader.result;
-    }
+        reader.onload = () => {
+            photo.src = reader.result;
+        };
 
-    reader.readAsDataURL(file2.files[0]);
+        reader.readAsDataURL(fileElements[index].files[0]);
+    });
 });
 
 

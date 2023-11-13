@@ -287,8 +287,8 @@ if (isset($_GET[1]))
                                             <div class="area-foto">
                                                 <div class="imageContainer">
                                                     <input type="hidden" value="<?php echo $user_data['fotoPerfilCampanha']; ?>" name="foto" id="">
-                                                    <img src="<?php echo "cadastro/" . $user_data['fotoPerfilCampanha']; ?>" alt="Alterar foto" id="imgPhoto2">
-                                                    <input type="file" id="flImage2" name="image" accept="image/*">
+                                                    <img src="<?php echo "cadastro/" . $user_data['fotoPerfilCampanha']; ?>" alt="Alterar foto" id="imgPhoto2" class="imgPhoto">
+                                                    <input type="file" id="flImage2" name="image" class="flImage" accept="image/*">
                                                 </div>
                                             </div>
                                             <br><br>
@@ -337,7 +337,7 @@ if (isset($_GET[1]))
                                                 <div class="titulo-add">
                                                     <p>Adicione outras fotos do pet (opcional)</p>
                                                     <i id="photos" class="fi fi-sr-images"></i>
-                                                    <input type="file" id="filesImgs" multiple accept="image/*" multiple onchange="handleFileSelect(event)" name="opcional[]" multiple>
+                                                    <input type="file" id="filesImgs" multiple accept="image/*" onchange="handleFileSelect(event)" name="opcional[]" multiple>
                                                 </div>
                                                 <div class="galeria"></div>
                                             </div>

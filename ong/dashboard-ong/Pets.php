@@ -22,66 +22,66 @@ if (isset($_GET[1]))
 
 <body>
     <div class="container">
-       <!-- Menu Fixo Lateral -->
-       <div class="navegation">
-                <div class="toggle">
-                    <i class="fi fi-br-menu-burger"></i>
-                </div>
-                
-                <div class="logo">
-                    <!-- Puxar do banco a imagem da ong aqui -->
-                    <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
-
-                    <!-- Conectar o nome das ongs com o banco -->
-                    <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome'];?></span>
-                </div>
-
-                <ul>
-                    <li>
-                        <a href="index.php">
-                            <span class="icon"><i class="fi fi-sr-chart-line-up"></i></span>
-                            <span class="title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Pets.php">
-                            <span class="icon"><i class="fi fi-rs-paw"></i></span>
-                            <span class="title">Pets</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Campanhas.php">
-                            <span class="icon"><i class="fi fi-rr-megaphone"></i></span>
-                            <span class="title">Campanhas</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="solicitacoes.php">
-                            <span class="icon"><i class="fi fi-rr-assept-document"></i></span>
-                            <span class="title">Solicitações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Chat.php">
-                            <span class="icon"><i class="fi fi-rr-messages"></i></span>
-                            <span class="title">Chat</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="configuracoes.php">
-                            <span class="icon"><i class="fi fi-rr-settings"></i></span>
-                            <span class="title">Configurações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="logout.php">
-                            <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
-                            <span class="title">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-
+        <!-- Menu Fixo Lateral -->
+        <div class="navegation">
+            <div class="toggle">
+                <i class="fi fi-br-menu-burger"></i>
             </div>
+
+            <div class="logo">
+                <!-- Puxar do banco a imagem da ong aqui -->
+                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
+
+                <!-- Conectar o nome das ongs com o banco -->
+                <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome']; ?></span>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="index.php">
+                        <span class="icon"><i class="fi fi-sr-chart-line-up"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Pets.php">
+                        <span class="icon"><i class="fi fi-rs-paw"></i></span>
+                        <span class="title">Pets</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Campanhas.php">
+                        <span class="icon"><i class="fi fi-rr-megaphone"></i></span>
+                        <span class="title">Campanhas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="solicitacoes.php">
+                        <span class="icon"><i class="fi fi-rr-assept-document"></i></span>
+                        <span class="title">Solicitações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Chat.php">
+                        <span class="icon"><i class="fi fi-rr-messages"></i></span>
+                        <span class="title">Chat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.php">
+                        <span class="icon"><i class="fi fi-rr-settings"></i></span>
+                        <span class="title">Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php">
+                        <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
 
         <div class="main">
 
@@ -220,10 +220,10 @@ if (isset($_GET[1]))
                                 </div>
 
                             </div>
-                            
+
                         </div>
                         <br>
-                        
+
                         <div class="form-group">
                             <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Descrição" required name="descricao"></textarea>
                         </div>
@@ -355,7 +355,7 @@ if (isset($_GET[1]))
                                         <div class="area-foto">
                                             <div class="imageContainer">
                                                 <img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>" alt="selecionar foto" id="imgPhoto2">
-                                                <input type="file" value="<?php echo $user_data['fotoPerfilAnimal'] ?>" id="flImage2" name="image" accept="image/*">
+                                                <input type="file" id="flImage2" name="image" accept="image/*">
                                             </div>
                                         </div>
 
@@ -550,7 +550,7 @@ if (isset($_GET[1]))
                                         </div>
                                     </div>
                                     <input type="hidden" name="id" value="<?php echo $user_data['idAnimal'] ?>">
-                                    
+
                                     </form>
                                 </div>
                             </div>
@@ -692,10 +692,9 @@ if (isset($_GET[1]))
                                 </div>
                             </div>
 
-
-
+                    
                         </div>
-
+                        <?php } ?>
 
 
                 </div>
@@ -716,22 +715,27 @@ if (isset($_GET[1]))
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td><img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>"></td>
-                                <td>
-                                    <div class="nome">
-                                        <?php if ($user_data['descAnimal'] == 'Macho') { ?>
-                                            <h3><?php echo $user_data['nomeAnimal']; ?></h3>
-                                        <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
-                                            <h3 style="color: #FC0FC0;"><?php echo $user_data['nomeAnimal']; ?></h3>
-                                        <?php } ?>
+                            <?php while ($user_data = mysqli_fetch_assoc($result) and $raca_data = mysqli_fetch_assoc($resultRaca) and $vacData = mysqli_fetch_assoc($resultVac) and $doenca_data = mysqli_fetch_assoc($resultDoenca)) {
 
-                                        <?php if ($user_data['descAnimal'] == 'Macho') { ?>
-                                            <i class="fi fi-rr-mars"></i>
-                                        <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
-                                            <i style="color: #FC0FC0;" class="fi fi-rr-venus"></i>
-                                        <?php } ?>
-                                    </div>
+                                $resultFoto = $mysqli->query("SELECT * FROM tbFotoAnimal WHERE idAnimal = '$user_data[idAnimal]'") or die($mysqli->error);
+                                $foto_data = mysqli_fetch_assoc($resultFoto);
+                            ?>
+                                <tr>
+                                    <td><img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>"></td>
+                                    <td>
+                                        <div class="nome">
+                                            <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                                <h3><?php echo $user_data['nomeAnimal']; ?></h3>
+                                            <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                                <h3 style="color: #FC0FC0;"><?php echo $user_data['nomeAnimal']; ?></h3>
+                                            <?php } ?>
+
+                                            <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                                <i class="fi fi-rr-mars"></i>
+                                            <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                                <i style="color: #FC0FC0;" class="fi fi-rr-venus"></i>
+                                            <?php } ?>
+                                        </div>
                 </div>
                 </td>
                 <td>
@@ -758,7 +762,7 @@ if (isset($_GET[1]))
             </tbody>
             </table>
 
-            
+
 
             </div>
 
