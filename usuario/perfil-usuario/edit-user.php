@@ -30,7 +30,7 @@ include('../config/config.php');
                      while ($user_data = mysqli_fetch_assoc($result)) {
                     ?>  
                 <img src="images/foto-user.png">
-                <h4><?php echo $user_data['nomeUsuario'] ?></h4>
+                <h4><?php echo $_SESSION['nome'];?></h4>
                 <p><?php echo $user_data['emailUsuario'] ?></p>
             </div>
 
@@ -97,7 +97,7 @@ include('../config/config.php');
                 <img src="images/pata-amarela.png">
             </div>
 
-            <form>
+            <form action="../Update/Update.php" method="post">
                 <div class="imageContainer">
                     <img src="images/foto-user.png" alt="selecionar foto" id="imgPhoto">
                     <input type="file" id="flImage" name="image" accept="image/*">
@@ -106,11 +106,18 @@ include('../config/config.php');
 
                 <br>
 
+
                 <h3>Dados Pessoais</h3>
                 <div class="linhas">
                     <div class="input-field">
                         <label>Nome</label>
                         <input type="text" name="nomeuser" id="nomeuser" value="<?php echo $user_data['nomeUsuario'] ?>">
+                        <div class="underline"></div>
+                    </div>
+
+                    <div class="input-field">
+                        <label>CPF</label>
+                        <input type="text" name="nomeuser" id="nomeuser" value="111.111.111-22">
                         <div class="underline"></div>
                     </div>
 
@@ -131,7 +138,7 @@ include('../config/config.php');
                         <input type="text" name="senhauser" id="senhauser" value="*****">
                         <div class="underline"></div>
                     </div>
-                </div>
+                     </div>
 
                 <br>
 
@@ -183,7 +190,7 @@ include('../config/config.php');
                 <br>
 
                 <div class="botoes">
-                    <button class="btn-cancelar">Cancelar</button>
+                    <button class="btn-cancelar" type="button">Cancelar</button>
                     <button class="btn-salvar" type="submit">Salvar</button>
                 </div>
                 
