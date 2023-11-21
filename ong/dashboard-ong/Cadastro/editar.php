@@ -10,6 +10,7 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
 
     $arquivo = $_FILES['image'];
+    $foto = $_POST['foto'];
     $nome = mysqli_real_escape_string($mysqli, trim($_POST['nome']));
     $porteSelecionado = $_POST['porte'];
     $idadeSelecionada = $_POST['idade'];
@@ -53,14 +54,31 @@ if (isset($_POST['update'])) {
         preg_match("/\.(png|jpg|jpeg){1}$/i", $arquivo["name"], $ext);
 
         if ($ext == true) {
-
             $nome_arquivo = md5(uniqid(time())) . "." . $ext[1];
 
             $caminho_arquivo = "fotoPerfil/" . $nome_arquivo;
 
             move_uploaded_file($arquivo["tmp_name"], $caminho_arquivo);
 
-            $sql = "UPDATE tbAnimal SET nomeAnimal = '$nome', porteAnimal = '$inserirPorte', descAnimal = '$inserirGenero', idadeAnimal = '$inserirIdade', especieAnimal = '$inserirEspecie', fotoPerfilAnimal = '$caminho_arquivo', idRaca = '$racaSelecionada', idVacina = '$vacSelecionada', idDoenca = '$doencaSelecionada' WHERE idAnimal = '$id'";
+            $sqlFoto = "UPDATE tbAnimal SET fotoPerfilAnimal = '$caminho_arquivo' WHERE idAnimal = '$id'";
+            if ($mysqli->query($sqlFoto)) {
+                header("location: ../pets.php");
+            } else {
+                echo "Erro ao inserir os dados";
+                $mysqli->error;
+            }
+        }
+    } else {
+        $sqlUpdate = "UPDATE tbAnimal SET fotoPerfilAnimal = '$foto' WHERE idAnimal = '$id'";
+        if ($mysqli->query($sqlUpdate)) {
+            header("location: ../pets.php");
+        } else {
+            echo "Erro ao inserir os dados";
+            $mysqli->error;
+        }
+    }
+
+            $sql = "UPDATE tbAnimal SET nomeAnimal = '$nome', porteAnimal = '$inserirPorte', descAnimal = '$inserirGenero', idadeAnimal = '$inserirIdade', especieAnimal = '$inserirEspecie', idRaca = '$racaSelecionada', idVacina = '$vacSelecionada', idDoenca = '$doencaSelecionada' WHERE idAnimal = '$id'";
 
             if ($mysqli->query($sql) == true) {
                 header('location: ../Pets.php');
@@ -70,8 +88,7 @@ if (isset($_POST['update'])) {
 
             header("Location: ../Pets.php");
             exit;
-        }
-    }
-    $mysqli->close();
+    
 }
+    $mysqli->close();
 ?>

@@ -37,39 +37,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Inserção das fotos
                 if($opcional != null){
                     $total = count($opcional);
-                    for($i=0; $i<$total; $i++){
+                    for ($i = 0; $i < $total; $i++) {
                         preg_match("/\.(png|jpg|jpeg){1}$/i", $opcional["name"][$i], $ext);
-                        if($ext != false){
-                            $nome_opcional = md5(uniqid(time())) . "." . $ext[1];
-            
+                    
+                            $nome_opcional = md5(uniqid(time())) . "." . $ext;
+                    
                             $caminho_opcional = "arquivoCampanha/" . $nome_opcional;
-                            if(move_uploaded_file($opcional["tmp_name"][$i], $caminho_opcional)){
+                            move_uploaded_file($opcional["tmp_name"][$i], $caminho_opcional);
                                 $sql_opcional = "INSERT INTO tbfotocampanha (fotosCampanha, idCampanha) VALUES ('$caminho_opcional', '$id_campanha')";
-            
-                                if($mysqli->query($sql_opcional) === true){
-                                    header("Location: ../campanhas.php");
+                    
+                                if ($mysqli->query($sql_opcional) === true) {
+                                    echo "Imagem registrada com sucesso!";
                                 } else {
                                     echo "Erro ao inserir imagem no banco de dados: " . $mysqli->error;
                                 }
-                            } else {
-                                echo "Erro ao mover a imagem para o diretório.";
-                            }
-                        } else {
-                            echo "A extensão da imagem não é suportada.";
-                        }
                     }
                 }
-            
-                header('location: ../Campanhas.php');
+
+                header('location: ../campanhas.php');
                 exit();
-                
-                
+                            
             } else {
                 echo "Erro ao cadastrar: ", $mysqli->error;
             }
 
-            header("Location: ../Campanhas.php");
-            exit;
         }
     }
 
@@ -77,3 +68,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $mysqli->close();
 }
+?>

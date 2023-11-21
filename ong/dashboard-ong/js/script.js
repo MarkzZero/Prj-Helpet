@@ -233,3 +233,35 @@ function pesquisacep(valor) {
     
       input.value = cep;
     }
+
+    function formatTelefone(input) {
+        var phoneNumber = input.value.replace(/\D/g, ''); // Remove todos os não dígitos
+      
+        if (phoneNumber.length === 11) {
+            phoneNumber = phoneNumber.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        } else {
+            // Mantém o número como está, caso não se encaixe no formato esperado
+        }
+      
+        input.value = phoneNumber;
+      }
+
+      function formatCNPJ(input) {
+        var cnpj = input.value.replace(/\D/g, ''); // Remove todos os não dígitos
+
+        if (cnpj.length === 14) {
+            cnpj = cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+        } else {
+            // Mantém o CNPJ como está, caso não se encaixe no formato esperado
+        }
+
+        input.value = cnpj;
+    }
+
+      function onLoad() {
+        var inputTelefone = document.getElementById('telefone');
+        var inputCnpj = document.getElementById('cnpj');
+
+        formatTelefone(inputTelefone);
+        formatCNPJ(inputCnpj);
+    }

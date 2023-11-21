@@ -285,6 +285,8 @@ if (isset($_GET[1]))
 
                         $resultFoto = $mysqli->query("SELECT * FROM tbFotoAnimal WHERE idAnimal = '$user_data[idAnimal]'") or die($mysqli->error);
                         $foto_data = mysqli_fetch_assoc($resultFoto);
+
+                        $sexo = $user_data['generoAnimal'];
                     ?>
                         <div class="card">
                             <div class="foto">
@@ -296,15 +298,15 @@ if (isset($_GET[1]))
                                     <div class="info">
                                         <div class="nome">
 
-                                            <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                            <?php if ($user_data['generoAnimal'] == 'Macho') { ?>
                                                 <h3><?php echo $user_data['nomeAnimal']; ?></h3>
-                                            <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                            <?php } elseif ($user_data['generoAnimal'] == 'Fêmea') { ?>
                                                 <h3 style="color: #FC0FC0;"><?php echo $user_data['nomeAnimal']; ?></h3>
                                             <?php } ?>
 
-                                            <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                            <?php if ($user_data['generoAnimal'] == 'Macho') { ?>
                                                 <i class="fi fi-rr-mars"></i>
-                                            <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                            <?php } elseif ($user_data['generoAnimal'] == 'Fêmea') { ?>
                                                 <i style="color: #FC0FC0;" class="fi fi-rr-venus"></i>
                                             <?php } ?>
                                         </div>
@@ -355,7 +357,7 @@ if (isset($_GET[1]))
                                         <div class="area-foto">
                                             <div class="imageContainer">
                                                 <img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>" alt="selecionar foto" id="imgPhoto2">
-                                                <input type="file" id="flImage2" name="image" accept="image/*">
+                                                <input type="file" value="<?php echo $user_data['fotoPerfilAnimal'] ?>" id="flImage2" name="image" accept="image/*">
                                             </div>
                                         </div>
 
@@ -550,7 +552,7 @@ if (isset($_GET[1]))
                                         </div>
                                     </div>
                                     <input type="hidden" name="id" value="<?php echo $user_data['idAnimal'] ?>">
-
+                                    
                                     </form>
                                 </div>
                             </div>
@@ -692,9 +694,9 @@ if (isset($_GET[1]))
                                 </div>
                             </div>
 
-                    
+
                         </div>
-                        <?php } ?>
+                    <?php } ?>
 
 
                 </div>

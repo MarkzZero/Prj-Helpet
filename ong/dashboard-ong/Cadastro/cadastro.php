@@ -15,6 +15,7 @@ if (isset($_POST['cadastrar'])) {
     $racaSelecionada = $_POST['raca'];
     $vacSelecionada = $_POST['vacina'];
     $doencaSelecionada = $_POST['doenca'];
+    $descricao = mysqli_real_escape_string($mysqli, trim($_POST['descricao']));
     $idOng = $_SESSION['id'];
 
     $dadosIdade = array(
@@ -57,7 +58,7 @@ if (isset($_POST['cadastrar'])) {
 
             move_uploaded_file($arquivo["tmp_name"], $caminho_arquivo);
  
-            $sql = "INSERT INTO tbAnimal (nomeAnimal, porteAnimal, descAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, idOng, idRaca, idVacina, idDoenca) VALUES ('$nome', '$inserirPorte', '$inserirGenero', '$inserirIdade','$inserirEspecie', '$caminho_arquivo', '$idOng', '$racaSelecionada', '$vacSelecionada', '$doencaSelecionada')";
+            $sql = "INSERT INTO tbAnimal (nomeAnimal, porteAnimal, generoAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, descAnimal, idOng, idRaca, idVacina, idDoenca) VALUES ('$nome', '$inserirPorte', '$inserirGenero', '$inserirIdade','$inserirEspecie', '$caminho_arquivo', '$descricao', '$idOng', '$racaSelecionada', '$vacSelecionada', '$doencaSelecionada')";
             
             if($mysqli->query($sql) == true){
                 // Verifica se o animal foi inserido corretamente

@@ -10,11 +10,17 @@
 
     $resultDoenca = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbDoenca.tipoDoenca as 'doenca' FROM tbAnimal INNER JOIN tbDoenca ON tbAnimal.idDoenca = tbDoenca.idDoenca WHERE idOng = '$id'") or die($mysqli->error);
 
-    $result = $mysqli->query("SELECT idAnimal, nomeAnimal, porteAnimal, descAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, idOng, idRaca FROM tbAnimal WHERE idOng = '$id' ORDER BY idAnimal DESC ") or die($mysqli->error);
 
-    
+    $result = $mysqli->query("SELECT idAnimal, nomeAnimal, porteAnimal, descAnimal, generoAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, idOng, idRaca FROM tbAnimal WHERE idOng = '$id' ORDER BY idAnimal DESC ") or die($mysqli->error);
 
     $resultCamp = $mysqli->query("SELECT * FROM tbCampanha WHERE idOng = '$id' ORDER BY idCampanha DESC") or die($mysqli->error);
+
+    //ONG
+
+    $resultOng = $mysqli->query("SELECT * FROM tbOng WHERE idOng = '$id'")or die($mysqli->error);
+
+    $telefoneOng = $mysqli->query("SELECT tbTelefoneOng.numTelefoneOng as 'telefone', tbOng.nomeOng as 'ong' FROM tbTelefoneOng INNER JOIN tbOng ON tbTelefoneOng.idOng = tbOng.idOng WHERE tbOng.idOng = '$id'") or die($mysqli->error);
+
 
     $petsCount = $mysqli->query("SELECT COUNT(idAnimal) FROM tbAnimal WHERE idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($petsCount);
