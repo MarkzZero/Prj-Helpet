@@ -52,7 +52,7 @@
                 }
             }else{
                 $_SESSION['erro'] == true;
-                header("Location: ../edit-ong.php");
+                header("Location: ../excluir-ong.php");
                 exit;
             }
         }

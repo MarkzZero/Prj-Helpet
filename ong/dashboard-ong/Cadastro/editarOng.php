@@ -28,6 +28,8 @@ if (isset($_POST['update'])) {
 
     $telefoneNum = preg_replace("/[^0-9]/", "", $Telefone);
 
+    $cepNum = preg_replace("/[^0-9]/", "", $cep);
+
     if ($arquivo !== null) {
         preg_match("/\.(png|jpg|jpeg){1}$/i", $arquivo["name"], $ext);
         if ($ext == true) {
@@ -61,7 +63,7 @@ if (isset($_POST['update'])) {
         }
     }
 
-    $sql = "UPDATE tbOng SET nomeOng = '$nome', capacidadeOng = '$capacidade', emailOng = '$email', cnpjOng = '$cnpjNumerico', cnasOng = '$cnas', cebasOng = '$cebas', cepOng = '$cep', estadoOng = '$estado', cidadeOng = '$cidade', bairroOng = '$bairro', logradouroOng = '$logradouro', numlogOng = '$numero', complementoOng = '$complemento' WHERE idOng = '$id'";
+    $sql = "UPDATE tbOng SET nomeOng = '$nome', capacidadeOng = '$capacidade', emailOng = '$email', cnpjOng = '$cnpjNumerico', cnasOng = '$cnas', cebasOng = '$cebas', cepOng = '$cepNum', estadoOng = '$estado', cidadeOng = '$cidade', bairroOng = '$bairro', logradouroOng = '$logradouro', numlogOng = '$numero', complementoOng = '$complemento' WHERE idOng = '$id'";
     if($mysqli->query($sql) == true){
         $sqlTelefone =  "UPDATE tbTelefoneOng SET numTelefoneOng = '$telefoneNum' WHERE idOng = '$id'";
         if($mysqli->query($sqlTelefone) == true){
