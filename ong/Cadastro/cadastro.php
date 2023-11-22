@@ -92,7 +92,7 @@
 
                     move_uploaded_file($arquivo["tmp_name"], $caminho_arquivo);
 
-                    $sql = "INSERT INTO tbOng (nomeOng, capacidadeOng, bairroOng, emailOng, logradouroOng, numLogOng, cnpjOng, cnasOng, cebasOng, cepOng, complementoOng, estadoOng, senhaOng, fotoOng) VALUES ('$nome', '$capacidade','$bairro', '$email', '$logradouro', '$num', '$cnpjNumerico','$cnas', '$cebas','$cep', '$complemento', '$estado', '$passwordHash', '$caminho_arquivo')"; 
+                    $sql = "INSERT INTO tbOng (nomeOng, capacidadeOng, cidadeOng,bairroOng, emailOng, logradouroOng, numLogOng, cnpjOng, cnasOng, cebasOng, cepOng, complementoOng, estadoOng, senhaOng, fotoOng) VALUES ('$nome', '$capacidade', '$cidade','$bairro', '$email', '$logradouro', '$num', '$cnpjNumerico','$cnas', '$cebas','$cep', '$complemento', '$estado', '$passwordHash', '$caminho_arquivo')"; 
 
                     if($mysqli->query($sql) === true){
                         $id_ong = $mysqli->insert_id; 

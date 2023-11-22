@@ -192,9 +192,9 @@ if (isset($_GET[1]))
 
                         <div class="area-add-fotos">
                             <div class="titulo-add">
-                                <p>Adicione outras fotos da campanha (opcional)</p>
+                                <p>Adicione outras fotos do pet (opcional)</p>
                                 <i id="photos" class="fi fi-sr-images"></i>
-                                <input type="file" id="files" multiple accept="image/*" onchange="handleFileSelect(event)"><br>
+                                <input type="file" id="filesImgs" multiple accept="image/*" multiple onchange="handleFileSelect(event)" name="opcional[]" multiple>
                             </div>
                             <div class="galeria"></div>
                         </div>
@@ -229,7 +229,9 @@ if (isset($_GET[1]))
             <!-- CAMPANHAS CADASTRADAS -->
             <div class="consulta">
                 <div id="area-cards">
-                    <?php while ($user_data = mysqli_fetch_assoc($resultCamp)) { ?>
+                    <?php while ($user_data = mysqli_fetch_assoc($resultCamp)) {
+
+                    ?>
                         <div class="card">
                             <div class="foto">
                                 <img src="<?php echo "cadastro/" . $user_data['fotoPerfilCampanha']; ?>">
@@ -528,7 +530,17 @@ if (isset($_GET[1]))
                                             <i class="fi fi-rr-gallery"></i>
                                         </div>
                                         <div class="galeria">
-                                            <!--<img src="images/foto-cao.png">-->
+                                            <?php
+                                            $idCampanha = $user_data['idCampanha'];
+                                            $resultFoto = $mysqli->query(
+                                                "SELECT * FROM tbfotoCampanha WHERE idCampanha = '$idCampanha'"
+                                            ) or die($mysqli->error);
+                                            while ($foto_data = mysqli_fetch_assoc($resultFoto)) {
+                                                $imagemBase64 = base64_encode($foto_data['fotosCampanha']);
+                                                echo '<img src="cadastro/' .$imagemBase64 . '" alt="Imagem da Campanha">';
+                                            }
+                                            ?>
+
                                         </div>
                                     </div>
                                 </div>
