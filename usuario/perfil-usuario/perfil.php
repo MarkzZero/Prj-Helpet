@@ -1,3 +1,10 @@
+
+<?php
+
+include('../config/config.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -35,7 +42,7 @@
 
             <div class="perfil">
                 <img src="images/foto-user.png">
-                <h2>Camila Martins</h2>
+                <h2><?php echo $_SESSION['nome'];?></h2>
                 <p>Olá, bem-vindo ao meu perfil!</p>
                 <div class="icons">
                     <i class="fi fi-rr-share icon-comp"></i>

@@ -7,7 +7,7 @@
             <i class="fechar fi fi-br-cross close-modalExc"></i>
         </div>
     </div>
-    <form class="area-excluir" action="../Excluir/Excluir.php" method="post">
+    <form class="area-excluir" action="../Update/Update.php" method="post">
         <i class="fi fi-sr-delete-user"></i>
         <h4>Desejar excluir sua conta?</h4>
         <p>Digite Confirmar para Exclusão</p>

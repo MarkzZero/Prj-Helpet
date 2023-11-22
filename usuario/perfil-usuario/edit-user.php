@@ -12,6 +12,8 @@ include('../config/config.php');
 
         <title>Configurações</title>
         <link rel="icon" href="images/logo-azul.png">
+        
+        
 
         <!-- Links CSS -->
         <link rel="stylesheet" href="css/style.css">
@@ -111,13 +113,13 @@ include('../config/config.php');
                 <div class="linhas">
                     <div class="input-field">
                         <label>Nome</label>
-                        <input type="text" name="nomeuser" id="nomeuser" value="<?php echo $user_data['nomeUsuario'] ?>">
+                        <input type="text" name="nome" id="nomeuser" value="<?php echo $user_data['nomeUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>CPF</label>
-                        <input type="text" name="nomeuser" id="nomeuser" value="111.111.111-22">
+                        <input type="text" name="cpf" id="nomeuser" value="111.111.111-22">
                         <div class="underline"></div>
                     </div>
 
@@ -129,7 +131,7 @@ include('../config/config.php');
 
                     <div class="input-field">
                         <label>E-mail</label>
-                        <input type="email" name="emailuser" id="emailuser" value="<?php echo $user_data['emailUsuario'] ?>">
+                        <input type="email" name="email" id="emailuser" value="<?php echo $user_data['emailUsuario'] ?>">
                         <div class="underline"></div>
                     </div>
 
@@ -146,43 +148,43 @@ include('../config/config.php');
                 <div class="linhas">
                     <div class="input-field">
                         <label>CEP</label>
-                        <input type="text" name="nomepet" id="nomepet" value="<?php echo $user_data['cepUsuario'] ?>">
+                        <input type="text" name="cep" onblur="pesquisacep(this.value);" onkeyup="formatCEP(this)" id="nomepet" value="<?php echo $user_data['cepUsuario'] ?>" required>
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Estado</label>
-                        <input type="text" name="estado" id="estado" value="<?php echo $user_data['estadoUsuario'] ?>">
+                        <input type="text" name="estado" id="estado" value="<?php echo $user_data['estadoUsuario'] ?>" required>
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Cidade</label>
-                        <input type="text" name="cidade" id="cidade" value="<?php echo $user_data['cidadeUsuario'] ?>">
+                        <input type="text" name="cidade" id="cidade" value="<?php echo $user_data['cidadeUsuario'] ?>" required>
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Bairro</label>
-                        <input type="text" name="bairro" id="bairro" value="<?php echo $user_data['bairroUsuario'] ?>">
+                        <input type="text" name="bairro" id="bairro" value="<?php echo $user_data['bairroUsuario'] ?>" required>
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Logradouro</label>
-                        <input type="text" name="logradouro" id="logradouro" value="<?php echo $user_data['logradouroUsuario'] ?>">
+                        <input type="text" name="logradouro" id="logradouro" value="<?php echo $user_data['logradouroUsuario'] ?>" required>
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Número</label>
-                        <input type="text" name="numero" id="numero" value="<?php echo $user_data['numLocalUsuario'] ?>">
+                        <input type="text" name="numero" id="numero" value="<?php echo $user_data['numLocalUsuario'] ?>"  required>
                         <div class="underline"></div>
                     </div>
 
                     <div class="input-field">
                         <label>Complemento</label>
-                        <input type="text" name="complemento" id="complemento" value="<?php echo $user_data['complementoUsuario'] ?>">
+                        <input type="text" name="complemento" id="complemento" value="<?php echo $user_data['complementoUsuario'] ?>" required>
                         <div class="underline"></div>
                     </div>
                 </div>
@@ -191,7 +193,7 @@ include('../config/config.php');
 
                 <div class="botoes">
                     <button class="btn-cancelar" type="button">Cancelar</button>
-                    <button class="btn-salvar" type="submit">Salvar</button>
+                    <button class="btn-salvar" name="update" type="submit">Salvar</button>
                 </div>
                 
             </form>

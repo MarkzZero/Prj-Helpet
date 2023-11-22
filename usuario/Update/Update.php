@@ -1,12 +1,13 @@
 <?php
 include("../config/config.php");
-include_once('../conexao/conexao.php');
+include_once("../conexao/conexao.php");
 
 if (isset($_POST['update'])) { 
 
-    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    
     $nome = mysqli_real_escape_string($mysqli, trim($_POST['nome']));
-    $cep = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
+    $email = mysqli_real_escape_string($mysqli, trim($_POST['email']));
+    $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
 
     // Campos de Endereço
     $cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_NUMBER_INT);
@@ -21,8 +22,18 @@ if (isset($_POST['update'])) {
     //$arquivo = $_FILES['image'];
     //$foto = $_POST['foto'];
 
+    echo $id;
 
-    $sqlUsuario = "UPDATE tbUsuario SET nomeUsuario = '$nome', informacaoCampanha = '$desc', cepUsuario = '$cep', logradouroUsuario = '$logradouro', estadoUsuario = '$estado', numLocalUsuario = '$numero', cidadeUsuario = '$cidade', complementoUsuario = '$complemento', bairroUsuario = '$bairro' WHERE idUsuario = '$id'";
+    $sqlUsuario = "UPDATE tbUsuario SET nomeUsuario = '$nome',  emailUsuario = '$email', cepUsuario = '$cep', logradouroUsuario = '$logradouro', estadoUsuario = '$estado', numLocalUsuario = '$numero', cidadeUsuario = '$cidade', complementoUsuario = '$complemento', bairroUsuario = '$bairro' WHERE idUsuario = '$id'";
+
+    if ($mysqli->query($sqlUsuario) == true) {
+        header("location: ../perfil-usuario/edit-user.php");
+        $_SESSION['nome'] = $nome;
+    } else {
+        echo "Erro ao inserir os dados";
+        $mysqli->error;
+    }
+    $mysqli->close();
 }
 
 ?> 
