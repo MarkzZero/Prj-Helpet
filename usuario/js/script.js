@@ -1,31 +1,3 @@
-//Mostrar senha
-function mostrarSenha(){
-    var inputPass = document.getElementById('senha')
-    var btnShowPass = document.getElementById('btn-senha')
-
-    if(inputPass.type == 'password'){
-        inputPass.setAttribute('type', 'text')
-        btnShowPass.classList.replace('bi-eye-fill', 'bi-eye-slash-fill')
-    }else{
-        inputPass.setAttribute('type', 'password')
-        btnShowPass.classList.replace('bi-eye-slash-fill', 'bi-eye-fill')
-    }
-}
-
-function mostrarSenha2(){
-  var inputPass = document.getElementById('confir')
-  var btnShowPass = document.getElementById('btn-senha2')
-
-  if(inputPass.type == 'password'){
-      inputPass.setAttribute('type', 'text')
-      btnShowPass.classList.replace('bi-eye-fill', 'bi-eye-slash-fill')
-  }else{
-      inputPass.setAttribute('type', 'password')
-      btnShowPass.classList.replace('bi-eye-slash-fill', 'bi-eye-fill')
-  }
-}
-
-
 document.getElementById('submit').addEventListener('click', function() {
     document.getElementById('form-cad').submit(); // Submeter o primeiro formulário
     document.getElementById('form-end').submit(); // Submeter o segundo formulário
@@ -107,29 +79,3 @@ function pesquisacep(valor) {
     
       input.value = cep;
     };
-
-    'use static'
-    let photo = document.getElementById('imgPhoto-login');
-    let file = document.getElementById('flImage');
-    
-    photo.addEventListener("click", () => {
-        file.click();   
-    });
-    
-    file.addEventListener('change', (event) => {
-        
-       if(file.files.length <= 0){
-        return;
-       }
-    
-        let reader = new FileReader()
-    
-        reader.onload = () =>{
-            photo.src = reader.result;
-        }
-    
-        reader.readAsDataURL(file.files[0]);
-    });
-  
-
-
