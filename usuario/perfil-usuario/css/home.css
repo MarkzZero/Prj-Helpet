@@ -276,10 +276,11 @@ li a:hover{
 .post{
     background-color: #fff;
     width: 80%;
-    height: 35vw;
+    height: auto;
     margin-bottom:5%;
     align-self: center;
     border-radius: 5%;
+    text-align: center;
     box-shadow: 0px 0px 5px #e6e6e6;;
 }
 
@@ -290,6 +291,7 @@ li a:hover{
     /* padding-bottom: 1%; */
     display: flex;
     flex-direction: row;
+    height: auto;
     /* background-color: #004FDA; */
 }
 
@@ -350,7 +352,9 @@ li a:hover{
 }
 .img-camp{
     align-self: center;
-    width: 95%;
+    max-width: 40vw;
+
+
     justify-content: center;
     margin-top: 1%;
 }

@@ -1,3 +1,6 @@
+<?php
+include('../config/config.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -66,61 +69,43 @@
         </div>
 
 
-    
 
+
+        <?php
+        while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
+            $ong_Data = mysqli_fetch_assoc($resultOng);
+            $foto_Data = mysqli_fetch_assoc($fotoOng);
+        ?>
+            <div class="area-conteudo">
+                <div class="post">
+                    <div class="info-post">
+                        <img class='img-post' src="<?php echo "../../ong/cadastro/" . $foto_Data['foto']  ?>  " />
+                        <h2 class="nome-ong"><?php echo $ong_Data['ong'] ?></h2>
+
+                        <div class="icon-fav">
+                            <i class="fi fi-rr-heart"></i>
+
+                        </div>
+                    </div>
+                    <div class="desc-camp">
+                        <h2 class="nome-camp"><?php echo $campanha_Data['nomeCampanha'] ?></h2>
+                        <img class='img-camp' src="<?php echo "../../ong/dashboard-ong/Cadastro/"  .   $campanha_Data['fotoPerfilCampanha']; ?>" />
+                    </div>
+                    <div class="desc-post">
+                        <p><?php echo $campanha_Data['informacaoCampanha'] ?></p>
+
+                        <div class="icon-fav">
+                            <i class="bi bi-chat-right-dots-fill"></i>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        <?php } ?>
         
-        <div class="area-conteudo">
-            <div class="post">
-                <div class="info-post">
-                    <img class='img-post' src="images/pet-gato.png"/>
-                    <h2 class="nome-ong">Ampara Animal</h2>
-                    
-                    <div class="icon-fav">
-                        <i class="fi fi-rr-heart"></i>
-                        
-                    </div>
-                </div>
-                <div class="desc-camp">
-                    <h2 class="nome-camp">Nome campanha</h2>
-                    <img class='img-camp' src="images/foto-camp.png"/>
-                </div>
-                <div class="desc-post">
-                    <p>Descrição</p>
-                    
-                    <div class="icon-fav">
-                    <i class="bi bi-chat-right-dots-fill"></i>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="info-post">
-                    <img class='img-post' src="images/pet-gato.png"/>
-                    <h2 class="nome-ong">Ampara Animal</h2>
-                    
-                    <div class="icon-fav">
-                        <i class="fi fi-rr-heart"></i>
-                        
-                    </div>
-                </div>
-                <div class="desc-camp">
-                    <h2 class="nome-camp">Nome campanha</h2>
-                    <img class='img-camp' src="images/foto-camp.png"/>
-                </div>
-                <div class="desc-post">
-                    <p>Descrição</p>
-                    
-                    <div class="icon-fav">
-                    <i class="bi bi-chat-right-dots-fill"></i>
-                        
-                    </div>
-                </div>
-            </div>
-
-            
-        </div>
-
 
         <!-- Tela de Adoção e Apadrinhamento -->
         <div class="fadeAdocao hide"></div>
@@ -171,50 +156,50 @@
 
             <div id=bloco-sug>
                 <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png"/>
+                    <img class='img-sug' src="images/pet-gato.png" />
                     <div class=desc-sug>
                         <h3>Lily</h3>
                         <i class="fi fi-rr-venus"></i>
                     </div>
-                    <button class="open-modal botao-modal"> 
-                        <p>Saiba Mais</p> 
+                    <button class="open-modal botao-modal">
+                        <p>Saiba Mais</p>
                         <i class="fi fi-br-angle-small-right"></i>
-                    </button>  
+                    </button>
                 </div>
                 <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png"/>
+                    <img class='img-sug' src="images/pet-gato.png" />
                     <div class=desc-sug>
                         <h3>Lily</h3>
                         <i class="fi fi-rr-venus"></i>
                     </div>
-                    <button class="open-modal botao-modal"> 
-                        <p>Saiba Mais</p> 
+                    <button class="open-modal botao-modal">
+                        <p>Saiba Mais</p>
                         <i class="fi fi-br-angle-small-right"></i>
-                    </button>  
+                    </button>
                 </div>
                 <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png"/>
+                    <img class='img-sug' src="images/pet-gato.png" />
                     <div class=desc-sug>
                         <h3>Lily</h3>
                         <i class="fi fi-rr-venus"></i>
                     </div>
-                    <button class="open-modal botao-modal"> 
-                        <p>Saiba Mais</p> 
+                    <button class="open-modal botao-modal">
+                        <p>Saiba Mais</p>
                         <i class="fi fi-br-angle-small-right"></i>
-                    </button>  
+                    </button>
                 </div>
                 <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png"/>
+                    <img class='img-sug' src="images/pet-gato.png" />
                     <div class=desc-sug>
                         <h3>Lily</h3>
                         <i class="fi fi-rr-venus"></i>
                     </div>
-                    <button class="open-modal botao-modal"> 
-                        <p>Saiba Mais</p> 
+                    <button class="open-modal botao-modal">
+                        <p>Saiba Mais</p>
                         <i class="fi fi-br-angle-small-right"></i>
-                    </button>  
+                    </button>
                 </div>
-                
+
             </div>
             <div class="open-modalAdocao mostrar-tudo">
                 <p>Mostrar tudo</p>
