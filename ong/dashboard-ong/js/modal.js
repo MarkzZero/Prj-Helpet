@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
 // Isso Configura o Modal de Excluir Perfil
 const openModalExc = document.querySelectorAll(".open-modalExc");
 const closeModalExc = document.querySelectorAll(".close-modalExc");

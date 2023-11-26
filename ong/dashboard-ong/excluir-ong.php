@@ -12,9 +12,9 @@
         <h4>Desejar excluir sua conta?</h4>
         <p>Digite sua senha para confirmar</p>
         <form action="cadastro/deleteOng.php" method="post">
-            <div class="input-field">
-                <input type="text" name="senha" id="senha">
-                <div class="underline"></div>
+            <div style="margin: auto;" class="input-field">
+                <input style="text-align: center;" type="text" name="senha" id="senha">
+                <div  class="underline"></div>
             </div>
             <?php if (isset($_SESSION['erro'])) : ?>
                 <p>Senha incorreta!</p>

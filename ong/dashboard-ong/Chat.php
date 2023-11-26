@@ -1,5 +1,6 @@
 <?php 
     include('protect.php');
+    include('config/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +27,10 @@
 
             <div class="logo">
                 <!-- Puxar do banco a imagem da ong aqui -->
-                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
+                <img  src="<?php echo "../Cadastro/" . $ong_data['fotoOng']; ?>">
 
                 <!-- Conectar o nome das ongs com o banco -->
-                <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome']; ?></span>
+                <span class="title-ong">Bem-Vindo <br> <?php echo $ong_data['nomeOng']; ?></span>
             </div>
 
             <ul>

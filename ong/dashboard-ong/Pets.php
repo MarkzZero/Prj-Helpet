@@ -30,10 +30,10 @@ if (isset($_GET[1]))
 
             <div class="logo">
                 <!-- Puxar do banco a imagem da ong aqui -->
-                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
+                <img id="image" src="<?php echo "../Cadastro/" . $ong_data['fotoOng']; ?>">
 
                 <!-- Conectar o nome das ongs com o banco -->
-                <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome']; ?></span>
+                <span class="title-ong">Bem-Vindo <br> <?php echo $ong_data['nomeOng']; ?></span>
             </div>
 
             <ul>
@@ -356,6 +356,7 @@ if (isset($_GET[1]))
                                     <form action="cadastro/editar.php" enctype="multipart/form-data" method="POST">
                                         <div class="area-foto">
                                             <div class="imageContainer">
+                                                <input type="hidden" name="foto" value="<?php echo $user_data['fotoPerfilAnimal'] ?>">
                                                 <img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>" alt="selecionar foto" id="imgPhoto2">
                                                 <input type="file" value="<?php echo $user_data['fotoPerfilAnimal'] ?>" id="flImage2" name="image" accept="image/*">
                                             </div>
@@ -412,9 +413,9 @@ if (isset($_GET[1]))
                                                         text-overflow: '';
                                                         width: 17.1vw;" required name="porte" id="porte">
                                                     <option style="color: black;" value="opExistente" selected><?php echo $user_data['porteAnimal'] ?></option>
-                                                    <option style="color: black;" value="opPequeno" name="porte">Pequeno</option>
-                                                    <option style="color: black;" value="opMedio" name="porte">Médio</option>
-                                                    <option style="color: black;" value="opGrande" name="porte">Grande</option>
+                                                    <option style="color: black;" value="opPequeno" name="porte" <?php echo ($user_data['porteAnimal'] == 'Pequeno') ? 'selected' : '' ?>>Pequeno</option>
+                                                    <option style="color: black;" value="opMedio" name="porte" <?php echo ($user_data['porteAnimal'] == 'Médio') ? 'selected' : '' ?>>Médio</option>
+                                                    <option style="color: black;" value="opGrande" name="porte" <?php echo ($user_data['porteAnimal'] == 'Grande') ? 'selected' : '' ?>>Grande</option>
                                                 </select>
                                                 <i class="fi fi-rr-angle-small-down"></i>
                                             </div>
@@ -433,7 +434,7 @@ if (isset($_GET[1]))
                                                         -moz-appearance: none;
                                                         text-indent: 1px;
                                                         text-overflow: '';
-                                                        width: 17.1vw;" class="select-btn" required name="vacina" id="vacina">
+                                                        width: 17.1vw;" class="select-btn" name="vacina" id="vacina">
                                                     <option value="opVac" selected><?php echo $vacData['vacina'] ?></option>
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
@@ -450,21 +451,25 @@ if (isset($_GET[1]))
 
                                         <div class="input-field">
                                             <span class="sBtn-text">Doenças</span>
-                                            <div class="select-btn">
-                                                <?php $sql = mysqli_query($mysqli, "SELECT idDoenca, tipoDoenca FROM tbDoenca"); ?>
-                                                <select style="    font-family: Poppins;
-                                                        color: #8A8A8A;
-                                                        font-size: 2.5vh;
-                                                        border:none;
-                                                        -webkit-appearance: none;
-                                                        -moz-appearance: none;
-                                                        text-indent: 1px;
-                                                        text-overflow: '';
-                                                        width: 14vw;" class="select-btn" name="doenca" id="doenca">
-                                                    <option value="opDenca" selected><?php echo $doenca_data['doenca'] ?></option>
+                                            <div class="select-btn"><?php
+                                                                    $valorPadrao = $doenca_data['doenca'];
+                                                                    $sql = mysqli_query($mysqli, "SELECT idDoenca, tipoDoenca FROM tbDoenca");
+                                                                    ?>
+
+                                                <select style="font-family: Poppins;
+                                                    color: #8A8A8A;
+                                                    font-size: 2.5vh;
+                                                    border:none;
+                                                    -webkit-appearance: none;
+                                                    -moz-appearance: none;
+                                                    text-indent: 1px;
+                                                    text-overflow: '';
+                                                    width: 14vw;" class="select-btn" name="doenca" id="doenca">
+
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
-                                                        echo "<option style='color: black;' value='" . $resultado['idDoenca'] . "' name='doenca'>"  . $resultado['tipoDoenca'] . "</option>";
+                                                        $selecionado = ($resultado['idDoenca'] == $valorPadrao) ? "selected" : "";
+                                                        echo "<option style='color: black;' value='" . $resultado['idDoenca'] . "' name='doenca' $selecionado>"  . $resultado['tipoDoenca'] . "</option>";
                                                     }
                                                     ?>
                                                 </select>
@@ -486,10 +491,10 @@ if (isset($_GET[1]))
                                                         text-overflow: '';
                                                         width: 13.9vw;" class="select-btn" name="idade" id="idade">
                                                     <option style='color: black;' value="opExistente" selected><?php echo $user_data['idadeAnimal'] ?></option>
-                                                    <option style='color: black;' value="opFilhote" name="idade">Filhote (Menos de 1 ano)</option>
-                                                    <option style='color: black;' value="opAdulto" name="idade">Adulto (Entre 1 e 3 anos)</option>
-                                                    <option style='color: black;' value="opAdulto2" name="idade">Adulto (Entre 3 e 5 anos)</option>
-                                                    <option style='color: black;' value="opIdoso" name="idade">Idoso (Mais de 5 anos)</option>
+                                                    <option style='color: black;' value="opFilhote" name="idade" <?php echo ($user_data['idadeAnimal'] == 'Filhote (Menos de 1 ano)') ? 'selected' : '' ?>>Filhote (Menos de 1 ano)</option>
+                                                    <option style='color: black;' value="opAdulto" name="idade" <?php echo ($user_data['idadeAnimal'] == 'Adulto (Entre 1 e 3 anos)') ? 'selected' : '' ?>>Adulto (Entre 1 e 3 anos)</option>
+                                                    <option style='color: black;' value="opAdulto2" name="idade" <?php echo ($user_data['idadeAnimal'] == 'Adulto (Entre 3 e 5 anos)') ? 'selected' : '' ?>>Adulto (Entre 3 e 5 anos)</option>
+                                                    <option style='color: black;' value="opIdoso" name="idade" <?php echo ($user_data['idadeAnimal'] == 'Idoso (Mais de 5 anos)') ? 'selected' : '' ?>>Idoso (Mais de 5 anos)</option>
                                                 </select>
                                                 <i class="fi fi-rr-angle-small-down"></i>
                                             </div>
@@ -525,11 +530,11 @@ if (isset($_GET[1]))
                                             <label>Espécie</label>
                                             <div class="campos-radio">
                                                 <div class="radio-op">
-                                                    <input type="radio" name="especie" value="opCachorro" id="tipo-dog" />
+                                                    <input type="radio" name="especie" value="opCachorro" id="tipo-dog" <?php echo ($user_data['especieAnimal'] == 'Cachorro') ? 'checked' : '' ?> />
                                                     <label for="tipo-dog">Cachorro</label>
                                                 </div>
                                                 <div class="radio-op">
-                                                    <input type="radio" name="especie" value="opGato" id="tipo-cat" />
+                                                    <input type="radio" name="especie" value="opGato" id="tipo-cat" <?php echo ($user_data['especieAnimal'] == 'Gato') ? 'checked' : '' ?> />
                                                     <label for="tipo-cat">Gato</label>
                                                 </div>
 
@@ -541,18 +546,18 @@ if (isset($_GET[1]))
                                             <label>Gênero</label>
                                             <div class="campos-radio">
                                                 <div class="radio-op">
-                                                    <input type="radio" name="genero" value="femea" id="tipo-fem" />
+                                                    <input type="radio" name="genero" value="femea" id="tipo-fem" <?php echo ($user_data['generoAnimal'] == 'Fêmea') ? 'checked' : '' ?> />
                                                     <label for="tipo-fem">Fêmea</label>
                                                 </div>
                                                 <div class="radio-op">
-                                                    <input type="radio" name="genero" value="macho" id="tipo-mach" />
+                                                    <input type="radio" name="genero" value="macho" id="tipo-mach" <?php echo ($user_data['generoAnimal'] == 'Macho') ? 'checked' : '' ?> />
                                                     <label for="tipo-mach">Macho</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <input type="hidden" name="id" value="<?php echo $user_data['idAnimal'] ?>">
-                                    
+
                                     </form>
                                 </div>
                             </div>

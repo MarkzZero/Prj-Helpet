@@ -64,13 +64,11 @@ if (isset($_POST['update'])) {
     }
 
     $sql = "UPDATE tbOng SET nomeOng = '$nome', capacidadeOng = '$capacidade', emailOng = '$email', cnpjOng = '$cnpjNumerico', cnasOng = '$cnas', cebasOng = '$cebas', cepOng = '$cepNum', estadoOng = '$estado', cidadeOng = '$cidade', bairroOng = '$bairro', logradouroOng = '$logradouro', numlogOng = '$numero', complementoOng = '$complemento' WHERE idOng = '$id'";
-    if($mysqli->query($sql) == true){
+    if ($mysqli->query($sql) == true) {
         $sqlTelefone =  "UPDATE tbTelefoneOng SET numTelefoneOng = '$telefoneNum' WHERE idOng = '$id'";
-        if($mysqli->query($sqlTelefone) == true){
+        if ($mysqli->query($sqlTelefone) == true) {
             header("Location: ../edit-ong.php");
         }
     }
 
-    header("Location: ../edit-ong.php");
-    $mysqli->close();
 }

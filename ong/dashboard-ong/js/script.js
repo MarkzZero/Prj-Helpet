@@ -265,3 +265,4 @@ function pesquisacep(valor) {
         formatTelefone(inputTelefone);
         formatCNPJ(inputCnpj);
     }
+

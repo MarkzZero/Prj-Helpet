@@ -39,20 +39,16 @@
                 $deletePost = $mysqli->prepare("DELETE FROM tbPost WHERE idOng = '$id'");
                 $deletePost->execute();
     
-                $deleteTelefone = $mysqli->prepare("DELETE FROM tbTelefone WHERE idOng = '$id'");
+                $deleteTelefone = $mysqli->prepare("DELETE FROM tbTelefoneOng WHERE idOng = '$id'");
                 $deleteTelefone->execute();
     
-                if($deleteAdocao && $deleteAnimal && $deleteApadrinhamento && $deleteCampanha && $deleteChat && $deleteDoacao && $deletePost && $deleteTelefone){
-                    if (session_destroy()) {
-                        header("Location: ../../index.php");
-                    } else {
-                        echo 'Erro ao destruir a sessão';
-                        exit;
-                    }
-                }
+                if($deleteOng && $deleteAdocao && $deleteAnimal && $deleteApadrinhamento && $deleteCampanha && $deleteChat && $deleteDoacao && $deletePost && $deleteTelefone):
+                    session_destroy();
+                    header("Location: ../../index.php");
+                endif;
             }else{
-                $_SESSION['erro'] == true;
-                header("Location: ../excluir-ong.php");
+                $_SESSION['erro'] = "Senha incorreta. Por favor, tente novamente.";
+                header("Location: ../excluir-ong.php"); 
                 exit;
             }
         }

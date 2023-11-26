@@ -29,10 +29,10 @@ include('./config/config.php');
                 -->
             <div class="logo">
                 <!-- Puxar do banco a imagem da ong aqui -->
-                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
+                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $ong_data['fotoOng'] ?>">
 
                 <!-- Conectar o nome das ongs com o banco -->
-                <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome']; ?></span>
+                <span class="title-ong">Bem-Vindo <br> <?php echo $ong_data['nomeOng']; ?></span>
             </div>
 
             <ul>
@@ -145,7 +145,7 @@ include('./config/config.php');
                             <div id="area-foto" class="coluna">
                                 <div class="imageContainer">
                                     <input type="hidden" name="foto" value="<?php echo $user_data['fotoOng'] ?>">
-                                    <img src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>" alt="selecionar foto" id="imgPhoto">
+                                    <img src="<?php echo "../Cadastro/" . $user_data['fotoOng'] ?>" alt="selecionar foto" id="imgPhoto">
                                     <input type="file" id="flImage" name="image" accept="image/*">
                                 </div>
                             </div>

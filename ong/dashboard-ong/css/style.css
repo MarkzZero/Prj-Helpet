@@ -68,6 +68,9 @@ body{
 }
 .logo img{
     width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    margin-bottom: 1vh;
 }
 .title-ong{
     color: #fff;
@@ -272,7 +275,10 @@ body{
     justify-content: center;    
 }
 .img-logo img{
-    width: 4.2vw;
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    margin-bottom: 1vh;
 }
 
 
@@ -2498,7 +2504,10 @@ table span{
         height: 7vh;
     }
     .img-logo img{
-        width: 7vh;
+        width: 8vw;
+        height: 8vw;
+        border-radius: 50%;
+        margin-bottom: 1vh;
     }
 
 
@@ -2534,7 +2543,10 @@ table span{
         margin-top: 3vh;
     }
     .navegation.active .logo img{
-        width: 15vh;
+        width: 8vw;
+        height: 8vw;
+        border-radius: 50%;
+        margin-bottom: 1vh;
     }
     .navegation.active .title-adm{
         display: block;
