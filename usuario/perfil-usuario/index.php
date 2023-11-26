@@ -1,251 +1,91 @@
 <?php
-include('../config/config.php');
+    include('../config/config.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="icon" href="images/logo-azul.png">
 
-    <title>Home</title>
-    <link rel="icon" href="images/logo-azul.png">
-
-    <link rel="stylesheet" href="css/style.css">
-    <link type="text/css" rel="stylesheet" href="css/home.css">
-</head>
-
-<body>
-    <nav>
-        <div id="div-logo"><img src="images/logo-azul.png" id="logo" /></div>
-        <ul>
-            <li><a href="index.php" id="atual"><img class="img_menu" src="images/home.png"></a></li>
-            <li><a href="notificacoes.php"><img class="img_menu" src="images/noti.png"></a></li>
-            <li><a href="Chat.php"><img class="img_menu" src="images/chat.png"></a></li>
-            <li><a href="perfil.php"><img class="img_menu" src="images/perfil.png"></a></li>
-        </ul>
-    </nav>
-    <div id="container1">
-        <div id="topo">
-
-            <div id="barra-pesquisa">
-                <input type="text" id="pesquisa" placeholder="Pesquisar..." />
-                <button id="btn-pesq"><i class="fi fi-br-search"></i></button>
+        <!-- Links CSS -->
+        <link rel="stylesheet" href="css/principal.css">
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/modais.css">
+        <link rel="stylesheet" href="css/cards.css">
+        <link rel="stylesheet" href="css/perfil.css">
+    </head>
+    <body>
+        <nav>
+            <div class="logo">
+                <img src="images/logo-azul.png">
             </div>
-            <div class="icone-config">
-                <a href="configuracoes.php"><i class="fi fi-sr-settings"></i></a>
-            </div>
-        </div>
+            <ul>
+                <li><a href="index.php" id="atual"><i class="fi fi-br-home"></i></a></li>
+                <li><a href="notificacoes.php"><i class="fi fi-br-bell"></i></a></li>
+                <li><a href="Chat.php"><i class="fi fi-br-messages"></i></a></li>
+                <li><a href="perfil.php"><i class="fi fi-br-circle-user"></i></a></li>
+            </ul>
+        </nav>
 
-        <div class="banner">
-            <img src="images/banner1.png">
-        </div>
-
-        <br><br>
-
-        <div class="fadeOngs hide"></div>
-        <div class="tela-ongs hide">
-            <div class="modal-topo">
-                <div class="fechar-modal">
-                    <i class="seta fi fi-br-angle-small-left close-modalOngs"></i>
-                </div>
-
-                <h2>ONGs</h2>
-
-                <div class="icone-config">
-                    <a href="configuracoes.php"><i class="fi fi-sr-settings"></i></a>
-                </div>
-            </div>
-
-            <div class="area-pesquisa">
+        <div class="container1">
+            <div class="area-pesquisa-home">
+                <img src="images/bolinhas2.png">
                 <div class="search">
                     <i class="fi fi-br-search"></i>
                     <input type="text" placeholder="Pesquisar">
-                    <i class="fi fi-rr-settings-sliders"></i>
                 </div>
+                <a href="configuracoes.php"><i class="fi fi-sr-settings config"></i></a>
             </div>
 
-            <?php require "card-ong.php"; ?>
-        </div>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="slide"><img src="images/banner1.png"></div>
+                    <div class="slide"><img src="images/banner2.png"></div>
+                    <div class="slide"><img src="images/banner3.png"></div>
+                </div>
+                <button class="prev" onclick="prevSlide()"><i class="fi fi-br-angle-small-left"></i></button>
+                <button class="next" onclick="nextSlide()"><i class="fi fi-br-angle-small-right"></i></button>
+            </div>
+
+            <div class="area-cards cards-home">
+                <?php require "card-pet.php"; ?>
+                <?php require "card-pet.php"; ?>
+                <?php require "card-pet.php"; ?>
+                <?php require "card-pet.php"; ?>
+            </div>
 
 
-
-
-        <?php
-        while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
-            $ong_Data = mysqli_fetch_assoc($resultOng);
-            $foto_Data = mysqli_fetch_assoc($fotoOng);
-        ?>
             <div class="area-conteudo">
-                <div class="post">
-                    <div class="info-post">
-                        <img class='img-post' src="<?php echo "../../ong/cadastro/" . $foto_Data['foto']  ?>  " />
-                        <h2 class="nome-ong"><?php echo $ong_Data['ong'] ?></h2>
-
-                        <div class="icon-fav">
-                            <i class="fi fi-rr-heart"></i>
-
-                        </div>
-                    </div>
-                    <div class="desc-camp">
-                        <h2 class="nome-camp"><?php echo $campanha_Data['nomeCampanha'] ?></h2>
-                        <img class='img-camp' src="<?php echo "../../ong/dashboard-ong/Cadastro/"  .   $campanha_Data['fotoPerfilCampanha']; ?>" />
-                    </div>
-                    <div class="desc-post">
-                        <p><?php echo $campanha_Data['informacaoCampanha'] ?></p>
-
-                        <div class="icon-fav">
-                            <i class="bi bi-chat-right-dots-fill"></i>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
+                <?php require "post-campanha.php"; ?>
+                <?php require "post-campanha.php"; ?>
             </div>
-        <?php } ?>
+
+            <div class="area-cards cards-home">
+                <?php require "card-pet.php"; ?>
+                <?php require "card-pet.php"; ?>
+                <?php require "card-pet.php"; ?>
+                <?php require "card-pet.php"; ?>
+            </div>
+
+            <div class="area-conteudo">
+                <?php require "post-anuncio.php"; ?>
+                <?php require "post-anuncio.php"; ?>
+            </div>
+        </div>
+
+
+        <!-- Sugestões e Categorias -->
+        <?php require "menu-right.php"; ?>
         
+        
+        <!-- Links JS -->
+        <script src="js/script.js"></script>
+        <script src="js/carrossel.js"></script>
+        <script src="js/modais.js"></script>
 
-        <!-- Tela de Adoção e Apadrinhamento -->
-        <div class="fadeAdocao hide"></div>
-        <div class="tela-adocao hide">
-            <div class="modal-topo">
-                <div class="fechar-modal">
-                    <i class="seta fi fi-br-angle-small-left close-modalAdocao"></i>
-                </div>
-
-                <h2>Adoção e Apadrinhamento</h2>
-
-                <div class="icone-config">
-                    <a href="configuracoes.php"><i class="fi fi-sr-settings"></i></a>
-                </div>
-            </div>
-
-            <div class="area-pesquisa">
-                <div class="search">
-                    <i class="fi fi-br-search"></i>
-                    <input type="text" placeholder="Pesquisar">
-                    <i class="fi fi-rr-settings-sliders"></i>
-                </div>
-
-                <div class="filtros">
-                    <div class="item-filtro">
-                        <img src="images/pet-todos.png">
-                        <p>Todos</p>
-                    </div>
-                    <div class="item-filtro">
-                        <img src="images/pet-gato.png">
-                        <p>Gatos</p>
-                    </div>
-                    <div class="item-filtro">
-                        <img src="images/pet-cao.png">
-                        <p>Cães</p>
-                    </div>
-                </div>
-            </div>
-
-            <?php require "card-pet.php"; ?>
-        </div>
-
-    </div>
-
-    <div id="container2">
-        <div id="sugestões">
-            <h2 class="titulo2">Sugestões</h2>
-
-            <div id=bloco-sug>
-                <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png" />
-                    <div class=desc-sug>
-                        <h3>Lily</h3>
-                        <i class="fi fi-rr-venus"></i>
-                    </div>
-                    <button class="open-modal botao-modal">
-                        <p>Saiba Mais</p>
-                        <i class="fi fi-br-angle-small-right"></i>
-                    </button>
-                </div>
-                <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png" />
-                    <div class=desc-sug>
-                        <h3>Lily</h3>
-                        <i class="fi fi-rr-venus"></i>
-                    </div>
-                    <button class="open-modal botao-modal">
-                        <p>Saiba Mais</p>
-                        <i class="fi fi-br-angle-small-right"></i>
-                    </button>
-                </div>
-                <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png" />
-                    <div class=desc-sug>
-                        <h3>Lily</h3>
-                        <i class="fi fi-rr-venus"></i>
-                    </div>
-                    <button class="open-modal botao-modal">
-                        <p>Saiba Mais</p>
-                        <i class="fi fi-br-angle-small-right"></i>
-                    </button>
-                </div>
-                <div class=sug>
-                    <img class='img-sug' src="images/pet-gato.png" />
-                    <div class=desc-sug>
-                        <h3>Lily</h3>
-                        <i class="fi fi-rr-venus"></i>
-                    </div>
-                    <button class="open-modal botao-modal">
-                        <p>Saiba Mais</p>
-                        <i class="fi fi-br-angle-small-right"></i>
-                    </button>
-                </div>
-
-            </div>
-            <div class="open-modalAdocao mostrar-tudo">
-                <p>Mostrar tudo</p>
-                <i class="fi fi-br-angle-small-right"></i>
-            </div>
-        </div>
-
-        <div id="categoria">
-            <h2 class="titulo2">Categoria</h2>
-            <div id="contet-op">
-                <div class="item-nome">
-                    <div class="item-procura azul">
-                        <img class="img-op" src="images/campanha.png">
-                    </div>
-                    <p class="desc">Campanhas</p>
-                </div>
-
-                <div class="item-nome">
-                    <div class="open-modalOngs item-procura azulClaro">
-                        <img class="img-op" src="images/ong.png">
-                    </div>
-                    <p class="desc">ONGs</p>
-                </div>
-
-                <div class="item-nome">
-                    <div class="item-procura verde">
-                        <img class="img-op" src="images/petshop.png">
-                    </div>
-                    <p class="desc">Anunciantes</p>
-                </div>
-
-                <div class="item-nome">
-                    <div class="item-procura lilas">
-                        <img class="img-op" src="images/pets.png">
-                    </div>
-                    <p class="desc">Pets</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Links JS -->
-
-    <script src="js/script.js"></script>
-
-</body>
-
+    </body>
 </html>
