@@ -1,0 +1,365 @@
+/* ÁREA PERFIL */
+.topo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.topo .area-pesquisa{
+    position: absolute;
+    top: 1.5vw;
+    right: 0.5vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+.topo .icone-config i, .topo .seta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    padding: 0.4vw;
+    border-radius: 50%;
+    color: #F58614;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.topo .seta{
+    font-size: 1.6vw;
+}
+.icone-config i:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.papel-parede{
+    width: 73vw;
+}
+.papel-parede img{
+    width: 100%;
+    height: 16vw;
+    object-fit: cover;
+}
+
+.dados-perfil{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 92%;
+}
+
+.perfil{
+    position: relative;
+    bottom: 6vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    font-family: Poppins;
+}
+
+/* Foto Perfil */
+.user img{
+    width: 9vw;
+    height: 9vw;
+    border-radius: 50%;
+    border: 0.4vw solid #F4F6FF;
+}
+
+/* Nome Perfil */
+.user h2{
+    font-size: 1.6vw;
+    margin: 0;
+    text-align: left;
+}
+
+/* Descrição Perfil */
+.user p{
+    font-size: 1vw;
+    margin: 1vh 0;
+    color: #000;
+    text-align: left;
+}
+
+.area-mapa{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.area-mapa .local{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1vh;
+}
+.area-mapa .local i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vw;
+    color: #F58614;
+}
+.area-mapa .local p{
+    font-size: 1vw;
+    color: #3B3B3B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    margin-left: 0.5vw;
+}
+.area-mapa iframe{
+    width: 25vw;
+    height: 25vh;
+}
+.dados-perfil .icons{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* PREFERÊNCIAS */
+.user-pref{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    top: 1vw;
+}
+.preferencias{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0.5vw;
+}
+.preferencias .coluna{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Títulos Preferências */
+.titulo-pref{
+    font-family: Regular;
+    font-weight: 500;
+    font-size: 1.4vw;
+    color: #122BAD;
+    text-align: center;
+    margin-top: 3vh;
+}
+
+/* Item */
+.preferencias .item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    margin-right: 1vw;
+    height: 3.5vw;
+}
+
+/* Imagem do Item */
+.preferencias .item img{
+    width: 2.2vw;
+    margin-right: 0.5vw;
+}
+
+
+/* Nome do Item */
+.preferencias .item p{
+    font-size: 1vw;
+    width: auto;
+    max-width: 9vw;
+    color: #000;
+}
+
+
+
+/* INFORMAÇÕES */
+.informacoes{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    bottom: 2vw;
+}
+
+/* Item */
+.informacoes .item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 22vw;
+    border-radius: 1.6vw;
+    margin: 0.6vw;
+    cursor: pointer;
+}
+.informacoes .item:hover{
+    transform: scale(1.05);
+    transition: all 0.5s;
+}
+
+/* Imagem do Item */
+.informacoes .item .icon-info{
+    width: 4.5vw;
+    margin-left: 0.5vw;
+}
+
+/* Bolinhas do Item */
+.informacoes .item .bolinhas{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: auto;
+    height: 7vw;
+    bottom: 0;
+}
+.informacoes .item .bolinhas img{
+    position: relative;
+    bottom: 0;
+    width: 2.3vw;
+}
+
+/* Título do Item */
+.informacoes .item span{
+    font-family: Regular;
+    font-size: 1.3vw;
+    color: #fff;
+    width: 80%;
+    text-align: center;
+    margin: 0;
+}
+
+/* Seta do Item */
+.informacoes .item i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    margin-right: 0.3vw;
+}
+
+/* Cores Item Favoritos */
+.informacoes #fav-pets{
+    background-color: #FA9EA2;
+}
+.informacoes #fav-pets i{
+    color: #FE4A4B;
+}
+
+/* Cores Item Adotados */
+.informacoes #fav-campanhas{
+    background-color: #F4C1A2;
+}
+.informacoes #fav-campanhas i{
+    color: #ED5F1E;
+}
+
+/* Cores Item ONGs */
+.informacoes #fav-ongs{
+    background-color: #98ACF8;
+}
+.informacoes #fav-ongs i{
+    color: #FF5D9C;
+}
+
+/* Cores Item Adotados */
+.informacoes #fav-adotados{
+    background-color: #8CD2FF;
+}
+.informacoes #fav-adotados i{
+    color: #23498B;
+}
+
+/* Cores Item ONGs */
+.informacoes #fav-anuncios{
+    background-color: #7CD7A6;
+}
+.informacoes #fav-anuncios i{
+    color: #095D40;
+}
+
+
+.imgs-telas img{
+    position: absolute;
+    width: 6vw;
+    top: -3vw;
+    right: 0;
+}
+.tela-segOng .imgs-telas img,
+.tela-adot .imgs-telas img{
+    top: 0;
+}
+
+/* Perfil ONG */
+
+/* Seguidores */
+.area-seguir{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.seguidores{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw 0;
+}
+.area-seguir p{
+    font-size: 1.2vw;
+    color: #8B8B8B;
+    margin: 0 1vw;
+}
+.area-seguir button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none; 
+    border: none;
+    border-radius: 2vw;
+    padding: 0.5vw 1vw;
+    font-size: 1.2vw;
+    font-family: Regular;
+    text-transform: uppercase;
+    background-color: #004FDA;
+    color: #fff;
+    cursor: pointer;
+}
+.area-seguir button i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vw;
+    color: #fff;
+    margin-left: 0.5vw;
+}
+.area-seguir .icon-doacao i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    shape-outside: circle();
+    clip-path: circle();
+    padding: 0.8vw;
+    font-size: 1.5vw;
+    background-color: #00BF63;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 1vw;
+}
+.area-seguir button:hover, .area-seguir .icon-doacao i:hover{
+    transform: scale(1.1);
+}

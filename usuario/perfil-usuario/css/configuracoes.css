@@ -1,0 +1,398 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+
+/* Fontes */
+@font-face {
+    font-family: Montley;
+    src: url('./fonts/MotleyForcesRegular.ttf');
+}
+@font-face {
+    font-family: National;
+    src: url('./fonts/NationalPark-Bold.otf');
+}
+@font-face {
+    font-family: Park;
+    src: url('./fonts/NationalPark-Medium.otf');
+}
+@font-face {
+    font-family: Regular;
+    src: url('./fonts/NationalPark-Regular.otf');
+}
+@font-face {
+    font-family: Poppins;
+    src: url('./fonts/Poppins-Regular.ttf');
+}
+  
+
+
+/* Conteúdo */
+body{
+    position: relative;
+    background-color: #F4F6FF;
+    margin: 0;
+    font-family: Poppins;
+    overflow-x: hidden;
+    height: auto;
+}
+
+
+/* Títulos */
+h2{
+    font-family: Regular;
+    font-weight: 500;
+    color: #122BAD;
+    text-align: center;
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+
+/* CONFIGURAÇÕES */
+header{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    top: 0;
+    left: 0;
+    width: 23vw;
+    height: 100%;
+    border-right: 0.1vw solid #c4c2c2;
+}
+header .voltar{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8vw;
+    color: #F48503;
+    top: 0;
+    left: 1vw;
+    height: 4vw;
+    cursor: pointer;
+}
+header a{
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+}
+header h2{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center; 
+    font-size: 1.5vw;
+    height: 10%;
+    top: 2vh;
+}
+header .info-user{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 25%;
+    margin-top: 2vh;
+}
+header .info-user img{
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: 50%;
+}
+header .info-user h4{
+    font-family: Regular;
+    font-size: 1.2vw;
+    font-weight: 500;
+    color: #122BAD;
+    margin: 0;
+    margin-top: 1vh;
+}
+header .info-user p{
+    font-size: 1vw;
+    color: #737373;
+}
+header h3{
+    font-family: Regular;
+    font-size: 1.3vw;
+    font-weight: 500;
+    color: #F48503;
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    text-align: left;
+    width: 100%;
+}
+header .area-itens{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    width: 90%;
+    height: 60%;
+}
+header .item-config{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2.5vh 0;
+}
+header .item-config .icon-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    shape-outside: circle();
+    clip-path: circle();
+    padding: 0.6vw;
+    font-size: 1.5vw;
+    color: #ffce65;
+    background-color: #749EEB;
+}
+header .item-config p{
+    font-size: 1.1vw;
+    color: #000;
+    text-align: left;
+    width: 100%;
+    margin: 0 1vw;
+}
+header .item-config .icon-seta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vw;
+    color: #888888;
+}
+header .pata-amarela{
+    position: relative;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 100%;
+    height: 10%;
+}
+header .pata-amarela img{
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 10vh;
+    transform: scaleY(-1);  
+}
+
+/* Botão Modo Escuro */
+header input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+header label{
+    cursor: pointer;
+    width: 7vw;
+    height: 2vw;
+    background: #c4c2c2;
+    display: block;
+    border-radius: 2vw;
+    position: relative;
+}
+header label:after{
+    content: '';
+    position: absolute;
+    top: 0.3vw;
+    left: 0.3vw;
+    width: 1.5vw;
+    height: 1.5vw;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+} 
+header input:checked + label{
+    background: #F48503;
+}
+header input:checked + label:after{
+    left: calc(100% - 0.5vw);
+    transform: translateX(-100%);
+}
+header label:active:after{
+    width: 4vw;
+}
+
+/* EDITAR PERFIL */
+main{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 1;
+}
+main .pata-amarela{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 76vw;
+    height: auto;
+    margin: 0;
+}
+main .pata-amarela img{
+    position: relative;
+    right: -0.5vw;
+    top: 0;
+    width: 10vh;
+    transform: scalex(-1);  
+}
+main i{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    left: 1vw;
+    color: #F48503;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+.voltar:hover, .main i:hover{
+    transform: scale(1.1);
+}
+main h2{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+main h3{
+    font-family: Regular;
+    font-size: 1.4vw;
+    font-weight: 500;
+    color: #004FDA;
+    margin: 0;
+    margin-top: 2vw;
+    margin-left: 2.5vw;
+}
+
+/* CSS IMAGEM DE PERFIL */
+.imageContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vw;
+}
+.imageContainer label{
+    position: relative;
+    color: #001CAB;
+    font-size: 1.3vw;
+    margin-top: 0.5vw;
+}
+#area-foto{
+    width: auto;
+    position: relative;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#imgPhoto{
+    width: 10vw;
+    height: 10vw;
+    padding: 0.5vw;
+    border: 0.3vw solid #122BAD;
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 50%;
+}
+#imgPhoto:hover{
+    background-color:#d7e5ff;
+    transform: scale(1.1);
+}
+input[type='file']{
+    display: none;
+}
+
+/* Campos Editar Usuário */
+.linhas{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.input-field {
+    position: relative;
+    width: 15vw;
+    margin: 1vw 2vw;
+    flex-direction: column;
+    display: flex;
+}
+.input-field label{
+    position: relative;
+    color: #001CAB;
+    font-size: 1.3vw;
+}
+.input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 15vw;
+    bottom: -5px;
+    left: 0;
+    background: #F58614;
+}
+.input-field input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.2vw;
+    font-family: Poppins;
+    color: #8A8A8A;
+    width: 100%;
+}
+
+/* Botões */
+.botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botoes button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7vw 2vw;
+    font-family: Park;
+    font-size: 1.5vw;
+    border-radius: 2vw;
+    border: 0.2vw solid #004FDA;
+    outline: none;
+    margin: 1vw;
+    width: 10vw;
+    cursor: pointer;
+}
+.botoes button:hover{
+    transform: scale(1.1);
+}
+.botoes .btn-cancelar{
+    background-color: transparent;
+    color: #004FDA;
+}
+.botoes .btn-salvar{
+    background-color: #004FDA;
+    color: #fff;
+}

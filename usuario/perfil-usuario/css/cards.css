@@ -1,0 +1,449 @@
+/* Cards */
+.area-cards, .area-cards-ongs{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    margin: 0 4vw;
+    margin-top: 2.5vw;
+}
+.area-cards-user{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 66vw;
+    left: 7vw;
+    height: auto;
+    padding: 2.5vw 3vw;
+}
+.cards-home{
+    width: 100%;
+}
+.area-cards-ongs{
+    width: 95vw;
+    margin: 0 2vw;
+    margin-top: 3vw;
+}
+.card, .card-ong{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1vw;
+}
+/* Ícone Favoritos */
+.icon-fav{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 13vw;
+}
+.icon-fav i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3vw;
+    padding: 0.5vw;
+    shape-outside: circle();
+    clip-path: circle();
+    margin: 1vw;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #FF1927;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+/* Foto do Pet */
+.card-ong .foto img{
+    width: 16vw;
+    height: 13vw;
+    border-top-left-radius: 1.5vw;
+    border-top-right-radius: 1.5vw;
+    box-shadow: 0 3px 6px #0005;
+}
+.card .foto img{
+    width: 13vw;
+    height: 12vw;
+    border-top-left-radius: 1.5vw;
+    border-top-right-radius: 1.5vw;
+    box-shadow: 0 3px 6px #0005;
+}
+
+
+/* Conteúdo do Card */
+.card .area-conteudo{
+    position: relative;
+    bottom: 2vw;
+    border-radius: 1.5vw;
+    background-color: #fff;
+    padding: 1vw;
+    width: 12vw;
+    box-shadow: 0 3px 6px #0005;
+}
+
+.modalOngPerfil .card .area-conteudo{
+    width: 12vw !important;
+}
+
+/* Área do nome e gênero */
+.area-conteudo .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    width: 95%;
+}
+
+/* Nome do Pet */
+.area-conteudo .nome{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.area-conteudo .nome h3{
+    font-family: Park;
+    font-size: 1.3vw;
+    font-weight: 500;
+    color: #004FDA;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9.5vw;
+    margin: 0;
+    margin-right: 0.6vw;
+}
+
+/* Ícone Gênero */
+.info .icon-macho i, .info .icon-femea i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    shape-outside: circle();
+    clip-path: circle();
+    font-size: 1.1vw;
+    padding: 0.6vw;
+    margin: 0;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+.icon-macho i{
+    background-color: #004FDA;
+}
+.icon-femea i{
+    background-color: #E76FB1;
+}
+
+/* Localização */
+.area-conteudo .local{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.area-conteudo .local i{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0.2vw;
+    font-size: 1vw;
+    color: #F58614;
+}
+.area-conteudo .local p{
+    font-size: 0.9vw;
+    color: #000;
+    font-weight: 100;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9.6vw;
+    margin: 0.5vw;
+    margin-left: 0.3vw;
+}
+
+/* Botão Saiba Mais */
+.area-conteudo .area-btn-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-modal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4vw 1.2vw;
+    background-color: #F58614;
+    border-radius: 2vw;
+    outline: none;
+    border: none;
+    margin: 0;
+    margin-top: 0.5vw;
+    cursor: pointer;
+}
+.botao-modal:hover{
+    transform: scale(1.1);
+}
+.botao-modal p{
+    color: #fff;
+    font-family: Regular;
+    font-size: 1vw;
+    margin: 0;
+    margin-right: 0.4vw;
+}
+.botao-modal i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F58614;
+    background-color: #fff;
+    font-size: 1.2vw;
+    padding: 0.1vw;
+    padding-top: 0.2vw;
+    shape-outside: circle();
+    clip-path: circle();
+}
+
+
+/* Card ONG */
+.card-ong .area-conteudo{
+    position: relative;
+    bottom: 2vw;
+    border-radius: 1.5vw;
+    background-color: #fff;
+    padding: 1vw;
+    width: 15vw;
+    box-shadow: 0 3px 6px #0005;
+}
+.card-ong .area-local{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.6vw;
+}
+.card-ong .area-conteudo .local{
+    margin-left: 0.5vw;
+}
+.card-ong .area-conteudo .local p{
+    max-width: 9vw;
+}
+.card-ong .area-local .btn-visitar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: Regular;
+    font-size: 1.2vw;
+    color: #F58614;
+}
+.card-ong .area-local .btn-visitar i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3vw;
+    margin-left: 0.1vw;
+}
+.card-ong .area-local .btn-visitar:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.pets-ong{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 73vw;
+    margin-bottom: 1vw;
+}
+.campanhas-ong{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 73vw;
+    margin-bottom: 1vw;
+}
+.pets-ong .area-campo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 0 1vw;
+}
+.pets-ong h2{
+    width: 100%;
+}
+.campanhas-ong h2{
+    margin-right: 20vw;
+}
+.pets-ong .search,
+.campanhas-ong .search{
+    width: 15vw;
+    margin-left: 0;
+}
+.pets-ong .filtros{
+    margin-left: 0;
+    padding: 0 5vw;
+}
+
+.area-pesquisa-modal{
+    position: absolute;
+    top: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Área Postagens */
+.area-conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45vw;
+    border-radius: 1vw;
+    padding: 1.5vw;
+    margin: 1vw;
+    background-color: #fff;
+}
+.area-top, .area-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+}
+.area-top{
+    margin-bottom: 2vh;
+}
+.area-bottom{
+    margin-top: 2vh;
+}
+
+.post .ong{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+}
+.post .ong img{
+    width: 3.5vw;
+    height: 3.5vw;
+    margin-right: 0.5vw;
+    border-radius: 50%;
+}
+.post .ong h4{
+    font-family: Regular;
+    font-size: 1.4vw;
+    font-weight: 500;
+    margin: 0;
+    color: #004FDA;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+    max-width: 80%;
+}
+
+/* Ícone Favoritos */
+.post .icon-fav{
+    position: relative;
+    width: 30%;
+}
+.post .icon-fav i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    padding: 0.5vw;
+    margin: 0;
+    shape-outside: circle();
+    clip-path: circle();
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #FF1927;
+    background-color: #F4F6FF;
+}
+
+.post .campanha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.post .campanha h4{
+    font-family: Regular;
+    font-size: 1.4vw;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 1vh;
+    color: #F58614;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+}
+.post .campanha img{
+    width: 98%;
+    border-radius: 1vw;
+}
+
+.area-bottom .p-desc{
+    font-size: 1vw;
+    color: #3B3B3B;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+}
+.area-bottom i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4vw;
+    color: #F58614;
+}
+
+
+/* Tela de Campanhas */
+.tela-campanhas .post,
+.tela-anuncios .post,
+.modalOngPerfil .post,
+.modalPerfilAnunciante .post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 29vw;
+    border-radius: 1vw;
+    padding: 1.5vw;
+    margin: 1vw 2vw;
+    margin-right: 0;
+    background-color: #fff;
+}
+
+.area-tela-posts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
