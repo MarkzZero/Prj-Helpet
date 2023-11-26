@@ -1,7 +1,5 @@
 <?php
-
-include('../config/config.php');
-
+    include('../config/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,20 +12,21 @@ include('../config/config.php');
         <link rel="icon" href="images/logo-azul.png">
 
         <!-- Links CSS -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/configuracoes.css">
+        <link rel="stylesheet" href="css/modais.css">    
     </head>
     <body>
 
         <header>
             <!-- Voltar para a página anterior -->
-            <a href="index.php">
+            <a href="javascript:history.back()">
                 <i class="fi fi-br-angle-small-left voltar"></i>
             </a>
 
             <h2>Configurações</h2>
 
             <div class="info-user">
-            <?php
+                <?php
                      while ($user_data = mysqli_fetch_assoc($result)) {
                     ?>  
                 <img src="images/foto-user.png">
@@ -38,35 +37,11 @@ include('../config/config.php');
             <div class="area-itens">
                 <h3>Configurações Gerais</h3>
 
-                <a href="edit-user.php">
-                    <div class="item-config">
-                        <i class="fi fi-sr-pencil icon-item"></i>
-                        <p>Editar Perfil</p>
-                        <i class="fi fi-br-angle-small-right icon-seta"></i>
-                    </div>
-                </a>
-
-                <div class="item-config">
-                    <i class="fi fi-br-eclipse-alt icon-item"></i>
-                    <p>Modo Escuro</p>
-                    <input type="checkbox" id="switch"/><label for="switch"></label>
+                <div class="item-config open-modalEdit">
+                    <i class="fi fi-sr-pencil icon-item"></i>
+                    <p>Editar Perfil</p>
+                    <i class="fi fi-br-angle-small-right icon-seta"></i>
                 </div>
-
-                <a href="#">
-                    <div class="item-config">
-                        <i class="fi fi-sr-file-exclamation icon-item"></i>
-                        <p>Termos e Condições</p>
-                        <i class="fi fi-br-angle-small-right icon-seta"></i>
-                    </div>
-                </a>
-                
-                <a href="#">
-                    <div class="item-config">
-                        <i class="fi fi-sr-interrogation icon-item"></i>
-                        <p>Sobre</p>
-                        <i class="fi fi-br-angle-small-right icon-seta"></i>
-                    </div>
-                </a>
 
                 <div class="item-config open-modalExc">
                     <i class="fi fi-sr-trash icon-item"></i>
@@ -86,13 +61,145 @@ include('../config/config.php');
             <div class="pata-amarela">
                 <img src="images/pata-amarela.png">
             </div>
-            <?php } ?>
         </header>
 
-        <?php require "excluir-user.php"; ?>
+        <!-- Tela de Editar Perfil -->
+        <div class="modalEdit hide">
+            <main>
+                <div class="pata-amarela">
+                    <a href="configuracoes.php"><i class="fi fi-br-angle-small-left"></i></a>
+                    <h2>Editar Perfil</h2>
+                    <img src="images/pata-amarela.png">
+                </div>
+
+                <form action="../Update/Update.php" method="post">
+                    <div class="imageContainer">
+                        <img src="images/foto-user.png" alt="selecionar foto" id="imgPhoto">
+                        <input type="file" id="flImage" name="image" accept="image/*">
+                        <label>Foto de Perfil</label>
+                    </div>
+
+                    <br>
+
+                    <h3>Dados Pessoais</h3>
+                    <div class="linhas">
+                        <div class="input-field">
+                            <label>Nome</label>
+                            <input type="text" name="nome" id="nomeuser" value="<?php echo $user_data['nomeUsuario'] ?>">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>CPF</label>
+                            <input type="text" name="cpf" id="nomeuser" value="111.111.111-22">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Telefone</label>
+                            <input type="telefone" name="teluser" id="teluser" value="(11) 98765-4321">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>E-mail</label>
+                            <input type="email" name="email" id="emailuser" value="<?php echo $user_data['emailUsuario'] ?>">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Senha</label>
+                            <input type="text" name="senhauser" id="senhauser" value="*****">
+                            <div class="underline"></div>
+                        </div>
+                        </div>
+
+                    <br>
+
+                    <h3>Endereço</h3>
+                    <div class="linhas">
+                        <div class="input-field">
+                            <label>CEP</label>
+                            <input type="text" name="cep" onblur="pesquisacep(this.value);" onkeyup="formatCEP(this)" id="nomepet" value="<?php echo $user_data['cepUsuario'] ?>" required>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Estado</label>
+                            <input type="text" name="estado" id="estado" value="<?php echo $user_data['estadoUsuario'] ?>" required>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Cidade</label>
+                            <input type="text" name="cidade" id="cidade" value="<?php echo $user_data['cidadeUsuario'] ?>" required>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Bairro</label>
+                            <input type="text" name="bairro" id="bairro" value="<?php echo $user_data['bairroUsuario'] ?>" required>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Logradouro</label>
+                            <input type="text" name="logradouro" id="logradouro" value="<?php echo $user_data['logradouroUsuario'] ?>" required>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Número</label>
+                            <input type="text" name="numero" id="numero" value="<?php echo $user_data['numLocalUsuario'] ?>"  required>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Complemento</label>
+                            <input type="text" name="complemento" id="complemento" value="<?php echo $user_data['complementoUsuario'] ?>" required>
+                            <div class="underline"></div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="botoes">
+                        <button class="btn-cancelar" type="button">Cancelar</button>
+                        <button class="btn-salvar" name="update" type="submit">Salvar</button>
+                    </div>
+                    
+                </form>
+
+                <!-- Modal Excluir Perfil  -->
+                <div class="fadeExc hide"></div>
+                <div class="modalExc hide">
+                    <div class="modal-header">
+                        <div class="fechar-modal">
+                            <i class="fechar fi fi-br-cross close-modalExc"></i>
+                        </div>
+                    </div>
+                    <form class="area-excluir" action="../Update/Update.php" method="post">
+                        <i class="fi fi-sr-delete-user"></i>
+                        <span>Desejar excluir sua conta?</span>
+                        <p>Digite Confirmar para Exclusão</p>
+                        <div class="input-field">
+                            <input type="text" name="senha" id="senha">
+                            <div class="underline"></div>
+                        </div>
+                        <div class="botoes">
+                            <button class="btn-cancelar close-modalExc" type="button">Cancelar</button>
+                            <button class="btn-excluir" type="submit">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <?php } ?>
+            </main>
+        </div>
 
         <!-- Links JS -->
         <script src="js/script.js"></script>
+        <script src="js/modais.js"></script>
 
     </body>
 </html>
