@@ -2,7 +2,7 @@
     include('conexao.php');
 
 
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id-ong'];
 
     $resultRaca = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbRaca.nomeRaca as 'nome_raca' FROM tbAnimal INNER JOIN tbRaca ON tbAnimal.idRaca = tbRaca.idRaca WHERE idOng = '$id' ORDER BY idAnimal DESC") or die($mysqli->error);
 

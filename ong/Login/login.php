@@ -23,13 +23,13 @@
 
             $usuario = $sql_query->fetch_assoc();
 
-            $_SESSION['email'] = $email;
+            $_SESSION['email-ong'] = $email;
 
-            $_SESSION['foto'] = $usuario['fotoOng'];
+            $_SESSION['foto-ong'] = $usuario['fotoOng'];
 
-            $_SESSION['nome'] = $usuario['nomeOng'];
+            $_SESSION['nome-ong'] = $usuario['nomeOng'];
 
-            $_SESSION['id'] = $usuario['idOng'];
+            $_SESSION['id-ong'] = $usuario['idOng'];
 
             if(password_verify($senha, $usuario['senhaOng'])){
                 header("Location: ../dashboard-ong/index.php");

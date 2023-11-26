@@ -30,10 +30,10 @@ if (isset($_GET[1]))
 
             <div class="logo">
                 <!-- Puxar do banco a imagem da ong aqui -->
-                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
+                <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $_SESSION['foto-ong']; ?>">
 
                 <!-- Conectar o nome das ongs com o banco -->
-                <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome']; ?></span>
+                <span class="title-ong">Bem-Vindo <br> <?php echo $_SESSION['nome-ong']; ?></span>
             </div>
 
             <ul>
