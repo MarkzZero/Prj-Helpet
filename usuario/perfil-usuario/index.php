@@ -21,7 +21,7 @@ include('../config/config.php');
         <ul>
             <li><a href="index.php" id="atual"><img class="img_menu" src="images/home.png"></a></li>
             <li><a href="notificacoes.php"><img class="img_menu" src="images/noti.png"></a></li>
-            <li><a href="#"><img class="img_menu" src="images/chat.png"></a></li>
+            <li><a href="Chat.php"><img class="img_menu" src="images/chat.png"></a></li>
             <li><a href="perfil.php"><img class="img_menu" src="images/perfil.png"></a></li>
         </ul>
     </nav>

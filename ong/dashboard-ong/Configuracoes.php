@@ -24,19 +24,19 @@ include('config/config.php');
 <body>
     <div class="container">
 
-        <!-- Menu Fixo Lateral -->
-        <div class="navegation">
-            <div class="toggle">
-                <i class="fi fi-br-menu-burger"></i>
-            </div>
+            <!-- Menu Fixo Lateral -->
+            <div class="navegation">
+                <div class="toggle">
+                    <i class="fi fi-br-menu-burger"></i>
+                </div>
+                
+                <div class="logo">
+                    <!-- Puxar do banco a imagem da ong aqui -->
+                    <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $ong_data['fotoOng']; ?>">
 
-            <div class="logo">
-                <!-- Puxar do banco a imagem da ong aqui -->
-                <img id="image" style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $ong_data['fotoOng']; ?>">
-
-                <!-- Conectar o nome das ongs com o banco -->
-                <span class="title-ong">Bem-Vindo <br> <?php echo $ong_data['nomeOng']; ?></span>
-            </div>
+                    <!-- Conectar o nome das ongs com o banco -->
+                    <span class="title-ong">Bem-Vindo <br> <?php echo$ong_data['nomeOng']; ?></span>
+                </div>
 
             <ul>
                 <li>

@@ -5,7 +5,7 @@
     }
 
     #Se não estiver logado, voltará para o login.
-    if(!isset($_SESSION['email'])){
+    if(!isset($_SESSION['email-ong'])){
         die(header('location: ../index.php'));
     }
 ?>
