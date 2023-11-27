@@ -1,0 +1,152 @@
+body{
+    overflow: hidden;
+}
+
+/* Títulos */
+.titulo-pagina{
+    position: absolute;
+    top: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.titulo-pagina span{
+    position: relative;
+    font-family: National;
+    font-size: 2.3vw;
+    color: #122BAD;
+}
+
+/* Cards Box */
+.card-box{
+    position: relative;
+    left: 4vw;
+    margin-top: 2vw;
+    font-family: Poppins;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-claro, .card-azul, .card-azul-medio, .card-escuro{
+    width: 15vw;
+    padding: 1.8vh;
+    border-radius: 4vh;
+    cursor: pointer;
+    margin-bottom: 1.5vh;
+}
+.card-claro{
+    background-color: #72B0FF;
+}
+.card-azul{
+    background-color: #377DE2;
+}
+.card-azul-medio{
+    background-color: #054bc5;
+}
+.card-escuro{
+    background-color: #0d2499;
+}
+.card-box .card-conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-box .card-conteudo img{
+    width: 9vh;
+}
+.card-box .card-name{
+    color: #fff;
+    font-size: 2.5vh;
+    margin: 0.5vh;
+    text-align: center;
+}
+.card-box .number{
+    color: #fff;
+    font-size: 3.2vh;
+    text-align: center;
+}
+
+/* Gráficos */
+.area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.conteudo-graficos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-grafico{
+    position: relative;
+    top: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
+    padding: 1vw;
+    background-color: #fff;
+    border-radius: 1.5vw;
+}
+.area-grafico .sub-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-grafico .sub-titulo span{
+    font-size: 1.5vw;
+    margin-bottom: 3vw;
+}
+
+/*
+#myChart{
+    position: relative;
+    width: 50vw;
+    height: 30vh;
+}
+*/
+
+#myChart, #myChart2{
+    position: relative;
+    width: 25vw;
+}
+
+
+/* Títulos */
+.titulo-pagina{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.titulo-pagina span{
+    position: relative;
+    font-family: National;
+    font-size: 2.3vw;
+    color: #122BAD;
+}
+.sub-titulo, .sub-titulo2{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 1.6vw;
+}
+.titulo1{
+    color: #004FDA;
+}
+.titulo2{
+    color: #FF8903;
+}
+
+.conteudo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

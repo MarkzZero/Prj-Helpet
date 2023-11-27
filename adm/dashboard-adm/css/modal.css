@@ -1,0 +1,126 @@
+/* Modais */
+.fade,
+.modal,
+.fadeExcluir,
+.modalExcluir,
+.fadeUser,
+.modalUser,
+.fadeExcUser,
+.modalExcUser,
+.fadeAnun,
+.modalAnun,
+.fadeExcAnun,
+.modalExcAnun{
+    transition: .5s;
+    opacity: 1;
+    pointer-events: all;
+}
+.fade, 
+.fadeExcluir,
+.fadeUser,
+.fadeExcUser,
+.fadeAnun,
+.fadeExcAnun{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); 
+    z-index: 5;
+    transition: .3s;
+}
+.modal.hide, 
+.modalExcluir.hide,
+.modalUser.hide,
+.modalExcUser.hide,
+.modalAnun.hide,
+.modalExcAnun.hide,
+.fade.hide, 
+.fadeExcluir.hide,
+.fadeUser.hide,
+.fadeExcUser.hide,
+.fadeAnun.hide,
+.fadeExcAnun.hide{
+    opacity: 0;
+    pointer-events: none;
+    z-index: 4;
+}
+.modal.hide, 
+.modalExcluir.hide,
+.modalUser.hide,
+.modalExcUser.hide,
+.modalAnun.hide,
+.modalExcAnun.hide{
+    top: 0;
+}
+
+
+.modal, .modalUser, .modalAnun{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    background-color: #F4F6FF;
+    transform: translate(-50%, -50%);
+    width: 75vw;
+    height: auto;
+    padding: 1.5vw;
+    border-radius: 1.5vw;
+}
+
+
+.modalExcluir, .modalExcUser, .modalExcAnun{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+    background-color: #F4F6FF;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: auto;
+    padding: 1.5vw;
+    border-radius: 2vw;
+}
+.modalExcluir .modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.modalExcluir .area-excluir{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modalExc .area-excluir span{
+    font-family: Regular;
+    font-weight: 500;
+    font-size: 1.5vw;
+    margin: 2vh 0;
+    color: #FF3131;
+}
+.modalExc .area-excluir p{
+    color: #000;
+    font-size: 1.2vw;
+}
+.modalExc .area-excluir i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10vw;
+    color: #FF3131;
+}
+.modalExc .area-excluir .underline::before {
+    background: #FF3131;
+}
+.modalExc .area-excluir .botoes .btn-cancelar{
+    background-color: transparent;
+    color: #FF3131;
+    border: 0.2vw solid #FF3131;
+}
+.modalExc .area-excluir .botoes .btn-excluir{
+    background: #FF3131;
+    color: #fff;
+    border: 0.2vw solid #FF3131;
+}
