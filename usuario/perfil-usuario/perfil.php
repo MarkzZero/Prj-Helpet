@@ -31,6 +31,10 @@
         </nav>
 
         <div class="container1">
+            <?php 
+            while($user_data = mysqli_fetch_assoc($sqlUsuario) AND $prefe_data = mysqli_fetch_assoc($sqlPreferencia) and $raca_data = mysqli_fetch_assoc($resultRaca)){
+
+            ?>
             <!-- TOPO DO PERFIL -->
             <div class="topo">
                 <div class="papel-parede">
@@ -46,8 +50,8 @@
                 <div class="dados-perfil">
                     <div class="perfil">
                         <div class="user">
-                            <img src="images/foto-user.png">
-                            <h2><?php echo $_SESSION['nome'];?></h2>
+                            <img src="<?php echo "../cadastro/" . $user_data['fotoUsuario']?>">
+                            <h2><?php echo $user_data['nomeUsuario'];?></h2>
                             <p>Olá, bem-vindo ao meu perfil!</p>
                         </div>
 
@@ -57,33 +61,41 @@
                                 <div class="coluna">
                                     <div class="item">
                                         <img src="images/preferencias/tipo-pet.png">
-                                        <p>Cachorro</p>
+                                        <p><?php echo $prefe_data['tipoPet'] ?></p>
                                     </div>
                                     <div class="item">
                                         <img src="images/preferencias/porte.png">
-                                        <p>Porte Médio</p>
+                                        <p><?php echo $prefe_data['portePet'] ?></p>
                                     </div>
                                 </div>
 
                                 <div class="coluna">
                                     <div class="item">
+                                        <?php if ($prefe_data['preferenciaUsuario'] == 'Apadrinhar'){?>
                                         <img src="images/preferencias/apadrinhamento.png">
                                         <p>Apadrinhar</p>
+                                        <?php } elseif($prefe_data['preferenciaUsuario'] == 'Adotar'){ ?>
+                                            <img src="images/preferencias/icon-adocoes.png">
+                                            <p>Adotar</p>
+                                        <?php } else{ ?>
+                                            <img src="images/preferencias/icon-adocoes.png">
+                                            <p>Sem Preferência</p>
+                                        <?php } ?>
                                     </div>
                                     <div class="item">
                                         <img src="images/preferencias/genero.png">
-                                        <p>Fêmea</p>
+                                        <p><?php echo $prefe_data['generoPet'] ?></p>
                                     </div>
                                 </div>
 
                                 <div class="coluna">
                                     <div class="item">
                                         <img src="images/preferencias/idade.png">
-                                        <p>Pet Filhote</p>
+                                        <p><?php echo $prefe_data['idadePet'] ?></p>
                                     </div>
                                     <div class="item">
                                         <img src="images/preferencias/raca.png">
-                                        <p>Sem preferência de raça</p>
+                                        <p><?php echo $raca_data['nome_raca'] ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -91,6 +103,7 @@
                     </div>
 
                 </div>
+                <?php } ?>
             </div>
 
 

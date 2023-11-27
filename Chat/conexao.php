@@ -9,4 +9,3 @@ $host = 'localhost';
 $pdo = new PDO("mysql:host=$host;dbname=$database",$usuario,$senha);
 
 ?>
-
