@@ -1,0 +1,185 @@
+/* Títulos */
+.titulo-pagina{
+    position: absolute;
+    top: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.titulo-pagina span{
+    position: relative;
+    font-family: National;
+    font-size: 2.3vw;
+    color: #122BAD;
+}
+.sub-titulo{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 1.8vw;
+    color: #004FDA;
+}
+
+
+.area-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#icon-tabela i, #icon-cards i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004FDA;
+    font-size: 4vh;
+    margin-left: 2vh;
+    padding: 2vh;
+    border-radius: 5vh;
+    cursor: pointer;
+}
+#icon-cards i{
+    background-color: #004FDA;
+    color: #fff;
+}
+
+
+.consulta{
+    position: relative;
+}
+#area-tabela{
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin-top: 5vh;
+    display: none;
+}
+#area-cards{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 0.5vw;
+    margin-top: 8vh;
+}
+
+/* Cards  */
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 14.5vw;
+    margin: 1vw;
+    background-color: #fff;
+    padding: 1vw;
+    border-radius: 1vw;
+}
+.card .foto-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card .foto-card img{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+}
+.card h4{
+    font-family: Regular;
+    font-size: 1.4vw;
+    font-weight: 500;
+    color: #004FDA;
+    margin: 0.5vw 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+}
+
+.card .desc{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.card .desc i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F58614;
+    font-size: 1vw;
+}
+.card .desc p{
+    font-size: 1vw;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    margin-left: 0.5vw;
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vw;
+}
+button{
+    border: none;
+    outline: none;
+}
+button:hover, .add-anuncio:hover{
+    transform: scale(1.1);
+    transition: .5s;
+    cursor: pointer;
+}
+
+.btn-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4vw;
+    width: 7.5vw;
+    border-radius: 2vw;
+    margin-right: 3vw;
+    background-color: #F58614;
+}
+.btn-info p{
+    font-family: Regular;
+    font-size: 1.1vw;
+    color: #fff;
+    margin-right: 0.5vw;
+}
+.btn-info i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+    padding: 0.2vw;
+    color: #F58614;
+    background-color: #fff;
+    shape-outside: circle();
+    clip-path: circle();
+}
+
+.btn-delete{
+    border-radius: 50%;
+}
+.btn-delete i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6vw;
+    font-size: 1vw;
+    color: #fff;
+}
+.btn-delete{
+    background-color: #EA2D40;
+}

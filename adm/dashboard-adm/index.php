@@ -12,79 +12,42 @@
         <link rel="icon" href="images/logo-azul.png">
 
         <!-- Links CSS -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/principal.css">
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     </head>
     <body>
         <div class="container">
 
             <!-- Menu Fixo Lateral -->
-            <div class="navegation">
-                <div class="toggle">
-                    <i class="fi fi-br-menu-burger"></i>
-                </div>
-                
-                <div class="logo">
-                    <img src="images/logo-branca.png">
-                    <span class="title-adm">ADM</span>
-                </div>
-
-                <ul>
-                    <li>
-                        <a href="index.php">
-                            <span class="icon"><i class="fi fi-sr-chart-line-up"></i></span>
-                            <span class="title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Ongs.php">
-                            <span class="icon"><i class="fi fi-rr-house-building"></i></span>
-                            <span class="title">ONGs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Chat.php">
-                            <span class="icon"><i class="fi fi-rr-messages"></i></span>
-                            <span class="title">Chat</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fi fi-rr-settings"></i></span>
-                            <span class="title">Configurações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="logout.php">
-                            <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
-                            <span class="title">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <?php require "menu-lateral.php"; ?>
 
             <div class="main">
-
-                <!-- Área Topo -->
-                <div class="topbar">
-                    <div class="titulo-pagina">
-                        <span>Dashboard</span>
-                    </div>
-                </div>
-
-
                 <div class="conteudo">
-
                     <!-- Gráficos -->
-                    <div class="area-grafico">
-                        <div class="titulo-graficos">
-                            <span>Visualizações do Sistema</span>
+                    <div class="area">
+                        <div class="titulo-pagina">
+                            <span>Dashboard</span>
                         </div>
+                        <div class="conteudo-graficos">
+                            <div class="area-grafico">
+                                <div class="sub-titulo">
+                                    <span class="titulo1">Cadastrados no Sistema</span>
+                                </div>
+                                <div class="grafico">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            </div>
 
-                        <div class="grafico">
-                            <div id="chartdiv2"></div>
+                            <div class="area-grafico">
+                                <div class="sub-titulo">
+                                    <span class="titulo2">Pets Cadastrados</span>
+                                </div>
+                                <div class="grafico">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                
 
                     <!-- Cards Box -->
                     <div class="card-box"> 
@@ -131,9 +94,7 @@
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-        <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <script src="js/script.js"></script>
         <script src="js/graficos.js"></script>

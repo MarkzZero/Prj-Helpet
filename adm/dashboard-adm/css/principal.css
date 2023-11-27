@@ -1,0 +1,308 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+
+/* Fontes */
+@font-face {
+    font-family: National;
+    src: url('../../../css/fonts/NationalPark-Bold.otf');
+}
+@font-face {
+    font-family: Park;
+    src: url('../../../css/fonts/NationalPark-Medium.otf');
+}
+@font-face {
+    font-family: Regular;
+    src: url('../../../css/fonts/NationalPark-Regular.otf');
+}
+@font-face {
+    font-family: Poppins;
+    src: url('../../../css/fonts/Poppins-Regular.ttf');
+}
+
+/* Conteúdo */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --azulClaro: #72B0FF;
+    --blue: #122BAD;
+    --azul: #377DE2;
+    --white: #F4F6FF;
+    --white2: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+body{
+    background-color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Poppins;
+}
+.card::marker{
+    color: transparent;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    position: relative;
+    display: flex;
+}
+
+
+/* Área Logo Menu */
+.logo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: -1vh;
+    width: 100%;
+}
+.logo img{
+    width: 9vw;
+    height: 9vw;
+}
+.title-adm{
+    color: #fff;
+    font-family: Park;
+    font-size: 2vw;
+    text-align: center;
+}
+
+
+.toggle{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.toggle i{
+    position: relative;
+    color: #fff;
+    font-size: 1.8vw;
+    cursor: pointer;
+    top: 2vh;
+    right: 1.5vw;
+}
+
+
+/* Menu Fixo Lateral */
+.navegation{
+    position: fixed;
+    width: 17vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #122BAD;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navegation ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 3vh;
+    width: auto;
+    margin-left: 0.5vw;
+}
+.navegation ul li{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    border-top-left-radius: 10vh;
+    border-bottom-left-radius: 10vh;
+}
+.navegation ul li:hover,
+.navegation ul li.hovered{
+    background: var(--white);
+}
+.navegation ul li:hover a,
+.navegation ul li.hovered a{
+    color: var(--blue);
+}
+.navegation ul li:nth-child(6){
+    position: relative;
+    top: 8vh;
+}
+.navegation ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    z-index: 10;
+}
+.navegation ul li a .icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 1.5vw;    
+    padding-right: 0;
+}
+.navegation ul li a .icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8vw;
+    z-index: 10;
+}
+.navegation ul li a .title{
+    font-family: Regular;
+    position: relative;
+    display: block;
+    padding: 3vh 0;
+    padding-left: 1vw;
+    font-size: 1.4vw;
+}
+
+
+.navegation ul li:hover a::before,
+.navegation ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+.navegation ul li:hover a::after,
+.navegation ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+
+/* Área Topo */
+.main{
+    position: relative;
+    min-width: 78vw;
+    max-width: 78vw;
+    height: auto;
+    left: 19vw;
+    transition: 0.5s;
+}
+
+
+.navegation.active{
+    width: 6vw;
+}
+.navegation.active .title-adm{
+    display: none;
+}
+.navegation.active ul{
+    top: 10vh;
+    margin-left: 0.8vw;
+}
+.navegation.active ul .title{
+    display: none;
+}
+.navegation.active .logo img{
+    margin-top: 4vh;
+    width: 4vw;
+    height: 4vw;
+}
+.navegation.active .title-ong{
+    display: none;
+}
+.navegation.active ul li:nth-child(6){
+    top: 10vh;
+}
+.navegation.active ul li a .icon{
+    padding: 2.5vh 2vh;
+}
+.main.active{
+    min-width: 90vw;
+    max-width: 90vw;
+    left: 7.5vw;
+}
+.navegation.active .toggle{
+    justify-content: center;
+}
+.navegation.active .toggle i{
+    right: initial;
+}
+
+.topbar{
+    position: relative;
+    margin-top: 1vh;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Barra de Pesquisa */
+.search label{
+    position: relative;
+    width: 100%;
+}
+.search label input{
+    display: flex;
+    align-items: center;
+    padding: 1vh 6vh;
+    border-radius: 20vh;
+    padding-left: 6vh;
+    font-size: 2.5vh;
+    outline: none;
+    border: 0.1vh solid var(--black2);
+}
+.search label ion-icon{
+    position: absolute;
+    display: flex;
+    top: 1vh;
+    left: 1.5vh;
+    font-size: 3.5vh;
+    color: var(--blue);
+}
+
+
+
+.conteudo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 1vw;
+}
