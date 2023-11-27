@@ -3,7 +3,7 @@ include_once('../config/conexao.php');
 include('../config/config.php');
 include('../../Login/login.php');
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id-ong'];
 
 if (isset($_POST['update'])) {
 

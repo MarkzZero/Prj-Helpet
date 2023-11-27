@@ -208,6 +208,7 @@ if (isset($_GET[1]))
                                 <br>
 
                                 <div class="campo">
+
                                     <?php $sql = mysqli_query($mysqli, "SELECT idDoenca, tipoDoenca FROM tbDoenca"); ?>
                                     <select class="select-btn" name="doenca" id="doenca">
                                         <option value="" disabled selected>Doenças:</option>
@@ -356,9 +357,9 @@ if (isset($_GET[1]))
                                     <form action="cadastro/editar.php" enctype="multipart/form-data" method="POST">
                                         <div class="area-foto">
                                             <div class="imageContainer">
-                                                <input type="hidden" name="foto" value="<?php echo $user_data['fotoPerfilAnimal'] ?>">
-                                                <img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>" alt="selecionar foto" id="imgPhoto2">
-                                                <input type="file" value="<?php echo $user_data['fotoPerfilAnimal'] ?>" id="flImage2" name="image" accept="image/*">
+                                                <input type="hidden" value="<?php echo $user_data['fotoPerfilAnimal']; ?>" name="foto" id="">
+                                                <img src="<?php echo "cadastro/" . $user_data['fotoPerfilAnimal']; ?>" alt="Alterar foto" id="imgPhoto2" class="imgPhoto">
+                                                <input type="file" id="flImage2" name="image" class="flImage" accept="image/*">
                                             </div>
                                         </div>
 
@@ -396,7 +397,7 @@ if (isset($_GET[1]))
 
                                         <div class="input-field">
                                             <label>Descrição</label>
-                                            <input type="text" name="descpet" id="descpet" value="">
+                                            <input type="text" name="descricao" id="descpet" value="<?php echo $user_data['descAnimal'] ?>">
                                             <div class="underline"></div>
                                         </div>
 
@@ -424,8 +425,10 @@ if (isset($_GET[1]))
 
                                         <div class="input-field">
                                             <span class="sBtn-text">Vacinas</span>
-                                            <div class="select-btn">
-                                                <?php $sql = mysqli_query($mysqli, "SELECT idVacina, tipoVacina FROM tbVacina"); ?>
+                                            <div class="select-btn"><?php
+                                                                    $valorPadrao = $vacData['vacina'];
+                                                                    $sql = mysqli_query($mysqli, "SELECT idVacina, tipoVacina FROM tbVacina");
+                                                                    ?>
                                                 <select style="    font-family: Poppins;
                                                         color: #8A8A8A;
                                                         font-size: 2.5vh;
@@ -435,13 +438,11 @@ if (isset($_GET[1]))
                                                         text-indent: 1px;
                                                         text-overflow: '';
                                                         width: 17.1vw;" class="select-btn" name="vacina" id="vacina">
-                                                    <option value="opVac" selected><?php echo $vacData['vacina'] ?></option>
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
-                                                        echo "<option style='color: black;' value='" . $resultado['idVacina'] . "' name='vacina'>"  . $resultado['tipoVacina'] . "</option>";
+                                                        $selected = ($resultado['tipoVacina'] == $vacData['vacina']) ? 'selected' : '';
+                                                        echo "<option style='color: black;' value='" . $resultado['idVacina'] . "' name='vacina' $selected>" . $resultado['tipoVacina'] . "</option>";
                                                     }
-
-
                                                     ?>
                                                 </select>
                                                 <i class="fi fi-rr-angle-small-down"></i>
@@ -465,11 +466,10 @@ if (isset($_GET[1]))
                                                     text-indent: 1px;
                                                     text-overflow: '';
                                                     width: 14vw;" class="select-btn" name="doenca" id="doenca">
-
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
-                                                        $selecionado = ($resultado['idDoenca'] == $valorPadrao) ? "selected" : "";
-                                                        echo "<option style='color: black;' value='" . $resultado['idDoenca'] . "' name='doenca' $selecionado>"  . $resultado['tipoDoenca'] . "</option>";
+                                                        $selected = ($resultado['tipoDoenca'] == $doenca_data['doenca']) ? 'selected' : '';
+                                                        echo "<option style='color: black;' value='" . $resultado['idDoenca'] . "' name='doenca' $selected>" . $resultado['tipoDoenca'] . "</option>";
                                                     }
                                                     ?>
                                                 </select>
@@ -503,8 +503,10 @@ if (isset($_GET[1]))
 
                                         <div class="input-field">
                                             <span class="sBtn-text">Raça</span>
-                                            <div class="select-btn">
-                                                <?php $sql = mysqli_query($mysqli, "SELECT idRaca, nomeRaca FROM tbRaca"); ?>
+                                            <div class="select-btn"><?php
+                                                                    $valorPadrao = $raca_data['nome_raca'];
+                                                                    $sql = mysqli_query($mysqli, "SELECT idRaca, nomeRaca FROM tbRaca");
+                                                                    ?>
                                                 <select style="    font-family: Poppins;
                                                         color: #8A8A8A;
                                                         font-size: 2.5vh;
@@ -517,7 +519,8 @@ if (isset($_GET[1]))
                                                     <option value="opRaca" selected><?php echo $raca_data['nome_raca'] ?></option>
                                                     <?php
                                                     while ($resultado = mysqli_fetch_array($sql)) {
-                                                        echo "<option style='color: black;'  value='" . $resultado['idRaca'] . "' name='raca'>"  . $resultado['nomeRaca'] . "</option>";
+                                                        $selected = ($resultado['nomeRaca'] == $raca_data['nome_raca']) ? 'selected' : '';
+                                                        echo "<option style='color: black;' value='" . $resultado['idRaca'] . "' name='raca' $selected>" . $resultado['nomeRaca'] . "</option>";
                                                     }
                                                     ?>
                                                 </select>
@@ -637,10 +640,10 @@ if (isset($_GET[1]))
                                         <div class="campo-pet">
                                             <span>Gênero</span>
                                             <div>
-                                                <p><?php echo $user_data['descAnimal'] ?>
-                                                    <?php if ($user_data['descAnimal'] == 'Macho') { ?>
+                                                <p><?php echo $user_data['generoAnimal'] ?>
+                                                    <?php if ($user_data['generoAnimal'] == 'Macho') { ?>
                                                         <i class="fi fi-rr-mars"></i>
-                                                    <?php } elseif ($user_data['descAnimal'] == 'Fêmea') { ?>
+                                                    <?php } elseif ($user_data['generoAnimal'] == 'Fêmea') { ?>
                                                         <i style="color: #FC0FC0;" class="fi fi-rr-venus"></i>
                                                     <?php } ?>
                                                 </p>
@@ -693,7 +696,7 @@ if (isset($_GET[1]))
                                             <div class="subtitulo">
                                                 <span>Descrição</span>
                                             </div>
-                                            <p>Descrição do pet</p>
+                                            <p><?php echo $user_data['descAnimal'] ?></p>
                                         </div>
                                     </div>
                                 </div>

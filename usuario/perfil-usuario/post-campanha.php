@@ -1,9 +1,9 @@
+<div class="post">
 <?php
     while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
             $ong_Data = mysqli_fetch_assoc($resultOng);
             $foto_Data = mysqli_fetch_assoc($fotoOng);
 ?>
-<div class="post">
     <div class="area-top">
         <div class="ong">
             <img src="<?php echo "../../ong/cadastro/" . $foto_Data['foto']?>">
@@ -140,5 +140,6 @@
         </div>
 
     </div>
+    <?php } ?>
 </div>
-<?php } ?>
+<br>br

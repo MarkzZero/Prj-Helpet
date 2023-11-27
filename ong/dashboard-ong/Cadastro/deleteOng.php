@@ -4,7 +4,7 @@
         include('../../Login/login.php');
 
         if(isset($_POST['delete'])){
-            $id = $_SESSION['id'];
+            $id = $_SESSION['id-ong'];
             $senha = mysqli_real_escape_string($mysqli ,trim($_POST['senha']));
     
             //Select

@@ -16,7 +16,7 @@ if (isset($_POST['cadastrar'])) {
     $vacSelecionada = $_POST['vacina'];
     $doencaSelecionada = $_POST['doenca'];
     $descricao = mysqli_real_escape_string($mysqli, trim($_POST['descricao']));
-    $idOng = $_SESSION['id'];
+    $idOng = $_SESSION['id-ong'];
 
     $dadosIdade = array(
         "opFilhote" => "Filhote (Menos de 1 ano)",

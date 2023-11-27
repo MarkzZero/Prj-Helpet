@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 #Conecta ao banco de dados
 $usuario = 'root';
 $senha = '';

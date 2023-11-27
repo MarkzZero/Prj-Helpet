@@ -12,6 +12,7 @@ if (isset($_POST['update'])) {
     $arquivo = $_FILES['image'];
     $foto = $_POST['foto'];
     $nome = mysqli_real_escape_string($mysqli, trim($_POST['nome']));
+    $descricao = mysqli_real_escape_string($mysqli, trim($_POST['descricao']));
     $porteSelecionado = $_POST['porte'];
     $idadeSelecionada = $_POST['idade'];
     $opcaoEspecie = $_POST['especie'];
@@ -76,7 +77,7 @@ if (isset($_POST['update'])) {
         }
     }
 
-            $sql = "UPDATE tbAnimal SET nomeAnimal = '$nome', porteAnimal = '$inserirPorte', descAnimal = '$inserirGenero', idadeAnimal = '$inserirIdade', especieAnimal = '$inserirEspecie', idRaca = '$racaSelecionada', idVacina = '$vacSelecionada', idDoenca = '$doencaSelecionada' WHERE idAnimal = '$id'";
+            $sql = "UPDATE tbAnimal SET nomeAnimal = '$nome', porteAnimal = '$inserirPorte', generoAnimal = '$inserirGenero', descAnimal = '$descricao',idadeAnimal = '$inserirIdade', especieAnimal = '$inserirEspecie', idRaca = '$racaSelecionada', idVacina = '$vacSelecionada', idDoenca = '$doencaSelecionada' WHERE idAnimal = '$id'";
 
             if ($mysqli->query($sql) == true) {
                 header('location: ../Pets.php');
@@ -84,7 +85,7 @@ if (isset($_POST['update'])) {
                 echo "Erro ao editar animal no banco de dados: " . $mysqli->error;
             }
 
-            header("Location: ../Pets.php");
+            header("Location: ../Pets.php#area-cards");
             exit;
     
 }

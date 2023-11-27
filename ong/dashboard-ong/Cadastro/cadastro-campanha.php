@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cep = mysqli_real_escape_string($mysqli, trim($_POST['cep']));
     $opcional = $_FILES['opcional'];
     $image = $_FILES['image'];
-    $id = $_SESSION['id'];
+    $id = $_SESSION['id-ong'];
 
     if ($image !== null) {
         preg_match("/\.(png|jpg|jpeg){1}$/i", $image["name"], $ext);

@@ -51,26 +51,26 @@ photoElements.forEach((photo, index) => {
 
 /* ÁREA OUTRAS FOTOS DO PET */
 'use static'
-let photoAdd = document.getElementById('photos');
-let fileAdd = document.getElementById('filesImgs');
+let photoAdd2 = document.getElementById('photos2');
+let fileAdd2 = document.getElementById('filesImgs2');
 
-photoAdd.addEventListener("click", () => {
-    fileAdd.click();   
+photoAdd2.addEventListener("click", () => {
+    fileAdd2.click();   
 });
 
 file.addEventListener('change', (event) => {
     
-   if(fileAdd.filesAdd.length <= 0){
+   if(fileAdd2.filesAdd2.length <= 0){
     return;
    }
 
     let reader = new FileReader()
 
     reader.onload = () =>{
-        photoAdd.src = reader.result;
+        photoAdd2.src = reader.result;
     }
 
-    reader.readAsDataURL(fileAdd.filesAdd[0]);
+    reader.readAsDataURL(fileAdd2.filesAdd[0]);
 });
 
 

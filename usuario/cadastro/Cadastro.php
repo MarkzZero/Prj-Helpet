@@ -4,7 +4,7 @@
     include('../conexao/conexao.php');
 
     
-
+    $image= $_FILES['image'];
     $nome = mysqli_real_escape_string($mysqli, trim($_POST['nome']));
     $email = mysqli_real_escape_string($mysqli, trim($_POST['email']));
     $telefone = mysqli_real_escape_string($mysqli, trim($_POST['telefone']));
@@ -78,22 +78,36 @@
             exit;
         }
 
-        $sql = "INSERT INTO tbUsuario (nomeUsuario, emailUsuario, senhaUsuario, bairroUsuario, cidadeUsuario, numLocalUsuario, complementoUsuario, estadoUsuario, cepUsuario, logradouroUsuario) VALUES ('$nome', '$email', '$passwordHash', '$bairro', '$cidade', '$numero', '$complemento', '$estado', '$cep', '$logradouro')";
-        if($mysqli->query($sql) == true){
-            $id_Usuario = $mysqli->insert_id; 
-            $sql_tel = "INSERT INTO tbTelefoneUsuario (numTelefoneUsuario, idUsuario) VALUES ('$telefoneNum', '$id_Usuario')";
-            if($mysqli->query($sql_tel) === true){
-                $sqlPrefe = "INSERT INTO tbPrefeUsuario (tipoPet, generoPet, portePet, preferenciaUsuario, idadePet, idUsuario, idRaca) VALUES ('$inserirTipo', '$inserirGenero', '$inserirPorte', '$inserirPrefe', '$inserirIdade', '$id_Usuario', '$racaSelecionada')";
-                if($mysqli->query($sqlPrefe) == true){
-                    header("Location: ../index.php");
-                };
-            }   
-            $_SESSION['status_cadastro'] = true;
-        }else{
-            echo $mysqli->error;
+        if($image != null){
+            preg_match("/\.(png|jpg|jpeg){1}$/i", $image["name"], $ext);
+            if($ext == true){
+                
+            $nome_arquivo = md5(uniqid(time())) . "." . $ext[1];
+
+            $caminho_arquivo = "fotoUsuario/" . $nome_arquivo;
+
+            move_uploaded_file($image["tmp_name"], $caminho_arquivo);
+
+            $sql = "INSERT INTO tbUsuario (nomeUsuario, emailUsuario, senhaUsuario, bairroUsuario, cidadeUsuario, numLocalUsuario, complementoUsuario, estadoUsuario, cepUsuario, logradouroUsuario, fotoUsuario) VALUES ('$nome', '$email', '$passwordHash', '$bairro', '$cidade', '$numero', '$complemento', '$estado', '$cep', '$logradouro', '$caminho_arquivo')";
+            if($mysqli->query($sql) == true){
+                $id_Usuario = $mysqli->insert_id; 
+                $sql_tel = "INSERT INTO tbTelefoneUsuario (numTelefoneUsuario, idUsuario) VALUES ('$telefoneNum', '$id_Usuario')";
+                if($mysqli->query($sql_tel) === true){
+                    $sqlPrefe = "INSERT INTO tbPrefeUsuario (tipoPet, generoPet, portePet, preferenciaUsuario, idadePet, idUsuario, idRaca) VALUES ('$inserirTipo', '$inserirGenero', '$inserirPorte', '$inserirPrefe', '$inserirIdade', '$id_Usuario', '$racaSelecionada')";
+                    if($mysqli->query($sqlPrefe) == true){
+                        header("Location: ../index.php");
+                    };
+                }   
+                $_SESSION['status_cadastro'] = true;
+            }else{
+                echo $mysqli->error;
+            }
+            $mysqli->close();
+            exit;
+            }
         }
-        $mysqli->close();
-        exit;
+
+
     }else{
         $_SESSION['invalido'] == true;
         header("Location: ../cadastro.php");

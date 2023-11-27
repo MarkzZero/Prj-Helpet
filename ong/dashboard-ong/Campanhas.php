@@ -192,7 +192,7 @@ if (isset($_GET[1]))
 
                         <div class="area-add-fotos">
                             <div class="titulo-add">
-                                <p>Adicione outras fotos do pet (opcional)</p>
+                                <p>Adicione outras fotos da campanha (opcional)</p>
                                 <i id="photos" class="fi fi-sr-images"></i>
                                 <input type="file" id="filesImgs" multiple accept="image/*" multiple onchange="handleFileSelect(event)" name="opcional[]" multiple>
                             </div>
@@ -212,8 +212,8 @@ if (isset($_GET[1]))
                 </div>
 
                 <div class="input-group">
-                    <input type="search" placeholder="Pesquisar...">
-                    <i class="bi bi-search"></i>
+                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
+                    <i class="bi bi-search" style="color: black;"></i>
                 </div>
 
                 <div class="area-icons">

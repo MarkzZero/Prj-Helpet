@@ -35,7 +35,7 @@ include('config/config.php');
                     <img style="border-radius: 100%;" src="<?php echo "../Cadastro/" . $ong_data['fotoOng']; ?>">
 
                     <!-- Conectar o nome das ongs com o banco -->
-                    <span class="title-ong">Bem-Vindo <br> <?php echo$ong_data['nomeOng']; ?></span>
+                    <span class="title-ong">Bem-Vindo <br> <?php echo $ong_data['nomeOng']; ?></span>
                 </div>
 
             <ul>
