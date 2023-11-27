@@ -17,6 +17,10 @@
   src: url('../css/fonts/NationalPark-Medium.otf');
 }
 @font-face {
+  font-family: Regular;
+  src: url('../css/fonts/NationalPark-Regular.otf');
+}
+@font-face {
   font-family: Poppins;
   src: url('../css/fonts/Poppins-Regular.ttf');
 }
@@ -25,6 +29,7 @@
 body{
   font-family: Poppins;
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 ::selection{
@@ -42,8 +47,8 @@ body{
   padding: 1.5vh;
   shape-outside: circle();
   clip-path: circle();
-  right: 3%;
-  bottom: 3%;
+  right: 2.5%;
+  bottom: 2.5%;
   opacity: 0.5;
   visibility: hidden;
 }
@@ -132,6 +137,9 @@ nav .menu-btn i{
   width: 9vh;
   margin-left: 1vw;
 }
+.logo img:hover{
+  transform: scale(1.1);
+}
 .area-links{
   position: relative;
   display: flex;
@@ -141,6 +149,73 @@ nav .menu-btn i{
   width: 100%;
   margin: 0 3vw;
   padding-bottom: 1vh;
+}
+
+/* Botão de Opções do Login/Cadastro */
+.dropbtn{
+  width: 20vw;
+  margin: 0 5vw;
+  padding: 0.6vw;
+  border-radius: 2vw;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  font-family: Park;
+  font-size: 1.4vw;
+  color: #fff;
+  background-color: #F48503;
+  cursor: pointer;
+}
+
+.dropdown{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown-content{
+  display: none;
+}
+
+.dropdown-content a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0.7vw 1.5vw;
+  border-radius: 2vw;
+  width: auto;
+  font-size: 1.4vw;
+  text-decoration: none;
+}
+.dropdown-content i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  margin-right: 0.7vw;
+}
+.dropdown-content a:hover{
+  background-color: #fff;
+  color: #032068;
+}
+.dropdown-content a:hover i{
+  color: #F48503;
+}
+
+.dropdown:hover .dropdown-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #F48503;
+  border-radius: 2vw;
+  width: 18vw;
+  padding: 1vw;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 3.4vw;
 }
 
 /* Menu Fixo */
@@ -161,6 +236,9 @@ nav.ativo .pata-home-top img{
   width: 12vh;
   top: 0;
   right: 0;
+}
+nav.ativo .dropbtn{
+  margin: 0 7vw;
 }
 
 
@@ -307,7 +385,7 @@ nav.ativo .pata-home-top img{
 }
 
 
-#quem-somos, #servicos, #beneficios, #fale-conosco{
+#quem-somos, #servicos, #beneficios, #anunciantes, #fale-conosco{
   padding: 7vw 0;
   padding-bottom: 4vw;
   margin: 3vw 0;
@@ -806,68 +884,43 @@ nav.ativo .pata-home-top img{
 }
 
 /* ANUNCIANTES */
-.img-anunciante{
-  /* background-color: #00c75a; */
-  width: 32%;
-  margin-left: 19%;
-  margin-top: 3%;
+.area-anunciantes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vw;
 }
 .img-anunciante img{
-  width: 70%;
-  margin-left: 10%;
+  width: 25vw;
 }
 .desc-anunciante{
-  /* background-color: #F48503; */
-  width: 35%;
-  margin-left: 51%;
-  margin-top: -19%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40vw;
+  margin-left: 5vw;
 }
 .desc-anunciante p{
-  font-size: 2.8vh;
-  width: 80%;
-}
-.botoes-contato-anunci{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 2.5vw;
-  margin-left: 51%;
-
-
-}
-.botoes-contato-anunci .link button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #F48503;
-  width: 110%;
-  border: none;
-  padding: 0.7vw 1.6vw;
-  border-radius: 2vw;
-  transition: all 0.5s;
-}
-.botoes-contato-anunci .link button:hover{
-  transform: scale(1.1);
-}
-.botoes-contato-anunci a:hover{
-  text-decoration: none;
-}
-.botoes-contato-anunci .link button span{
-  color: #fff;
-  font-size: 1.2vw;
-  font-family: Park;
-  text-transform: uppercase;
-  margin-right: 0.5vw;
-  
-}
-.botoes-contato-anunci .link button ion-icon{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1.4vw;
-  color: #fff;
+  color: #000;
+  text-align: left;
+  margin-bottom: 2vw;
 }
-
+.desc-anunciante a{
+  padding: 0.8vw 2vw;
+  border-radius: 2vw;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Park;
+  font-size: 1.3vw;
+  color: #fff;
+  background-color: #ff9720;
+}
+.desc-anunciante a:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
 
 /* FALE CONOSCO */
@@ -979,6 +1032,9 @@ nav.ativo .pata-home-top img{
 }
 .area-fale-conosco .secao-img img{
   width: 28vw;
+}
+.area-fale-conosco .cao-contato{
+  display: none;
 }
 
 .area-fale-conosco .botoes-contato{
@@ -1093,7 +1149,7 @@ nav.ativo .pata-home-top img{
     position: fixed;
     top: 9.9vh;
     left: -105%;
-    background-color: rgba(18,43,173,0.8);
+    background-color: rgba(18,43,173,0.9);
     height: 90.1vh;
     width: 100%;
     text-align: center;
@@ -1112,7 +1168,7 @@ nav.ativo .pata-home-top img{
     padding: 0;
     margin: 0;
   }
-  .nav-list {
+  .nav-list{
     position: relative;
     list-style: none;
     display: flex;
@@ -1122,6 +1178,7 @@ nav.ativo .pata-home-top img{
     text-align: center;
     width: 100%;
     height: 100%;
+    top: 5vh;
   }
   .nav-list li a{
     font-size: 2.5vh;
@@ -1132,6 +1189,35 @@ nav.ativo .pata-home-top img{
   }
   .hr-menu{
     display: none;
+  }
+
+  /* Botão de Opções do Login/Cadastro */
+  .dropbtn{
+    position: relative;
+    bottom: 28vh;
+    width: 32vh;
+    margin: 0;
+    padding: 1vh;
+    border-radius: 3vh;
+    font-size: 2.5vh;
+  }
+
+  .dropdown-content a{
+    padding: 1vh 2.5vh;
+    border-radius: 3vh;
+    font-size: 2.5vh;
+  }
+  .dropdown-content i{
+    font-size: 2.5vh;
+    margin-right: 1vh;
+  }
+
+  .dropdown:hover .dropdown-content{
+    border-radius: 3vh;
+    width: 32vh;
+    padding: 1vh;
+    bottom: 8vh;
+    top: initial;
   }
 
   /* Botão Faça Parte ONGs */ 
@@ -1151,9 +1237,7 @@ nav.ativo .pata-home-top img{
 
   nav.ativo{
     top: 0;
-  }
-  nav.ativo .nav-list{
-    top: 9.9vh;
+    background-color: rgba(18,43,173,0.9);
   }
   .logo{
     position: absolute;
@@ -1274,6 +1358,20 @@ nav.ativo .pata-home-top img{
     font-size: 4.5vh;
   }
 
+
+  /* Espaçamento entre cada section */
+  #quem-somos, #servicos, #beneficios, #anunciantes, #fale-conosco{
+    padding: 11vh 0;
+    padding-bottom: 5vh;
+    margin: 5vh 0;
+  }
+  #quem-somos{
+    padding-bottom: 3vh;
+  }
+  #fale-conosco{
+    padding: 10vh 0;
+    padding-bottom: 3vh;
+  }
 
 
   /* QUEM SOMOS */
@@ -1525,96 +1623,134 @@ nav.ativo .pata-home-top img{
     margin-bottom: 0.6vh;
   }
 
+  /* ANUNCIANTES */
+  .area-anunciantes{
+    flex-direction: column;
+    margin-top: 3vh;
+  }
+  .img-anunciante img{
+    width: 30vh;
+  }
+  .desc-anunciante{
+    flex-direction: column;
+    align-items: center;
+    width: 85vw;
+    margin-left: 0;
+  }
+  .desc-anunciante p{
+    font-size: 2.2vh;
+    margin: 3vh 0;
+    text-align: center;
+  }
+  .desc-anunciante a{
+    padding: 1vh 2.5vh;
+    border-radius: 2vh;
+    font-size: 2.2vh;
+  }
+
 
   /* FALE CONOSCO */
-  #fale-conosco{
-    margin: 16vh 0;
-    margin-bottom: 22vh;
+  .area-fale-conosco .form-row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+  }
+  .area-fale-conosco .form-row .form-control{
+    padding: 1vh 0;
+    padding-left: 2vh;
   }
   .area-fale-conosco .form-control{
-    border-radius: 1.5vh;
+    border-radius: 2vh;
+    padding-left: 2vh;
     padding-top: 1vh;
-    padding-left: 1.5vh;
-    margin-bottom: 1vh;
+    margin: 1vh 0;
+    width: 75vw;
   }
   .area-fale-conosco .form-control::placeholder{
     margin: 1vh;
-    font-size: 2.2vh;
+    font-size: 2vh;
   }
   .form-group{
     margin-top: 1vh;
   }
   .area-fale-conosco input{
-    height: 5vh;
-    width: 50vw;
+    font-size: 2vh;
+    height: initial;
+  }
+  .area-fale-conosco textarea{
+    min-height: 16vh;
+    max-height: 22vh;
   }
 
   .pata-azul-esquerda img, .pata-azul-direita img{
     width: 9vh;
+    height: auto;
   }
   .pata-azul-esquerda img{
-    top: -12vh;
+    top: 0;
   }
   .pata-azul-direita img{
-    bottom: -19vh;
+    bottom: 0; 
   }
 
   .area-fale-conosco .secao{
     flex-direction: column;
+    margin: 14vh 0;
   }
   .area-fale-conosco .secao-form{
-    width: 85vw;
-    margin: 1vw;
+    align-items: center;
+    width: 80vw;
+    margin: 1vh;
   }
-  .area-fale-conosco .secao-form form{
-    position: relative;
-    top: 36vh;
+  .area-fale-conosco .secao-form .area-texto{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 0;
   }
   .area-fale-conosco .secao-form h1{
-    font-size: 3.5vh;
-    width: 100%;
-    text-align: center;
+    font-size: 3.4vh;
+    margin: 0;
   }
   .area-fale-conosco .secao-form p{
     font-size: 2.2vh;
-    margin: 1vh 0;
-    width: 100%;
-    text-align: center;
+    margin: 0;
+    margin-top: 2vh;
   }
   .area-fale-conosco .secao-img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1vw;
+    display: none;
+    margin: 1vh;
   }
   .area-fale-conosco .secao-img img{
-    position: relative;
-    width: 32vh;
-    bottom: 38vh;
-    right: 1.5vh;
+    width: 28vh;
+    margin-right: 2.5vh;
+  }
+  .area-fale-conosco .cao-contato{
+    display: flex;
   }
 
   .area-fale-conosco .botoes-contato{
-    margin-top: 1.5vh;
+    margin-top: 2vh;
   }
   .area-fale-conosco button{
-    padding: 1.5vh 3vh;
-    border-radius: 3vh;
+    padding: 1vh 2.4vh;
+    border-radius: 2vh;
   }
   .area-fale-conosco button span{
-    font-size: 2.2vh;
+    font-size: 2vh;
     margin-right: 1vh;
   }
   .area-fale-conosco button i{
-    font-size: 3vh;
+    font-size: 2vh;
   }
   .area-fale-conosco .icones-contato i{
-    font-size: 6vh;
+    font-size: 4.5vh;
   }
   #icon-phone{
     margin-right: 1vh;
   }
-
 
 
   /* RODAPÉ */

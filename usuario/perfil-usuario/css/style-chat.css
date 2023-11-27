@@ -1,405 +1,11 @@
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
-
-/* Fontes */
-@font-face {
-    font-family: National;
-    src: url('../../../css/fonts/NationalPark-Bold.otf');
-}
-
-@font-face {
-    font-family: Park;
-    src: url('../../../css/fonts/NationalPark-Medium.otf');
-}
-
-@font-face {
-    font-family: Regular;
-    src: url('../../../css/fonts/NationalPark-Regular.otf');
-}
-
-@font-face {
-    font-family: Poppins;
-    src: url('../../../css/fonts/Poppins-Regular.ttf');
-}
-
-
-/* CONTEÚDO */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-}
-
-:root {
-    --blue: #122BAD;
-    --white: #F4F6FF;
-    --white2: #fff;
-    --grey: #f5f5f5;
-    --black1: #222;
-    --black2: #999;
-    --orange: #FF901B;
-    --green: #00b300;
-    --red: #E60B00;
-}
-
-body {
-    background-color: #F4F6FF;
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family: Poppins;
-}
-
-.container {
-    display: flex;
-}
-
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;	
-	font-family: Work Sans, sans-serif;
-}
-
-body{
-    margin: 0;
-    margin: 0;
-    background-color: #F4F6FF;
-    font-family: Verdana, Tahoma, sans-serif;
-    justify-content: center;
-    display: flex;
-
-}
-
-html,body{
-    height: 100%;
-    overflow-x: hidden;
-}
-
-/* NAV */
-nav{
-    position: fixed;
-    /* margin-top: 28vh;  */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    /* justify-content: center; */
-    background-color: #F4F6FF50;
-    box-shadow: 1px 5px  #D9D9D9;
-    flex: 3vh;
-    width: 7vw;
-    padding-left: 3%;
-    padding-right: 0%;
-    padding-top: 2%;
-    left: 0;
-}
-
-ul{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15vh;
-    list-style: none;
-    right: 1.5vw;
-}
-
-li a{
-    vertical-align: middle;
-    text-decoration: none;
-    background-color:#A6A6A6;
-    margin-top: 5vh;
-    margin-bottom: -2vh;
-    left: 0%;
-    border-radius: 20px;
-    width: 100%; 
-    height: 8vh;
-    min-height: 30px;
-    opacity: 0.2;
-    transition: all 0.5s ;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-li a:hover{
-    background-color: #FB8830;
-    transform: scale(1.1);
-    opacity: 1;
-    box-shadow: 0px 0px 30px #122cad5b;
-}
-
-#atual{
-    vertical-align: middle;
-    text-decoration: none;
-    background-color: #FB8830;
-    margin-top: 5vh;
-    margin-bottom: -2vh;
-    left: 0%;
-    border-radius: 20px;
-    width: 100%;
-    opacity: 1;
-    transition: all 0.5s ;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-#atual:hover{
-    transform: scale(1);
-    opacity: 1;
-    box-shadow: 0px 0px 30px #122cad5b;
-}
-.img_menu{
-    vertical-align: middle;
-    width: 60%;
-    min-width: 30%;
-    margin-left: 20%;
-}
-#div-logo{
-    width: 100%;
-    /* background-color: #000; */
-    margin-left: -70%;
-    align-self: center;
-    /* margin-top: -150%; */
-
-}
-#logo{
-    width: 4vw;
-    /* background-color: #000; */
-    /* margin-left: -70%; */
-
-    /* margin-top: -150%; */
-
-}
-
-/* Área Logo Menu */
-.logo {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.logo img {
-    width: 17vh;
-}
-
-.title-ong {
-    color: #fff;
-    font-family: Park;
-    font-size: 3.2vh;
-    text-align: center;
-}
-
-.toggle {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.toggle i {
-    position: relative;
-    color: #fff;
-    font-size: 3.5vh;
-    cursor: pointer;
-    top: 2vh;
-    right: 3vh;
-}
-
-
-/* Menu Fixo Lateral */
-.navegation {
-    position: fixed;
-    width: 17vw;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #122BAD;
-    transition: 0.5s;
-    overflow: hidden;
-}
-
-.navegation ul {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 5vh;
-    width: auto;
-    margin-left: 0.5vw;
-}
-
-.navegation ul li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    list-style: none;
-    padding-left: 0;
-    padding-right: 0;
-    border-top-left-radius: 10vh;
-    border-bottom-left-radius: 10vh;
-}
-
-.navegation ul li:hover,
-.navegation ul li.hovered {
-    background: var(--white);
-}
-
-.navegation ul li:hover a,
-.navegation ul li.hovered a {
-    color: var(--blue);
-}
-
-.navegation ul li:nth-child(6) {
-    position: relative;
-    top: 9vh;
-}
-
-.navegation ul li a {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    text-decoration: none;
-    color: #fff;
-    z-index: 10;
-}
-
-.navegation ul li a .icon {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-left: 1.5vw;
-    padding-right: 0;
-}
-
-.navegation ul li a .icon i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4vh;
-    z-index: 10;
-}
-
-.navegation ul li a .title {
-    font-family: Regular;
-    position: relative;
-    display: block;
-    padding: 3vh 0;
-    padding-left: 1vw;
-    font-size: 2.6vh;
-}
-
-
-.navegation ul li:hover a::before,
-.navegation ul li.hovered a::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: -50px;
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border-radius: 50%;
-    box-shadow: 35px 35px 0 10px var(--white);
-    pointer-events: none;
-}
-
-.navegation ul li:hover a::after,
-.navegation ul li.hovered a::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -50px;
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border-radius: 50%;
-    box-shadow: 35px -35px 0 10px var(--white);
-    pointer-events: none;
-}
-
-
-/* Área Topo */
-.main {
-    position: relative;
-    min-width: 78vw;
-    max-width: 78vw;
-    height: auto;
-    left: 19vw;
-    transition: 0.5s;
-}
-
-
-.navegation.active {
-    width: 6vw;
-}
-
-.navegation.active ul {
-    top: 11vh;
-    margin-left: 0.8vw;
-}
-
-.navegation.active ul .title {
-    display: none;
-}
-
-.navegation.active .logo img {
-    margin-top: 7vh;
-    width: 10vh;
-}
-
-.navegation.active .title-ong {
-    display: none;
-}
-
-.navegation.active ul li:nth-child(6) {
-    top: 10vh;
-}
-
-.navegation.active ul li a .icon {
-    padding: 2.5vh 2vh;
-}
-
-.main.active {
-    min-width: 90vw;
-    max-width: 90vw;
-    left: 7.5vw;
-}
-
-.navegation.active .toggle {
-    justify-content: center;
-}
-
-.navegation.active .toggle i {
-    right: initial;
-}
-
-
-
+@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
 
 .wrapper {
     position: relative;
-    background-color: var(--white);
-    left: 17vw;
+    left: 7vw;
     position: fixed;
-    width: 24vw;
+    width: 25vw;
+
     /*  height: 100vh; */
 
 }
@@ -517,11 +123,11 @@ li a:hover{
 
 /* AREA CHAT */
 .wrapper-chat {
-    position: relative;
-    ;
-    left: 20vw;
-    width: 60vw;
-    background-color: #ffffff;
+    position: relative;;
+    left: 25vw;
+    width: 68vw;
+    top: 0;
+    background-color: #fff;
     /*  height: 100vh; */
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
 }
@@ -529,12 +135,12 @@ li a:hover{
 .chat-area header {
     display: flex;
     align-items: center;
-    padding: 18px 30px;
+    padding: 3vw;
 }
 
 .chat-area header img {
-    height: 50px;
-    width: 50px;
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
 }
 
@@ -646,12 +252,19 @@ li a:hover{
     outline: none;
 
 }
-
-.typing-area img {
-    width: 50px;
-    margin-top: -5px;
+.typing-area button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.typing-area i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    margin-left: 1vw;
+    color: #525252;
     cursor: pointer;
-
 }
 
 .typing-area img:hover {

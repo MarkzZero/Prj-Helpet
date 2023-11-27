@@ -1,0 +1,405 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+/* Fontes */
+@font-face {
+    font-family: National;
+    src: url('../../../css/fonts/NationalPark-Bold.otf');
+}
+@font-face {
+    font-family: Park;
+    src: url('../../../css/fonts/NationalPark-Medium.otf');
+}
+@font-face {
+    font-family: Regular;
+    src: url('../../../css/fonts/NationalPark-Regular.otf');
+}
+@font-face {
+    font-family: Poppins;
+    src: url('../../../css/fonts/Poppins-Regular.ttf');
+}
+
+
+/* CONTEÚDO */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Poppins;
+}
+
+body{
+    background-color: #F4F6FF;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Poppins;
+}
+
+li{
+    list-style: none;
+}
+
+/* Área Logo Menu */
+.foto-anunciante{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+}
+.foto-anunciante img{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    margin-bottom: 1vh;
+}
+.foto-anunciante h2{
+    color: #004FDA;
+    font-family: Park;
+    font-weight: 500;
+    font-size: 1.4vw;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 12vw;
+    margin: 0;
+}
+
+.toggle{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5%;
+}
+.toggle i{
+    position: relative;
+    color: #004FDA;
+    font-size: 1.6vw;
+    cursor: pointer;
+    top: 2.2vh;
+    right: 1.4vw;
+    z-index: 10;
+}
+
+nav{
+    position: fixed;
+    width: 15vw;
+    top: 0;
+    left: 0;
+    border-right: 0.1vw solid #D9D9D9;
+    height: 100vh;
+    transition: .5s;
+}
+nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 65%;
+}
+nav ul li{
+    margin: 2vh 0;
+    width: 88%;
+}
+nav ul li:nth-child(4){
+    position: relative;
+    margin-top: 18vh;
+}
+nav a{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    border-radius: 2vw;
+    padding: 2vh 0.8vw;
+}
+nav ul li i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7vw;
+    color: #F58614;
+}
+nav ul li p{
+    font-family: Regular;
+    font-size: 1.3vw;
+    color: #004FDA;
+    margin-left: 0.5vw;
+}
+nav ul li a:hover,
+nav ul li a.hovered{
+    transition: background 300ms ease-in-out;
+    background: #F58614;
+}
+nav ul li:hover p,
+nav ul li.hovered p,
+nav ul li:hover i,
+nav ul li.hovered i{
+    color: #fff;
+}
+
+nav.active{
+    width: 5vw;
+}
+nav.active .foto-anunciante img{
+    margin-top: 7vh;
+    width: 3vw;
+    height: 3vw;
+}
+nav.active .foto-anunciante h2{
+    display: none;
+}
+nav.active a{
+    justify-content: center;
+}
+nav.active ul li p{
+    display: none;
+}
+
+nav.active .toggle{
+    justify-content: center;
+}
+nav.active .toggle i{
+    right: initial;
+}
+
+.main{
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 83vw;
+    left: 15vw;
+}
+
+.main.active{
+    width: 93vw;
+    left: 5vw;
+}
+
+/* Área Topo */
+.topbar{
+    position: relative;
+    margin-top: 1vh;
+    width: 100%;
+    left: 0;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+/* Imagens das páginas */
+.img-pag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-pag img{
+    width: 3.5vw;
+}
+
+.img-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.img-logo img{
+    width: 4.2vw;
+}
+
+
+/* Títulos */
+.titulo-pagina span{
+    font-family: National;
+    font-size: 2.3vw;
+    color: #004FDA;
+    /*color: #122BAD;*/
+}
+.sub-titulo{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 1.7vw;
+    color: #004FDA;
+}
+
+/* Barra de Pesquisa */
+.area-pesquisa{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 2vh;
+    margin: 0;
+    width: 100%;
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 2vw;
+    border: 0.1vw solid #E8E8E8;
+    width: 24vw;
+    font-size: 1.2vw;
+    padding: 0 1vw;
+    margin-top: 7vh;
+}
+.search input{
+    font-family: Poppins;
+    width: 100%;
+    font-size: 1vw;
+    padding: 0.6vw;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.search i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004FDA;
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+
+
+/* Cards dos Anúncios */
+.area-cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 0.5vw;
+    margin-top: 8vh;
+}
+.add-anuncio, .card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14.5vw;
+    margin: 1vw;
+}
+.add-anuncio img{
+    width: 80%;
+}
+
+.card{
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1vw;
+    border-radius: 1vw;
+}
+.card img{
+    width: 13vw;
+    height: 11vw;
+    border-radius: 1vw;
+}
+.card h4{
+    font-family: Regular;
+    font-size: 1.4vw;
+    font-weight: 500;
+    color: #004FDA;
+    margin: 0.5vw 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+}
+
+.card .desc{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.card .desc i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F58614;
+    font-size: 1vw;
+}
+.card .desc p{
+    font-size: 1vw;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    margin-left: 0.5vw;
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vw;
+}
+button{
+    border: none;
+    outline: none;
+}
+button:hover, .add-anuncio:hover{
+    transform: scale(1.1);
+    transition: .5s;
+    cursor: pointer;
+}
+
+.btn-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4vw;
+    width: 7.5vw;
+    border-radius: 2vw;
+    background-color: #F58614;
+}
+.btn-info p{
+    font-family: Regular;
+    font-size: 1.1vw;
+    color: #fff;
+    margin-right: 0.5vw;
+}
+.btn-info i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+    padding: 0.2vw;
+    color: #F58614;
+    background-color: #fff;
+    shape-outside: circle();
+    clip-path: circle();
+}
+
+.btn-edit, .btn-delete{
+    border-radius: 50%;
+}
+.btn-edit i, .btn-delete i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6vw;
+    font-size: 1vw;
+    color: #fff;
+}
+.btn-edit{
+    background-color: #00BF63;
+    margin-right: 0.3vw;
+    margin-left: 1vw;
+}
+.btn-delete{
+    background-color: #EA2D40;
+}

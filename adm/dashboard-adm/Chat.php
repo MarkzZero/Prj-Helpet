@@ -12,55 +12,15 @@
         <link rel="icon" href="images/logo-azul.png">
 
         <!-- Links CSS -->
-        <link rel="stylesheet" type="text/css" href="css/style-chat.css">
+        <link rel="stylesheet" href="css/principal.css">
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/style-chat.css">
     </head>
     <body>
         <div class="container">
 
             <!-- Menu Fixo Lateral -->
-            <div class="navegation">
-                <div class="toggle">
-                    <i class="fi fi-br-menu-burger"></i>
-                </div>
-                
-                <div class="logo">
-                    <img src="images/logo-branca.png">
-                    <span class="title-adm">ADM</span>
-                </div>
-
-                <ul>
-                    <li>
-                        <a href="index.php">
-                            <span class="icon"><i class="fi fi-sr-chart-line-up"></i></span>
-                            <span class="title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Ongs.php">
-                            <span class="icon"><i class="fi fi-rr-house-building"></i></span>
-                            <span class="title">ONGs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Chat.php">
-                            <span class="icon"><i class="fi fi-rr-messages"></i></span>
-                            <span class="title">Chat</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fi fi-rr-settings"></i></span>
-                            <span class="title">Configurações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="logout.php">
-                            <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
-                            <span class="title">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <?php require "menu-lateral.php"; ?>
 
             <div class="main">
 
