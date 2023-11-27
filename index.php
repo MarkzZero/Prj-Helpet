@@ -11,8 +11,10 @@
         <!-- Links CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -20,7 +22,6 @@
 
         <!-- Home -->
         <section id="home">
-
             <header>
                 <nav>
                     <div class="menu-btn">
@@ -42,13 +43,22 @@
                             <li><a href="#fale-conosco">Fale conosco</a></li>
                         </ul>
 
-                        <div class="area-btn-ong">
-                            <a href="./usuario/index.php">
-                                <div class="login-ongs">Adote um pet!</div>
-                            </a>
-                            <a href="./ong/index.php">
-                                <div class="login-ongs">Faça parte ONGs!</div>
-                            </a>
+                        <div class="dropdown">
+                            <button class="dropbtn">Faça Parte da Helpet!</button>
+                            <div class="dropdown-content">
+                                <a href="./usuario/index.php">
+                                    <i class="fi fi-sr-users"></i>
+                                    Usuários
+                                </a>
+                                <a href="./ong/index.php">
+                                    <i class="fi fi-sr-house-building"></i>
+                                    ONGs
+                                </a>
+                                <a href="./anunciante/index.php">
+                                    <i class="fi fi-sr-store-alt"></i>
+                                    Anunciantes
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -87,7 +97,6 @@
                 <img class="pata-home-bottom" src="images/img-home/pata-branca.png">
                 <img class="patinhas-home" src="images/img-home/patinhas-amarela.png">
             </div>
-
         </section>
 
 
@@ -97,7 +106,6 @@
         
         <!-- Quem Somos -->
         <section id="quem-somos">
-
             <h1 class="titulo">Quem Somos</h1>
 
             <div id="conteudo-quem-somos">
@@ -135,7 +143,6 @@
                 </div>
 
             </div>
-
         </section>
 
         <!-- Serviços -->
@@ -215,7 +222,6 @@
                     <img src="images/img-serviços/serv-fundo-gato.png">
                 </div>
 
-
             </div>
         </section>
 
@@ -225,11 +231,8 @@
             <h1 class="titulo">Benefícios</h1>
 
             <div class="area-beneficios">
-
                 <div class="row">
-
                     <div id="card-laranja" class="card">
-
                         <h2>Adote um pet e ganhe um amigo</h2>
 
                         <div id="benef-patinhas">
@@ -241,7 +244,6 @@
                         </div>
 
                         <div class="conteudo-cards">
-
                             <div class="secao">
                                 <div class="secao-div-img">
                                     <img src="images/img-beneficios/card-laranja/img-chat.png">
@@ -274,7 +276,7 @@
                             <div class="cadastro">
                                 <h3>Cadastre-se nesse sistema</h3>
                                 <div class="area-img">
-                                    <img src="images/img-beneficios/card-laranja/img-adotar.png">
+                                    <img src="images/img-beneficios/card-laranja/img-adocao.png">
                                 </div>
                                 <div class="area-btn-cadastro">
                                     <a href="./usuario/index.php">
@@ -282,7 +284,6 @@
                                     </a>
                                 </div>
                             </div>
-
                             <br>
                         </div>
 
@@ -291,7 +292,6 @@
                                 <i class="fi fi-sr-angle-small-down"></i>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="area-pets">
@@ -355,7 +355,6 @@
                                     </a>
                                 </div>
                             </div>    
-                            
                             <br>
                         </div>
 
@@ -364,39 +363,28 @@
                                 <i class="fi fi-sr-angle-small-down"></i>
                             </div>
                         </div>
-                    
                     </div>
-                
                 </div>
-                
             </div>
-            
         </section>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
         <!-- Anunciantes -->
         <section id="anunciantes">
-        <h1 class="titulo">Anunciantes</h1>
-          <div class="img-anunciante">
-            <img src="images/img-beneficios/img-anunciante.png" alt="">
-          </div> 
-          
-          <div class="desc-anunciante">
-            <p>Conosco os anunciantes como PetShops, veterinários, Banho&Tosa, entre outros serviços que poderão entrar em contato com o nosso sistema e 
-               poderão anunciar seus produtos na plataforma e realizar parcerias com as ongs cadastradas.</p>
-          </div>
+            <h1 class="titulo">Anunciantes</h1>
+            <div class="area-anunciantes">
+                <div class="img-anunciante">
+                    <img src="images/img-beneficios/img-anunciante.png">
+                </div> 
 
-            <div class="botoes-contato-anunci">
-             <a class="link" href="#fale-conosco">
-                <button name="Enviar" >
-                    <span>Contato</span>
-                    <!-- <ion-icon name="bookmark-outline"></ion-icon> -->
-                </button>
-             </a>   
+                <div class="desc-anunciante">
+                    <p>
+                        Conosco os anunciantes como PetShops, veterinários, Banho&Tosa, entre outros serviços 
+                        podem fazer parte do nosso sistema, anunciando seus produtos na plataforma e realizando 
+                        parcerias com as ONGs cadastradas.
+                    </p>
+                    <a href="./anunciante/index.php">Anuncie seus produtos!</a>
+                </div>
             </div>
         </section>
 
@@ -417,6 +405,9 @@
                                 Entre em contato para esclarecer dúvidas, 
                                 enviar sugestões ou críticas sobre nosso projeto.
                             </p>
+                            <div class="secao-img cao-contato">
+                                <img src="images/img-fale-conosco/fale-conosco.png">
+                            </div>
                         </div>
             
                         <form method="POST" action="./forms/contato.php" id="form">
