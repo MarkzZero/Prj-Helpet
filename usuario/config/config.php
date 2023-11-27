@@ -18,6 +18,12 @@ $resultRaca = $mysqli->query("SELECT tbprefeUsuario.tipoPet as 'preferencia', tb
 
 $resultCamp = mysqli_fetch_assoc($resultCampanha);
 
+$preferencia = $mysqli->query("SELECT * FROM tbPrefeUsuario WHERE idUsuario = '$id'");
+
+$prefe = mysqli_fetch_assoc($preferencia);
+
+$preferenciaPet = $mysqli->query("SELECT * FROM tbAnimal WHERE especieAnimal = '$prefe[tipoPet]' OR generoAnimal = '$prefe[generoPet]' or porteAnimal = '$prefe[portePet]'");
+
 $resultOng = $mysqli->query("SELECT tbCampanha.nomeCampanha as 'campanha', tbOng.nomeOng as 'ong' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbOng.idOng = '$resultCamp[idOng]'");
 
 $fotoOng = $mysqli->query("SELECT tbCampanha.nomeCampanha as 'campanha', tbOng.fotoOng as 'foto' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbOng.idOng = '$resultCamp[idOng]'");
