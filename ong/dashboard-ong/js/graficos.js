@@ -17,32 +17,27 @@ toggle.onclick = function(){
     main.classList.toggle('active');
 }
 
-
-//GRAFICO
-const ctx = document.getElementById('myChart');
+/* Gráficos */
+const ctx2 = document.getElementById('myChart');
 
 Chart.defaults.font.size = 16;
 
-new Chart(ctx, {
-  type: 'line',
+new Chart(ctx2, {
+  type: 'pie',
   data: {
-    labels: ['Jan', 'Fev', 'Mar', 'Mai', 'Abr'],
-    datasets: [
-        {
-            label: 'Cachorros',
-            data: [3, 1, 3, 5, 2, 3],
-            backgroundColor: "#0d8af2",
-            borderColor: "#0d8af2",
-            borderWidth: 4,
-        },
-        {
-            label: 'Gatos',
-            data: [3, 7, 1, 4, 9, 8],
-            backgroundColor: "#ffac33",
-            borderColor: "#ffac33",
-            borderWidth: 4,
-        }
-    ],
+    labels: [
+        'Adoções',
+        'Apadrinhamentos',
+      ],
+      datasets: [{
+        label: 'Quantidade',
+        data: [100, 70],
+        backgroundColor: [
+          '#FFBD49',
+          '#FF8903',
+        ],
+        hoverOffset: 4
+      }]
   },
   options: {
     indexAxis: 'x',
@@ -51,7 +46,44 @@ new Chart(ctx, {
         legend: {
             labels: {
                 font: {
-                    size: 14
+                    size: 16,
+                }
+            }
+        }
+    },
+  }
+});
+
+
+const ctx = document.getElementById('myChart2');
+
+Chart.defaults.font.size = 16;
+
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: [
+        'Gatos',
+        'Cachorros',
+      ],
+      datasets: [{
+        label: 'Quantidade',
+        data: [150, 80],
+        backgroundColor: [
+          '#72B0FF',
+          '#377DE2',
+        ],
+        hoverOffset: 4
+      }]
+  },
+  options: {
+    indexAxis: 'x',
+
+    plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 16,
                 }
             }
         }
