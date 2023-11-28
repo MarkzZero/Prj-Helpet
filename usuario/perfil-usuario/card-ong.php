@@ -84,23 +84,6 @@
             </div>
 
             <div class="area-campo">
-                <div class="filtros">
-                    <div class="item-filtro atual-filtro">
-                        <img src="images/pet-todos.png">
-                        <p>Todos</p>
-                    </div>
-                    <div class="item-filtro">
-                        <img src="images/pet-gato.png">
-                        <p>Gatos</p>
-                    </div>
-                    <div class="item-filtro">
-                        <img src="images/pet-cao.png">
-                        <p>Cães</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="area-campo">
                 <div class="search">
                     <i class="fi fi-br-search"></i>
                     <input type="text" placeholder="Pesquisar">
