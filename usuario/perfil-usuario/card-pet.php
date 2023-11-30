@@ -1,3 +1,4 @@
+<?php while($pet_data = mysqli_fetch_assoc($sqlPet)) {?>
 <div class="card">
     <div class="area-foto">
         <div class="icon-fav">
@@ -5,18 +6,24 @@
         </div>
 
         <div class="foto">
-            <img src="images/pet-gato.png">
+            <img src="<?php echo "../../ong/dashboard-ong/Cadastro/" . $pet_data['fotoPerfilAnimal'] ?>">
         </div>
     </div>
 
     <div class="area-conteudo">
         <div class="info">
             <div class="nome">
-                <h3>Lily</h3>
+                <h3><?php echo $pet_data['nomeAnimal'] ?></h3>
             </div>
-            <div class="icon-femea">
-                <i class="fi fi-rr-venus"></i>
-            </div>
+            <?php if($pet_data['generoAnimal'] == 'Fêmea'){ ?>
+                <div class="icon-femea">
+                    <i class="fi fi-rr-venus"></i>
+                </div>
+            <?php }elseif($pet_data['generoAnimal'] == 'Macho'){ ?>
+                <div class="icon-macho">
+                    <i class="fi fi-rr-mars"></i>
+                </div>
+            <?php } ?>
         </div>
 
         <div class="local">
@@ -180,3 +187,4 @@
     </div>
     
 </div>
+<?php } ?>

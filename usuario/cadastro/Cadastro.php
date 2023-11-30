@@ -32,7 +32,7 @@
 
     $dadosGenero = array(
         "opMacho" => "Macho",
-        "opFemea" => "Femea",
+        "opFemea" => "Fêmea",
         "semPreferencia" => "Sem Preferência"
     );
 

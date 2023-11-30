@@ -1,6 +1,6 @@
 <?php 
     include('conexao.php');
-
+    include('../Login/login.php');
 
     $id = $_SESSION['id-ong'];
 
