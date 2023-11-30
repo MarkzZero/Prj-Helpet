@@ -37,6 +37,72 @@
                 <div class="search">
                     <i class="fi fi-br-search"></i>
                     <input type="text" placeholder="Pesquisar">
+                    <div class="area-filtros">
+                        <div class="icon-filtros">
+                            <a><i class="fi fi-rr-settings-sliders"></i></a>
+                        </div>
+                        <div class="panel">
+                            <span>Filtros de Pesquisa</span>
+                            <div class="campo-filtro">
+                                <p>Prefere:</p>
+                                <select>
+                                    <option>Todos</option>
+                                    <option>Adotar</option>
+                                    <option>Apadrinhar</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-filtro">
+                                <p>Espécie:</p>
+                                <select>
+                                    <option>Todos</option>
+                                    <option>Gatos</option>
+                                    <option>Cachorros</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-filtro">
+                                <p>Gênero:</p>
+                                <select>
+                                    <option>Todos</option>
+                                    <option>Fêmea</option>
+                                    <option>Macho</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-filtro">
+                                <p>Idade:</p>
+                                <select>
+                                    <option>Todos</option>
+                                    <option>Filhote</option>
+                                    <option>Adulto</option>
+                                    <option>Idoso</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-filtro">
+                                <p>Porte:</p>
+                                <select>
+                                    <option>Todos</option>
+                                    <option>Pequeno</option>
+                                    <option>Médio</option>
+                                    <option>Grande</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-filtro">
+                                <p>Raça:</p>
+                                <select>
+                                    <option>Todos</option>
+                                </select>
+                            </div>
+
+                            <div class="btns-filtro">
+                                <button class="fil-cancelar">Cancelar</button>
+                                <button class="fil-aplicar">Aplicar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <a href="configuracoes.php"><i class="fi fi-sr-settings config"></i></a>
             </div>
@@ -80,6 +146,7 @@
         <script src="js/script.js"></script>
         <script src="js/carrossel.js"></script>
         <script src="js/modais.js"></script>
+        <script src="js/filtros.js"></script>
 
     </body>
 </html>

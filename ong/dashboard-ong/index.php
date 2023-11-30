@@ -97,15 +97,27 @@
                 </div>
 
                 <!-- Gráficos -->
-                <div class="area">
-                    <div class="area-grafico">
-                        <div class="sub-titulo">
-                            <span>Adoção de Pets</span>
+                <div class="areaGraf">
+                    <div class="area">
+                        <div class="conteudo-graficos">
+                            <div class="area-grafico">
+                                <div class="sub-titulo">
+                                    <span class="titulo1">Solicitações Aceitas</span>
+                                </div>
+                                <div class="grafico">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="area-grafico">
+                                <div class="sub-titulo">
+                                    <span class="titulo2">Pets Cadastrados</span>
+                                </div>
+                                <div class="grafico">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+                            </div>
                         </div>
-                        <div class="grafico">
-                            <canvas id="myChart"></canvas>
-                        </div>
-                    </div>
 
                     <!-- Notificações -->
                     <div class="area-notificacoes">
@@ -238,7 +250,7 @@
                         </div>
 
                     </div>
-
+                    </div>
                 </div>
 
                 <br>
