@@ -129,7 +129,6 @@
 
             <div class="area-cards cards-home">
                 <?php require "card-pet.php"; ?>
-                <?php require "card-pet.php"; ?>
             </div>
 
             <div class="area-conteudo">
