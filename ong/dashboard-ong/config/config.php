@@ -10,7 +10,6 @@
 
     $resultDoenca = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbDoenca.tipoDoenca as 'doenca' FROM tbAnimal INNER JOIN tbDoenca ON tbAnimal.idDoenca = tbDoenca.idDoenca WHERE idOng = '$id'") or die($mysqli->error);
 
-
     $result = $mysqli->query("SELECT idAnimal, nomeAnimal, porteAnimal, descAnimal, generoAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, idOng, idRaca FROM tbAnimal WHERE idOng = '$id' ORDER BY idAnimal DESC ") or die($mysqli->error);
 
     $resultCamp = $mysqli->query("SELECT * FROM tbCampanha WHERE idOng = '$id' ORDER BY idCampanha DESC") or die($mysqli->error);
@@ -32,6 +31,20 @@
     $padrinCount = $mysqli->query("SELECT COUNT(idApadrinhamento) FROM tbApadrinhamento WHERE idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($padrinCount);
     $padrinResult = $row[0];
+
+    //Usei pra Inserir os valores nos graficos
+    $gatoCount = $mysqli->query("SELECT COUNT(idAnimal) as total_gatos from tbAnimal WHERE especieAnimal = 'Gato'") or die($mysqli->error);
+    $row = mysqli_fetch_array($gatoCount);
+    $countGatos = $row['total_gatos'];
+
+    echo json_encode($countGatos);
+
+    //Usei pra Inserir os valores nos graficos
+    $cachorroCount = $mysqli->query("SELECT COUNT(idAnimal) as total_cachorro from tbAnimal WHERE especieAnimal = 'Cachorro'") or die($mysqli->error);
+    $row = mysqli_fetch_array($cachorroCount);
+    $countCachorro = $row['total_cachorro'];
+
+    echo json_encode($countCachorro);
 
     $adocaoCount = $mysqli->query("SELECT COUNT(idAdocao) FROM tbAdocao WHERE idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($adocaoCount);

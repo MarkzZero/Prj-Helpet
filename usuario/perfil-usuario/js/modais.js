@@ -1,16 +1,21 @@
-/* Modais */
-function setupModal(openBtns, closeBtns, modal, fade) {
-    const toggleModal = () => {
-        modal.forEach((el) => el.classList.toggle("hide"));
-        fade.forEach((el) => el.classList.toggle("hide"));
-    };
-
-    openBtns.forEach((el) => {
-        el.addEventListener("click", toggleModal);
+/* Função para configurar os modais */
+function setupModal(openBtns, closeBtns, modals, fades) {
+    openBtns.forEach((openBtn, index) => {
+        openBtn.addEventListener("click", () => {
+            modals[index].classList.remove("hide");
+            fades[index].classList.remove("hide");
+        });
     });
 
-    closeBtns.forEach((el) => {
-        el.addEventListener("click", toggleModal);
+    closeBtns.forEach((closeBtn, index) => {
+        closeBtn.addEventListener("click", () => {
+            modals.forEach((modal) => {
+                modal.classList.add("hide");
+            });
+            fades.forEach((fade) => {
+                fade.classList.add("hide");
+            });
+        });
     });
 }
 
