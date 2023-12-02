@@ -58,7 +58,7 @@ if (isset($_POST['cadastrar'])) {
 
             move_uploaded_file($arquivo["tmp_name"], $caminho_arquivo);
  
-            $sql = "INSERT INTO tbAnimal (nomeAnimal, porteAnimal, generoAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, descAnimal, idOng, idRaca, idVacina, idDoenca) VALUES ('$nome', '$inserirPorte', '$inserirGenero', '$inserirIdade','$inserirEspecie', '$caminho_arquivo', '$descricao', '$idOng', '$racaSelecionada', '$vacSelecionada', '$doencaSelecionada')";
+            $sql = "INSERT INTO tbAnimal (nomeAnimal, porteAnimal, generoAnimal, idadeAnimal, especieAnimal, fotoPerfilAnimal, descAnimal, idOng, idRaca, idVacina, idDoenca, STATUS) VALUES ('$nome', '$inserirPorte', '$inserirGenero', '$inserirIdade','$inserirEspecie', '$caminho_arquivo', '$descricao', '$idOng', '$racaSelecionada', '$vacSelecionada', '$doencaSelecionada', 'Disponível')";
             
             if($mysqli->query($sql) == true){
                 // Verifica se o animal foi inserido corretamente

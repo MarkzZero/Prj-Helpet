@@ -20,6 +20,8 @@
 
     $telefoneOng = $mysqli->query("SELECT tbTelefoneOng.numTelefoneOng as 'telefone', tbOng.nomeOng as 'ong' FROM tbTelefoneOng INNER JOIN tbOng ON tbTelefoneOng.idOng = tbOng.idOng WHERE tbOng.idOng = '$id'") or die($mysqli->error);
 
+    $sqlSolicitacao = $mysqli->query("SELECT tbAdocao.idAdocao, tbAnimal.nomeAnimal as 'nome_animal', tbAnimal.fotoPerfilAnimal as 'foto_animal' ,tbUsuario.nomeUsuario as 'nome_usuario', tbUsuario.fotoUsuario as 'foto_usuario', tbAnimal.idAnimal as 'id_animal',tbAdocao.dataSolicitacao, tbRaca.nomeRaca as 'raca' FROM tbAdocao INNER JOIN tbAnimal ON tbadocao.idAnimal = tbAnimal.idAnimal INNER JOIN tbUsuario ON tbAdocao.idUsuario = tbUsuario.idUsuario INNER JOIN tbRaca ON tbanimal.idRaca = tbRaca.idRaca WHERE tbAdocao.idOng = '$id' AND tbAdocao.STATUS = 'pendente'");
+
     $ong = $mysqli->query("SELECT * FROM tbOng WHERE idOng = '$id'")or die($mysqli->error);
 
     $ong_data = mysqli_fetch_assoc($ong);
@@ -33,20 +35,20 @@
     $padrinResult = $row[0];
 
     //Usei pra Inserir os valores nos graficos
-    $gatoCount = $mysqli->query("SELECT COUNT(idAnimal) as total_gatos from tbAnimal WHERE especieAnimal = 'Gato'") or die($mysqli->error);
+    $gatoCount = $mysqli->query("SELECT COUNT(idAnimal) as total_gatos from tbAnimal WHERE especieAnimal = 'Gato' AND idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($gatoCount);
     $countGatos = $row['total_gatos'];
 
     echo json_encode($countGatos);
 
     //Usei pra Inserir os valores nos graficos
-    $cachorroCount = $mysqli->query("SELECT COUNT(idAnimal) as total_cachorro from tbAnimal WHERE especieAnimal = 'Cachorro'") or die($mysqli->error);
+    $cachorroCount = $mysqli->query("SELECT COUNT(idAnimal) as total_cachorro from tbAnimal WHERE especieAnimal = 'Cachorro' AND idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($cachorroCount);
     $countCachorro = $row['total_cachorro'];
 
     echo json_encode($countCachorro);
 
-    $adocaoCount = $mysqli->query("SELECT COUNT(idAdocao) FROM tbAdocao WHERE idOng = '$id'") or die($mysqli->error);
+    $adocaoCount = $mysqli->query("SELECT COUNT(idAdocao) FROM tbAdocao WHERE idOng = '$id' AND STATUS = 'aprovada'") or die($mysqli->error);
     $row = mysqli_fetch_array($adocaoCount);
     $adocaoResult = $row[0];
 
