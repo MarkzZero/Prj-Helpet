@@ -8,21 +8,21 @@
     </div>
 
     <div class="area-excluir">
-        <i class="fi fi-sr-delete-user"></i>
-        <h4>Desejar excluir sua conta?</h4>
+        <i class="fi fi-sr-rectangle-xmark"></i>
+        <span>Desejar excluir sua conta?</span>
         <p>Digite sua senha para confirmar</p>
         <form action="cadastro/deleteOng.php" method="post">
-            <div style="margin: auto;" class="input-field">
-                <input style="text-align: center;" type="text" name="senha" id="senha">
-                <div  class="underline"></div>
+            <div class="input-field">
+                <input type="text" name="senha" id="senha">
+                <div class="underline"></div>
             </div>
             <?php if (isset($_SESSION['erro'])) : ?>
-                <p>Senha incorreta!</p>
+                <p class="mensagem-senha">Senha incorreta!</p>
             <?php endif;
             unset($_SESSION['erro']); ?>
             <div class="botoes">
                 <button class="btn-cancelar">Cancelar</button>
-                <button class="btn-excluir" name="delete" type="submit">Salvar</button>
+                <button class="btn-excluir" name="delete" type="submit">Excluir</button>
             </div>
         </form>
     </div>
