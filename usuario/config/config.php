@@ -23,7 +23,7 @@ $preferencia = $mysqli->query("SELECT * FROM tbPrefeUsuario WHERE idUsuario = '$
 $prefe = mysqli_fetch_assoc($preferencia);
 
 if($prefe['tipoPet'] == 'Sem Preferência'){
-    $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (generoAnimal = '$prefe[generoPet]' OR porteAnimal = '$prefe[portePet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN  generoAnimal = '$prefe[generoPet]' THEN 0 WHEN THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
+    $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (generoAnimal = '$prefe[generoPet]' OR porteAnimal = '$prefe[portePet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN generoAnimal = '$prefe[generoPet]' THEN 0 WHEN porteAnimal = '$prefe[portePet]' THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
 }elseif($prefe['generoPet'] == 'Sem Preferência'){
     $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (especieAnimal = '$prefe[tipoPet]' OR porteAnimal = '$prefe[portePet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN especieAnimal = '$prefe[tipoPet]' THEN 0 WHEN especieAnimal = '$prefe[tipoPet]' THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
 }elseif($prefe['portePet'] == 'Sem Preferência'){

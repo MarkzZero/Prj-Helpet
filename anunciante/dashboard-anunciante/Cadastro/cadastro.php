@@ -11,7 +11,7 @@ if (isset($_POST['cadastrar'])) {
     $descricao = mysqli_real_escape_string($mysqli, trim($_POST['descricao']));
     $dataInicio = mysqli_real_escape_string($mysqli, trim($_POST['dataInicio']));
     $dataTermino = mysqli_real_escape_string($mysqli, trim($_POST['dataTermino']));
-    $idAnunciante = $_SESSION['id'];
+    $idAnunciante = $_SESSION['id-anunciante'];
 
     if($arquivo !== null){
         preg_match("/\.(png|jpg|jpeg){1}$/i", $arquivo["name"], $ext);

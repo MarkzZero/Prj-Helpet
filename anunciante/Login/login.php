@@ -23,13 +23,13 @@
 
             $usuario = $sql_query->fetch_assoc();
 
-            $_SESSION['email'] = $email;
+            $_SESSION['email-anunciante'] = $email;
 
-            $_SESSION['foto'] = $usuario['fotoAnunciante'];
+            $_SESSION['foto-anunciante'] = $usuario['fotoAnunciante'];
 
-            $_SESSION['nome'] = $usuario['nomeAnunciante'];
+            $_SESSION['nome-anunciante'] = $usuario['nomeAnunciante'];
 
-            $_SESSION['id'] = $usuario['idAnunciante'];
+            $_SESSION['id-anunciante'] = $usuario['idAnunciante'];
 
             if(password_verify($senha, $usuario['senhaAnunciante'])){
                 header("Location: ../dashboard-anunciante/index.php");

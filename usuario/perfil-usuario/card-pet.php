@@ -1,4 +1,41 @@
+<?php
+// Inicializa a variável se não existir
+if (!isset($_SESSION['favorites'])) {
+    $_SESSION['favorites'] = [];
+}
+
+// Função para adicionar um animal aos favoritos
+function addFavorite($animalId)
+{
+    global $_SESSION;
+
+    // Verifica se o animal já foi adicionado
+    if (!in_array($animalId, $_SESSION['favorites'])) {
+        // Adiciona o animal aos favoritos
+        $_SESSION['favorites'][] = $animalId;
+    }
+}
+
+// Adiciona o animal aos favoritos, caso o botão seja clicado
+if (isset($_POST['animal_id'])) {
+    addFavorite($_POST['animal_id']);
+}
+?>
 <?php while ($pet_data = mysqli_fetch_assoc($sqlPet)) {
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $idAnimal = $_POST['animal_id'];
+        $idUsuario = $_SESSION['id'];
+
+        $sql = "INSERT INTO tbFavorito(idAnimal, idUsuario) VALUES (?, ?)";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("ii", $idAnimal, $idUsuario);
+        $stmt->execute();
+
+        $stmt->close();
+        $mysqli->close();
+        exit;  // Adicione esta linha para evitar a execução do restante do script
+    }
 
     $numLocalPet = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.numLogOng as 'numLocal' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
@@ -34,12 +71,14 @@
 
     $idOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.idOng as 'idOng' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
-    $id_ong = mysqli_fetch_assoc($idOng); 
+    $id_ong = mysqli_fetch_assoc($idOng);
 ?>
     <div class="card">
         <div class="area-foto">
             <div class="icon-fav">
-                <i id="heartIcon1" class="fi-rr-heart icon"></i>
+                <i id="heartIcon1" style=".favicon:hover {
+ background-color: #F44336;
+}" data-animal-id="<?php echo $pet_data['idAnimal'] ?> " class="fi-rr-heart icon favoritar-animal"></i>
             </div>
 
             <div class="foto">
@@ -233,3 +272,33 @@
 
     </div>
 <?php } ?>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".fi-rr-heart").click(function() {
+            var animalId = $(this).data("animal-id");
+
+            // Desabilita o botão imediatamente após o clique
+            $(this).prop('disabled', true);
+
+            $.ajax({
+                url: "index.php", // Substitua pelo nome do seu arquivo PHP
+                method: "POST",
+                data: {
+                    animal_id: animalId
+                },
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                },
+                complete: function() {
+                    // Reabilita o botão após a conclusão da requisição, mesmo em caso de erro
+                    $(".fi-rr-heart").prop('disabled', false);
+                }
+            });
+        });
+    });
+</script>

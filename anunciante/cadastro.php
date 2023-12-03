@@ -154,7 +154,7 @@
 
                             <div class="input-endereco">
                                 <i class="fi fi-rr-map-marker"></i>
-                                <input type="text" required name="complemento"/>
+                                <input type="text" name="complemento"/>
                                 <div class="linha-input"></div>
                                 <label>Complemento</label>		
                             </div>

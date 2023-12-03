@@ -1,11 +1,14 @@
+<?php 
+    while($user_data = mysqli_fetch_assoc($resultAnunciante)){
+?>
 <nav>
     <div class="toggle">
         <i class="fi fi-br-menu-burger"></i>
     </div>
 
     <div class="foto-anunciante">
-        <img src="<?php echo "../Cadastro/" . $_SESSION['foto']; ?>">
-        <h2>Bem-vindo <br> <?php echo $_SESSION['nome'];?> </h2>
+        <img src="<?php echo "../Cadastro/" . $user_data['fotoAnunciante']; ?>">
+        <h2>Bem-vindo <br> <?php echo $user_data['nomeAnunciante'];?> </h2>
     </div>
 
     <ul>
@@ -35,3 +38,4 @@
         </li>
     </ul>
 </nav>
+<?php } ?>

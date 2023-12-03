@@ -31,7 +31,7 @@
             </ul>
         </nav>
 
-        <div class="container1">
+        <div id="container" class="container1">
             <div class="area-pesquisa-home">
                 <img src="images/bolinhas2.png">
                 <div class="search">
@@ -146,6 +146,7 @@
         <script src="js/carrossel.js"></script>
         <script src="js/modais.js"></script>
         <script src="js/filtros.js"></script>
+        
 
     </body>
 </html>

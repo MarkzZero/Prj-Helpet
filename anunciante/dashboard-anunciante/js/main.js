@@ -42,6 +42,29 @@ file.addEventListener('change', (event) => {
     reader.readAsDataURL(file.files[0]);
 });
 
+'use static'
+let photo2 = document.getElementById('imgPhoto2');
+let file2 = document.getElementById('flImage2');
+
+photo2.addEventListener("click", () => {
+    file2.click();   
+});
+
+file2.addEventListener('change', (event) => {
+    
+   if(file2.files.length <= 0){
+    return;
+   }
+
+    let reader2 = new FileReader()
+
+    reader2.onload = () =>{
+        photo2.src = reader2.result;
+    }
+
+    reader2.readAsDataURL(file2.files[0]);
+});
+
 let photoElements = document.querySelectorAll('.imgPhoto');
 let fileElements = document.querySelectorAll('.flImage');
 
@@ -65,31 +88,6 @@ photoElements.forEach((photo, index) => {
     });
 });
 
-
-
-/* ÁREA OUTRAS FOTOS DO PET */
-'use static'
-let photoAdd = document.getElementById('photos');
-let fileAdd = document.getElementById('filesImgs');
-
-photoAdd.addEventListener("click", () => {
-    fileAdd.click();   
-});
-
-file.addEventListener('change', (event) => {
-    
-   if(fileAdd.filesAdd.length <= 0){
-    return;
-   }
-
-    let reader = new FileReader()
-
-    reader.onload = () =>{
-        photoAdd.src = reader.result;
-    }
-
-    reader.readAsDataURL(fileAdd.filesAdd[0]);
-});
 
 
 /* ADICIONAR VÁRIAS FOTOS */

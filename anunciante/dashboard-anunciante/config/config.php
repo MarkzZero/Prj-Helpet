@@ -1,8 +1,11 @@
 <?php 
-    include('conexao.php');
+    include_once('conexao.php');
+    include_once('../../Login/login.php');
 
-    //$id = $_SESSION['id'];
+    $id = $_SESSION['id-anunciante'];
         
-    $result = $mysqli->query("SELECT nomeAnuncio, descAnuncio, dataInicioAnuncio, dataTerminoAnuncio, fotoAnuncio, idAnunciante FROM tbAnuncio") or die($mysqli->error);
+    $result = $mysqli->query("SELECT * FROM tbAnuncio") or die($mysqli->error);
+
+    $resultAnunciante = $mysqli->query("SELECT * FROM tbAnunciante WHERE idAnunciante = '$id'")
 
 ?> 
