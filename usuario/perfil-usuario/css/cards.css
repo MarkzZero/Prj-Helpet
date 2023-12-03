@@ -5,9 +5,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
+    width: 90%;
     height: auto;
-    margin: 0 4vw;
+    margin: 0 5vw;
     margin-top: 2.5vw;
 }
 .area-cards-user{
@@ -23,6 +23,7 @@
 }
 .cards-home{
     width: 100%;
+    margin: 0;
 }
 .area-cards-ongs{
     width: 95vw;
@@ -35,7 +36,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 1vw;
+    margin: 0 1.5vw;
 }
 /* Ícone Favoritos */
 .icon-fav{
@@ -43,7 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 13vw;
+    width: 12vw;
 }
 .icon-fav i{
     display: flex;
@@ -72,8 +73,8 @@
     box-shadow: 0 3px 6px #0005;
 }
 .card .foto img{
-    width: 13vw;
-    height: 12vw;
+    width: 12vw;
+    height: 11vw;
     border-top-left-radius: 1.5vw;
     border-top-right-radius: 1.5vw;
     box-shadow: 0 3px 6px #0005;
@@ -83,11 +84,11 @@
 /* Conteúdo do Card */
 .card .area-conteudo{
     position: relative;
-    bottom: 2vw;
+    bottom: 1.5vw;
     border-radius: 1.5vw;
     background-color: #fff;
     padding: 1vw;
-    width: 12vw;
+    width: 11vw;
     box-shadow: 0 3px 6px #0005;
 }
 
@@ -150,13 +151,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
 }
 .area-conteudo .local i{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 0.2vw;
     font-size: 1vw;
     color: #F58614;
 }
@@ -167,7 +168,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 9.6vw;
+    max-width: 9.3vw;
     margin: 0.5vw;
     margin-left: 0.3vw;
 }
