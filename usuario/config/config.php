@@ -22,11 +22,17 @@ $preferencia = $mysqli->query("SELECT * FROM tbPrefeUsuario WHERE idUsuario = '$
 
 $prefe = mysqli_fetch_assoc($preferencia);
 
-$sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (generoAnimal = '$prefe[generoPet]' OR especieAnimal = '$prefe[tipoPet]' OR porteAnimal = '$prefe[portePet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN especieAnimal = '$prefe[tipoPet]' AND generoAnimal = '$prefe[generoPet]' THEN 0 WHEN especieAnimal = '$prefe[tipoPet]' THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
-
-
-
-
+if($prefe['tipoPet'] == 'Sem Preferência'){
+    $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (generoAnimal = '$prefe[generoPet]' OR porteAnimal = '$prefe[portePet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN  generoAnimal = '$prefe[generoPet]' THEN 0 WHEN THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
+}elseif($prefe['generoPet'] == 'Sem Preferência'){
+    $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (especieAnimal = '$prefe[tipoPet]' OR porteAnimal = '$prefe[portePet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN especieAnimal = '$prefe[tipoPet]' THEN 0 WHEN especieAnimal = '$prefe[tipoPet]' THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
+}elseif($prefe['portePet'] == 'Sem Preferência'){
+    $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (generoAnimal = '$prefe[generoPet]' OR especieAnimal = '$prefe[tipoPet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN especieAnimal = '$prefe[tipoPet]' AND generoAnimal = '$prefe[generoPet]' THEN 0 WHEN especieAnimal = '$prefe[tipoPet]' THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
+}elseif($prefe['tipoPet'] == 'Sem Preferência' && $prefe['generoPet'] == 'Sem Preferência' && $prefe['portePet'] == 'Sem Preferência'){
+    $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS= 'Disponível' ORDER BY idAnimal DESC LIMIT 4");
+}else{
+    $sqlPet = $mysqli->query("SELECT * FROM tbAnimal WHERE STATUS = 'Disponível' AND (generoAnimal = '$prefe[generoPet]' OR especieAnimal = '$prefe[tipoPet]' OR porteAnimal = '$prefe[portePet]' OR idadeAnimal LIKE '%$prefe[idadePet]%' OR idRaca = '$prefe[idRaca]') ORDER BY CASE WHEN especieAnimal = '$prefe[tipoPet]' AND generoAnimal = '$prefe[generoPet]' THEN 0 WHEN especieAnimal = '$prefe[tipoPet]' THEN 1 ELSE 2 END, idAnimal DESC LIMIT 4 ");
+};
 
 
 $resultOng = $mysqli->query("SELECT tbCampanha.nomeCampanha as 'campanha', tbOng.nomeOng as 'ong' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbOng.idOng = '$resultCamp[idOng]'");
