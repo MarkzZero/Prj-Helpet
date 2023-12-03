@@ -1,6 +1,6 @@
 <?php 
     include('conexao.php');
-    include('../Login/login.php');
+    //include('../Login/login.php');
 
     $id = $_SESSION['id-ong'];
 
@@ -30,6 +30,10 @@
     $row = mysqli_fetch_array($petsCount);
     $petsResult = $row[0];
 
+    $campanhasCount = $mysqli->query("SELECT COUNT(idCampanha) FROM tbCampanha WHERE idOng = '$id'") or die($mysqli->error);
+    $row = mysqli_fetch_array($campanhasCount);
+    $campanhasResult = $row[0];
+
     $padrinCount = $mysqli->query("SELECT COUNT(idApadrinhamento) FROM tbApadrinhamento WHERE idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($padrinCount);
     $padrinResult = $row[0];
@@ -38,15 +42,13 @@
     $gatoCount = $mysqli->query("SELECT COUNT(idAnimal) as total_gatos from tbAnimal WHERE especieAnimal = 'Gato' AND idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($gatoCount);
     $countGatos = $row['total_gatos'];
-
-    echo json_encode($countGatos);
+    //echo json_encode($countGatos);
 
     //Usei pra Inserir os valores nos graficos
     $cachorroCount = $mysqli->query("SELECT COUNT(idAnimal) as total_cachorro from tbAnimal WHERE especieAnimal = 'Cachorro' AND idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($cachorroCount);
     $countCachorro = $row['total_cachorro'];
-
-    echo json_encode($countCachorro);
+    //echo json_encode($countCachorro);
 
     $adocaoCount = $mysqli->query("SELECT COUNT(idAdocao) FROM tbAdocao WHERE idOng = '$id' AND STATUS = 'aprovada'") or die($mysqli->error);
     $row = mysqli_fetch_array($adocaoCount);
