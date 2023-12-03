@@ -19,6 +19,13 @@ function setupModal(openBtns, closeBtns, modals, fades) {
     });
 }
 
+// Isso Configura o Modal de Ajudar Pet
+const openModalAjudar = document.querySelectorAll(".open-modalAjudar");
+const closeModalAjudar = document.querySelectorAll(".close-modalAjudar");
+const modalAjudar = document.querySelectorAll(".modalAjudar");
+const fadeAjudar = document.querySelectorAll(".fadeAjudar");
+setupModal(openModalAjudar, closeModalAjudar, modalAjudar, fadeAjudar);
+
 // Isso Configura o Modal do Perfil do Pet
 const openModal = document.querySelectorAll(".open-modal");
 const closeModal = document.querySelectorAll(".close-modal");
