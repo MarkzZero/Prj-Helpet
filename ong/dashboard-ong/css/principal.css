@@ -1,0 +1,307 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+
+/* Fontes */
+@font-face {
+    font-family: National;
+    src: url('../../../css/fonts/NationalPark-Bold.otf');
+}
+@font-face {
+    font-family: Park;
+    src: url('../../../css/fonts/NationalPark-Medium.otf');
+}
+@font-face {
+    font-family: Regular;
+    src: url('../../../css/fonts/NationalPark-Regular.otf');
+}
+@font-face {
+    font-family: Poppins;
+    src: url('../../../css/fonts/Poppins-Regular.ttf');
+}
+
+
+/* CONTEÚDO */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F4F6FF;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Poppins;
+}
+
+a{
+    text-decoration: none;
+}
+
+::-webkit-scrollbar{
+    width: 1vw;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+    border-radius: 1vw;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: .5vw;
+    visibility: visible;
+    background-color: #D9D9D9;
+}
+
+
+.container{
+    position: relative;
+    display: flex;
+    top: 0;
+}
+
+
+/* Área Logo Menu */
+.logo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 27%;
+}
+.logo img{
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    margin-bottom: 1vh;
+}
+.title-ong{
+    color: #fff;
+    font-family: Park;
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.toggle{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5%;
+}
+.toggle i{
+    position: relative;
+    color: #fff;
+    font-size: 1.6vw;
+    cursor: pointer;
+    top: 1.8vh;
+    right: 1.4vw;
+    z-index: 10;
+}
+
+
+/* Menu Fixo Lateral */
+.navegation{
+    position: fixed;
+    width: 17vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0053c7;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navegation ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 68%;
+    margin-left: 0.5vw;
+}
+.navegation ul li{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    border-top-left-radius: 10vh;
+    border-bottom-left-radius: 10vh;
+}
+.navegation ul li:hover,
+.navegation ul li.hovered{
+    background: #F4F6FF;
+}
+.navegation ul li:hover a,
+.navegation ul li.hovered a{
+    color: #0053c7;
+}
+.navegation ul li:nth-child(7){
+    position: relative;
+    margin-top: 5vh;
+}
+.navegation ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 2.5vh 0;
+    text-decoration: none;
+    color: #fff;
+    z-index: 10;
+}
+.navegation ul li a .icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 1.5vw;    
+    padding-right: 0;
+}
+.navegation ul li a .icon-hover{
+    display: none;
+}
+.navegation ul li a:hover .icon{
+    display: none;
+}
+.navegation ul li a:hover .icon-hover{
+    display: block;
+    color: #faac26;
+}
+.navegation ul li a .icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8vw;
+    z-index: 10;
+}
+.navegation ul li a .title{
+    font-family: Regular;
+    position: relative;
+    display: block;
+    padding-left: 1vw;
+    font-size: 1.2vw;
+}
+
+
+.navegation ul li:hover a::before,
+.navegation ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #F4F6FF;
+    pointer-events: none;
+}
+.navegation ul li:hover a::after,
+.navegation ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px #F4F6FF;
+    pointer-events: none;
+}
+
+/* Área Topo */
+.main{
+    position: relative;
+    min-width: 79vw;
+    max-width: 79vw;
+    height: auto;
+    left: 18.5vw;
+    transition: 0.5s;
+}
+
+/* Menu Minimizado */
+.navegation.active{
+    width: 6vw;
+}
+.navegation.active ul{
+    margin-left: 0.8vw;
+}
+.navegation.active ul .title{
+    display: none;
+}
+.navegation.active .logo img{
+    margin-top: 5vh;
+    width: 4vw;
+    height: 4vw;
+}
+.navegation.active .title-ong{
+    display: none;
+}
+.navegation.active ul li a .icon{
+    padding: 0 1vw;
+}
+.main.active{
+    min-width: 91vw;
+    max-width: 91vw;
+    left: 7vw;
+}
+.navegation.active .toggle{
+    justify-content: center;
+}
+.navegation.active .toggle i{
+    right: initial;
+}
+
+
+/* Área Topo */
+.topbar{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1vw;
+}
+/* Imagens Páginas */
+.img-pag, .img-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-pag img{
+    width: 3.5vw;
+}
+.img-logo img{
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+}
+/* Títulos */
+.titulo-pagina span{
+    font-family: National;
+    font-size: 2.3vw;
+    color: #0053c7;
+}
+.sub-titulo{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 1.7vw;
+    color: #004FDA;
+}

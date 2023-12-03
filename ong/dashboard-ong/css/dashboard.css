@@ -1,0 +1,239 @@
+/* PÁGINA DASHBOARD */
+/* Gráficos */
+.areaGraf{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+}
+.conteudo-graficos{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-grafico{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5vw;
+    margin-top: 0;
+    padding: 1vw;
+    background-color: #fff;
+    border-radius: 1.5vw;
+}
+.area-grafico .sub-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-grafico .sub-titulo span{
+    font-size: 1.5vw;
+    margin-bottom: 3vw;
+}
+
+#myChart, #myChart2{
+    position: relative;
+    width: 23vw;
+}
+
+/* Títulos */
+.sub-titulo{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 1.6vw;
+}
+.titulo1{
+    color: #FF8903 !important;
+}
+.titulo2{
+    color: #004FDA !important;
+}
+
+/* Notificações */
+.area{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.area-notificacoes{
+    position: relative;
+    background-color: #fff;
+    border-radius: 2vw;
+    margin-left: 2vw;
+    z-index: 10;
+}
+.not{
+    position: relative;
+    overflow: hidden;
+    width: 24vw;
+    height: 16vw;
+}
+/** Active **/
+.not.active{
+    z-index: 20;
+    height: 25vw;
+    transition: all .5s;
+    overflow-y: auto;
+}
+.not.active::-webkit-scrollbar{
+    width: 0.5vw;
+}
+.not.active::-webkit-scrollbar-track{
+    background: #fff;
+    border-radius: 1vw;
+}
+.not.active::-webkit-scrollbar-thumb{
+    background: #e7e6e6;
+    border-radius: 1vw;
+}
+
+.topo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5vw;
+}
+.topo p{
+    font-size: 1.4vw;
+    font-family: Regular;
+    color: #004FDA;
+}
+.topo i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    color: #0053c7;
+    cursor: pointer;
+}
+
+.area-perfil{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1vw 0;
+    padding: 0 2vw;
+    width: 100%;
+}
+.foto-not{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.foto-not img{
+    position: relative;
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+}
+.conteudo-mens{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-mens{
+    position: relative;
+    margin-left: 1vw;
+}
+.nome-not{
+    font-weight: 200;
+    color: #000;
+    font-size: 1.1vw;
+}
+.mens-not{
+    color: #504f4f;
+    font-size: 1vw;
+}
+.hora-not{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hora-not p{
+    color: #b3b3b3;
+    font-size: 0.8vw;
+}
+
+.hr-div{
+    width: 21vw;
+    height: 1px;
+    margin: 0 1.5vw;
+    border-radius: 1vw;
+    border: none;
+    background-color: #e8e8e8;
+}
+
+#read_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.5vw 0;
+}
+#read_button p{
+    color: #0053c7;
+    font-size: 1.1vw;
+    margin-right: 0.2vw;
+}
+#read_button i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6vw;
+    color: #0053c7;
+}
+
+
+/* Cards Box */
+.card-box{
+    font-family: Poppins;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-laranja, .card-azul{
+    width: 15vw;
+    padding: 1vw;
+    border-radius: 2vw;
+    cursor: pointer;
+    margin: 1vw;
+}
+.card-box .card-laranja{
+    background-color: #FF901B;
+}
+.card-box .card-azul{
+    background-color: #0053c7;
+}
+.card-box .card-conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-box .card-conteudo img{
+    width: 5vw;
+}
+.card-box .card-name{
+    font-family: Regular;
+    color: #fff;
+    font-size: 1.4vw;
+    margin: 0.7vw 0;
+    text-align: center;
+}
+.card-box .number{
+    font-family: Regular;
+    font-weight: bold;
+    color: #fff;
+    font-size: 2vw;
+    text-align: center;
+}
