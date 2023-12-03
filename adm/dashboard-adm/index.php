@@ -37,7 +37,7 @@
                                     <canvas id="myChart"></canvas>
                                 </div>
                             </div>
-
+                            
                             <div class="area-grafico">
                                 <div class="sub-titulo">
                                     <span class="titulo2">Pets Cadastrados</span>
@@ -51,7 +51,7 @@
 
                     <!-- Cards Box -->
                     <div class="card-box"> 
-                        <div class="card-claro">
+                        <div class="card">
                             <div class="card-conteudo">
                                 <img src="images/icon-adocoes.png">
                                 <span class="card-name">Adoções</span>
@@ -59,7 +59,15 @@
                             </div>
                         </div>
 
-                        <div class="card-azul">
+                        <div class="card">
+                            <div class="card-conteudo">
+                                <img src="images/icon-apadrinhar.png">
+                                <span class="card-name">Apadrinhamentos</span>
+                                <p class="number">20</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
                             <div class="card-conteudo">
                                 <img src="images/icon-pets.png">
                                 <span class="card-name">Pets</span>
@@ -67,19 +75,19 @@
                             </div>
                         </div>
 
-                        <div class="card-azul-medio">
+                        <div class="card">
                             <div class="card-conteudo">
-                                <img src="images/icon-apadrinhar.png">
-                                <span class="card-name">Apadrinhamento</span>
-                                <p class="number">20</p>
+                                <img src="images/icon-campanhas.png">
+                                <span class="card-name">Campanhas</span>
+                                <p class="number">50</p>
                             </div>
                         </div>
 
-                        <div class="card-escuro">
+                        <div class="card">
                             <div class="card-conteudo">
-                                <img src="images/icon-ongs.png">
-                                <span class="card-name">ONGs</span>
-                                <p class="number">40</p>
+                                <img src="images/icon-anuncios.png">
+                                <span class="card-name">Anúncios</span>
+                                <p class="number">35</p>
                             </div>
                         </div>
                     </div>
