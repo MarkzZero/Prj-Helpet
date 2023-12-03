@@ -29,7 +29,7 @@ const modalVerCam = document.querySelectorAll(".modalCam");
 const fadeVerCam = document.getElementById("modal-fade");
 
 const openModalExcluir = document.querySelectorAll(".open-modalExcluir");
-const closeModalExcluir = document.querySelectorAll(".modalExcluir .close-modal");
+const closeModalExcluir = document.querySelectorAll(".close-modalExcluir");
 const modalExcluir = document.querySelectorAll(".modalExcluir");
 const fadeExcluir = document.querySelectorAll(".fadeExcluir");
 
