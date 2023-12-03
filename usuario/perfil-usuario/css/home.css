@@ -60,7 +60,7 @@
 /* Carrossel */
 .carousel-container{
     position: relative;
-    width: 80%;
+    width: 60vw;
     margin: auto;
     overflow: hidden;
     margin-top: 1vh;
@@ -104,8 +104,78 @@
 }
 
 .prev{
-    left: 1vw;
+    left: 2vw;
 }
 .next {
-    right: 1vw;
+    right: 2vw;
+}
+
+
+.gallery{
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: repeat(9, 14vw);
+	grid-template-rows: 1fr;
+	grid-column-gap: 1rem;
+	grid-row-gap: 1rem;
+	overflow: scroll;
+	height: auto;
+	scroll-snap-type: both mandatory;
+	scroll-padding: 1rem;
+}
+.active{
+	scroll-snap-type: unset;
+}A
+li{
+	scroll-snap-align: center;
+	display: inline-block;
+}
+
+.gallery::-webkit-scrollbar{
+    display: none;
+}
+::-webkit-scrollbar-track{
+    background: #fff;
+    border-radius: 1vw;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: .5vw;
+    visibility: visible;
+    background-color: #D9D9D9;
+}
+
+.area-pets{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 2.5%;
+    margin-top: 5vh;
+}
+.area-pets p{
+    font-family: Regular;
+    font-size: 1.4vw;
+    color: #5a5959;
+}
+.area-pets .mostrar-todos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-pets .mostrar-todos:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.area-pets .mostrar-todos p{
+    font-family: Regular;
+    font-size: 1.2vw;
+    color: #004FDA;
+}
+.area-pets .mostrar-todos i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4vw;
+    color: #004FDA;
 }
