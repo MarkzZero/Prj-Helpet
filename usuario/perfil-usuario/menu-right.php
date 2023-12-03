@@ -1,91 +1,38 @@
 <div class="container2">
-    <div class="sugestoes">
-        <div class="titulo-sugestoes">
-            <h2>Sugestões</h2>
-        </div>
-        
-        <div class="bloco">
-            <img src="images/pet-cao.png">
-            <div class="pet">
-                <p>Mel</p>
-                <i class="fi fi-rr-venus femea"></i>
-                <!--<i class="fi fi-rr-mars macho"></i>-->
-            </div>
-            <button class="open-modal botao-modal">
-                <p>Saiba Mais</p>
-                <i class="fi fi-br-angle-small-right"></i>
-            </button>
-        </div>
-
-        <div class="bloco">
-            <img src="images/pet-cao.png">
-            <div class="pet">
-                <p>Mel</p>
-                <i class="fi fi-rr-venus femea"></i>
-            </div>
-            <button class="open-modal botao-modal">
-                <p>Saiba Mais</p>
-                <i class="fi fi-br-angle-small-right"></i>
-            </button>
-        </div>
-
-        <div class="bloco">
-            <img src="images/pet-cao.png">
-            <div class="pet">
-                <p>Mel</p>
-                <i class="fi fi-rr-venus femea"></i>
-            </div>
-            <button class="open-modal botao-modal">
-                <p>Saiba Mais</p>
-                <i class="fi fi-br-angle-small-right"></i>
-            </button>
-        </div>
-
-        <div class="bloco">
-            <img src="images/pet-cao.png">
-            <div class="pet">
-                <p>Mel</p>
-                <i class="fi fi-rr-venus femea"></i>
-            </div>
-            <button class="open-modal botao-modal">
-                <p>Saiba Mais</p>
-                <i class="fi fi-br-angle-small-right"></i>
-            </button>
-        </div>
-
-        <div class="open-modalAdocao mostrar-tudo">
-            <p>Mostrar tudo</p>
-            <i class="fi fi-br-angle-small-right"></i>
-        </div>
-    </div>
-
     <div class="categorias">
         <h2>Categorias</h2>
 
         <div class="itens-categorias">
             <div class="item open-modalCampanhas">
-                <div class="item-campanha">
-                    <img src="images/campanha.png">
+                <div class="item-campanhas">
+                    <img src="images/campanhas.png">
                 </div>
                 <p>Campanhas</p>
             </div>
 
             <div class="item open-modalOngs">
                 <div class="item-ongs">
-                    <img src="images/ong.png">
+                    <img src="images/ongs.png">
                 </div>
                 <p>ONGs</p>
             </div>
+
+            <div class="item open-modalAdocao">
+                <div class="item-pets">
+                    <img src="images/pets.png">
+                </div>
+                <p>Pets</p>
+            </div>
             
             <div class="item open-modalAnunciantes">
-                <div class="item-anunciante">
-                    <img src="images/petshop.png">
+                <div class="item-anunciantes">
+                    <img src="images/anunciantes.png">
                 </div>
                 <p>Anunciantes</p>
             </div>
             
             <div class="item open-modalAnuncios">
-                <div class="item-pets">
+                <div class="item-anuncios">
                     <img src="images/anuncios.png">
                 </div>
                 <p>Anúncios</p>
@@ -109,12 +56,15 @@
         </div>
     </div>
 
+
     <div class="area-pesquisa">
         <div class="search">
             <i class="fi fi-br-search"></i>
             <input type="text" placeholder="Pesquisar">
+            <i class="fi fi-rr-settings-sliders"></i>
         </div>
     </div>
+
 
     <div class="area-cards">
         <?php require "card-pet.php"; ?>
