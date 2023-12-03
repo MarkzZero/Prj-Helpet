@@ -1,0 +1,304 @@
+/* PÁGINA PETS */
+/* CONSULTA */
+.area-consulta{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 3vw;
+}
+.area-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#icon-tabela i, #icon-cards i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004FDA;
+    font-size: 1.6vw;
+    margin-left: 0.5vw;
+    padding: 1vw;
+    padding-top: 1.1vw;
+    shape-outside: circle();
+    clip-path: circle();
+    cursor: pointer;
+}
+#icon-cards i{
+    background-color: #004FDA;
+    color: #fff;
+}
+.consulta{
+    position: relative;
+}
+#area-tabela{
+    position: relative;
+    width: 100%;
+    height: 25vw;
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+    display: none;
+}
+#area-cards{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 2.5vw;
+}
+
+/* Cards */
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2.5vw;
+}
+.card .foto img{
+    width: 15vw;
+    height: 14vw;
+    border-top-left-radius: 1.5vw;
+    border-top-right-radius: 1.5vw;
+    box-shadow: 0 3px 6px #0005;
+}
+.area-conteudo{
+    position: relative;
+    bottom: 2vw;
+    border-radius: 1.5vw;
+    background-color: #fff;
+    padding: 0.8vw 1.5vw;
+    padding-bottom: 0;
+    width: 15.5vw;
+    box-shadow: 0 3px 6px #0005;
+}
+.area-conteudo .dados{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.area-conteudo .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: Poppins;
+}
+.area-conteudo .info .nome{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.area-conteudo .info h3{
+    font-size: 1.3vw;
+    font-weight: bold;
+    color: #004FDA;
+    margin-right: 0.7vw;
+}
+.area-conteudo .info i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    color: #004FDA;
+}
+.area-conteudo .info span{
+    font-size: 1.1vw;
+    font-weight: bold;
+    color: #F58614;
+}
+.area-conteudo .info p{
+    font-size: 1vw;
+    color: #000;
+    font-weight: 100;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9.6vw;
+}
+.area-conteudo .raca-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+.area-conteudo .area-botoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.area-conteudo .botao-modal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F58614;
+    border-radius: 2vw;
+    cursor: pointer;
+    margin: 1vw 1.4vw;
+}
+
+.area-conteudo .botao-modal p{
+    width: auto;
+    font-size: 1.1vw;
+    margin-right: 0.5vw;
+}
+.area-conteudo .btn-editar, .area-conteudo .btn-excluir{
+    padding: 0.6vw;
+    margin: 0.4vw 0.2vw;
+    cursor: pointer;
+}
+.area-conteudo .btn-editar i, .area-conteudo .btn-excluir i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+}
+
+
+.botao-modal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F58614;
+    padding: 0.6vw 1.4vw;
+    border-radius: 2vw;
+    cursor: pointer;
+    margin-left: 1vw;
+}
+.botao-modal:hover{
+    transform: scale(1.1);
+}
+.botao-modal p{
+    font-family: Regular;
+    font-size: 1.2vw;
+    color: #fff;
+    width: 5vw;
+}
+.botao-modal i{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #F58614;
+    shape-outside: circle();
+    clip-path: circle();
+    padding: 0.2vw;
+    font-size: 1.4vw;
+}
+.raca{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.raca p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9.6vw;
+    color: #000;
+}
+.btn-editar, .btn-excluir{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8vw;
+    shape-outside: circle();
+    clip-path: circle();
+    border-radius: 1vh;
+    margin: 0.5vw;
+    border: none;
+    outline: none;
+    z-index: 0;
+    cursor: pointer;
+}
+.btn-editar:hover, .btn-excluir:hover{
+    transform: scale(1.1);
+}
+.btn-editar i, .btn-excluir i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.3vw;
+}
+.btn-editar{
+    background-color: #00BF63;
+}
+.btn-excluir{
+    background-color: #FF3131;
+}
+
+/* Listas */
+
+
+
+/* Tabela */
+table{
+    width: 100%;
+}
+table .botao-modal{
+    margin-top: 0;
+}
+tr{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.1vw solid #B5B5B3;
+}
+th{
+    font-size: 1.2vw;
+    color: #737373;
+    font-weight: 200;
+}
+th, td{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1vw 0;
+}
+th:nth-child(1), td:nth-child(1){
+    width: 40vw;
+}
+table td img{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+}
+table .nome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+table h3{
+    font-size: 1.4vw;
+    font-weight: bold;
+    color: #004FDA;
+    margin-right: 0.5vw;
+}
+table td i:nth-child(2){
+    position: relative;
+    top: 0.3vw;
+    font-size: 1.6vw;
+    color: #004FDA;
+}
+table span{
+    font-weight: bold;
+    color: #F58614;
+}

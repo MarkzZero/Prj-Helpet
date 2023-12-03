@@ -2,12 +2,8 @@
 @import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
-
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
 
 /* Fontes */
 @font-face {
@@ -27,7 +23,8 @@
     src: url('../../../css/fonts/Poppins-Regular.ttf');
 }
 
-/* Conteúdo */
+
+/* CONTEÚDO */
 *{
     margin: 0;
     padding: 0;
@@ -40,17 +37,31 @@ body{
     overflow-x: hidden;
     font-family: Poppins;
 }
-.card::marker{
-    color: transparent;
-    list-style: none;
-}
+
 a{
     text-decoration: none;
 }
+
+::-webkit-scrollbar{
+    width: 1vw;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+    border-radius: 1vw;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: .5vw;
+    visibility: visible;
+    background-color: #D9D9D9;
+}
+
+
 .container{
     position: relative;
     display: flex;
+    top: 0;
 }
+
 
 /* Área Logo Menu */
 .logo{
@@ -63,16 +74,17 @@ a{
     height: 27%;
 }
 .logo img{
-    width: 9vw;
-    height: 9vw;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    margin-bottom: 1vh;
 }
-.title-adm{
+.title-ong{
     color: #fff;
     font-family: Park;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
 }
-
 
 .toggle{
     position: relative;
@@ -84,10 +96,11 @@ a{
 .toggle i{
     position: relative;
     color: #fff;
-    font-size: 1.8vw;
+    font-size: 1.6vw;
     cursor: pointer;
-    top: 2vh;
-    right: 1.5vw;
+    top: 1.8vh;
+    right: 1.4vw;
+    z-index: 10;
 }
 
 
@@ -98,7 +111,7 @@ a{
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #122BAD;
+    background-color: #0053c7;
     transition: 0.5s;
     overflow: hidden;
 }
@@ -109,8 +122,8 @@ a{
     align-items: center;
     justify-content: center;
     width: auto;
-    margin-left: 0.7vw;
     height: 68%;
+    margin-left: 0.5vw;
 }
 .navegation ul li{
     position: relative;
@@ -131,11 +144,11 @@ a{
 }
 .navegation ul li:hover a,
 .navegation ul li.hovered a{
-    color: #122BAD;
+    color: #0053c7;
 }
-.navegation ul li:nth-child(6){
+.navegation ul li:nth-child(7){
     position: relative;
-    margin-top: 8vh;
+    margin-top: 5vh;
 }
 .navegation ul li a{
     position: relative;
@@ -143,6 +156,7 @@ a{
     align-items: center;
     justify-content: flex-start;
     width: 100%;
+    padding: 2.5vh 0;
     text-decoration: none;
     color: #fff;
     z-index: 10;
@@ -164,9 +178,8 @@ a{
 }
 .navegation ul li a:hover .icon-hover{
     display: block;
-    color: #FF8903;
+    color: #faac26;
 }
-
 .navegation ul li a .icon i{
     display: flex;
     align-items: center;
@@ -178,9 +191,8 @@ a{
     font-family: Regular;
     position: relative;
     display: block;
-    padding: 3vh 0;
     padding-left: 1vw;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
 }
 
 
@@ -211,23 +223,19 @@ a{
     pointer-events: none;
 }
 
-
 /* Área Topo */
 .main{
     position: relative;
-    min-width: 81vw;
-    max-width: 81vw;
+    min-width: 79vw;
+    max-width: 79vw;
     height: auto;
-    left: 18vw;
-    transition: all 0.5s;
+    left: 18.5vw;
+    transition: 0.5s;
 }
 
-/* Menu Mínimizado */
+/* Menu Minimizado */
 .navegation.active{
     width: 6vw;
-}
-.navegation.active .title-adm{
-    display: none;
 }
 .navegation.active ul{
     margin-left: 0.8vw;
@@ -236,22 +244,19 @@ a{
     display: none;
 }
 .navegation.active .logo img{
-    margin-top: 4vh;
-    width: 5vw;
-    height: 5vw;
+    margin-top: 5vh;
+    width: 4vw;
+    height: 4vw;
 }
 .navegation.active .title-ong{
     display: none;
 }
-.navegation.active ul li:nth-child(6){
-    margin-top: 10vh;
-}
 .navegation.active ul li a .icon{
-    padding: 2.5vh 1vw;
+    padding: 0 1vw;
 }
 .main.active{
-    min-width: 92vw;
-    max-width: 92vw;
+    min-width: 91vw;
+    max-width: 91vw;
     left: 7vw;
 }
 .navegation.active .toggle{
@@ -261,37 +266,42 @@ a{
     right: initial;
 }
 
+
+/* Área Topo */
 .topbar{
     position: relative;
-    margin-top: 1vh;
     width: 100%;
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 1vw;
 }
-
-
-/* Barra de Pesquisa */
-.search label{
-    position: relative;
-    width: 100%;
-}
-.search label input{
+/* Imagens Páginas */
+.img-pag, .img-logo{
     display: flex;
     align-items: center;
-    padding: 1vh 6vh;
-    border-radius: 20vh;
-    padding-left: 6vh;
-    font-size: 2.5vh;
-    outline: none;
-    border: 0.1vh solid #999;
+    justify-content: center;
 }
-.search label ion-icon{
-    position: absolute;
-    display: flex;
-    top: 1vh;
-    left: 1.5vh;
-    font-size: 3.5vh;
-    color: #122BAD;
+.img-pag img{
+    width: 3.5vw;
+}
+.img-logo img{
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+}
+/* Títulos */
+.titulo-pagina span{
+    font-family: National;
+    font-size: 2.3vw;
+    color: #0053c7;
+}
+.sub-titulo{
+    position: relative;
+}
+.sub-titulo span{
+    font-family: Park;
+    font-size: 1.7vw;
+    color: #004FDA;
 }

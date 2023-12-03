@@ -1,6 +1,8 @@
 /* Modais */
 .fade,
 .modal,
+.fadeAjudar,
+.modalAjudar,
 .fadePerfilCamp,
 .modalPerfilCamp,
 .fadePerfilAnuncio,
@@ -16,6 +18,7 @@
     pointer-events: all;
 }
 .fade, 
+.fadeAjudar,
 .fadePerfilCamp,
 .fadePerfilAnuncio,
 .fadePerfilAnunciante,
@@ -42,6 +45,7 @@
     transition: .3s;
 }
 .modal.hide, 
+.modalAjudar.hide,
 .modalPerfilCamp.hide, 
 .modalPerfilAnuncio.hide, 
 .modalPerfilAnunciante.hide,
@@ -59,6 +63,7 @@
 .tela-favAnuncios.hide, 
 .tela-segOng.hide,
 .fade.hide, 
+.fadeAjudar.hide,
 .fadePerfilCamp.hide,
 .fadePerfilAnuncio.hide,
 .fadePerfilAnunciante.hide,
@@ -93,7 +98,9 @@
     top: 0;
 }
 
-
+.fadeAjudar{
+    z-index: 10;
+}
 .modal{
     position: fixed;
     left: 50%;
@@ -105,6 +112,47 @@
     height: auto;
     padding: 1.5vw;
     border-radius: 1.5vw;
+}
+.modalAjudar i{
+    font-size: 1vw !important;
+}
+.modalAjudar{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    background-color: #F4F6FF;
+    transform: translate(-50%, -50%);
+    width: 20vw;
+    height: auto;
+    padding: 1.5vw;
+    border-radius: 1.5vw;
+}
+.conteudo-ajudar{
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.conteudo-ajudar span{
+    font-family: Regular;
+    font-size: 1.8vw;
+    color: #17AB5A;
+}
+.conteudo-ajudar img{
+    margin: 2vh 0;
+    width: 17vw;
+}
+.conteudo-ajudar .titulo-pix{
+    font-family: Regular;
+    font-size: 1.4vw;
+    color: #00BF63;
+}
+.conteudo-ajudar .chave-pix{
+    margin-top: 1vh;
+    font-size: 1.2vw;
+    color: #000;
 }
 
 .modalPerfilCamp, .modalPerfilAnuncio{
@@ -147,14 +195,14 @@
     overflow-x: hidden;
     overflow-y: auto;
     transition: all 0.5s;
-    width: 72vw;
+    width: 92vw;
     left: 7vw;
     border-left: 0.1vw solid #D9D9D9;
     border-right: 0.1vw solid #D9D9D9;
 }
 .modalOngPerfil, .modalPerfilAnunciante, 
 .tela-fav, .tela-favCamp, .tela-favAnuncios{
-    width: 72vw;
+    width: 92vw;
     left: 7vw;
     border-left: 0.1vw solid #D9D9D9;
     border-right: 0.1vw solid #D9D9D9;
@@ -347,7 +395,7 @@
     width: 50%;
 }
 .modal-topo .search{
-    margin: 3vw 0;
+    margin: 5vw 0;
 }
 .search{
     display: flex;
@@ -359,6 +407,7 @@
     width: 20vw;
     font-size: 1.2vw;
     padding: 0 1vw;
+    margin: 2vh 0;
     margin-left: initial;
 }
 .search input{
@@ -430,7 +479,7 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 0 1vw;
-    z-index: 100;
+    z-index: 10;
 }
 
 .modal-header .icon-fav{
@@ -513,7 +562,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 7.5vw;
+    width: 10.2vw;
+    height: 6vw;
     margin: 0.5vw;
     margin-right: 0;
     border-radius: 0.8vw;
@@ -773,14 +823,6 @@
 .listas li::marker{
     color: #F48503;
 }
-.listas li{
-    font-family: Poppins;
-    font-size: 1vw;
-    color: #000;
-    list-style: circle;
-    margin: 0.3vw 0;
-}
-
 
 /* Descrição do Pet */
 .area-descricao{
@@ -864,32 +906,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2vh;
 }
 .area-botoes button{
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Regular;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     text-transform: uppercase;
-    padding: 0.6vw 1.4vw;
+    padding: 0.4vw 1.5vw;
     margin: 0 1vw;
     border-radius: 2vw;
     border: none;
     outline: none;
-    background-color: #004FDA;
     color: #fff;
     cursor: pointer;
 }
-.area-botoes button i{
+.area-botoes button img{
     display: flex;
     align-items: center;
     justify-content: center;
-    shape-outside: circle();
-    clip-path: circle();
-    padding: 0.5vw;
-    font-size: 1.2vw;
-    color: #004FDA;
+    border-radius: 50%;
+    padding: 0.1vw;
+    width: 2.2vw;
     background-color: #fff;
     margin-left: 0.6vw;
 }
@@ -898,7 +938,15 @@
     transition: all 0.5s;
     cursor: pointer;
 }
-
+.btn-apadrinhar{
+    background-color: #9865FF;
+}
+.btn-adotar{
+    background-color: #004FDA;
+}
+.btn-ajudar{
+    background-color: #00BF63;
+}
 
 /* Modais do Perfil da ONG e Anunciante */
 .icons-perfil i{

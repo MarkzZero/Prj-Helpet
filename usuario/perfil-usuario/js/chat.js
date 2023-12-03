@@ -113,7 +113,7 @@ const fillList = async (url) => {
 
     let chats = data
 
-    console.log(chats)
+    
 
     chats.forEach(item => {
         let chat = document.createElement('a')

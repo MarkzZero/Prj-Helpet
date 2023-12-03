@@ -222,7 +222,7 @@ if (isset($_POST['animal_id'])) {
                             <div class="nome-ong">
                                 <h3><?php echo $nome_ong['ong'] ?></h3>
                                 <div class="icons icon-chat">
-                                    <i class="fi fi-rr-messages icon-chat"></i>
+                                   <a href="Chat.php?o=<?php echo $id_ong['idOng']?>"><i class="fi fi-rr-messages icon-chat"></i></a>
                                 </div>
                             </div>
 
@@ -251,22 +251,44 @@ if (isset($_POST['animal_id'])) {
                     </div>
                 </div>
             </div>
-
             <div class="area-botoes">
+                <button class="btn-apadrinhar" name="apadrinhar">
+                    Apadrinhar
+                    <img src="images/icon-apadrinhar.png">
+                </button>
+
                 <form action="./adocao/adotar.php" method="post">
                     <input type="hidden" name="idAnimal" id="" value="<?php echo $pet_data['idAnimal'] ?>">
                     <input type="hidden" name="idUsuario" id="" value="<?php echo $_SESSION['id'] ?>">
                     <input type="hidden" name="idOng" id="" value="<?php echo $id_ong['idOng'] ?>">
-                    <button name="adotar">
+                    <button class="btn-adotar" name="adotar">
                         Adotar
-                        <i class="fi fi-sr-paw"></i>
+                        <img src="images/icon-adotar.png">
                     </button>
                 </form>
 
-                <button name="apadrinhar">
-                    Apadrinhar
-                    <i class="fi fi-sr-paw"></i>
+                <button class="open-modalAjudar btn-ajudar" name="ajudar">
+                    Ajudar
+                    <img src="images/icon-ajudar.png">
                 </button>
+
+                <!-- Modal Ajudar Pet -->
+                <div class="fadeAjudar hide"></div>
+                <div class="modalAjudar hide">
+                    <div class="modal-header">
+                        <div></div>
+                        <div class="fechar-modal">
+                            <i class="fechar fi fi-br-cross close-modalAjudar"></i>
+                            <i class="seta fi fi-br-angle-small-left close-modalAjudar"></i>
+                        </div>
+                    </div>
+                    <div class="conteudo-ajudar"> 
+                        <span>Ajude este pet</span>
+                        <img src="images/pix-ajudar-pet.png">
+                        <p class="titulo-pix">Chave PIX</p>
+                        <p class="chave-pix">23456789010</p>
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Isso aqui Configura o Modal de Excluir
 const openModalExcluir = document.querySelectorAll(".open-modalExcluir");
-const closeModalExcluir = document.querySelectorAll(".modalExcluir .close-modal");
+const closeModalExcluir = document.querySelectorAll(".close-modalExcluir");
 const modalExcluir = document.querySelectorAll(".modalExcluir");
 const fadeExcluir = document.querySelectorAll(".fadeExcluir");
 setupModal(openModalExcluir, closeModalExcluir, modalExcluir, fadeExcluir);
