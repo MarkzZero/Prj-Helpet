@@ -16,72 +16,15 @@ if (isset($_GET[1]))
     <link rel="icon" href="images/logo-azul.png">
 
     <!-- Links CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/modais-camp.css">
 </head>
-
 <body>
     <div class="container">
-
         <!-- Menu Fixo Lateral -->
-        <div class="navegation">
-            <div class="toggle">
-                <i class="fi fi-br-menu-burger"></i>
-            </div>
-
-            <div class="logo">
-                <!-- Puxar do banco a imagem da ong aqui -->
-                <img src="<?php echo "../Cadastro/" . $ong_data['fotoOng']; ?>">
-
-                <!-- Conectar o nome das ongs com o banco -->
-                <span class="title-ong">Bem-Vindo <br> <?php echo $ong_data['nomeOng']; ?></span>
-            </div>
-
-            <ul>
-                <li>
-                    <a href="index.php">
-                        <span class="icon"><i class="fi fi-sr-chart-line-up"></i></span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Pets.php">
-                        <span class="icon"><i class="fi fi-rs-paw"></i></span>
-                        <span class="title">Pets</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Campanhas.php">
-                        <span class="icon"><i class="fi fi-rr-megaphone"></i></span>
-                        <span class="title">Campanhas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="solicitacoes.php">
-                        <span class="icon"><i class="fi fi-rr-assept-document"></i></span>
-                        <span class="title">Solicitações</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Chat.php">
-                        <span class="icon"><i class="fi fi-rr-messages"></i></span>
-                        <span class="title">Chat</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="configuracoes.php">
-                        <span class="icon"><i class="fi fi-rr-settings"></i></span>
-                        <span class="title">Configurações</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="logout.php">
-                        <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
-                        <span class="title">Sair</span>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
+        <?php require "menu-lateral.php"; ?>
 
         <!-- CADASTRO DE CAMPANHAS -->
         <div class="main">
@@ -250,9 +193,7 @@ if (isset($_GET[1]))
                                     </div>
                                     <div class="area-botoes">
                                         <button class="open-modal btn-editar" name="editar" data-idEdit="<?php echo $user_data['idCampanha']; ?>"><i class="fi fi-br-edit"></i></button>
-                                        <a style="text-decoration: none ;" href="Cadastro/deleteCampanha.php?id=<?php echo $user_data['idCampanha']; ?>">
-                                            <button class="open-modalExcCam btn-excluir" name="excluir"><i class="fi fi-sr-trash"></i></button>
-                                        </a>
+                                        <button class="open-modalExcluir btn-excluir" name="excluir"><i class="fi fi-sr-trash"></i></button>
                                     </div>
                                 </div>
 
@@ -397,14 +338,13 @@ if (isset($_GET[1]))
 
 
                             <!-- Modal Excluir -->
-                            <div class="fadeExcCam hide"></div>
-                            <div class="modalExcCam hide">
+                            <div class="fadeExcluir hide"></div>
+                            <div class="modalExcluir hide">
                                 <div class="modal-header">
-                                    <i class="fi fi-br-cross close-modal"></i>
+                                    <i class="fi fi-br-cross close-modalExcluir"></i>
                                 </div>
 
                                 <div class="area-modal">
-
                                     <div class="modal-body">
                                         <div class="area-foto">
                                             <img src="images/img-excluir.png" alt="">
@@ -412,12 +352,14 @@ if (isset($_GET[1]))
                                     </div>
 
                                     <div class="excluir-info">
-                                        <span>Deseja excluir a campanha permanentemente?</span>
+                                        <p>Deseja excluir a campanha <span><?php echo $user_data['nomeCampanha']; ?></span> permanentemente?</p>
                                     </div>
 
                                     <div class="area-botoes">
                                         <button class="closeBtnModal botao-modalExc">Cancelar</button>
-                                        <button class="botao-modalExc2">Excluir</button>
+                                        <a style="text-decoration: none ;" href="Cadastro/deleteCampanha.php?id=<?php echo $user_data['idCampanha']; ?>">
+                                            <button class="botao-modalExc2">Excluir</button>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -429,13 +371,11 @@ if (isset($_GET[1]))
                             <div class="modalCam hide" id="modalCam-<?php echo $user_data['idCampanha']; ?>">
 
                                 <div class="modal-header">
-                                    <div class="detalhe-modal">
-
-                                    </div>
-
+                                    <div class="detalhe-modal"></div>
                                     <i class="fi fi-br-cross close-modal"></i>
                                 </div>
 
+                                <div class="modal-conteudo">
                                 <div class="area-modal">
                                     <div class="modal-body1">
                                         <div class="area-foto">
@@ -498,15 +438,6 @@ if (isset($_GET[1]))
                                     <div class="modal-body2">
                                         <div class="conteudo-info">
 
-                                            <div class="campo-info-cam">
-                                                <div class="subtitulo">
-                                                    <span>Descrição</span>
-                                                    <i class="fi fi-rr-memo"></i>
-                                                </div>
-                                                <p><?php echo $user_data['informacaoCampanha'] ?>
-                                                </p>
-                                            </div>
-
                                             <div class="campo-info">
                                                 <div class="subtitulo">
                                                     <span>Data</span>
@@ -521,6 +452,28 @@ if (isset($_GET[1]))
                                                     <i class="fi fi-rr-clock-three"></i>
                                                 </div>
                                                 <p><?php echo $user_data['horarioCampanha'] ?></p>
+                                            </div>
+
+                                            
+                                            <div class="campo-info">
+                                                <div class="subtitulo">
+                                                    <span>Descrição</span>
+                                                    <i class="fi fi-rr-document-signed"></i>
+                                                </div>
+                                                <div class="area-descricao">
+                                                    <span class="short-text">
+                                                        <p><?php echo $user_data['informacaoCampanha'] ?>
+                                                            <br>
+                                                            <a class="read-more">Ler mais</a>
+                                                        </p>
+                                                    </span>
+                                                    <span class="full-text">
+                                                        <p>
+                                                            <?php echo $user_data['informacaoCampanha'] ?>
+                                                            <a class="read-less">Ler menos</a>
+                                                        </p>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -543,6 +496,7 @@ if (isset($_GET[1]))
 
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
 
@@ -608,6 +562,7 @@ if (isset($_GET[1]))
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="js/script.js"></script>
     <script src="js/tabela.js"></script>
+    <script src="js/descricao.js"></script>
     <script src="js/modal-campanha.js" defer></script>
 
 </body>
