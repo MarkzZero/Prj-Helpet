@@ -117,23 +117,39 @@
                 <button class="next" onclick="nextSlide()"><i class="fi fi-br-angle-small-right"></i></button>
             </div>
 
-            <div class="area-cards cards-home">
-                <?php require "card-pet.php"; ?>
+            <div class="area-pets">
+                <p>Pets que precisam de você</p>
+                
+                <div class="open-modalAdocao mostrar-todos">
+                    <p>Mostrar todos</p>
+                    <i class="fi fi-br-angle-small-right"></i>
+                </div>
             </div>
 
-
-            <div class="area-conteudo">
-                <?php require "post-campanha.php"; ?>
-
-            </div>
-
             <div class="area-cards cards-home">
-                <?php require "card-pet.php"; ?>
+                <span class="gallery">
+                    <?php require "card-pet.php"; ?>    
+                </span>
             </div>
 
             <div class="area-conteudo">
                 <?php require "post-anuncio.php"; ?>
+                <?php require "post-anuncio.php"; ?>
             </div>
+
+            
+
+            <div class="area-conteudo">
+                <?php require "post-campanha.php"; ?>
+                <?php require "post-campanha.php"; ?>
+            </div>
+
+            <div class="toggle">
+                <div class="icon-seta">
+                    <i class="fi fi-br-angle-small-left"></i>
+                </div>
+            </div>
+
         </div>
 
 
@@ -146,6 +162,7 @@
         <script src="js/carrossel.js"></script>
         <script src="js/modais.js"></script>
         <script src="js/filtros.js"></script>
+        <script src="js/categorias.js"></script>
 
     </body>
 </html>
