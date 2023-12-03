@@ -2,124 +2,19 @@ body{
     overflow: hidden;
 }
 
-/* Títulos */
-.titulo-pagina{
-    position: absolute;
-    top: 2vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.titulo-pagina span{
-    position: relative;
-    font-family: National;
-    font-size: 2.3vw;
-    color: #122BAD;
-}
-
-/* Cards Box */
-.card-box{
-    position: relative;
-    left: 4vw;
-    margin-top: 2vw;
-    font-family: Poppins;
+.conteudo{
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.card-claro, .card-azul, .card-azul-medio, .card-escuro{
-    width: 15vw;
-    padding: 1.8vh;
-    border-radius: 4vh;
-    cursor: pointer;
-    margin-bottom: 1.5vh;
-}
-.card-claro{
-    background-color: #72B0FF;
-}
-.card-azul{
-    background-color: #377DE2;
-}
-.card-azul-medio{
-    background-color: #054bc5;
-}
-.card-escuro{
-    background-color: #0d2499;
-}
-.card-box .card-conteudo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.card-box .card-conteudo img{
-    width: 9vh;
-}
-.card-box .card-name{
-    color: #fff;
-    font-size: 2.5vh;
-    margin: 0.5vh;
-    text-align: center;
-}
-.card-box .number{
-    color: #fff;
-    font-size: 3.2vh;
-    text-align: center;
-}
-
-/* Gráficos */
-.area{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.conteudo-graficos{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.area-grafico{
-    position: relative;
-    top: 2vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 1vw;
-    padding: 1vw;
-    background-color: #fff;
-    border-radius: 1.5vw;
-}
-.area-grafico .sub-titulo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.area-grafico .sub-titulo span{
-    font-size: 1.5vw;
-    margin-bottom: 3vw;
-}
-
-/*
-#myChart{
-    position: relative;
-    width: 50vw;
-    height: 30vh;
-}
-*/
-
-#myChart, #myChart2{
-    position: relative;
-    width: 25vw;
-}
-
 
 /* Títulos */
 .titulo-pagina{
     position: absolute;
+    top: 2.5vh;
+    left: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,9 +39,107 @@ body{
     color: #FF8903;
 }
 
-.conteudo{
+/* Gráficos */
+.area{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.conteudo-graficos{
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+#myChart, #myChart2{
+    position: relative;
+    width: 28vw;
+}
+.area-grafico{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    margin: 0.5vw;
+    padding: 1vw;
+    width: auto;
+    background-color: #fff;
+    border-radius: 1.5vw;
+}
+.area-grafico .sub-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area-grafico .sub-titulo span{
+    font-size: 1.5vw;
+    margin-bottom: 4vh;
+}
+
+/* Cards Box */
+.card-box{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 20%;
+    margin: 1vh 0;
+    height: 98vh;
+    font-family: Poppins;
+}
+.card{
+    width: 12vw;
+    padding: 1.7vh 1vw;
+    border-radius: 2vw;
+    margin: 0.3vh 0.5vw;
+}
+
+.card:nth-child(1){
+    background-color: #a3cbff;
+}
+.card:nth-child(2){
+    background-color: #72B0FF;
+}
+.card:nth-child(3){
+    background-color: #377DE2;
+}
+.card:nth-child(4){
+    background-color: #054bc5;
+}
+.card:nth-child(5){
+    background-color: #0d2499;
+}
+
+.card-box .card-conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-box .card-conteudo img{
+    width: 3vw;
+}
+.card-box .card-name{
+    font-family: Regular;
+    color: #fff;
+    font-size: 1.2vw;
+    margin: 1vh;
+    text-align: center;
+}
+.card-box .number{
+    font-family: Park;
+    color: #fff;
+    font-size: 1.6vw;
+    font-weight: bold;
+    text-align: center;
 }
