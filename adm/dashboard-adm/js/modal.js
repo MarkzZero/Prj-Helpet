@@ -1,18 +1,26 @@
 /* Modais */
-function setupModal(openBtns, closeBtns, modal, fade) {
-    const toggleModal = () => {
-        modal.forEach((el) => el.classList.toggle("hide"));
-        fade.forEach((el) => el.classList.toggle("hide"));
+function setupModal(openBtns, closeBtns, modals, fade) {
+    const toggleModal = (index) => {
+        modals.forEach((el, i) => {
+            if (i === index) {
+                el.classList.toggle("hide");
+                fade[i].classList.toggle("hide");
+            } else {
+                el.classList.add("hide");
+                fade[i].classList.add("hide");
+            }
+        });
     };
 
-    openBtns.forEach((el) => {
-        el.addEventListener("click", toggleModal);
+    openBtns.forEach((el, index) => {
+        el.addEventListener("click", () => toggleModal(index));
     });
 
-    closeBtns.forEach((el) => {
-        el.addEventListener("click", toggleModal);
+    closeBtns.forEach((el, index) => {
+        el.addEventListener("click", () => toggleModal(index));
     });
 }
+
 
 // Isso Configura o Modal de Ver Mais ONG
 const openModal = document.querySelectorAll(".open-modal");

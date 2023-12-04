@@ -80,31 +80,7 @@
                         </div>
                     </header>
                     <div class="chat-box">
-                        <div class="chat outgoing">
-                            <div class="details">
-                                <p>Oi cliente!! Vcs ainda tem este pet disponivel?</p>
-                            </div>
-                        </div>
-
-                        <div class="chat incoming">
-                            <img src="images/foto-ong.png" alt="">
-                            <div class="details">
-                                <p>Oi cliente!! kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
-                            </div>
-                        </div>
-
-                        <div class="chat outgoing">
-                            <div class="details">
-                                <p>Oi cliente!! Vcs ainda tem este pet disponivel?</p>
-                            </div>
-                        </div>
-
-                        <div class="chat incoming">
-                            <img src="images/foto-ong.png" alt="">
-                            <div class="details">
-                                <p>Oi cliente!! kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <div action="#" class="typing-area">

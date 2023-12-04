@@ -59,7 +59,7 @@
 
                     <div class="card">
                         <div class="foto-card">
-                            <img src="images/foto-ong.png">
+                            <img src="<?php echo "../../ong/cadastro/" . $user_data['fotoOng']?>">
                             <h4><?php echo $user_data['nomeOng'];?></h4>
                         </div>
                         <div class="desc">
@@ -87,7 +87,7 @@
 
                                 <div class="modal-body1">
                                     <div class="area-foto">
-                                        <img src="images/foto-ong.png" alt="">
+                                        <img src="<?php echo "../../ong/cadastro/" . $user_data['fotoOng']?>" alt="">
                                     </div>
 
                                     <div class="nome-ong">
