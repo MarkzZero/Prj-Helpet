@@ -19,13 +19,13 @@
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class="fi fi-rr-messages"></i>
-                <p>Chat</p>
+            <a href="preco.php">
+                <i class="fi fi-rr-usd-circle"></i>
+                <p>Preços</p>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="configuracao.php">
                 <i class="fi fi-rr-settings"></i>
                 <p>Configurações</p>
             </a>
