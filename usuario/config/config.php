@@ -26,6 +26,18 @@ $favoritosCount = $mysqli->query("SELECT COUNT(idAnimal) FROM tbFavorito WHERE i
 $row = mysqli_fetch_array($favoritosCount);
 $favoritosResult = $row[0];
 
+$resultCampanhaFavorita = $mysqli->query("SELECT tbCampanha.*, DATE_FORMAT(diaCampanha, '%d/%m/%Y') as 'dataBrasileira' FROM tbCampanha JOIN tbFavoritoCampanha ON tbCampanha.idCampanha = tbFavoritoCampanha.idCampanha JOIN tbUsuario ON tbFavoritoCampanha.idUsuario = tbUsuario.idUsuario WHERE tbUsuario.idUsuario = '$id'");
+
+$campanhaFavoritaCount = $mysqli->query("SELECT COUNT(idCampanha) FROM tbFavoritoCampanha WHERE idUsuario = '$id'");
+$row = mysqli_fetch_array($campanhaFavoritaCount);
+$CampanhasResult = $row[0];
+
+$anuncioFavorito = $mysqli->query("SELECT tbAnuncio.* FROM tbAnuncio JOIN tbanuncioFavorito ON tbAnuncio.idAnuncio = tbanuncioFavorito.idAnuncio JOIN tbUsuario ON tbanuncioFavorito.idUsuario = tbUsuario.idUsuario WHERE tbUsuario.idUsuario = '$id'");
+
+$anuncioFavoritoCount = $mysqli->query("SELECT COUNT(idAnuncio) FROM tbAnuncioFavorito WHERE idUsuario = '$id'");
+$row = mysqli_fetch_array($anuncioFavoritoCount);
+$anunciosResult = $row[0];
+
 
 $prefe = mysqli_fetch_assoc($preferencia);
 

@@ -1,22 +1,25 @@
 <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $idAnimal = $_POST['campanha_id'];
-        $idUsuario = $_SESSION['id'];
-
-        $sql = "INSERT INTO tbfavoritocampanha(idCampanha, idUsuario) VALUES (?, ?)";
-        $stmt = $mysqli->prepare($sql);
-        $stmt->bind_param("ii", $idAnimal, $idUsuario);
-        $stmt->execute();
-
-        $stmt->close();
-        $mysqli->close();
-        exit;  // Adicione esta linha para evitar a execução do restante do script
-    }
-
 // Resultado da consulta de campanhas
 $resultCampanha = $mysqli->query("SELECT *, DATE_FORMAT(diaCampanha, '%d/%m/%Y') as 'dataBrasileira' FROM tbCampanha ORDER BY idCampanha DESC");
 
 while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
+
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $idCampanha = $_POST['campanha_id'];
+        $idUsuario = $_SESSION['id'];
+    
+        // Aqui você faz o cadastro no banco de dados usando os IDs obtidos
+        $sql = "INSERT INTO tbfavoritocampanha(idCampanha, idUsuario) VALUES (?, ?)";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("ii", $idCampanha, $idUsuario);
+        $stmt->execute();
+    
+        $stmt->close();
+        $mysqli->close();
+    }
+
+
     // Consulta para a tabela de ONGs
     $resultOng = $mysqli->query("SELECT tbCampanha.nomeCampanha as 'campanha', tbOng.nomeOng as 'ong' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '{$campanha_Data['idCampanha']}'");
     $ong_Data = mysqli_fetch_assoc($resultOng);
@@ -74,7 +77,7 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
         <div class="modalPerfilCamp hide">
             <div class="modal-header">
                 <div class="icon-fav">
-                    <i id="heartIcon1" class="fi-rr-heart icon"></i>
+                    <i id="heartIcon1" data-campanha-id="<?php echo $campanha_Data['idCampanha'];?>" class="fi-rr-heart icon favoritar"></i>
                 </div>
 
                 <div class="fechar-modal">
@@ -184,3 +187,27 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
         <br><br>
     </div>
 <?php } ?>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".favoritar").click(function() {
+            var campanhaId = $(this).data("campanha-id");
+
+            $.ajax({
+                url: "campanhaFavorita.php", // Substitua pelo nome do seu arquivo PHP
+                method: "POST",
+                data: {
+                    campanha_id: campanhaId
+                },
+                success: function(response) {
+                    console.log(response);
+                    // Atualizar a interface do usuário conforme necessário
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>

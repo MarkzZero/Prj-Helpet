@@ -21,6 +21,7 @@ if (isset($_GET[1]))
     <link rel="stylesheet" href="css/cards.css">
     <link rel="stylesheet" href="css/modais-camp.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Menu Fixo Lateral -->
@@ -376,127 +377,127 @@ if (isset($_GET[1]))
                                 </div>
 
                                 <div class="modal-conteudo">
-                                <div class="area-modal">
-                                    <div class="modal-body1">
-                                        <div class="area-foto">
-                                            <img src="<?php echo "cadastro/" . $user_data['fotoPerfilCampanha']; ?>">
+                                    <div class="area-modal">
+                                        <div class="modal-body1">
+                                            <div class="area-foto">
+                                                <img src="<?php echo "cadastro/" . $user_data['fotoPerfilCampanha']; ?>">
+                                            </div>
+
+                                            <div class="nome-cam">
+                                                <span>Campanha</span>
+                                                <p><?php echo $user_data['nomeCampanha'] ?></p>
+                                            </div>
+
                                         </div>
 
-                                        <div class="nome-cam">
-                                            <span>Campanha</span>
-                                            <p><?php echo $user_data['nomeCampanha'] ?></p>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="modal-cam">
-                                        <div class="titulo-cam">
-                                            <span>Localização</span>
-                                            <i class="fi fi-ss-marker"></i>
-                                        </div>
-
-                                        <div class="conteudo-cam">
-                                            <div class="campo-cam">
-                                                <span>CEP</span>
-                                                <p><?php echo $user_data['cepCampanha'] ?></p>
+                                        <div class="modal-cam">
+                                            <div class="titulo-cam">
+                                                <span>Localização</span>
+                                                <i class="fi fi-ss-marker"></i>
                                             </div>
 
-                                            <div class="campo-cam">
-                                                <span>Bairro</span>
-                                                <p><?php echo $user_data['bairroCampanha'] ?></p>
-                                            </div>
-
-                                            <div class="campo-cam">
-                                                <span>Complemento</span>
-                                                <p><?php echo $user_data['complementoCampanha'] ?></p>
-                                            </div>
-
-                                            <div class="campo-cam">
-                                                <span>Estado</span>
-                                                <p><?php echo $user_data['estadoCampanha'] ?></p>
-                                            </div>
-
-                                            <div class="campo-cam">
-                                                <span>Logradouro</span>
-                                                <p><?php echo $user_data['logradouroCampanha'] ?></p>
-                                            </div>
-
-                                            <div class="campo-cam">
-                                                <span>Cidade</span>
-                                                <p><?php echo $user_data['cidadeCampanha'] ?></p>
-                                            </div>
-
-                                            <div class="campo-cam">
-                                                <span>Número</span>
-                                                <p><?php echo $user_data['numLocalCampanha'] ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="area-modal">
-                                    <div class="modal-body2">
-                                        <div class="conteudo-info">
-
-                                            <div class="campo-info">
-                                                <div class="subtitulo">
-                                                    <span>Data</span>
-                                                    <i class="fi fi-rr-calendar"></i>
+                                            <div class="conteudo-cam">
+                                                <div class="campo-cam">
+                                                    <span>CEP</span>
+                                                    <p><?php echo $user_data['cepCampanha'] ?></p>
                                                 </div>
-                                                <p><?php echo $user_data['diaCampanha'] ?></p>
-                                            </div>
 
-                                            <div class="campo-info">
-                                                <div class="subtitulo">
-                                                    <span>Horário</span>
-                                                    <i class="fi fi-rr-clock-three"></i>
+                                                <div class="campo-cam">
+                                                    <span>Bairro</span>
+                                                    <p><?php echo $user_data['bairroCampanha'] ?></p>
                                                 </div>
-                                                <p><?php echo $user_data['horarioCampanha'] ?></p>
-                                            </div>
 
-                                            
-                                            <div class="campo-info">
-                                                <div class="subtitulo">
-                                                    <span>Descrição</span>
-                                                    <i class="fi fi-rr-document-signed"></i>
+                                                <div class="campo-cam">
+                                                    <span>Complemento</span>
+                                                    <p><?php echo $user_data['complementoCampanha'] ?></p>
                                                 </div>
-                                                <div class="area-descricao">
-                                                    <span class="short-text">
-                                                        <p><?php echo $user_data['informacaoCampanha'] ?>
-                                                            <br>
-                                                            <a class="read-more">Ler mais</a>
-                                                        </p>
-                                                    </span>
-                                                    <span class="full-text">
-                                                        <p>
-                                                            <?php echo $user_data['informacaoCampanha'] ?>
-                                                            <a class="read-less">Ler menos</a>
-                                                        </p>
-                                                    </span>
+
+                                                <div class="campo-cam">
+                                                    <span>Estado</span>
+                                                    <p><?php echo $user_data['estadoCampanha'] ?></p>
+                                                </div>
+
+                                                <div class="campo-cam">
+                                                    <span>Logradouro</span>
+                                                    <p><?php echo $user_data['logradouroCampanha'] ?></p>
+                                                </div>
+
+                                                <div class="campo-cam">
+                                                    <span>Cidade</span>
+                                                    <p><?php echo $user_data['cidadeCampanha'] ?></p>
+                                                </div>
+
+                                                <div class="campo-cam">
+                                                    <span>Número</span>
+                                                    <p><?php echo $user_data['numLocalCampanha'] ?></p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="area-add-fotos">
-                                        <div class="titulo-add">
-                                            <p>Galeria de Fotos da Campanha</p>
-                                            <i class="fi fi-rr-gallery"></i>
-                                        </div>
-                                        <div class="galeria">
-                                            <?php
-                                            $idCampanha = $user_data['idCampanha'];
-                                            $resultFoto = $mysqli->query(
-                                                "SELECT * FROM tbfotoCampanha WHERE idCampanha = '$idCampanha'"
-                                            ) or die($mysqli->error);
-                                            while ($foto_data = mysqli_fetch_assoc($resultFoto)) {
-                                                $imagemBase64 = base64_encode($foto_data['fotosCampanha']);
-                                                echo '<img src="cadastro/' .$imagemBase64 . '" alt="Imagem da Campanha">';
-                                            }
-                                            ?>
 
+                                    <div class="area-modal">
+                                        <div class="modal-body2">
+                                            <div class="conteudo-info">
+
+                                                <div class="campo-info">
+                                                    <div class="subtitulo">
+                                                        <span>Data</span>
+                                                        <i class="fi fi-rr-calendar"></i>
+                                                    </div>
+                                                    <p><?php echo $user_data['diaCampanha'] ?></p>
+                                                </div>
+
+                                                <div class="campo-info">
+                                                    <div class="subtitulo">
+                                                        <span>Horário</span>
+                                                        <i class="fi fi-rr-clock-three"></i>
+                                                    </div>
+                                                    <p><?php echo $user_data['horarioCampanha'] ?></p>
+                                                </div>
+
+
+                                                <div class="campo-info">
+                                                    <div class="subtitulo">
+                                                        <span>Descrição</span>
+                                                        <i class="fi fi-rr-document-signed"></i>
+                                                    </div>
+                                                    <div class="area-descricao">
+                                                        <span class="short-text">
+                                                            <p><?php echo $user_data['informacaoCampanha'] ?>
+                                                                <br>
+                                                                <a class="read-more">Ler mais</a>
+                                                            </p>
+                                                        </span>
+                                                        <span class="full-text">
+                                                            <p>
+                                                                <?php echo $user_data['informacaoCampanha'] ?>
+                                                                <a class="read-less">Ler menos</a>
+                                                            </p>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="area-add-fotos">
+                                            <div class="titulo-add">
+                                                <p>Galeria de Fotos da Campanha</p>
+                                                <i class="fi fi-rr-gallery"></i>
+                                            </div>
+                                            <div class="galeria">
+                                                <?php
+                                                $idCampanha = $user_data['idCampanha'];
+                                                $resultFoto = $mysqli->query(
+                                                    "SELECT * FROM tbfotoCampanha WHERE idCampanha = '$idCampanha'"
+                                                ) or die($mysqli->error);
+                                                while ($foto_data = mysqli_fetch_assoc($resultFoto)) {
+                                                    $imagemBase64 = base64_encode($foto_data['fotosCampanha']);
+                                                    echo '<img src="cadastro/' . $imagemBase64 . '" alt="Imagem da Campanha">';
+                                                }
+                                                ?>
+
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
 

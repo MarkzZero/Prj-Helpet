@@ -122,7 +122,7 @@ include('../config/config.php');
                 <!-- Campanhas Favoritas -->
                 <div id="fav-campanhas" class="item open-modalFavCamp">
                     <img class="icon-info" src="images/informacoes/img-camp.png">
-                    <span>Campanhas Favoritas <br> (4)</span>
+                    <span>Campanhas Favoritas <br> (<?php echo $CampanhasResult ?>)</span>
                     <i class="fi fi-br-angle-small-right"></i>
                     <div class="bolinhas"><img src="images/informacoes/bolinhas-camp.png"></div>
                 </div>
@@ -130,7 +130,7 @@ include('../config/config.php');
                 <!-- Pets Anúncios Favoritos -->
                 <div id="fav-anuncios" class="item open-modalFavAnuncios">
                     <img class="icon-info" src="images/informacoes/img-anuncios.png">
-                    <span>Anúncios Favoritos <br> (3)</span>
+                    <span>Anúncios Favoritos <br> (<?php echo $anunciosResult ?>)</span>
                     <i class="fi fi-br-angle-small-right"></i>
                     <div class="bolinhas"><img src="images/informacoes/bolinhas-apad.png"></div>
                 </div>
@@ -171,193 +171,204 @@ include('../config/config.php');
         <div class="area-pesquisa">
             <div class="search">
                 <i class="fi fi-br-search"></i>
-                <input id="searchbar" onkeyup="search_animal()" type="search"   placeholder="Pesquisar nome do pet...">
+                <input id="searchbar" onkeyup="search_animal()" type="search" placeholder="Pesquisar nome do pet...">
             </div>
         </div>
 
         <div class="area-cards-user">
-        <?php while($pet_data = mysqli_fetch_assoc($resultAnimalFavorito)){ ?>
-        <div class="card">
-            <div class="area-foto">
+            <?php while ($pet_data = mysqli_fetch_assoc($resultAnimalFavorito)) {
+                $resultRaca = $mysqli->query("SELECT tbanimal.idAnimal as 'animal', tbraca.nomeRaca as 'raca' FROM tbanimal INNER JOIN tbRaca ON tbAnimal.idRaca = tbRaca.idRaca WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
-                <div class="foto">
-                    <img src="<?php echo "../../ong/dashboard-ong/Cadastro/" . $pet_data['fotoPerfilAnimal'] ?>">
-                </div>
-            </div>
+                $raca = mysqli_fetch_assoc($resultRaca);
 
-            <div class="area-conteudo">
-                <div class="info">
-                    <div class="nome">
-                        <h3><?php echo $pet_data['nomeAnimal'] ?></h3>
-                    </div>
-                    <div class="icon-femea">
-                        <i class="fi fi-rr-venus"></i>
-                    </div>
-                </div>
+                $resultVacina = $mysqli->query("SELECT tbanimal.nomeanimal as 'animal', tbvacina.tipovacina as 'vacina' FROM tbAnimal INNER JOIN tbVacina ON tbAnimal.idVacina = tbVacina.idVacina WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
-                <div class="local">
-                    <i class="fi fi-sr-marker"></i>
-                    <p>123 Anywhere St., Any City</p>
-                </div>
+                $vacina = mysqli_fetch_assoc($resultVacina);
 
-                <div class="area-btn-modal">
-                    <button class="open-modal botao-modal">
-                        <p>Saiba Mais</p>
-                        <i class="fi fi-br-angle-small-right"></i>
-                    </button>
-                </div>
-            </div>
+                $resultDoenca = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbDoenca.tipoDoenca as 'doenca' FROM tbAnimal INNER JOIN tbDoenca ON tbAnimal.idDoenca = tbDoenca.idDoenca WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
-            <!-- Modal Saiba Mais -->
-            <div class="fade hide"></div>
-            <div class="modal hide">
-                <div class="modal-header">
-                    <div class="icon-fav">
-                        <i id="heartIcon1" class="fi-rr-heart icon"></i>
-                    </div>
+                $doenca = mysqli_fetch_assoc($resultDoenca);
 
-                    <div class="fechar-modal">
-                        <i class="fechar fi fi-br-cross close-modal"></i>
-                        <i class="seta fi fi-br-angle-small-left close-modal"></i>
-                    </div>
-                </div>
+                $fotoOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.fotoOng as 'fotoOng' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
-                <div class="modal-info">
-                    <div class="info-pet">
-                        <div class="modal-nome">
-                            <div class="foto-modal">
-                                <img src="images/pet-gato.png">
-                            </div>
-                            <div class="nome-pet">
-                                <h3>Lily</h3>
-                                <div class="icon-femea">
-                                    <i class="fi fi-rr-venus"></i>
-                                </div>
-                            </div>
-                        </div>
+                $foto_ong = mysqli_fetch_assoc($fotoOng);
 
-                        <div class="area-itens">
-                            <div class="item">
-                                <h4>Raça</h4>
-                                <p>Siamês</p>
-                                <div class="icon-patinha">
-                                    <i class="fi fi-sr-paw"></i>
-                                </div>
-                            </div>
+                $nomeOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.nomeOng as 'nomeOng' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
-                            <div class="item">
-                                <h4>Idade</h4>
-                                <p>Adulto (Entre 1 e 3 anos)</p>
-                                <div class="icon-patinha">
-                                    <i class="fi fi-sr-paw"></i>
-                                </div>
-                            </div>
+                $nome_ong = mysqli_fetch_assoc($nomeOng);
 
-                            <div class="item">
-                                <h4>Porte</h4>
-                                <p>Pequeno</p>
-                                <div class="icon-patinha">
-                                    <i class="fi fi-sr-paw"></i>
-                                </div>
-                            </div>
+                $ruaOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.logradouroOng as 'rua' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
-                            <div class="item">
-                                <h4>Espécie</h4>
-                                <p>Gato</p>
-                                <div class="icon-patinha">
-                                    <i class="fi fi-sr-paw"></i>
-                                </div>
-                            </div>
-                        </div>
+                $rua_ong = mysqli_fetch_assoc($ruaOng);
 
-                        <div class="listas">
-                            <div class="vacinas">
-                                <span>Vacinas</span>
-                                <ul>
-                                    <li>Raiva e Alergias</li>
-                                    <li>Polivalente</li>
-                                </ul>
-                            </div>
-                            <div class="doencas">
-                                <span>Doenças</span>
-                                <ul>
-                                    <li>Não tem nenhuma doença</li>
-                                </ul>
-                            </div>
+                $bairroOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.bairroOng as 'bairro' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
+
+                $bairro_ong = mysqli_fetch_assoc($bairroOng);
+
+                $numOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.numLogOng as 'num' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
+
+                $num_ong = mysqli_fetch_assoc($numOng);
+
+                $cidadeOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.cidadeOng as 'cidade' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
+
+                $cidade_ong = mysqli_fetch_assoc($cidadeOng);
+            ?>
+                <div class="card">
+                    <div class="area-foto">
+
+                        <div class="foto">
+                            <img src="<?php echo "../../ong/dashboard-ong/Cadastro/" . $pet_data['fotoPerfilAnimal'] ?>">
                         </div>
                     </div>
 
-                    <div class="area-ong">
-                        <div class="galeria">
-                            <div class="titulo-galeria">
-                                <p>Galeria</p>
-                                <i class="fi fi-br-gallery"></i>
+                    <div class="area-conteudo">
+                        <div class="info">
+                            <div class="nome">
+                                <h3><?php echo $pet_data['nomeAnimal'] ?></h3>
                             </div>
-                            <div class="fotos">
-                                <img src="images/pet-gato.png">
-                                <img src="images/pet-gato.png">
-                                <img src="images/pet-gato.png">
-                                <img src="images/pet-gato.png">
-                                <img src="images/pet-gato.png">
-                                <img src="images/pet-gato.png">
+                            <div class="icon-femea">
+                                <i class="fi fi-rr-venus"></i>
                             </div>
                         </div>
 
-                        <div class="info-ong">
-                            <img src="images/foto-ong.png">
+                        <div class="local">
+                            <i class="fi fi-sr-marker"></i>
+                            <p><?php echo $rua_ong['rua'] . " N° " . $num_ong['num'] . ", " . $bairro_ong['bairro'] . ", " . $cidade_ong['cidade'] ?></p>
+                        </div>
 
-                            <div class="item-ong">
-                                <div class="nome-ong">
-                                    <h3>Nome da ONG</h3>
-                                    <div class="icons icon-chat">
-                                        <i class="fi fi-rr-messages icon-chat"></i>
+                        <div class="area-btn-modal">
+                            <button class="open-modal botao-modal">
+                                <p>Saiba Mais</p>
+                                <i class="fi fi-br-angle-small-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Modal Saiba Mais -->
+                    <div class="fade hide"></div>
+                    <div class="modal hide">
+                        <div class="modal-header">
+
+                            <div class="fechar-modal">
+                                <i class="fechar fi fi-br-cross close-modal"></i>
+                                <i class="seta fi fi-br-angle-small-left close-modal"></i>
+                            </div>
+                        </div>
+
+                        <div class="modal-info">
+                            <div class="info-pet">
+                                <div class="modal-nome">
+                                    <div class="foto-modal">
+                                        <img src="<?php echo "../../ong/dashboard-ong/Cadastro/" . $pet_data['fotoPerfilAnimal'] ?>">
+                                    </div>
+                                    <div class="nome-pet">
+                                        <h3><?php echo $pet_data['nomeAnimal'] ?></h3>
+                                        <?php if ($pet_data['generoAnimal'] == 'Fêmea') { ?>
+                                            <div class="icon-femea">
+                                                <i class="fi fi-rr-venus"></i>
+                                            </div>
+                                        <?php } elseif ($pet_data['generoAnimal'] == 'Macho') { ?>
+                                            <div class="icon-macho">
+                                                <i class="fi fi-rr-mars"></i>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
 
-                                <div class="local">
-                                    <i class="fi fi-sr-marker"></i>
-                                    <p>123 Anywhere St., Any City</p>
+                                <div class="area-itens">
+                                    <div class="item">
+                                        <h4>Raça</h4>
+                                        <p><?php echo $raca['raca'] ?></p>
+                                        <div class="icon-patinha">
+                                            <i class="fi fi-sr-paw"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <h4>Idade</h4>
+                                        <p><?php echo $pet_data['idadeAnimal'] ?></p>
+                                        <div class="icon-patinha">
+                                            <i class="fi fi-sr-paw"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <h4>Porte</h4>
+                                        <p><?php echo $pet_data['porteAnimal'] ?></p>
+                                        <div class="icon-patinha">
+                                            <i class="fi fi-sr-paw"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <h4>Espécie</h4>
+                                        <p><?php echo $pet_data['especieAnimal'] ?></p>
+                                        <div class="icon-patinha">
+                                            <i class="fi fi-sr-paw"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="listas">
+                                    <div class="vacinas">
+                                        <span>Vacinas</span>
+                                        <ul>
+                                            <li><?php echo $vacina['vacina'] ?></li>
+                                        </ul>
+                                    </div>
+                                    <div class="doencas">
+                                        <span>Doenças</span>
+                                        <ul>
+                                            <li><?php echo $doenca['doenca'] ?></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-ong">
+
+                                <div class="info-ong">
+                                    <img src="<?php echo "../../ong/Cadastro/" . $foto_ong['fotoOng'] ?>">
+
+                                    <div class="item-ong">
+                                        <div class="nome-ong">
+                                            <h3><?php echo $nome_ong['nomeOng'] ?></h3>
+                                            <div class="icons icon-chat">
+                                                <i class="fi fi-rr-messages icon-chat"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="local">
+                                            <i class="fi fi-sr-marker"></i>
+                                            <p><?php echo $rua_ong['rua'] . " N° " . $num_ong['num'] . ", " . $bairro_ong['bairro'] . ", " . $cidade_ong['cidade'] ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="area-descricao">
+                                    <div class="post-body">
+                                        <span class="short-text">
+                                            <p>
+                                                <?php echo $pet_data['descAnimal'] ?>
+                                            </p>
+                                            <a class="read-more">Ler mais</a>
+                                        </span>
+                                        <span class="full-text">
+                                            <p>
+                                                <?php echo $pet_data['descAnimal'] ?>
+                                                <a class="read-less">Ler menos</a>
+                                            </p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="area-descricao">
-                            <div class="post-body">
-                                <span class="short-text">
-                                    <p>
-                                        É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês,
-                                        tendo tomado todas as vacinas e não tem nenhuma doença.
-                                    </p>
-                                    <a class="read-more">Ler mais</a>
-                                </span>
-                                <span class="full-text">
-                                    <p>
-                                        É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês,
-                                        tendo tomado todas as vacinas e não tem nenhuma doença.
-                                        <a class="read-less">Ler menos</a>
-                                    </p>
-                                </span>
-                            </div>
-                        </div>
                     </div>
+
+
                 </div>
-
-                <div class="area-botoes">
-                    <button name="adotar">
-                        Adotar
-                        <i class="fi fi-sr-paw"></i>
-                    </button>
-
-                    <button name="apadrinhar">
-                        Apadrinhar
-                        <i class="fi fi-sr-paw"></i>
-                    </button>
-                </div>
-            </div>
-            
-
-        </div>
-        <?php } ?>
+            <?php } ?>
         </div>
 
 
@@ -365,7 +376,7 @@ include('../config/config.php');
 
     <!-- Modal da Tela de Pets Adotados -->
     <div class="tela-adot hide">
-    <div class="modal-topo">
+        <div class="modal-topo">
             <div class="fechar-modal">
                 <i class="seta fi fi-br-angle-small-left close-modalAdot"></i>
             </div>
@@ -374,14 +385,18 @@ include('../config/config.php');
                 <h2>Adotados e Apadrinhados</h2>
                 <div class="search">
                     <i class="fi fi-br-search"></i>
-                    <input id="searchbar" onkeyup="search_animal()" type="search"   placeholder="Pesquisar nome do pet...">
+                    <input id="searchbar" onkeyup="search_animal()" type="search" placeholder="Pesquisar nome do pet...">
                 </div>
             </div>
 
             <div class="imgs-telas">
                 <img src="images/tela-pets-favoritos.png">
             </div>
+
+
         </div>
+
+
 
     </div>
 
@@ -396,7 +411,7 @@ include('../config/config.php');
                 <h2>Anúncios Favoritos</h2>
                 <div class="search">
                     <i class="fi fi-br-search"></i>
-                    <input id="searchbar" onkeyup="search_animal()" type="search"   placeholder="Pesquisar nome do pet...">
+                    <input id="searchbar" onkeyup="search_animal()" type="search" placeholder="Pesquisar nome do pet...">
                 </div>
             </div>
 
@@ -404,6 +419,189 @@ include('../config/config.php');
                 <img src="images/tela-pets-favoritos.png">
             </div>
         </div>
+
+        <div class="card">
+    <div class="area-foto">
+        <div class="icon-fav">
+            <i id="heartIcon1" class="fi-rr-heart icon"></i>
+        </div>
+
+        <div class="foto">
+            <img src="images/pet-gato.png">
+        </div>
+    </div>
+
+    <div class="area-conteudo">
+        <div class="info">
+            <div class="nome">
+                <h3>Lily</h3>
+            </div>
+            <div class="icon-femea">
+                <i class="fi fi-rr-venus"></i>
+            </div>
+        </div>
+
+        <div class="local">
+            <i class="fi fi-sr-marker"></i>
+            <p>123 Anywhere St., Any City</p>
+        </div>
+
+        <div class="area-btn-modal">
+            <button class="open-modal botao-modal"> 
+                <p>Saiba Mais</p> 
+                <i class="fi fi-br-angle-small-right"></i>
+            </button>   
+        </div>
+    </div>
+
+    <!-- Modal Saiba Mais -->
+    <div class="fade hide"></div>
+    <div class="modal hide">
+        <div class="modal-header">
+            <div class="icon-fav">
+                <i id="heartIcon1" class="fi-rr-heart icon"></i>
+            </div>
+
+            <div class="fechar-modal">
+                <i class="fechar fi fi-br-cross close-modal"></i>
+                <i class="seta fi fi-br-angle-small-left close-modal"></i>
+            </div>
+        </div>
+
+        <div class="modal-info">
+            <div class="info-pet">  
+                <div class="modal-nome">
+                    <div class="foto-modal">
+                        <img src="images/pet-gato.png">
+                    </div>
+                    <div class="nome-pet">
+                        <h3>Lily</h3>
+                        <div class="icon-femea">
+                            <i class="fi fi-rr-venus"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="area-itens">
+                    <div class="item">
+                        <h4>Raça</h4>
+                        <p>Siamês</p>
+                        <div class="icon-patinha">
+                            <i class="fi fi-sr-paw"></i>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <h4>Idade</h4>
+                        <p>Adulto (Entre 1 e 3 anos)</p>
+                        <div class="icon-patinha">
+                            <i class="fi fi-sr-paw"></i>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <h4>Porte</h4>
+                        <p>Pequeno</p>
+                        <div class="icon-patinha">
+                            <i class="fi fi-sr-paw"></i>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <h4>Espécie</h4>
+                        <p>Gato</p>
+                        <div class="icon-patinha">
+                            <i class="fi fi-sr-paw"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listas">
+                    <div class="vacinas">
+                        <span>Vacinas</span>
+                        <ul>
+                            <li>Raiva e Alergias</li>
+                            <li>Polivalente</li>
+                        </ul>
+                    </div>
+                    <div class="doencas">
+                        <span>Doenças</span>
+                        <ul>
+                            <li>Não tem nenhuma doença</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-ong">
+                <div class="galeria">
+                    <div class="titulo-galeria">
+                        <p>Galeria</p>
+                        <i class="fi fi-br-gallery"></i>
+                    </div>
+                    <div class="fotos">
+                        <img src="images/pet-gato.png">
+                        <img src="images/pet-gato.png">
+                        <img src="images/pet-gato.png">
+                        <img src="images/pet-gato.png">
+                        <img src="images/pet-gato.png">
+                        <img src="images/pet-gato.png">
+                    </div>
+                </div>
+
+                <div class="info-ong">
+                    <img src="images/foto-ong.png">
+
+                    <div class="item-ong">
+                        <div class="nome-ong">
+                            <h3>Nome da ONG</h3>
+                            <div class="icons icon-chat">
+                                <i class="fi fi-rr-messages icon-chat"></i>
+                            </div>
+                        </div>
+
+                        <div class="local">
+                            <i class="fi fi-sr-marker"></i>
+                            <p>123 Anywhere St., Any City</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="area-descricao">
+                    <div class="post-body">
+                        <span class="short-text">
+                            <p>
+                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês, 
+                                tendo tomado todas as vacinas e não tem nenhuma doença.
+                            </p>
+                            <a class="read-more">Ler mais</a>
+                        </span>
+                        <span class="full-text">
+                            <p>
+                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês, 
+                                tendo tomado todas as vacinas e não tem nenhuma doença.
+                                <a class="read-less">Ler menos</a>
+                            </p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="area-botoes">
+            <button name="adotar">
+                Adotar
+                <i class="fi fi-sr-paw"></i>
+            </button>
+
+            <button name="apadrinhar">
+                Apadrinhar
+                <i class="fi fi-sr-paw"></i>
+            </button>
+        </div>
+    </div>
+    
+</div>
 
     </div>
 
@@ -418,7 +616,7 @@ include('../config/config.php');
                 <h2>Campanhas Favoritas</h2>
                 <div class="search">
                     <i class="fi fi-br-search"></i>
-                    <input id="searchbar" onkeyup="search_animal()" type="search"   placeholder="Pesquisar nome do pet...">
+                    <input id="searchbar" onkeyup="search_animal()" type="search" placeholder="Pesquisar nome do pet...">
                 </div>
             </div>
 
@@ -427,6 +625,163 @@ include('../config/config.php');
             </div>
         </div>
 
+        <div class="area-cards-user">
+            <?php while ($campanha_data = mysqli_fetch_assoc($resultCampanhaFavorita)) { 
+                $fotoOng = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbOng.fotoOng as 'foto' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
+                
+                $foto = mysqli_fetch_assoc($fotoOng);
+
+                $nomeong = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbOng.nomeOng as 'nome' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
+
+                $nome_ong = mysqli_fetch_assoc($nomeong);
+            ?>
+                <div class="card">
+                    <div class="area-foto">
+
+                        <div class="foto">
+                            <img src="<?php echo "../../ong/dashboard-ong/Cadastro/"  .   $campanha_data['fotoPerfilCampanha']; ?>">
+
+                        </div>
+                    </div>
+
+                    <div class="area-conteudo">
+                        <div class="info">
+                            <div class="nome">
+                                <h3><?php echo $campanha_data['nomeCampanha'] ?></h3>
+                            </div>
+
+                        </div>
+
+                        <div class="local">
+                            <i class="fi fi-sr-marker"></i>
+                            <p><?php echo $campanha_data['logradouroCampanha'] . " N° ". $campanha_data['numLocalCampanha'] . ", ". $campanha_data['bairroCampanha'] . ", " . $campanha_data['cidadeCampanha'] ?></p>
+                        </div>
+
+                        <div class="area-btn-modal">
+                            <button class="open-modal botao-modal">
+                                <p>Saiba Mais</p>
+                                <i class="fi fi-br-angle-small-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Modal Saiba Mais -->
+                    <div class="fade hide"></div>
+                    <div class="modal hide">
+                        <div class="modal-header">
+                            <div class="icon-fav">
+                                <i id="heartIcon1" class="fi-rr-heart icon"></i>
+                            </div>
+
+                            <div class="fechar-modal">
+                                <i class="fechar fi fi-br-cross close-modal"></i>
+                                <i class="seta fi fi-br-angle-small-left close-modal"></i>
+                            </div>
+                        </div>
+
+                        <div class="modal-info">
+                            <div class="info-pet">
+                                <div class="modal-nome">
+                                    <div class="foto-modal">
+                                        <img src="<?php echo "../../ong/dashboard-ong/Cadastro/"  .   $campanha_data['fotoPerfilCampanha']; ?>">
+                                    </div>
+                                    <div class="nome-pet">
+                                        <h3><?php echo $campanha_data['nomeCampanha'] ?></h3>
+                                    </div>
+                                </div>
+
+                                <div class="area-itens">
+
+                                    <div class="item">
+                                        <h4>Dia</h4>
+                                        <p><?php echo $campanha_data['dataBrasileira'] ?></p>
+                                        <div class="icon-patinha">
+                                            <i class="fi fi-sr-paw"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <h4>Horário</h4>
+                                        <p><?php echo $campanha_data['horarioCampanha'] ?></p>
+                                        <div class="icon-patinha">
+                                            <i class="fi fi-sr-paw"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="listas">
+                                    <div class="vacinas">
+                                        <span>Endereço</span>
+                                        <ul>
+                                            <p><?php echo $campanha_data['logradouroCampanha'] . " N°" . $campanha_data['numLocalCampanha']. ", ". $campanha_data['bairroCampanha']. ", ". $campanha_data['cidadeCampanha']?></p>
+                                        </ul>
+                                    </div>
+                                    <div class="doencas">
+                                        <span>CEP</span>
+                                        <ul>
+                                            <p><?php echo $campanha_data['cepCampanha'] ?></p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-ong">
+
+                                <div class="info-ong">
+                                    <img src="<?php echo "../../ong/Cadastro/" . $foto['foto'] ?>">
+
+                                    <div class="item-ong">
+                                        <div class="nome-ong">
+                                            <h3><?php echo $nome_ong['nome']?></h3>
+                                            <div class="icons icon-chat">
+                                                <i class="fi fi-rr-messages icon-chat"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="local">
+                                            <i class="fi fi-sr-marker"></i>
+                                            <p>123 Anywhere St., Any City</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="area-descricao">
+                                    <div class="post-body">
+                                        <span class="short-text">
+                                            <p>
+                                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês,
+                                                tendo tomado todas as vacinas e não tem nenhuma doença.
+                                            </p>
+                                            <a class="read-more">Ler mais</a>
+                                        </span>
+                                        <span class="full-text">
+                                            <p>
+                                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês,
+                                                tendo tomado todas as vacinas e não tem nenhuma doença.
+                                                <a class="read-less">Ler menos</a>
+                                            </p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="area-botoes">
+                            <button name="adotar">
+                                Adotar
+                                <i class="fi fi-sr-paw"></i>
+                            </button>
+
+                            <button name="apadrinhar">
+                                Apadrinhar
+                                <i class="fi fi-sr-paw"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            <?php } ?>
+        </div>
     </div>
 
 
@@ -441,7 +796,7 @@ include('../config/config.php');
                 <h2>Seguidos ONGs e Anunciantes</h2>
                 <div class="search">
                     <i class="fi fi-br-search"></i>
-                    <input id="searchbar" onkeyup="search_animal()" type="search"   placeholder="Pesquisar nome do pet...">
+                    <input id="searchbar" onkeyup="search_animal()" type="search" placeholder="Pesquisar nome do pet...">
                 </div>
             </div>
 

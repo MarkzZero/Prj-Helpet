@@ -38,7 +38,7 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
                 <h4><?php echo $anunciante_data['anunciante']  ?></h4>
             </div>
             <div class="icon-fav">
-                <i id="heartIcon1" class="fi-rr-heart icon"></i>
+            <i id="heartIcon1" data-anuncio-id="<?php echo $anuncio_data['idAnuncio'] ?>" class="fi-rr-heart icon favorite"></i>
             </div>
         </div>
 
@@ -156,3 +156,27 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
         </div>
     </div>
 <?php } ?>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".favorite").click(function() {
+            var anuncioId = $(this).data("anuncio-id");
+
+            $.ajax({
+                url: "anuncioFavorito.php", // Substitua pelo nome do seu arquivo PHP
+                method: "POST",
+                data: {
+                    anuncio_id: anuncioId
+                },
+                success: function(response) {
+                    console.log(response);
+                    // Atualizar a interface do usuário conforme necessário
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
