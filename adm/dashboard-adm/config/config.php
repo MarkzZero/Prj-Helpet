@@ -7,6 +7,10 @@ $result = $mysqli->query("SELECT idOng, nomeOng, capacidadeOng, emailOng, senhaO
                                      numLogOng, complementoOng, estadoOng, bairroOng, cnpjOng, cnasOng, cebasOng, 
                                      cepOng, fotoOng FROM tbOng ORDER BY idOng ASC") or die($mysqli->error);
 
+$resultUsuario = $mysqli->query("SELECT * FROM tbUsuario WHERE nivelUsuario = 'comum' ORDER BY idUsuario ASC") OR DIE($mysqli->error);
+
+$usuario = mysqli_fetch_assoc($resultUsuario);
+
 $gatoCount = $mysqli->query("SELECT COUNT(idAnimal) as total_gatos from tbAnimal WHERE especieAnimal = 'Gato' ") or die($mysqli->error);
 $row = mysqli_fetch_array($gatoCount);
 $countGatos = $row['total_gatos'];
