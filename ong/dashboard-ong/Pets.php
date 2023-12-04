@@ -196,7 +196,7 @@
                     </div>
 
                     <div class="input-group">
-                        <input type="search" placeholder="Pesquisar...">
+                        <input id="searchbar" onkeyup="search_animal()" type="search"   placeholder="Pesquisar nome do pet...">
                         <i class="bi bi-search"></i>
                     </div>
 

@@ -134,13 +134,11 @@
 
             <div class="area-conteudo">
                 <?php require "post-anuncio.php"; ?>
-                <?php require "post-anuncio.php"; ?>
             </div>
 
             
 
             <div class="area-conteudo">
-                <?php require "post-campanha.php"; ?>
                 <?php require "post-campanha.php"; ?>
             </div>
 
@@ -154,7 +152,7 @@
 
 
         <!-- Sugestões e Categorias -->
-        <?php require "menu-right.php"; ?>
+        
         
         
         <!-- Links JS -->
@@ -162,8 +160,8 @@
         <script src="js/carrossel.js"></script>
         <script src="js/modais.js"></script>
         <script src="js/filtros.js"></script>
-        
         <script src="js/categorias.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     </body>
 </html>

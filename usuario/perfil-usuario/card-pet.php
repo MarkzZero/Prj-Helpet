@@ -1,26 +1,4 @@
-<?php
-// Inicializa a variável se não existir
-if (!isset($_SESSION['favorites'])) {
-    $_SESSION['favorites'] = [];
-}
 
-// Função para adicionar um animal aos favoritos
-function addFavorite($animalId)
-{
-    global $_SESSION;
-
-    // Verifica se o animal já foi adicionado
-    if (!in_array($animalId, $_SESSION['favorites'])) {
-        // Adiciona o animal aos favoritos
-        $_SESSION['favorites'][] = $animalId;
-    }
-}
-
-// Adiciona o animal aos favoritos, caso o botão seja clicado
-if (isset($_POST['animal_id'])) {
-    addFavorite($_POST['animal_id']);
-}
-?>
 <?php while ($pet_data = mysqli_fetch_assoc($sqlPet)) {
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -76,9 +54,7 @@ if (isset($_POST['animal_id'])) {
     <div class="card">
         <div class="area-foto">
             <div class="icon-fav">
-                <i id="heartIcon1" style=".favicon:hover {
- background-color: #F44336;
-}" data-animal-id="<?php echo $pet_data['idAnimal'] ?> " class="fi-rr-heart icon favoritar-animal"></i>
+                <i id="heartIcon1" data-animal-id="<?php echo $pet_data['idAnimal'] ?> " class="fi-rr-heart icon favorito"></i>
             </div>
 
             <div class="foto">
@@ -295,10 +271,12 @@ if (isset($_POST['animal_id'])) {
     </div>
 <?php } ?>
 
+
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function() {
-        $(".fi-rr-heart").click(function() {
+        $(".favorito").click(function() {
             var animalId = $(this).data("animal-id");
 
             // Desabilita o botão imediatamente após o clique
@@ -318,7 +296,7 @@ if (isset($_POST['animal_id'])) {
                 },
                 complete: function() {
                     // Reabilita o botão após a conclusão da requisição, mesmo em caso de erro
-                    $(".fi-rr-heart").prop('disabled', false);
+                    $(".favorito").prop('disabled', false);
                 }
             });
         });

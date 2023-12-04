@@ -145,6 +145,7 @@ header .item-config{
     justify-content: center;
     width: 100%;
     margin: 2.5vh 0;
+    cursor: pointer;
 }
 header .item-config .icon-item{
     display: flex;

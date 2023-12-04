@@ -1,4 +1,18 @@
 <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $idAnimal = $_POST['campanha_id'];
+        $idUsuario = $_SESSION['id'];
+
+        $sql = "INSERT INTO tbfavoritocampanha(idCampanha, idUsuario) VALUES (?, ?)";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("ii", $idAnimal, $idUsuario);
+        $stmt->execute();
+
+        $stmt->close();
+        $mysqli->close();
+        exit;  // Adicione esta linha para evitar a execução do restante do script
+    }
+
 // Resultado da consulta de campanhas
 $resultCampanha = $mysqli->query("SELECT *, DATE_FORMAT(diaCampanha, '%d/%m/%Y') as 'dataBrasileira' FROM tbCampanha ORDER BY idCampanha DESC");
 
@@ -36,7 +50,7 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
                 <h4><?php echo $ong_Data['ong'] ?></h4>
             </div>
             <div class="icon-fav">
-                <i id="heartIcon1" class="fi-rr-heart icon"></i>
+                <i id="heartIcon1" data-campanha-id="<?php echo $campanha_Data['idCampanha'] ?>" class="fi-rr-heart icon favoritar"></i>
             </div>
         </div>
 
