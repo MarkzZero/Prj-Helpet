@@ -156,7 +156,7 @@ if (isset($_GET[1]))
                 </div>
 
                 <div class="input-group">
-                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar...">
+                    <input id="searchbar" onkeyup="search_animal()" type="search"   placeholder="Pesquisar nome do pet...">
                     <i class="bi bi-search" style="color: black;"></i>
                 </div>
 

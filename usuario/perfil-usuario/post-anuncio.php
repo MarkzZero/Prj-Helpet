@@ -36,7 +36,9 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
             <div class="ong">
                 <img src="<?php echo "../../anunciante/cadastro/" . $foto_anunciante['fotoAnunciante'] ?>">
                 <h4><?php echo $anunciante_data['anunciante']  ?></h4>
+                <p style="position: absolute; margin-top: 90px; font-size: 12px; color: #949192; margin-right: 15px">Anuncio</p>
             </div>
+            
             <div class="icon-fav">
             <i id="heartIcon1" data-anuncio-id="<?php echo $anuncio_data['idAnuncio'] ?>" class="fi-rr-heart icon favorite"></i>
             </div>

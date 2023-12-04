@@ -133,19 +133,17 @@
             </div>
 
             <div class="area-conteudo">
-<<<<<<< HEAD
+
                 <?php require "post-campanha.php"; ?>
-=======
-                <?php require "post-anuncio.php"; ?>
->>>>>>> ae3f825ae767db68b0feea9094c494eb8a59bff6
+
+
             </div>
 
             <div class="area-conteudo">
-<<<<<<< HEAD
+
                 <?php require "post-anuncio.php"; ?>
-=======
                 <?php require "post-campanha.php"; ?>
->>>>>>> ae3f825ae767db68b0feea9094c494eb8a59bff6
+
             </div>
 
             <div class="toggle">

@@ -61,6 +61,12 @@ $anuncioFavoritoCount = $mysqli->query("SELECT COUNT(idAnuncio) FROM tbAnuncioFa
 $row = mysqli_fetch_array($anuncioFavoritoCount);
 $anunciosResult = $row[0];
 
+$resultPetAdotado = $mysqli->query("SELECT tbAnimal.* FROM tbAnimal JOIN tbAdocao ON tbAnimal.idAnimal = tbAdocao.idAnimal JOIN tbUsuario ON tbadocao.idUsuario = tbUsuario.idUsuario WHERE tbUsuario.idUsuario = '$id'");
+
+$adocaoCount = $mysqli->query("SELECT COUNT(idAnimal) FROM tbAdocao WHERE idUsuario = '$id'");
+$row = mysqli_fetch_array($adocaoCount);
+$adocaoResult = $row[0];
+
 
 $prefe = mysqli_fetch_assoc($preferencia);
 
@@ -81,26 +87,5 @@ $resultOng = $mysqli->query("SELECT tbCampanha.nomeCampanha as 'campanha', tbOng
 
 $fotoOng = $mysqli->query("SELECT tbCampanha.nomeCampanha as 'campanha', tbOng.fotoOng as 'foto' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbOng.idOng = '$resultCamp[idOng]'");
 
-// Inicializa a variável se não existir
-if (!isset($_SESSION['favorites'])) {
-    $_SESSION['favorites'] = [];
-}
-
-// Função para adicionar um animal aos favoritos
-function addFavorite($animalId)
-{
-    global $_SESSION;
-
-    // Verifica se o animal já foi adicionado
-    if (!in_array($animalId, $_SESSION['favorites'])) {
-        // Adiciona o animal aos favoritos
-        $_SESSION['favorites'][] = $animalId;
-    }
-}
-
-// Adiciona o animal aos favoritos, caso o botão seja clicado
-if (isset($_POST['animal_id'])) {
-    addFavorite($_POST['animal_id']);
-}   
 
 ?> 

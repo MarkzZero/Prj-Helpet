@@ -1,6 +1,5 @@
 <?php 
     include_once('conexao.php');
-    include_once('../../Login/login.php');
 
     $id = $_SESSION['id-anunciante'];
         

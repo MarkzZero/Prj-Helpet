@@ -138,7 +138,7 @@ include('../config/config.php');
                 <!-- Pets Adotados -->
                 <div id="fav-adotados" class="item open-modalAdot">
                     <img class="icon-info" src="images/informacoes/img-adot.png">
-                    <span>Pets Adotados e Apadrinhados<br> (2)</span>
+                    <span>Pets Adotados e Apadrinhados<br> (<?php echo $adocaoResult ?>)</span>
                     <i class="fi fi-br-angle-small-right"></i>
                     <div class="bolinhas"><img src="images/informacoes/bolinhas-adot.png"></div>
                 </div>
@@ -396,8 +396,203 @@ include('../config/config.php');
 
         </div>
 
+        <?php while ($adocao_data = mysqli_fetch_assoc($resultPetAdotado)) { 
+            $raca = $mysqli->query("SELECT tbanimal.nomeAnimal as 'animal', tbRaca.nomeRaca as 'raca' FROM tbAnimal INNER JOIN tbRaca ON tbAnimal.idRaca = tbRaca.idRaca WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $raca_data = mysqli_fetch_assoc($raca);
 
+            $vacina = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbVacina.tipoVacina as 'vacina' FROM tbAnimal INNER JOIN tbVacina ON tbAnimal.idVacina = tbVacina.idVacina WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $vacina_data = mysqli_fetch_assoc($vacina);
 
+            $doenca = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbDoenca.tipoDoenca as 'doenca' FROM tbAnimal INNER JOIN tbDoenca ON tbAnimal.idDoenca = tbDoenca.idDoenca WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $doenca_data = mysqli_fetch_assoc($doenca);
+
+            $foto = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.fotoOng as 'foto' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng  WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $foto_data = mysqli_fetch_assoc($foto);
+
+            $nome = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.nomeOng as 'nome' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng  WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $nome_data = mysqli_fetch_assoc($nome);
+
+            $rua = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.logradouroOng as 'rua' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng  WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $rua_data = mysqli_fetch_assoc($rua);
+
+            $bairro = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.bairroOng as 'bairro' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng  WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $bairro_data = mysqli_fetch_assoc($bairro);
+
+            $num = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.numLogOng as 'num' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng  WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $num_data = mysqli_fetch_assoc($num);
+
+            $cidade = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.cidadeOng as 'cidade' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng  WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
+            $cidade_data = mysqli_fetch_assoc($cidade);
+        ?>
+            <div class="card">
+                <div class="area-foto">
+
+                    <div class="foto">
+                        <img src="<?php echo "../../ong/dashboard-ong/Cadastro/" . $adocao_data['fotoPerfilAnimal'] ?>">
+                    </div>
+                </div>
+
+                <div class="area-conteudo">
+                    <div class="info">
+                        <div class="nome">
+                            <?php if ($adocao_data['generoAnimal'] == 'Macho') { ?>
+                                <h3><?php echo $adocao_data['nomeAnimal']; ?></h3>
+                            <?php } elseif ($adocao_data['generoAnimal'] == 'Fêmea') { ?>
+                                <h3><?php echo $adocao_data['nomeAnimal']; ?></h3>
+                            <?php } ?>
+
+                            <?php if ($adocao_data['generoAnimal'] == 'Macho') { ?>
+                                <div class="icon-macho">
+                                        <i class="fi fi-rr-mars"></i>
+                                </div>
+                            <?php } elseif ($adocao_data['generoAnimal'] == 'Fêmea') { ?>
+                                <div class="icon-femea">
+                                        <i class="fi fi-rr-venus"></i>
+                                </div>
+                            <?php } ?>
+                        </div>
+
+                    </div>
+
+                    <div class="area-btn-modal">
+                        <button class="open-modal botao-modal">
+                            <p>Saiba Mais</p>
+                            <i class="fi fi-br-angle-small-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modal Saiba Mais -->
+                <div class="fade hide"></div>
+                <div class="modal hide">
+                    <div class="modal-header">
+                        <div class="icon-fav">
+                            <i id="heartIcon1" class="fi-rr-heart icon"></i>
+                        </div>
+
+                        <div class="fechar-modal">
+                            <i class="fechar fi fi-br-cross close-modal"></i>
+                            <i class="seta fi fi-br-angle-small-left close-modal"></i>
+                        </div>
+                    </div>
+
+                    <div class="modal-info">
+                        <div class="info-pet">
+                            <div class="modal-nome">
+                                <div class="foto-modal">
+                                    <img src="<?php echo "../../ong/dashboard-ong/Cadastro/" . $adocao_data['fotoPerfilAnimal'] ?>">
+                                </div>
+                                <div class="nome-pet">
+                                <?php if ($adocao_data['generoAnimal'] == 'Macho') { ?>
+                                <h3><?php echo $adocao_data['nomeAnimal']; ?></h3>
+                            <?php } elseif ($adocao_data['generoAnimal'] == 'Fêmea') { ?>
+                                <h3><?php echo $adocao_data['nomeAnimal']; ?></h3>
+                            <?php } ?>
+
+                            <?php if ($adocao_data['generoAnimal'] == 'Macho') { ?>
+                                <div class="icon-macho">
+                                        <i class="fi fi-rr-mars"></i>
+                                </div>
+                            <?php } elseif ($adocao_data['generoAnimal'] == 'Fêmea') { ?>
+                                <div class="icon-femea">
+                                        <i class="fi fi-rr-venus"></i>
+                                </div>
+                            <?php } ?>
+                                </div>
+                            </div>
+
+                            <div class="area-itens">
+                                <div class="item">
+                                    <h4>Raça</h4>
+                                    <p><?php echo $raca_data['raca'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-paw"></i>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <h4>Idade</h4>
+                                    <p><?php echo $adocao_data['idadeAnimal'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-paw"></i>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <h4>Porte</h4>
+                                    <p><?php echo $adocao_data['porteAnimal'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-paw"></i>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <h4>Espécie</h4>
+                                    <p><?php echo $adocao_data['especieAnimal'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-paw"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listas">
+                                <div class="vacinas">
+                                    <span>Vacinas</span>
+                                    <ul>
+                                        <li><?php echo $vacina_data['vacina'] ?></li>
+                                    </ul>
+                                </div>
+                                <div class="doencas">
+                                    <span>Doenças</span>
+                                    <ul>
+                                        <li><?php echo $doenca_data['doenca'] ?></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="area-ong">
+
+                            <div class="info-ong">
+                                <img src="<?php echo "../../ong/Cadastro/" . $foto_data['foto'] ?>">
+
+                                <div class="item-ong">
+                                    <div class="nome-ong">
+                                        <h3><?php echo $nome_data['nome'] ?></h3>
+                                        <div class="icons icon-chat">
+                                            <i class="fi fi-rr-messages icon-chat"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="local">
+                                        <i class="fi fi-sr-marker"></i>
+                                        <p><?php echo $rua_data['rua']. " N°". $num_data['num']. ", ". $bairro_data['bairro']. ", ". $cidade_data['cidade'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-descricao">
+                                <div class="post-body">
+                                    <span class="short-text">
+                                        <p>
+                                            <?php echo $adocao_data['descAnimal'] ?>
+                                        </p>
+                                        <a class="read-more">Ler mais</a>
+                                    </span>
+                                    <span class="full-text">
+                                        <p>
+                                            <?php echo $adocao_data['descAnimal'] ?>
+                                            <a class="read-less">Ler menos</a>
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        <?php } ?>
     </div>
 
     <!-- Modal da Tela de Anúncios Favoritos -->
@@ -420,188 +615,117 @@ include('../config/config.php');
             </div>
         </div>
 
-        <div class="card">
-    <div class="area-foto">
-        <div class="icon-fav">
-            <i id="heartIcon1" class="fi-rr-heart icon"></i>
-        </div>
+        <?php while ($anuncio_data = mysqli_fetch_assoc($anuncioFavorito)) {
+            $resultAnunciante = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.nomeAnunciante as 'nome' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '$anuncio_data[idAnuncio]'");
+            $nome_anunciante = mysqli_fetch_assoc($resultAnunciante);
 
-        <div class="foto">
-            <img src="images/pet-gato.png">
-        </div>
-    </div>
+            $resultFoto = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.fotoAnunciante as 'foto' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '$anuncio_data[idAnuncio]'");
+            $foto_anunciante = mysqli_fetch_assoc($resultFoto);
 
-    <div class="area-conteudo">
-        <div class="info">
-            <div class="nome">
-                <h3>Lily</h3>
-            </div>
-            <div class="icon-femea">
-                <i class="fi fi-rr-venus"></i>
-            </div>
-        </div>
+            $resultRua = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.logradouroAnunciante as 'rua' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '$anuncio_data[idAnuncio]'");
+            $rua_anunciante = mysqli_fetch_assoc($resultRua);
 
-        <div class="local">
-            <i class="fi fi-sr-marker"></i>
-            <p>123 Anywhere St., Any City</p>
-        </div>
+            $resultNum = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.numlocalAnunciante as 'num' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '$anuncio_data[idAnuncio]'");
+            $num_anunciante = mysqli_fetch_assoc($resultNum);
 
-        <div class="area-btn-modal">
-            <button class="open-modal botao-modal"> 
-                <p>Saiba Mais</p> 
-                <i class="fi fi-br-angle-small-right"></i>
-            </button>   
-        </div>
-    </div>
+            $resultBairro = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.bairroAnunciante as 'bairro' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '$anuncio_data[idAnuncio]'");
+            $bairro_anunciante = mysqli_fetch_assoc($resultBairro);
 
-    <!-- Modal Saiba Mais -->
-    <div class="fade hide"></div>
-    <div class="modal hide">
-        <div class="modal-header">
-            <div class="icon-fav">
-                <i id="heartIcon1" class="fi-rr-heart icon"></i>
-            </div>
+            $resultCidade = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.cidadeAnunciante as 'cidade' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '$anuncio_data[idAnuncio]'");
+            $cidade_anunciante = mysqli_fetch_assoc($resultCidade);
 
-            <div class="fechar-modal">
-                <i class="fechar fi fi-br-cross close-modal"></i>
-                <i class="seta fi fi-br-angle-small-left close-modal"></i>
-            </div>
-        </div>
-
-        <div class="modal-info">
-            <div class="info-pet">  
-                <div class="modal-nome">
-                    <div class="foto-modal">
-                        <img src="images/pet-gato.png">
-                    </div>
-                    <div class="nome-pet">
-                        <h3>Lily</h3>
-                        <div class="icon-femea">
-                            <i class="fi fi-rr-venus"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="area-itens">
-                    <div class="item">
-                        <h4>Raça</h4>
-                        <p>Siamês</p>
-                        <div class="icon-patinha">
-                            <i class="fi fi-sr-paw"></i>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <h4>Idade</h4>
-                        <p>Adulto (Entre 1 e 3 anos)</p>
-                        <div class="icon-patinha">
-                            <i class="fi fi-sr-paw"></i>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <h4>Porte</h4>
-                        <p>Pequeno</p>
-                        <div class="icon-patinha">
-                            <i class="fi fi-sr-paw"></i>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <h4>Espécie</h4>
-                        <p>Gato</p>
-                        <div class="icon-patinha">
-                            <i class="fi fi-sr-paw"></i>
-                        </div>
+        ?>
+            <div class="card">
+                <div class="area-foto">
+                    <div class="foto">
+                        <img src="<?php echo "../../anunciante/dashboard-anunciante/Cadastro/" . $anuncio_data['fotoAnuncio'] ?>">
                     </div>
                 </div>
 
-                <div class="listas">
-                    <div class="vacinas">
-                        <span>Vacinas</span>
-                        <ul>
-                            <li>Raiva e Alergias</li>
-                            <li>Polivalente</li>
-                        </ul>
+                <div class="area-conteudo">
+                    <div class="info">
+                        <div class="nome">
+                            <h3><?php echo $anuncio_data['nomeAnuncio'] ?> </h3>
+                        </div>
                     </div>
-                    <div class="doencas">
-                        <span>Doenças</span>
-                        <ul>
-                            <li>Não tem nenhuma doença</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div class="area-ong">
-                <div class="galeria">
-                    <div class="titulo-galeria">
-                        <p>Galeria</p>
-                        <i class="fi fi-br-gallery"></i>
-                    </div>
-                    <div class="fotos">
-                        <img src="images/pet-gato.png">
-                        <img src="images/pet-gato.png">
-                        <img src="images/pet-gato.png">
-                        <img src="images/pet-gato.png">
-                        <img src="images/pet-gato.png">
-                        <img src="images/pet-gato.png">
+                    <div class="area-btn-modal">
+                        <button class="open-modal botao-modal">
+                            <p>Saiba Mais</p>
+                            <i class="fi fi-br-angle-small-right"></i>
+                        </button>
                     </div>
                 </div>
 
-                <div class="info-ong">
-                    <img src="images/foto-ong.png">
+                <!-- Modal Saiba Mais -->
+                <div class="fade hide"></div>
+                <div class="modal hide">
+                    <div class="modal-header">
 
-                    <div class="item-ong">
-                        <div class="nome-ong">
-                            <h3>Nome da ONG</h3>
-                            <div class="icons icon-chat">
-                                <i class="fi fi-rr-messages icon-chat"></i>
+                        <div class="fechar-modal">
+                            <i class="fechar fi fi-br-cross close-modal"></i>
+                            <i class="seta fi fi-br-angle-small-left close-modal"></i>
+                        </div>
+                    </div>
+
+                    <div class="modal-info">
+                        <div class="info-pet">
+                            <div class="modal-nome">
+                                <div class="foto-modal">
+                                    <img src="<?php echo "../../anunciante/dashboard-anunciante/Cadastro/" . $anuncio_data['fotoAnuncio'] ?>">
+                                </div>
+                                <div class="nome-pet">
+                                    <h3><?php echo $anuncio_data['nomeAnuncio'] ?> </h3>
+                                </div>
+                            </div>
+
+                            <div class="area-itens">
+
+                                <div class="item">
+                                    <h4>Data de Início</h4>
+                                    <p><?php echo $anuncio_data['dataInicioAnuncio'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-paw"></i>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <h4>Data de Termino</h4>
+                                    <p><?php echo $anuncio_data['dataTerminoAnuncio'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-paw"></i>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
-                        <div class="local">
-                            <i class="fi fi-sr-marker"></i>
-                            <p>123 Anywhere St., Any City</p>
+                        <div class="area-ong">
+
+                            <div class="info-ong">
+                                <img src="<?php echo "../../anunciante/cadastro/" . $foto_anunciante['foto'] ?>">
+
+                                <div class="item-ong">
+                                    <div class="nome-ong">
+                                        <h3><?php echo $nome_anunciante['nome'] ?></h3>
+                                        <div class="icons icon-chat">
+                                            <i class="fi fi-rr-messages icon-chat"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="local">
+                                        <i class="fi fi-sr-marker"></i>
+                                        <p><?php echo $rua_anunciante['rua'] . " N°" .  $num_anunciante['num'] . ", " . $bairro_anunciante['bairro'] . ", " .  $cidade_anunciante['cidade'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
-                <div class="area-descricao">
-                    <div class="post-body">
-                        <span class="short-text">
-                            <p>
-                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês, 
-                                tendo tomado todas as vacinas e não tem nenhuma doença.
-                            </p>
-                            <a class="read-more">Ler mais</a>
-                        </span>
-                        <span class="full-text">
-                            <p>
-                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês, 
-                                tendo tomado todas as vacinas e não tem nenhuma doença.
-                                <a class="read-less">Ler menos</a>
-                            </p>
-                        </span>
-                    </div>
-                </div>
             </div>
-        </div>
-
-        <div class="area-botoes">
-            <button name="adotar">
-                Adotar
-                <i class="fi fi-sr-paw"></i>
-            </button>
-
-            <button name="apadrinhar">
-                Apadrinhar
-                <i class="fi fi-sr-paw"></i>
-            </button>
-        </div>
-    </div>
-    
-</div>
+        <?php } ?>
 
     </div>
 
@@ -626,14 +750,26 @@ include('../config/config.php');
         </div>
 
         <div class="area-cards-user">
-            <?php while ($campanha_data = mysqli_fetch_assoc($resultCampanhaFavorita)) { 
+            <?php while ($campanha_data = mysqli_fetch_assoc($resultCampanhaFavorita)) {
                 $fotoOng = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbOng.fotoOng as 'foto' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
-                
+
                 $foto = mysqli_fetch_assoc($fotoOng);
 
                 $nomeong = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbOng.nomeOng as 'nome' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
 
                 $nome_ong = mysqli_fetch_assoc($nomeong);
+
+                $ruaOng = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbong.logradouroOng as 'rua' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
+                $rua_ong = mysqli_fetch_assoc($ruaOng);
+
+                $numOng = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbong.numLogOng as 'num' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
+                $num_ong = mysqli_fetch_assoc($numOng);
+
+                $bairroOng = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbong.bairroOng as 'bairro' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
+                $bairro_ong = mysqli_fetch_assoc($bairroOng);
+
+                $cidadeOng = $mysqli->query("SELECT tbcampanha.nomecampanha as 'campanha', tbong.cidadeOng as 'cidade' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '$campanha_data[idCampanha]'");
+                $cidade_ong = mysqli_fetch_assoc($cidadeOng);
             ?>
                 <div class="card">
                     <div class="area-foto">
@@ -654,7 +790,7 @@ include('../config/config.php');
 
                         <div class="local">
                             <i class="fi fi-sr-marker"></i>
-                            <p><?php echo $campanha_data['logradouroCampanha'] . " N° ". $campanha_data['numLocalCampanha'] . ", ". $campanha_data['bairroCampanha'] . ", " . $campanha_data['cidadeCampanha'] ?></p>
+                            <p><?php echo $campanha_data['logradouroCampanha'] . " N° " . $campanha_data['numLocalCampanha'] . ", " . $campanha_data['bairroCampanha'] . ", " . $campanha_data['cidadeCampanha'] ?></p>
                         </div>
 
                         <div class="area-btn-modal">
@@ -713,7 +849,7 @@ include('../config/config.php');
                                     <div class="vacinas">
                                         <span>Endereço</span>
                                         <ul>
-                                            <p><?php echo $campanha_data['logradouroCampanha'] . " N°" . $campanha_data['numLocalCampanha']. ", ". $campanha_data['bairroCampanha']. ", ". $campanha_data['cidadeCampanha']?></p>
+                                            <p><?php echo $campanha_data['logradouroCampanha'] . " N°" . $campanha_data['numLocalCampanha'] . ", " . $campanha_data['bairroCampanha'] . ", " . $campanha_data['cidadeCampanha'] ?></p>
                                         </ul>
                                     </div>
                                     <div class="doencas">
@@ -732,7 +868,7 @@ include('../config/config.php');
 
                                     <div class="item-ong">
                                         <div class="nome-ong">
-                                            <h3><?php echo $nome_ong['nome']?></h3>
+                                            <h3><?php echo $nome_ong['nome'] ?></h3>
                                             <div class="icons icon-chat">
                                                 <i class="fi fi-rr-messages icon-chat"></i>
                                             </div>
@@ -740,7 +876,7 @@ include('../config/config.php');
 
                                         <div class="local">
                                             <i class="fi fi-sr-marker"></i>
-                                            <p>123 Anywhere St., Any City</p>
+                                            <p><?php echo $rua_ong['rua'] . " N°" . $num_ong['num'] . ", " . $bairro_ong['bairro'] . ", " . $cidade_ong['cidade'] ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -749,15 +885,13 @@ include('../config/config.php');
                                     <div class="post-body">
                                         <span class="short-text">
                                             <p>
-                                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês,
-                                                tendo tomado todas as vacinas e não tem nenhuma doença.
+                                                <?php echo $campanha_data['informacaoCampanha'] ?>
                                             </p>
                                             <a class="read-more">Ler mais</a>
                                         </span>
                                         <span class="full-text">
                                             <p>
-                                                É um gato adulto com cerca de 2 anos, porte pequeno, da raça siamês,
-                                                tendo tomado todas as vacinas e não tem nenhuma doença.
+                                                <?php echo $campanha_data['informacaoCampanha'] ?>
                                                 <a class="read-less">Ler menos</a>
                                             </p>
                                         </span>
@@ -766,17 +900,6 @@ include('../config/config.php');
                             </div>
                         </div>
 
-                        <div class="area-botoes">
-                            <button name="adotar">
-                                Adotar
-                                <i class="fi fi-sr-paw"></i>
-                            </button>
-
-                            <button name="apadrinhar">
-                                Apadrinhar
-                                <i class="fi fi-sr-paw"></i>
-                            </button>
-                        </div>
                     </div>
 
                 </div>

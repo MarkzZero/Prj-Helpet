@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
         if ($ext == true) {
             $nome_arquivo = md5(uniqid(time())) . "." . $ext[1];
 
-            $caminho_arquivo = "fotoAnuncio/" . $nome_arquivo;
+            $caminho_arquivo = "../Cadastro/fotoAnuncio" . $nome_arquivo;
 
             move_uploaded_file($arquivo["tmp_name"], $caminho_arquivo);
 
