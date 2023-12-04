@@ -55,23 +55,25 @@
                 <div class="consulta">
                 <!-- CARDS -->
                 <div id="area-cards"> 
-                <?php while($user_data = mysqli_fetch_assoc($result)){ ?>
+                <?php while($user_data = mysqli_fetch_assoc($resultUsuario)){ ?>
 
                     <div class="card">
                         <div class="foto-card">
-                            <img src="images/foto-ong.png">
-                            <h4><?php echo $user_data['nomeOng'];?></h4>
+                            <img src="<?php echo "../../usuario/cadastro/" . $user_data['fotoUsuario'] ?>">
+                            <h4><?php echo $user_data['nomeUsuario'];?></h4>
                         </div>
                         <div class="desc">
                             <i class="fi fi-rr-marker"></i>                            
-                            <p><?php echo $user_data['estadoOng'];?></p>
+                            <p><?php echo $user_data['estadoUsuario'];?></p>
                         </div>
                         <div class="btns">
                             <button class="btn-info open-modalUser">
                                 <p>Ver Mais</p>
                                 <i class="fi fi-br-angle-small-right"></i>
                             </button>
+                            <a style="text-decoration: none ;" href="deleteUsuario.php?id=<?php echo $user_data['idUsuario']; ?>">
                             <button class="btn-delete open-modalExcUser"><i class="fi fi-sr-trash"></i></button>
+                            </a>
                         </div>
 
                         <div class="fadeUser hide"></div>
