@@ -19,13 +19,6 @@ function setupModal(openBtns, closeBtns, modals, fades) {
     });
 }
 
-// Isso Configura o Modal de Ajudar Pet
-const openModalAjudar = document.querySelectorAll(".open-modalAjudar");
-const closeModalAjudar = document.querySelectorAll(".close-modalAjudar");
-const modalAjudar = document.querySelectorAll(".modalAjudar");
-const fadeAjudar = document.querySelectorAll(".fadeAjudar");
-setupModal(openModalAjudar, closeModalAjudar, modalAjudar, fadeAjudar);
-
 // Isso Configura o Modal do Perfil do Pet
 const openModal = document.querySelectorAll(".open-modal");
 const closeModal = document.querySelectorAll(".close-modal");
@@ -144,3 +137,14 @@ const closeModalExc = document.querySelectorAll(".close-modalExc");
 const modalExc = document.querySelectorAll(".modalExc");
 const fadeExc = document.querySelectorAll(".fadeExc");
 setupModal(openModalExc, closeModalExc, modalExc, fadeExc);
+
+const openModalAjudar = document.querySelectorAll(".open-modalAjudar");
+const closeModalAjudar = document.querySelectorAll(".close-modalAjudar");
+const modalAjudar = document.querySelectorAll(".modalAjudar");
+const fadeAjudar = document.querySelectorAll(".fadeAjudar");
+setupModal(openModalAjudar, closeModalAjudar, modalAjudar, fadeAjudar);
+
+console.log("Botões de abertura:", openBtns);
+console.log("Botões de fechamento:", closeBtns);
+console.log("Modais:", modals);
+console.log("Fades:", fades);

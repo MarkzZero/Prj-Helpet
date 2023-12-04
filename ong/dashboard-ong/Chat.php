@@ -23,7 +23,6 @@
         <?php require "menu-lateral.php"; ?>
 
         <div class="main">
-
             <div class="wrapper">
                 <section class="users">
                     <header>
@@ -31,21 +30,25 @@
                             <img src="images/img-chat/chat-perfil.png" alt="">
                             <div class="details">
                                 <span>Eu</span>
-                                <a class="icon-pontinhos" href="#"><ion-icon
-                                        name="ellipsis-vertical-outline"></ion-icon></a>
                             </div>
                         </div>
                     </header>
                     <div class="search">
                         <span class="text"></span>
-                        <input type="text" placeholder="Pesquisar ou começar uma nova conversa">
-
+                        <input type="text" placeholder="Pesquisar uma conversa">
                     </div>
 
                     <!-- CONVERSAS JA SALVAS -->
                     <div class="users-list">
-
-                       
+                        <a href="#">
+                            <div class="content">
+                                <img src="images/img-chat/chat-perfil2.png" alt="">
+                                <div class="details">
+                                    <span>Bruna</span>
+                                    <p>Vcs ainda tem esse gato disponível?</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </section>
             </div>
@@ -60,14 +63,15 @@
                             <p class="hide">Online</p>
                         </div>
                     </header>
+
                     <div class="chat-box">
-                       
+                        
                     </div>
 
                     <div action="#" class="typing-area">
                         <input type="text" id="input-mensagem" placeholder="Digite uma mensagem...">
                         <button id="send" type="button">
-                        <img src="images/img-chat/enviar.png" alt="" value="enviar">
+                            <i class="fi fi-sr-paper-plane-top"></i>
                         </button>
                     </div>
                 </section>

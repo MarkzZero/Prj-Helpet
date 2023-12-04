@@ -3,6 +3,29 @@ include('../conexao/conexao.php');
 
 include('../Login/login.php');
 
+// Inicializa a variável se não existir
+if (!isset($_SESSION['favorites'])) {
+    $_SESSION['favorites'] = [];
+}
+
+// Função para adicionar um animal aos favoritos
+
+function addFavorite($animalId)
+{
+    global $_SESSION;
+
+    // Verifica se o animal já foi adicionado
+    if (!in_array($animalId, $_SESSION['favorites'])) {
+        // Adiciona o animal aos favoritos
+        $_SESSION['favorites'][] = $animalId;
+    }
+}
+
+// Adiciona o animal aos favoritos, caso o botão seja clicado
+if (isset($_POST['animal_id'])) {
+   addFavorite($_POST['animal_id']);
+}
+
 $id = $_SESSION['id'];
 
 $sqlUsuario = $mysqli->query("SELECT * FROM tbUsuario WHERE idUsuario = '$id'");
