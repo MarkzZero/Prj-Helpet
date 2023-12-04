@@ -1,7 +1,11 @@
 /* Ícones */
 @import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
 
 /* Fontes */
 @font-face {
@@ -40,6 +44,19 @@ body{
 
 li{
     list-style: none;
+}
+
+::-webkit-scrollbar{
+    width: 1vw;
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+    border-radius: 1vw;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: .5vw;
+    visibility: visible;
+    background-color: #D9D9D9;
 }
 
 /* Área Logo Menu */
@@ -108,9 +125,9 @@ nav ul li{
     margin: 2vh 0;
     width: 88%;
 }
-nav ul li:nth-child(5){
+nav ul li:nth-child(4){
     position: relative;
-    margin-top: 9vh;
+    margin-top: 18vh;
 }
 nav a{
     display: flex;
@@ -186,15 +203,21 @@ nav.active .toggle i{
 /* Área Topo */
 .topbar{
     position: relative;
-    margin-top: 1vh;
     width: 100%;
-    left: 0;
     height: auto;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
 }
 
+.topbar-edit{
+    position: absolute;
+    z-index: 100;
+    width: 61vw;
+    margin: 0 1.5vw;
+    left: 20vw;
+    margin-top: 4vh;
+}
 
 /* Imagens das páginas */
 .img-pag{
@@ -504,418 +527,5 @@ button:hover, .add-anuncio:hover{
     width: 42vh;
     margin-top: -28vh;
     margin-left: -1.3vh;
-}
-
-/* CSS TELA DE CONFIGURAÇÃO */
-
-/* MENU CONFIGURAÇÕES */
-.menu-config{
-    position: fixed;
-    width: 19.5vw;
-    height: 100%;
-    left: 14.5vw;
-    border-right: 0.1vw solid #8A8A8A;
-    z-index: 10;
-    top: 1vh;
-}
-
-.menu-config .titulo-config{
-    font-family: Regular;
-    position: relative;
-    color: #004FDA;
-    font-weight: bolder;
-    font-size: 2vw;  
-    left: 3vh;
-    top: 2vh;
-}
-
-.area-botao{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 10vh;
-    width: 20vw;
-}
-
-.area-botao hr{
-    position: relative;
-    width: 90%;
-    background-color: #000000;
-}
-
-.botao-ativo{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #F58614; 
-    padding: 1.7vh;
-    border-radius: 1vh;
-    cursor: pointer;
-    margin: 3vh 0;
-    width: 75%; 
-}
-
-.botao-ativo:hover,
-.botao:hover{
-    transform: scale(1.1);
-}
-
-.botao{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    cursor: pointer;
-    margin: 3vh 0;
-    width: 60%;
-}
-
-.botao-ativo a,
-.botao a{
-    color: #F4F6FF;
-    font-family: Park;
-    font-weight: 500;
-    font-size: 1.4vw;
-    text-decoration: none;
-    text-align: center;
-}
-
-.botao a{
-    color: #004FDA;
-}
-
-.botao-ativo i,
-.botao i{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #F4F6FF;
-    font-size: 2vw;
-    margin-right: 1vw;
-}
-
-.botao i{
-    color: #004FDA;
-}
-
-/* BOTÃO MODO ESCURO */
-.btn-modo{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative; 
-    top: 55vh;
-    font-family: Park;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    padding: 2vw 0;
-}
-
-.btn-modo i{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    font-size: 2vw;
-    color: #004FDA;
-}
-
-.btn-modo p{
-    font-size: 1.5vw;
-    position: relative;
-    color: #004FDA;
-    margin: 0 1vw;
-}
-
-
-/* FAZER AQUI O CSS DO MODO DARK */
-/* Botão Modo Escuro */
-.menu-config  input[type=checkbox]{
-    height: 0;
-    width: 0;
-    visibility: hidden;
-    cursor: pointer;
-}
-.menu-config  label{
-    cursor: pointer;
-    width: 4vw;
-    height: 2vw;
-    background: #c4c2c2;
-    display: block;
-    border-radius: 2vw;
-    position: relative;
-}
-.menu-config  label:after{
-    content: '';
-    position: absolute;
-    top: 0.3vw;
-    left: 0.3vw;
-    width: 1.5vw;
-    height: 1.5vw;
-    background: #fff;
-    border-radius: 50%;
-    transition: 0.3s;
-} 
-.menu-config  input:checked + label{
-    background: #F48503;
-}
-.menu-config input:checked + label:after{
-    left: calc(100% - 0.5vw);
-    transform: translateX(-100%);
-}
-.menu-config label:active:after{
-    width: 3vw;
-}
-
-/* CSS DA AREA DE EDITAR PERFIL */
-.area-perfil-edit .enfeites{
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: auto;
-}
-
-.enfeites .enfeiteUm img{
-    width: 4.5vw;
-    transform: scaleX(1);
-}
-.enfeites .enfeiteUm{
-    left: -46vh;
-    position: absolute;
-    cursor: pointer;
-    top: -8.7vh;
-    transition: 0.5s all;
-}
-.enfeites .enfeiteUm:hover{
-    transform: scale(1.1);
-}
-
-/* .enfeites .enfeiteDois img{
-    position: absolute;
-    top: -3vw;
-    right: -5vw;
-    width: 12vw;
-}
-
-.enfeites .enfeiteDois{
-    position: relative;
-} */
-
-/* CSS IMAGEM DE PERFIL */
-.imageContainer{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: -8vh;
-    left: 8vh;
-}
-
-#area-foto{
-    width: auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#imgPhoto{
-    width: 12vw;
-    height: 12vw;
-    padding: 0.5vw;
-    border: 0.3vw solid #122BAD;
-    cursor: pointer;
-    transition: background .3s;
-    border-radius: 20vh;
-}
-
-#imgPhoto:hover{
-    background-color:#d7e5ff;
-    transform: scale(1.1);
-}
-
-input[type='file']{
-    display: none;
-}
-
-/* CSS EDITAR PERFIL DA ONG */  
-.area-form{
-    position: relative;
-}
-
-.linhas{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    left: 22vh;
-    top: 6vh;
-}
-
-.input-field {
-    position: relative;
-    width: 15vw;
-    margin: 1vh;
-    margin: 1vw 2vw;
-    flex-direction: column;
-    display: flex;
-}
-
-.input-field label{
-    position: relative;
-    color: #001CAB;
-    font-size: 1.3vw;
-}
-
-.input-field .underline::before {
-    content: '';
-    position: absolute;
-    height: 1px;
-    width: 15vw;
-    bottom: -5px;
-    left: 0;
-    background: #F58614;
-}
-
-.input-field input {
-    outline: none;
-    border: none;
-    background-color: transparent;
-    font-size: 1.2vw;
-    font-family: Poppins;
-    color: #8A8A8A;
-    width: 100%;
-}
-
-/* Botões */
-.botoes{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 3vw 0;
-}
-.botoes button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.7vw 2vw;
-    font-family: Park;
-    font-size: 1.5vw;
-    border-radius: 2vw;
-    border: 0.2vw solid #004FDA;
-    outline: none;
-    margin: 1vw;
-    width: 10vw;
-    cursor: pointer;
-}
-.botoes button:hover{
-    transform: scale(1.1);
-}
-.botoes .btn-cancelar{
-    background-color: transparent;
-    color: #004FDA;
-    margin-left: 45vh;
-}
-.botoes .btn-salvar{
-    background-color: #004FDA;
-    color: #fff;
-    margin-left: 5vh;
-}
-
-/* CSS EXCLUIR PERFIL ONG */
-/* Modais */
-.modalExc{
-    transition: .5s;
-    opacity: 1;
-    pointer-events: all;
-}
-.fadeExc{
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 5;
-    transition: .3s;
-}
-.modalExc.hide,
-.fadeExc.hide{
-    opacity: 0;
-    pointer-events: none;
-}
-.modalExc.hide{
-    top: 0;
-}
-.modalExc{
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    z-index: 10;
-    background-color: #F4F6FF;
-    transform: translate(-50%, -50%);
-    width: 30vw;
-    height: auto;
-    padding: 1.5vw;
-    border-radius: 2vw;
-}
-.modalExc .modal-header{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.modalExc .modal-header i{
-    color: #c4bebe;
-    font-size: 1.3vw;
-    cursor: pointer;
-}
-.modalExc .area-excluir{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.modalExc .area-excluir h4{
-    font-family: Regular;
-    font-size: 1.5vw;
-    color: #FF3131;
-    margin: 1vw 0;
-    margin-top: 2vw;
-}
-.modalExc .area-excluir p{
-    color: #000;
-    font-size: 1.2vw;
-}
-.modalExc .area-excluir i{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8vw;
-    color: #FF3131;
-}
-.modalExc .area-excluir .underline::before {
-    background: #FF3131;
-}
-.modalExc .area-excluir .botoes{
-    margin: 0;
-}
-.modalExc .area-excluir .botoes .btn-cancelar{
-    background-color: transparent;
-    color: #FF3131;
-    border: 0.2vw solid #FF3131;
-}
-.modalExc .area-excluir .botoes .btn-excluir{
-    background: #FF3131;
-    color: #fff;
-    border: 0.2vw solid #FF3131;
 }
 
