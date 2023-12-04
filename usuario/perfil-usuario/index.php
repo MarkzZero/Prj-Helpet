@@ -134,13 +134,11 @@
 
             <div class="area-conteudo">
                 <?php require "post-anuncio.php"; ?>
-                <?php require "post-anuncio.php"; ?>
             </div>
 
             
 
             <div class="area-conteudo">
-                <?php require "post-campanha.php"; ?>
                 <?php require "post-campanha.php"; ?>
             </div>
 
