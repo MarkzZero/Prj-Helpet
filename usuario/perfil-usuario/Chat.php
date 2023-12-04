@@ -42,15 +42,29 @@
                     </header>
                     <div class="search">
                         <span class="text"></span>
-                        <input type="text" placeholder="Pesquisar ou começar uma nova conversa">
-
+                        <input type="text" placeholder="Pesquisar uma conversa">
                     </div>
 
                     <!-- CONVERSAS JA SALVAS -->
                     <div class="users-list">
-
-
-
+                        <a href="#">
+                            <div class="content">
+                                <img src="images/img-chat/chat-perfil2.png" alt="">
+                                <div class="details">
+                                    <span>Bruna</span>
+                                    <p>Vcs ainda tem esse gato disponível?</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="content">
+                                <img src="images/img-chat/chat-perfil2.png" alt="">
+                                <div class="details">
+                                    <span>Bruna</span>
+                                    <p>Vcs ainda tem esse gato disponível?</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </section>
             </div>
@@ -79,8 +93,6 @@
                             </div>
                         </div>
 
-                        <br>
-
                         <div class="chat outgoing">
                             <div class="details">
                                 <p>Oi cliente!! Vcs ainda tem este pet disponivel?</p>
@@ -98,7 +110,7 @@
                     <div action="#" class="typing-area">
                         <input type="text" id="input-mensagem" placeholder="Digite uma mensagem...">
                         <button id="send" value="enviar" type="button">
-                            <i class="fi fi-sr-paper-plane"></i>
+                            <i class="fi fi-sr-paper-plane-top"></i>
                         </button>
                     </div>
                 </section>
