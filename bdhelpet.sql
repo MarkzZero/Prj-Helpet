@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Nov-2023 às 21:33
+-- Tempo de geração: 04-Dez-2023 às 06:43
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -41,10 +41,11 @@ CREATE TABLE `ligcampanunci` (
 
 CREATE TABLE `tbadocao` (
   `idAdocao` int(11) NOT NULL,
-  `dataAdocao` date DEFAULT NULL,
-  `idAnimal` int(11) DEFAULT NULL,
+  `idOng` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
-  `idOng` int(11) DEFAULT NULL
+  `idAnimal` int(11) DEFAULT NULL,
+  `dataSolicitacao` timestamp NULL DEFAULT NULL,
+  `STATUS` enum('pendente','aprovada','rejeitada') DEFAULT 'pendente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -65,35 +66,20 @@ CREATE TABLE `tbanimal` (
   `idOng` int(11) DEFAULT NULL,
   `idRaca` int(11) DEFAULT NULL,
   `idVacina` int(11) DEFAULT NULL,
-  `idDoenca` int(11) DEFAULT NULL
+  `idDoenca` int(11) DEFAULT NULL,
+  `STATUS` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tbanimal`
 --
 
-INSERT INTO `tbanimal` (`idAnimal`, `nomeAnimal`, `porteAnimal`, `descAnimal`, `generoAnimal`, `idadeAnimal`, `especieAnimal`, `fotoPerfilAnimal`, `idOng`, `idRaca`, `idVacina`, `idDoenca`) VALUES
-(2, 'Lilith', '', 'Fêmea', NULL, '', 'Gato', 'arquivo/e5fb452e6e029ac736cc1b7205e286bd.jpg', 2, 1, NULL, NULL),
-(3, 'Carlos', '', 'Macho', NULL, '', 'Cachorro', 'arquivo/edb8b7bdce47bac2a97f449b1ec091b5.jpg', 1, 2, NULL, NULL),
-(5, 'Bob', 'Médio', 'Macho', NULL, '2 anos', 'Cachorro', NULL, 2, 6, NULL, NULL),
-(6, 'Maribel', 'Pequeno', 'Fêmea', NULL, '6 anos', 'Gato', NULL, 1, 7, NULL, NULL),
-(7, 'Flokinho', 'Pequeno', 'Macho', NULL, '4', 'Cachorro', NULL, 2, 4, NULL, NULL),
-(8, 'Mel', 'Grande', 'Fêmea ', NULL, '3 anos ', 'Cachorro', NULL, 1, 10, NULL, NULL),
-(9, 'Thor', 'Pequeno', 'Macho', NULL, '2 anos ', 'Gato', NULL, 2, 3, NULL, NULL),
-(10, 'Cookie ', 'Médio', 'Macho', NULL, '10 meses', 'Gato', NULL, 2, 9, NULL, NULL),
-(11, 'Café ', 'Grande', 'Macho', NULL, '1 ano', 'Cachorro', NULL, 2, 2, NULL, NULL),
-(12, 'Costela', 'Pequeno ', 'Macho', NULL, '3 anos ', 'Cachorro', NULL, 1, 8, NULL, NULL),
-(13, 'Jujuba ', 'Pequeno ', 'Fêmea ', NULL, '1 ano ', 'Gato', NULL, 2, 1, NULL, NULL),
-(18, 'Teste', 'Médio', 'tste', 'Macho', 'Adulto (Entre 1 e 3 anos)', 'Cachorro', 'fotoPerfil/a76e6d92eda933eeee9ee0091634be05.jpg', 11, 5, 2, 3),
-(20, 'Teste', 'Médio', 'Tetse', 'Macho', 'Adulto (Entre 3 e 5 anos)', 'Cachorro', 'fotoPerfil/81f5278d4646b45fc5540ad7655a84b1.jpg', 13, 4, 3, 4),
-(21, 'Testeq2', 'Pequeno', 'Fêmea', 'Fêmea', 'Adulto (Entre 1 e 3 anos)', 'Cachorro', 'fotoPerfil/e723324a63ee67100b4dbfefddc6c4af.jpg', 17, 0, 0, 8),
-(22, 'Teste2', 'Pequeno', 'Macho', 'Macho', 'Adulto (Entre 1 e 3 anos)', 'Gato', 'fotoPerfil/f00c7e32dd7750b3a83cf8a0d34d92b6.jpg', 17, 0, 0, 1),
-(23, 'Tom', 'Médio', 'Oii', 'Macho', 'Filhote (Menos de 1 ano)', 'Cachorro', 'fotoPerfil/787f21c11c8c614635274314d96d3a5c.jpg', 0, 13, 3, 8),
-(24, 'Lily', 'Pequeno', 'Gato siamês de porte pequeno', 'Fêmea', 'Filhote (Menos de 1 ano)', 'Gato', 'fotoPerfil/bfbe93d6d407663a588547b7d09da904.jpg', 0, 3, 1, 3),
-(25, 'Lily', 'Pequeno', 'Gato siamês de porte pequeno', 'Fêmea', 'Filhote (Menos de 1 ano)', 'Gato', 'fotoPerfil/c5d6bbea80ec9043f566abb366148994.jpg', 0, 3, 1, 3),
-(26, 'Lili', 'Pequeno', 'Oii', 'Fêmea', 'Filhote (Menos de 1 ano)', 'Gato', 'fotoPerfil/7da41d507ba75a3bb4180cc040fcd77d.jpg', 0, 3, 5, 7),
-(27, 'Tom', 'Médio', 'Oii', 'Macho', 'Adulto (Entre 3 e 5 anos)', 'Cachorro', 'fotoPerfil/59ed1c6021c62106954fde6681830edc.jpg', 0, 13, 3, 2),
-(28, 'Tom', 'Médio', 'Oii', 'Macho', 'Adulto (Entre 3 e 5 anos)', 'Cachorro', 'fotoPerfil/9b4dba6e2bc1c40ae1144c82796d62c8.jpg', 0, 13, 3, 2);
+INSERT INTO `tbanimal` (`idAnimal`, `nomeAnimal`, `porteAnimal`, `descAnimal`, `generoAnimal`, `idadeAnimal`, `especieAnimal`, `fotoPerfilAnimal`, `idOng`, `idRaca`, `idVacina`, `idDoenca`, `STATUS`) VALUES
+(1, 'poggers', 'Médio', 'Teste', 'Macho', 'Idoso (Mais de 5 anos)', 'Cachorro', 'fotoPerfil/2a91259d3bdb063f5764bd020c68bf52.jpg', 7, 12, 7, 8, 'Disponível'),
+(2, 'Teste', 'Pequeno', 'Teste', 'Fêmea', 'Adulto (Entre 1 e 3 anos)', 'Gato', 'fotoPerfil/fe3cc2be827e8d483b07345e1b5beba4.jpg', 7, 11, 7, 8, 'Disponível'),
+(3, 'Gato', 'Médio', 'Teste', 'Fêmea', 'Adulto (Entre 3 e 5 anos)', 'Gato', 'fotoPerfil/1047cebc7c70206b88297b5cf70b54f3.jpg', 7, 5, 7, 8, 'Disponível'),
+(5, 'aaaaaaaaaa', 'Médio', 'Teste', 'Fêmea', 'Idoso (Mais de 5 anos)', 'Cachorro', 'fotoPerfil/2157874a98c8798316fce67c813efb41.jpg', 8, 11, 7, 7, 'Indisponível'),
+(7, 'Bilba', 'Médio', 'Teste', 'Fêmea', 'Adulto (Entre 3 e 5 anos)', 'Cachorro', 'fotoPerfil/66fc87497a23afeab735fffc9e9e5c87.jpg', 7, 13, 7, 8, 'Indisponível');
 
 -- --------------------------------------------------------
 
@@ -113,7 +99,7 @@ CREATE TABLE `tbanunciante` (
   `estadoAnunciante` varchar(20) DEFAULT NULL,
   `bairroAnunciante` varchar(20) DEFAULT NULL,
   `cnpjAnunciante` char(14) DEFAULT NULL,
-  `cepAnunciante` varchar(12) DEFAULT NULL,
+  `cepAnunciante` varchar(10) DEFAULT NULL,
   `fotoAnunciante` varchar(500) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -127,12 +113,31 @@ CREATE TABLE `tbanunciante` (
 CREATE TABLE `tbanuncio` (
   `idAnuncio` int(11) NOT NULL,
   `nomeAnuncio` varchar(50) DEFAULT NULL,
-  `descAnuncio` varchar(300) DEFAULT NULL,
+  `descAnuncio` varchar(200) DEFAULT NULL,
   `dataInicioAnuncio` date DEFAULT NULL,
   `dataTerminoAnuncio` date DEFAULT NULL,
   `fotoAnuncio` varchar(600) DEFAULT NULL,
   `idAnunciante` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbanunciofavorito`
+--
+
+CREATE TABLE `tbanunciofavorito` (
+  `idAnuncioFavorito` int(11) NOT NULL,
+  `idAnuncio` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbanunciofavorito`
+--
+
+INSERT INTO `tbanunciofavorito` (`idAnuncioFavorito`, `idAnuncio`, `idUsuario`) VALUES
+(1, 5, 11);
 
 -- --------------------------------------------------------
 
@@ -172,23 +177,6 @@ CREATE TABLE `tbcampanha` (
   `fotoPerfilCampanha` varchar(600) DEFAULT NULL,
   `idOng` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tbcampanha`
---
-
-INSERT INTO `tbcampanha` (`idCampanha`, `nomeCampanha`, `informacaoCampanha`, `horarioCampanha`, `diaCampanha`, `categoriaCampanha`, `bairroCampanha`, `logradouroCampanha`, `cidadeCampanha`, `numLocalCampanha`, `complementoCampanha`, `estadoCampanha`, `cepCampanha`, `fotoPerfilCampanha`, `idOng`) VALUES
-(5, 'poggers', 'Teste', '05:14:00', '2023-11-16', NULL, 'Vila do Americano', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', '08533-250', 'fotoCampanha/40f4fd8db1049feeb44581436e687cf6.jpg', 17),
-(6, 'Teste', 'Teste', '04:14:00', '2023-11-18', NULL, 'Vila do Americano', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', '08533-250', 'fotoCampanha/30e40f5e0e1412c87fcd119ad6dbaeee.jpg', 17),
-(7, 'ProAnima', 'Ajudar os animais', '14:00:00', '2023-11-04', NULL, 'Itaberaba', 'Avenida Itaberaba', 'São Paulo', 145, '', 'SP', '02739-000', 'fotoCampanha/c31ec08afe9c1a4e571e90fa8fc35548.jpg', 0),
-(8, 'ProAnima', 'Ajudar os animais', '14:00:00', '2023-11-04', NULL, 'Itaberaba', 'Avenida Itaberaba', 'São Paulo', 145, '', 'SP', '02739-000', 'fotoCampanha/177c60c0ca5c2c60458499c907d40045.jpg', 0),
-(9, 'ProAnima', 'Vacinar os animais', '14:10:00', '2023-11-01', NULL, 'Itaberaba', 'Avenida Itaberaba', 'São Paulo', 145, '', 'SP', '02739-000', 'fotoCampanha/c21cbe84c25e2a627efa4457b656a46b.jpg', 0),
-(10, 'Ampara Animal', 'Ajudar', '15:00:00', '2023-11-01', NULL, 'Água Branca', 'Rua Mateo Forte', 'São Paulo', 76, '', 'SP', '05038-160', 'fotoCampanha/78f1a03152b8755065ccc7358b5b4afa.jpg', 0),
-(11, 'Ampara Animal', 'Ajudar', '15:00:00', '2023-11-01', NULL, 'Água Branca', 'Rua Mateo Forte', 'São Paulo', 76, '', 'SP', '05038-160', 'fotoCampanha/864a479b24dba67960f33d228f6e0b46.jpg', 0),
-(12, 'ONG de Animais', 'Ajudar os pets', '15:00:00', '2023-11-02', NULL, 'Itaberaba', 'Avenida Itaberaba', 'São Paulo', 145, '', 'SP', '02739-000', 'fotoCampanha/e2d6eb92c12afa616cc5af5b722a22d1.jpg', 0),
-(13, 'ONG de Animais', 'Ajudar os pets', '15:00:00', '2023-11-02', NULL, 'Itaberaba', 'Avenida Itaberaba', 'São Paulo', 145, '', 'SP', '02739-000', 'fotoCampanha/a91553f100d5d7364de3fb2ce6e1a21a.jpg', 0),
-(14, 'Ampara Animal', 'Ajudar pets', '14:30:00', '2023-11-01', NULL, 'Itaberaba', 'Avenida Itaberaba', 'São Paulo', 76, '', 'SP', '02739-000', 'fotoCampanha/1eb8d696bb1ed76442fe1d7ad301dc28.jpg', 0),
-(15, 'Ampara Animal', 'Ajudar pets', '14:30:00', '2023-11-01', NULL, 'Itaberaba', 'Avenida Itaberaba', 'São Paulo', 76, '', 'SP', '02739-000', 'fotoCampanha/d923c1dfe3b4f2bae67045479679162e.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -258,6 +246,47 @@ INSERT INTO `tbdoenca` (`idDoenca`, `tipoDoenca`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbfavorito`
+--
+
+CREATE TABLE `tbfavorito` (
+  `idFavorito` int(11) NOT NULL,
+  `idAnimal` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbfavorito`
+--
+
+INSERT INTO `tbfavorito` (`idFavorito`, `idAnimal`, `idUsuario`) VALUES
+(1, 3, 11),
+(2, 2, 11),
+(3, NULL, 11),
+(4, NULL, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbfavoritocampanha`
+--
+
+CREATE TABLE `tbfavoritocampanha` (
+  `idCampanhaFavorita` int(11) NOT NULL,
+  `idCampanha` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbfavoritocampanha`
+--
+
+INSERT INTO `tbfavoritocampanha` (`idCampanhaFavorita`, `idCampanha`, `idUsuario`) VALUES
+(1, 1, 11);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbfotoanimal`
 --
 
@@ -266,28 +295,6 @@ CREATE TABLE `tbfotoanimal` (
   `fotosAnimal` varchar(800) DEFAULT NULL,
   `idAnimal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tbfotoanimal`
---
-
-INSERT INTO `tbfotoanimal` (`idFotoAnimal`, `fotosAnimal`, `idAnimal`) VALUES
-(1, 'Arquivos/fbecee714c319be6980a5088936aa189.jpg', 23),
-(2, 'Arquivos/d4407ec8cf1177a3d82a3e1edd6b8e7f.jpg', 23),
-(3, 'Arquivos/ae7ddb1bf289d999882a5dd706a5ea56.jpeg', 23),
-(4, 'Arquivos/427650be3b95cda98018a46ea1e99cb3.jpg', 23),
-(5, 'Arquivos/5056f2d5088e8b1a9ae5fdcfdd372610.jpg', 24),
-(6, 'Arquivos/31ce5f906780211501ea18fbfd90fd47.jpg', 24),
-(7, 'Arquivos/b85e696d52a1d46ba6118ff1dcb42320.jpg', 25),
-(8, 'Arquivos/5be3bdf38652306d9b54b2d95c53b3d5.jpg', 25),
-(9, 'Arquivos/741a3d68ad82c0e9554f1aa3096756cf.jpeg', 26),
-(10, 'Arquivos/084e613a0234b81944a03d6eedb4f091.jpg', 26),
-(11, 'Arquivos/c3deded08f6c20cb2dee2f81f20003c2.jpg', 27),
-(12, 'Arquivos/d8aa6d2363d6a89bddd53dde5c676af0.jpg', 27),
-(13, 'Arquivos/626a598df7969dc1b10b8a59ac290a49.jpeg', 27),
-(14, 'Arquivos/e9b139379eb964f40ceeaab09bfd65de.jpg', 28),
-(15, 'Arquivos/7ba67ed8c081aa153f15ea6ac909d3e7.jpg', 28),
-(16, 'Arquivos/376e9249cf69e64c474e582aaa5021b5.jpeg', 28);
 
 -- --------------------------------------------------------
 
@@ -306,102 +313,78 @@ CREATE TABLE `tbfotocampanha` (
 --
 
 INSERT INTO `tbfotocampanha` (`idFotoCampanha`, `fotosCampanha`, `idCampanha`) VALUES
-(1, 'arquivoCampanha/bfde2c4776d4d557685e30b2c43982c2.Array', 1),
-(2, 'arquivoCampanha/355fc55bbba2337b2e1f51ebf075dea2.Array', 1),
-(3, 'arquivoCampanha/7e186ce1ac53d177aad6e380a85c8da1.Array', 1),
-(4, 'arquivoCampanha/f3dd00d4215456f6d6dbe23b6ffde718.Array', 1),
-(5, 'arquivoCampanha/ee4ab13e1f63b15e4e0539bd793ff35d.Array', 1),
-(6, 'arquivoCampanha/f2b443e19043627e0aa7f5fc68fb4779.Array', 1),
-(7, 'arquivoCampanha/03f42f03d9ad74472cebb724981515f5.Array', 2),
-(8, 'arquivoCampanha/2758b65f0a2c17c6baca60887ecddf52.Array', 2),
-(9, 'arquivoCampanha/1362c1097563dac66a826dbcb882fe4d.Array', 2),
-(10, 'arquivoCampanha/eb5079e2b2b91067eb4cf7c0991e5e69.Array', 2),
-(11, 'arquivoCampanha/75f26c3a36000be0fea447e4e40da252.Array', 2),
-(12, 'arquivoCampanha/b0f3a15215bd324113aa77c319643f23.Array', 2),
-(19, 'arquivoCampanha/11a14284db8cf06d8c4936806aeae9b2.Array', 4),
-(20, 'arquivoCampanha/4c39e2677a50aa4514915513c59cfeb0.Array', 4),
-(21, 'arquivoCampanha/f86aa7bae411293c8f7b3443de8535b9.Array', 4),
-(22, 'arquivoCampanha/302d6ba6255eac28d54199c9237d3bb0.Array', 4),
-(23, 'arquivoCampanha/8a1a8587b0358c6d22a6b286b999a493.Array', 4),
-(24, 'arquivoCampanha/8ab9afc2bbd17454c25a206657b7e6e1.Array', 4),
-(25, 'arquivoCampanha/727828033d4afd8725cdb37e263b6ec1.Array', 5),
-(26, 'arquivoCampanha/e971300da05f309b519f1499a4c818df.Array', 5),
-(27, 'arquivoCampanha/017a3555346a4e90095bf9be91eb71c1.Array', 5),
-(28, 'arquivoCampanha/1723c0891794a34e6b7009e25943304c.Array', 5),
-(29, 'arquivoCampanha/4c3d709dc32c22103157a1233a7d470e.Array', 5),
-(30, 'arquivoCampanha/ddf2a83d34c97505cfd76b3e590bff31.Array', 5),
-(31, 'arquivoCampanha/ba2515732ea672f83f12ca41deee23f6.Array', 6),
-(32, 'arquivoCampanha/38b85dea0db73a5ac7a8645f5db44340.Array', 6),
-(33, 'arquivoCampanha/7d63ba26a33ed30d93689d12301d2fc4.Array', 6),
-(34, 'arquivoCampanha/10812e5943b9d8b4ba4e307c44683f66.Array', 6),
-(35, 'arquivoCampanha/ffac53bd7df634228214e7ed771fab9e.Array', 6),
-(36, 'arquivoCampanha/471450f45a1c324471ced9eef85fa738.Array', 6),
-(37, 'arquivoCampanha/fb3ba1dc93906468e1e350899163d4a2.Array', 7),
-(38, 'arquivoCampanha/1ef03602252e8b3f6edfd432fb39088e.Array', 7),
-(39, 'arquivoCampanha/d9b7fedccabd6bd80efc293d55839aa6.Array', 7),
-(40, 'arquivoCampanha/d57c519a16fdb0cae8371f09b3ee370b.Array', 7),
-(41, 'arquivoCampanha/5177c7b3388e013ec933a6e58b2f7539.Array', 7),
-(42, 'arquivoCampanha/1996f14260cdf3ff297f7b98e64c3ee5.Array', 7),
-(43, 'arquivoCampanha/e951ae32c1fd202e28bb089b2ae0352a.Array', 8),
-(44, 'arquivoCampanha/51bcd6d11752afc10eda048c27ca6475.Array', 8),
-(45, 'arquivoCampanha/7c0ce8cf73e79eff0fd5cc50875f1811.Array', 8),
-(46, 'arquivoCampanha/dfbd2f8029a4e8d720dbd1c38e89415b.Array', 8),
-(47, 'arquivoCampanha/6614ac10b40839f884a35a7935b38a51.Array', 8),
-(48, 'arquivoCampanha/f34d3b9a0f75998fe58a9085d11e1a4e.Array', 8),
-(49, 'arquivoCampanha/390d549018319afead25a8f0be89ed60.Array', 9),
-(50, 'arquivoCampanha/414875325d4a8a699a3d03c153c0b100.Array', 9),
-(51, 'arquivoCampanha/52e37dc609911d8223201676124847d8.Array', 9),
-(52, 'arquivoCampanha/b3c5406ec04ca759cc1815982058f392.Array', 9),
-(53, 'arquivoCampanha/b0923c76f7c6ff3275ec8afd84a0b4e6.Array', 9),
-(54, 'arquivoCampanha/fed4c3c8261e23ae0ab5c25f4c4845ba.Array', 9),
-(55, 'arquivoCampanha/44994556dc4be7d71d620107dc0190ad.Array', 10),
-(56, 'arquivoCampanha/41ceb8058e60c06d0fc4a81b62a8ae6b.Array', 10),
-(57, 'arquivoCampanha/f536305d2c62c184a77483b72bbb5c7a.Array', 10),
-(58, 'arquivoCampanha/133c5e4cffb04d777c4f51abd63f8e89.Array', 10),
-(59, 'arquivoCampanha/9592b5ed947960055f2961308c75f8bd.Array', 10),
-(60, 'arquivoCampanha/e3388a7f41cd71497778c42e7d1cef2e.Array', 10),
-(61, 'arquivoCampanha/d59d150a3d8636f08749b84d426e432c.Array', 11),
-(62, 'arquivoCampanha/169aaf7d1af6d9c6d12d084be9cdb01c.Array', 11),
-(63, 'arquivoCampanha/4ea78dab5ae410fc9ae81c959e39837a.Array', 11),
-(64, 'arquivoCampanha/e4e31cae92c0b6bdc21825699b9f3023.Array', 11),
-(65, 'arquivoCampanha/e2ba5abfcc569ecf1a9b1a3b5ff1b351.Array', 11),
-(66, 'arquivoCampanha/924d244bbf82f86b77864e67dfbba0cf.Array', 11),
-(67, 'arquivoCampanha/364f18ba58808647b6ca6d9950cde625.Array', 12),
-(68, 'arquivoCampanha/469c13331c2787d0759a8fb7da8231cd.Array', 12),
-(69, 'arquivoCampanha/3519e5dd11e11401e5073411c7241166.Array', 12),
-(70, 'arquivoCampanha/84864b463911e74887cff4ef722dad6a.Array', 12),
-(71, 'arquivoCampanha/0907cb69b0c413bc7688052a17dde3d7.Array', 12),
-(72, 'arquivoCampanha/4db37716f474776238dac7b37910500b.Array', 12),
-(73, 'arquivoCampanha/c2b13188633c64815d11d5dc4d9d4f40.Array', 13),
-(74, 'arquivoCampanha/339487b876ad06c3d12ef0a0338b18e2.Array', 13),
-(75, 'arquivoCampanha/f1205d63858f61f246fb680d0836cb2c.Array', 13),
-(76, 'arquivoCampanha/7a311b1a413c93f38e7a4cb7e8e28cbe.Array', 13),
-(77, 'arquivoCampanha/e56dec4a3584221433fb71b2ba7c5143.Array', 13),
-(78, 'arquivoCampanha/787ea311fa6dd7d153b430cd0a561833.Array', 13),
-(79, 'arquivoCampanha/eddbdb021f7e7ca89593883ec82918a0.Array', 14),
-(80, 'arquivoCampanha/a64c94465b6b61412baa5eda05225ff3.Array', 14),
-(81, 'arquivoCampanha/810752a014e872382145705963bf8777.Array', 14),
-(82, 'arquivoCampanha/7067e062c42ba6ecafd9859827e85f25.Array', 14),
-(83, 'arquivoCampanha/b86be6a8b7d9da52686d4a054a111f05.Array', 14),
-(84, 'arquivoCampanha/70d7b1374f8a30406a38f83818eb5e44.Array', 14),
-(85, 'arquivoCampanha/01bf04865ef1d9de6bb26447de5e317d.Array', 15),
-(86, 'arquivoCampanha/8e6833df6e102720d66ee21f9adc6b5e.Array', 15),
-(87, 'arquivoCampanha/9a18c105d5d3b2d0f277beed553eaf02.Array', 15),
-(88, 'arquivoCampanha/c56cd5f8e2a1025e78ebeca652b029ef.Array', 15),
-(89, 'arquivoCampanha/0145b56fc4f58ac940d711a3aa65fd85.Array', 15),
-(90, 'arquivoCampanha/acb995dc08d590a49ca0bbb714ad2100.Array', 15);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tbfotosanuncio`
---
-
-CREATE TABLE `tbfotosanuncio` (
-  `idFotosAnuncio` int(11) NOT NULL,
-  `fotosAnuncio` varchar(600) DEFAULT NULL,
-  `idAnuncio` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(7, 'arquivoCampanha/855480704753683762735030b0b706b1.Array', 5),
+(8, 'arquivoCampanha/0b0252e9fd8f7bf0f008c7ac118683b3.Array', 5),
+(9, 'arquivoCampanha/0e75a7330606e1540294db62bf5e49b4.Array', 5),
+(10, 'arquivoCampanha/a69cb29baaeabbf173f3b8f1c7248b7f.Array', 5),
+(11, 'arquivoCampanha/5eb46ca4a5dd094874ba416f015f49c3.Array', 5),
+(12, 'arquivoCampanha/6956f5da9d343f793b4e1e301cc8a286.Array', 5),
+(13, 'arquivoCampanha/8cc363967a20aae75c122450bf75b71d.Array', 7),
+(14, 'arquivoCampanha/ab744ff07887b4c30f40d0d44882a7e9.Array', 7),
+(15, 'arquivoCampanha/e0846ebc946677245054aeb10c57cdda.Array', 7),
+(16, 'arquivoCampanha/152530065b0a90efd8ada75cb86a71f5.Array', 7),
+(17, 'arquivoCampanha/4f4ff751a28e86f253def97724d93f1e.Array', 7),
+(18, 'arquivoCampanha/3b1b622ea71d6e61d5bd54c4d9f16d18.Array', 7),
+(19, 'arquivoCampanha/67d3bf45e2fe75a0b4152a739548f3d9.Array', 8),
+(20, 'arquivoCampanha/cce9579f2afc95d90c995c23327a4140.Array', 8),
+(21, 'arquivoCampanha/324558eb419aa7b81879ee211b0a4fa3.Array', 8),
+(22, 'arquivoCampanha/c94aff639719f543dea7219f304f0dc4.Array', 8),
+(23, 'arquivoCampanha/ab8b07dd5b57a01d370591372402e709.Array', 8),
+(24, 'arquivoCampanha/52246aa7fa38e364b7c17203e8e41adc.Array', 8),
+(25, 'arquivoCampanha/ba339729aee71179ca827b67f8cec18e.Array', 10),
+(26, 'arquivoCampanha/00e8aa173d108459bc72dacc447abfa8.Array', 10),
+(27, 'arquivoCampanha/2a4ecb89350eb555e916f5b3289e122a.Array', 10),
+(28, 'arquivoCampanha/451c858ad692be648c7ae4af506eefa8.Array', 10),
+(29, 'arquivoCampanha/90a6aaef1b1fbca3decc4150cfb3feca.Array', 10),
+(30, 'arquivoCampanha/68dd9c34bf05c46f3c2352b19f9f8e40.Array', 10),
+(31, 'arquivoCampanha/11402fc521c24217ca0d096dc23db9bc.Array', 11),
+(32, 'arquivoCampanha/43c46000bc3820bbc0f4703dc79b5991.Array', 11),
+(33, 'arquivoCampanha/98b9546da33f01473d64bb5a0e3047f9.Array', 11),
+(34, 'arquivoCampanha/2103bee87d20477d6c99129e8ba9c360.Array', 11),
+(35, 'arquivoCampanha/46a13f6911594cefc02db145e689316f.Array', 11),
+(36, 'arquivoCampanha/e5b1e78a8d3564caa115ba8a01c5c554.Array', 11),
+(37, 'arquivoCampanha/95c955f0b50ac2c77a4daecf135a81ae.Array', 12),
+(38, 'arquivoCampanha/e0b3b77e010233cd7107a2b3e63bd035.Array', 12),
+(39, 'arquivoCampanha/786e38bf6302e6f2d08e638e3b2c5bd7.Array', 12),
+(40, 'arquivoCampanha/0d4ce085984ba5bec53ae445a57b349d.Array', 12),
+(41, 'arquivoCampanha/9ac588b84a0559af2672720123970731.Array', 12),
+(42, 'arquivoCampanha/8c48d31e8f5b904ab07420ffd52f92e1.Array', 12),
+(43, 'arquivoCampanha/789070af2b5572438c2711573c560a1f.Array', 13),
+(44, 'arquivoCampanha/78e6cd060d8fd2f2937185a7cdf95462.Array', 13),
+(45, 'arquivoCampanha/d9d645e1e06fe52816eada14abb1f2c6.Array', 13),
+(46, 'arquivoCampanha/5bb0e5fe95472263bdd56a74d3d8be4c.Array', 13),
+(47, 'arquivoCampanha/e4e4aca676cf8af6b36f9e3dabb0b2ac.Array', 13),
+(48, 'arquivoCampanha/266777cfd8a023383a36460887edd824.Array', 13),
+(49, 'arquivoCampanha/aaf24015d91f3bc482a54b42bf649d63.Array', 1),
+(50, 'arquivoCampanha/a0fb7b019046c952453722543f73139b.Array', 1),
+(51, 'arquivoCampanha/d2653168a7a15481f16b4fbec74be6ce.Array', 1),
+(52, 'arquivoCampanha/69cef9532c41452fcd4761e665bfb6e6.Array', 1),
+(53, 'arquivoCampanha/8f40533eb07a192bba8b9287002eff57.Array', 1),
+(54, 'arquivoCampanha/7f955b949a3cae40ef04a0fbf7432a93.Array', 1),
+(55, 'arquivoCampanha/7ec3f22a8cd042eac7972b7648c2cc32.Array', 2),
+(56, 'arquivoCampanha/3cd99899727740c07309a9c1308f702e.Array', 2),
+(57, 'arquivoCampanha/8cc6f62611fcc30432b377f69e8ccba9.Array', 2),
+(58, 'arquivoCampanha/748f5c65f1478041eba8be98340631ce.Array', 2),
+(59, 'arquivoCampanha/29aee1348c9b548650fc17b7b7cb01f7.Array', 2),
+(60, 'arquivoCampanha/8803791f6c23b5e5356ce5675f04e0d2.Array', 2),
+(61, 'arquivoCampanha/0cdfa511f5140e14b229b80df4c73f3a.Array', 3),
+(62, 'arquivoCampanha/2831edf1457a56d438395c51325f549f.Array', 3),
+(63, 'arquivoCampanha/7fd3f39afa49e95ceaa4ea6ae217ea24.Array', 3),
+(64, 'arquivoCampanha/66c6941cec5ee0bc75fc84831d8ba7dc.Array', 3),
+(65, 'arquivoCampanha/76738915c3ebd20dc26d7aea77152cb6.Array', 3),
+(66, 'arquivoCampanha/6a9800589dd8d6cb5e6a5ef4a655888b.Array', 3),
+(67, 'arquivoCampanha/4fb4b85c432043e2f8d657df3380a516.Array', 4),
+(68, 'arquivoCampanha/421a0577ef0655e7d0fc5afba14bc94f.Array', 4),
+(69, 'arquivoCampanha/ad27108e1504433523360b5cd54e45f5.Array', 4),
+(70, 'arquivoCampanha/e5c4719b54d74914af0fcb055bf3997a.Array', 4),
+(71, 'arquivoCampanha/ae702c5a4175933569f9440016c8d9f2.Array', 4),
+(72, 'arquivoCampanha/9b43c13e7a5af5dddfcd988e1145fc18.Array', 4),
+(73, 'arquivoCampanha/f0b7115df3da20af51eac70878849e67.Array', 1),
+(74, 'arquivoCampanha/2e35aefe175156868ec0774dfce1f931.Array', 1),
+(75, 'arquivoCampanha/aa5900434d09d216e13e4b708b674021.Array', 1),
+(76, 'arquivoCampanha/85eb2812bb681e25ee6239360f5183cb.Array', 1),
+(77, 'arquivoCampanha/cd0a335ddc900b0cf3ca33bf5c16b74e.Array', 1),
+(78, 'arquivoCampanha/89edfa7759a059677909348e13b89cc0.Array', 1);
 
 -- --------------------------------------------------------
 
@@ -448,6 +431,40 @@ CREATE TABLE `tbligvacinacartao` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbmensagem`
+--
+
+CREATE TABLE `tbmensagem` (
+  `textoMensagem` varchar(512) DEFAULT NULL,
+  `horaMensagem` time DEFAULT NULL,
+  `origemMensagem` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL,
+  `idOng` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbmensagem`
+--
+
+INSERT INTO `tbmensagem` (`textoMensagem`, `horaMensagem`, `origemMensagem`, `idUsuario`, `idOng`) VALUES
+('aa', NULL, 1, 8, 5),
+('SALVE GURI', '01:51:24', 1, 8, 5),
+('SALVE', '01:51:29', 0, 8, 5),
+('AA', '01:51:30', 0, 8, 5),
+('A', '01:51:30', 0, 8, 5),
+('A', '01:51:30', 0, 8, 5),
+('A', '01:51:30', 0, 8, 5),
+('A', '01:51:30', 0, 8, 5),
+('AA', '01:51:31', 0, 8, 5),
+('A', '01:51:31', 0, 8, 5),
+('A', '01:51:31', 0, 8, 5),
+('A', '01:51:31', 0, 8, 5),
+('AA', '01:51:31', 0, 8, 5),
+('A', '01:51:31', 0, 8, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbong`
 --
 
@@ -478,27 +495,11 @@ INSERT INTO `tbong` (`idOng`, `nomeOng`, `capacidadeOng`, `emailOng`, `senhaOng`
 (1, 'animais', 500, 'gabriel.fliv@gmail.com', '$2y$10$A7vtMoqCvPXJkQwluExI4OiLxQ6zxLAvc7654xaz2R7/XEI.dzfj.', 'Rua Gaspar Sardinha', NULL, 11, 'B', 'SP', 'Jardim Fanganiello', '64608155000198', '12512', '5235', '08450-48', '470b435b1a58070321e7ea6717e7ed01.jpg'),
 (2, 'Intituto Pet Maria ', 200, 'petMariaInstituto@gmail.com', 'pet@ma00', 'Rua Castelo de Leça', 'São Paulo', 12, NULL, 'São Paulo', 'Jardim Soares ', '12345678987655', NULL, NULL, '08460-16', NULL),
 (3, 'gabriels', 1, 'gab@gmail.com', '$2y$10$HZlDSWiPfy0WiMFb7SnaReWaWjzMyCHi0jaLLJthDOz3r1OthLWja', 'Rua Gaspar Sardinha', NULL, 11, 'B', 'SP', 'Jardim Fanganiello', '96491920000129', '235232', '325235', '08450-48', 'upload/a000dcb31f7a1d6e70bfb8215907d2b5.jpg'),
-(17, 'poggers', 200, 'teste@teste.com', '$2y$10$P.sHQXkr.kKntsgfs4V65efKLaZTG2nsYsbBrxoVMRwmHAThnlVY6', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', 'Vila do Americano', '75004065000104', '234234', '434234', '08533250', 'upload/6beaf51c7d982599fbbae6b622672270.jpg'),
-(18, 'Ampara Animal', 500, 'aa@gmail.com', '$2y$10$cfplxrsMnbn0ATVaJl//IOgJ6C6RLQrVeUS.q9nUH43BJlG8PsEdO', 'Avenida Itaberaba', 'São Paulo', 145, '', 'SP', 'Itaberaba', '13244560000133', '231', '7899', '02739-000', 'upload/84cbacf261a472b1cced23a812156fd8.png'),
-(19, 'MAPAN', 500, 'mapan@gmail.com', '$2y$10$nsGtIMUoJZg2mC9cE5tOj.POgrv5aGAH1XysAQwmNQeWx16vyssFi', 'Avenida Itaberaba', 'São Paulo', 145, '', 'SP', 'Itaberaba', '80392434000113', '444', '544388', '02739-000', 'upload/0407de9db30038224e946b5ed1d314b7.jpg');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tbpost`
---
-
-CREATE TABLE `tbpost` (
-  `idPost` int(11) NOT NULL,
-  `curtidaPost` int(11) DEFAULT NULL,
-  `descricaoPost` varchar(200) DEFAULT NULL,
-  `fotoPost` varchar(800) DEFAULT NULL,
-  `tituloPost` varchar(50) DEFAULT NULL,
-  `categoriaPost` varchar(50) DEFAULT NULL,
-  `dataPost` date DEFAULT NULL,
-  `horaPost` time DEFAULT NULL,
-  `idOng` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(4, 'Eduardo', 123, 'eduardofranklin@gmail.com', '$2y$10$0mWUaDuvGcBPzEpnCSegX.gJ3GpHscN/dy58FWRrcar0IiTr2p6vy', 'Rua Estevão Bersani', NULL, 23, '2', 'SP', 'Jardim Miriam', '29392203000152', '111', '111', '08142-490', 'upload/4a2cd03481d3c2926e276b66d32af994.jpeg'),
+(5, 'Deivid Menezes da Silva', 500, 'menezes0067@gmail.com', '$2y$10$g3GX/6MB0rsDK6IJyZVf8uLeATjhurV/JfLZjPZ61yqmPHReYyDgm', 'Rua Estevão Bersani', '', 2, '2', 'SP', 'Jardim Miriam', '10062356000103', '11', '11', '08142490', 'upload/36c0bbdffbb6f7bd0792cfa246ea4e44.jpeg'),
+(6, 'Teste', 200, 'teste@teste.com', '$2y$10$PNbikL1WHLo1nscC3jmneeolC2a/Wo1SGWUDHeggWPTs6rjZAhM..', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', 'Vila do Americano', '75004065000104', '213123', '324234', '08533250', 'upload/95679a62fa4bf855b6cd4c6a8a294e99.jpeg'),
+(7, 'noggers', 200, 'lineu@gmail.com', '$2y$10$qLsb61LSecv8ZNtjLkFM6eCLHreoQnc9hiMalE5Bd6iHZDHG/VawS', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', 'Vila do Americano', '33666244000167', '234234', '23423423', '08533250', 'upload/227409251c7e102d9e68a46089113c1a.jpg'),
+(8, 'froggers', 200, 'pog@gmail.com', '$2y$10$3INgdoHifnWO2C78xfr90..KT0CR8/cD4bRqvGn06n3XWejJx04je', 'Rua Bernadete', 'Ferraz de Vasconcelos', 23, '', 'SP', 'Vila do Americano', '77723867000108', '43534', '345345', '08533-250', 'upload/7a1e13ca91feb4b92ab2b51ae15af60e.jpg');
 
 -- --------------------------------------------------------
 
@@ -512,7 +513,7 @@ CREATE TABLE `tbprefeusuario` (
   `generoPet` varchar(50) DEFAULT NULL,
   `portePet` varchar(50) DEFAULT NULL,
   `preferenciaUsuario` varchar(100) DEFAULT NULL,
-  `idadePet` smallint(6) DEFAULT NULL,
+  `idadePet` varchar(50) DEFAULT NULL,
   `idRaca` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -522,7 +523,11 @@ CREATE TABLE `tbprefeusuario` (
 --
 
 INSERT INTO `tbprefeusuario` (`idPrefeUsuario`, `tipoPet`, `generoPet`, `portePet`, `preferenciaUsuario`, `idadePet`, `idRaca`, `idUsuario`) VALUES
-(1, 'Gato', 'Macho', 'Pequeno', 'Adotar', 0, 9, 0);
+(1, 'Gato', 'Femea', 'Pequeno', 'Adotar', '0', 3, 6),
+(2, 'Sem Preferência', 'Femea', 'Sem Preferência', 'Adotar', '0', 3, 7),
+(3, 'Sem Preferência', 'Femea', 'Sem Preferência', 'Adotar', '0', 10, 8),
+(4, 'Cachorro', '', 'Sem Preferência', 'Apadrinhar', '0', 13, 9),
+(6, 'Sem Preferência', 'Femea', 'Médio', 'Apadrinhar', 'Idoso', 11, 11);
 
 -- --------------------------------------------------------
 
@@ -565,7 +570,7 @@ INSERT INTO `tbraca` (`idRaca`, `nomeRaca`, `especieRaca`) VALUES
 (9, 'Sem Raça Definida', 'Gato'),
 (10, 'Yorkshire', 'Cachorro'),
 (11, 'vira-lata', 'Cachorro'),
-(12, 'Buldogue francês', 'Cachorro'),
+(12, 'Bulldogue francês', 'Cachorro'),
 (13, 'Golden Retriever', 'Cachorro');
 
 -- --------------------------------------------------------
@@ -592,28 +597,6 @@ CREATE TABLE `tbtelefoneong` (
   `idOng` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `tbtelefoneong`
---
-
-INSERT INTO `tbtelefoneong` (`idTelefoneOng`, `numTelefoneOng`, `idOng`) VALUES
-(1, '11986036737', 1),
-(2, '11986036737', 3),
-(3, '11964352175', 4),
-(4, '11964352175', 5),
-(5, '11964352175', 6),
-(6, '11964352175', 7),
-(7, '11964352175', 8),
-(8, '11964352175', 9),
-(9, '11964352175', 10),
-(10, '11964352175', 11),
-(11, '11964352175', 12),
-(12, '11964352175', 13),
-(13, '11964352175', 14),
-(16, '11964352175', 17),
-(17, '11933224567', 18),
-(18, '11987654321', 19);
-
 -- --------------------------------------------------------
 
 --
@@ -622,16 +605,9 @@ INSERT INTO `tbtelefoneong` (`idTelefoneOng`, `numTelefoneOng`, `idOng`) VALUES
 
 CREATE TABLE `tbtelefoneusuario` (
   `idTelefoneUsuario` int(11) NOT NULL,
-  `numTelefoneUsuario` varchar(11) DEFAULT NULL,
+  `numTelefoneUsuario` varchar(16) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tbtelefoneusuario`
---
-
-INSERT INTO `tbtelefoneusuario` (`idTelefoneUsuario`, `numTelefoneUsuario`, `idUsuario`) VALUES
-(1, '11964352175', 0);
 
 -- --------------------------------------------------------
 
@@ -642,9 +618,9 @@ INSERT INTO `tbtelefoneusuario` (`idTelefoneUsuario`, `numTelefoneUsuario`, `idU
 CREATE TABLE `tbusuario` (
   `idUsuario` int(11) NOT NULL,
   `nomeUsuario` varchar(50) DEFAULT NULL,
-  `cpfUsusario` char(11) DEFAULT NULL,
   `emailUsuario` varchar(50) DEFAULT NULL,
   `senhaUsuario` varchar(260) DEFAULT NULL,
+  `cpfUsuario` varchar(14) DEFAULT NULL,
   `bairroUsuario` varchar(20) DEFAULT NULL,
   `logradouroUsuario` varchar(40) DEFAULT NULL,
   `cidadeUsuario` varchar(40) DEFAULT NULL,
@@ -660,10 +636,13 @@ CREATE TABLE `tbusuario` (
 -- Extraindo dados da tabela `tbusuario`
 --
 
-INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `cpfUsusario`, `emailUsuario`, `senhaUsuario`, `bairroUsuario`, `logradouroUsuario`, `cidadeUsuario`, `numLocalUsuario`, `complementoUsuario`, `estadoUsuario`, `cepUsuario`, `nivelUsuario`, `fotoUsuario`) VALUES
-(0, 'Teste', NULL, 'teste@teste.com', '$2y$10$uwNdi8G2jhhUs2uBRf0y8epFpW2XS5ZKCJcnR/Evw3oVxYiaACF2S', 'Vila do Americano', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', '08533-250', 'comum', NULL),
-(2, 'adm', NULL, NULL, '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL),
-(5, 'gab', '81871252091', 'gab@gmail.com', '123', 'jdFanganiello', 'Guaianases', 'SP', 11, 'B', 'SP', '08450-48', 'comum', NULL);
+INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `cpfUsuario`, `bairroUsuario`, `logradouroUsuario`, `cidadeUsuario`, `numLocalUsuario`, `complementoUsuario`, `estadoUsuario`, `cepUsuario`, `nivelUsuario`, `fotoUsuario`) VALUES
+(2, 'adm', NULL, '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'comum', NULL),
+(6, 'EDUARDOUUU', 'dudufranknado@gmail.com', '$2y$10$szPJ47aZF/LE8MWZxC2SUOwbdab45qNxspUQauWkBOfvEEeb1DuZG', NULL, 'Jardim Miriam', 'Rua Estevão Bersani', 'São Paulos', 0, 'aa', 'SP', '59060-157', 'comum', NULL),
+(7, 'Eduardo Franco', 'edufranco@gmail.com', '$2y$10$DzRwG8c2o9Srtq6TYIuC0.7i9mkY4dIl0lMSbRk5eujfGy5Y8e6g6', NULL, 'Jardim Miriam', 'Rua Estevão Bersani', 'São Paulo', 17, '2', 'SP', '08142-490', 'comum', NULL),
+(8, 'DVDOLAS', 'menezes0067@gmail.com', '$2y$10$4xZrPZ1CE3ZoMiK7sVOz/eMyDXEmJWZ3CrDx1Iwn/ft3Itryopho2', NULL, 'Jardim Miriam', 'Rua Estevão Bersani', 'São Paulo', 2, '23', 'São Paulo', '68909-531', 'comum', NULL),
+(9, 'Gabriel', 'gab@gmail.com', '$2y$10$9/rvVU7pDxdrKY9mGMEhauCkVLf8/4o776KPT4YGtwsCGctPNsLOG', NULL, 'Centro', 'Rua Cavalcante', 'Ananindeua', 2, '23', 'PA', '67030-045', 'comum', NULL),
+(11, 'Alguem me mata', 'lineu@gmail.com', '$2y$10$Q3m/DmDBDsE5iX1eswqP1OoyW0O1JJZAHKmhJ7E99JGYcj42LPSJW', '554.341.058-18', 'Vila do Americano', 'Rua Bernadete', 'Ferraz de Vasconcelos', 12, '', 'SP', '08533-250', 'comum', '../cadastro/fotoUsuario/b352ddf34f61a5e4a676dcc953a560f6.jpeg');
 
 -- --------------------------------------------------------
 
@@ -681,13 +660,13 @@ CREATE TABLE `tbvacina` (
 --
 
 INSERT INTO `tbvacina` (`idVacina`, `tipoVacina`) VALUES
-(0, 'Nenhum'),
 (1, 'V8'),
 (2, 'V10'),
 (3, 'Gripe canina'),
 (4, 'Giárdia'),
 (5, 'Antirrábica'),
-(6, 'Leishmaniose');
+(6, 'Leishmaniose'),
+(7, 'Nenhum');
 
 --
 -- Índices para tabelas despejadas
@@ -706,9 +685,9 @@ ALTER TABLE `ligcampanunci`
 --
 ALTER TABLE `tbadocao`
   ADD PRIMARY KEY (`idAdocao`),
-  ADD KEY `idAnimal` (`idAnimal`),
-  ADD KEY `idUsuario` (`idUsuario`),
-  ADD KEY `idOng` (`idOng`);
+  ADD KEY `idOng` (`idOng`),
+  ADD KEY `fk_idUsuario` (`idUsuario`),
+  ADD KEY `fk_idAnimal` (`idAnimal`);
 
 --
 -- Índices para tabela `tbanimal`
@@ -733,6 +712,12 @@ ALTER TABLE `tbanunciante`
 ALTER TABLE `tbanuncio`
   ADD PRIMARY KEY (`idAnuncio`),
   ADD KEY `idAnunciante` (`idAnunciante`);
+
+--
+-- Índices para tabela `tbanunciofavorito`
+--
+ALTER TABLE `tbanunciofavorito`
+  ADD PRIMARY KEY (`idAnuncioFavorito`);
 
 --
 -- Índices para tabela `tbapadrinhamento`
@@ -780,6 +765,22 @@ ALTER TABLE `tbdoenca`
   ADD PRIMARY KEY (`idDoenca`);
 
 --
+-- Índices para tabela `tbfavorito`
+--
+ALTER TABLE `tbfavorito`
+  ADD PRIMARY KEY (`idFavorito`),
+  ADD KEY `idAnimal` (`idAnimal`),
+  ADD KEY `idUsuario` (`idUsuario`);
+
+--
+-- Índices para tabela `tbfavoritocampanha`
+--
+ALTER TABLE `tbfavoritocampanha`
+  ADD PRIMARY KEY (`idCampanhaFavorita`),
+  ADD KEY `idCampanha` (`idCampanha`),
+  ADD KEY `idUsuario_fk` (`idUsuario`);
+
+--
 -- Índices para tabela `tbfotoanimal`
 --
 ALTER TABLE `tbfotoanimal`
@@ -792,13 +793,6 @@ ALTER TABLE `tbfotoanimal`
 ALTER TABLE `tbfotocampanha`
   ADD PRIMARY KEY (`idFotoCampanha`),
   ADD KEY `idCampanha` (`idCampanha`);
-
---
--- Índices para tabela `tbfotosanuncio`
---
-ALTER TABLE `tbfotosanuncio`
-  ADD PRIMARY KEY (`idFotosAnuncio`),
-  ADD KEY `idAnuncio` (`idAnuncio`);
 
 --
 -- Índices para tabela `tbinteracao`
@@ -825,17 +819,17 @@ ALTER TABLE `tbligvacinacartao`
   ADD KEY `idVacina` (`idVacina`);
 
 --
+-- Índices para tabela `tbmensagem`
+--
+ALTER TABLE `tbmensagem`
+  ADD KEY `idUsuario` (`idUsuario`),
+  ADD KEY `idOng` (`idOng`);
+
+--
 -- Índices para tabela `tbong`
 --
 ALTER TABLE `tbong`
   ADD PRIMARY KEY (`idOng`);
-
---
--- Índices para tabela `tbpost`
---
-ALTER TABLE `tbpost`
-  ADD PRIMARY KEY (`idPost`),
-  ADD KEY `idOng` (`idOng`);
 
 --
 -- Índices para tabela `tbprefeusuario`
@@ -911,19 +905,25 @@ ALTER TABLE `tbadocao`
 -- AUTO_INCREMENT de tabela `tbanimal`
 --
 ALTER TABLE `tbanimal`
-  MODIFY `idAnimal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idAnimal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbanunciante`
 --
 ALTER TABLE `tbanunciante`
-  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbanuncio`
 --
 ALTER TABLE `tbanuncio`
   MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tbanunciofavorito`
+--
+ALTER TABLE `tbanunciofavorito`
+  MODIFY `idAnuncioFavorito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tbapadrinhamento`
@@ -935,7 +935,7 @@ ALTER TABLE `tbapadrinhamento`
 -- AUTO_INCREMENT de tabela `tbcampanha`
 --
 ALTER TABLE `tbcampanha`
-  MODIFY `idCampanha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idCampanha` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbcartaovacina`
@@ -962,22 +962,28 @@ ALTER TABLE `tbdoenca`
   MODIFY `idDoenca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT de tabela `tbfavorito`
+--
+ALTER TABLE `tbfavorito`
+  MODIFY `idFavorito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `tbfavoritocampanha`
+--
+ALTER TABLE `tbfavoritocampanha`
+  MODIFY `idCampanhaFavorita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `tbfotoanimal`
 --
 ALTER TABLE `tbfotoanimal`
-  MODIFY `idFotoAnimal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idFotoAnimal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbfotocampanha`
 --
 ALTER TABLE `tbfotocampanha`
-  MODIFY `idFotoCampanha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
-
---
--- AUTO_INCREMENT de tabela `tbfotosanuncio`
---
-ALTER TABLE `tbfotosanuncio`
-  MODIFY `idFotosAnuncio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idFotoCampanha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT de tabela `tbinteracao`
@@ -1001,19 +1007,13 @@ ALTER TABLE `tbligvacinacartao`
 -- AUTO_INCREMENT de tabela `tbong`
 --
 ALTER TABLE `tbong`
-  MODIFY `idOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT de tabela `tbpost`
---
-ALTER TABLE `tbpost`
-  MODIFY `idPost` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbprefeusuario`
 --
 ALTER TABLE `tbprefeusuario`
-  MODIFY `idPrefeUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPrefeUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbprontuario`
@@ -1031,30 +1031,59 @@ ALTER TABLE `tbraca`
 -- AUTO_INCREMENT de tabela `tbtelefoneanunciante`
 --
 ALTER TABLE `tbtelefoneanunciante`
-  MODIFY `idTelefoneAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idTelefoneAnunciante` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbtelefoneong`
 --
 ALTER TABLE `tbtelefoneong`
-  MODIFY `idTelefoneOng` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idTelefoneOng` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbtelefoneusuario`
 --
 ALTER TABLE `tbtelefoneusuario`
-  MODIFY `idTelefoneUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idTelefoneUsuario` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tbusuario`
+--
+ALTER TABLE `tbusuario`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de tabela `tbvacina`
+--
+ALTER TABLE `tbvacina`
+  MODIFY `idVacina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restrições para despejos de tabelas
 --
 
 --
+-- Limitadores para a tabela `ligcampanunci`
+--
+ALTER TABLE `ligcampanunci`
+  ADD CONSTRAINT `ligcampanunci_ibfk_1` FOREIGN KEY (`idCampanha`) REFERENCES `tbcampanha` (`idCampanha`),
+  ADD CONSTRAINT `ligcampanunci_ibfk_2` FOREIGN KEY (`idAnunciante`) REFERENCES `tbanunciante` (`idAnunciante`);
+
+--
+-- Limitadores para a tabela `tbadocao`
+--
+ALTER TABLE `tbadocao`
+  ADD CONSTRAINT `fk_idAnimal` FOREIGN KEY (`idAnimal`) REFERENCES `tbanimal` (`idAnimal`),
+  ADD CONSTRAINT `fk_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
+  ADD CONSTRAINT `idOng` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`);
+
+--
 -- Limitadores para a tabela `tbanimal`
 --
 ALTER TABLE `tbanimal`
   ADD CONSTRAINT `idDoenca` FOREIGN KEY (`idDoenca`) REFERENCES `tbdoenca` (`idDoenca`),
-  ADD CONSTRAINT `idVacina` FOREIGN KEY (`idVacina`) REFERENCES `tbvacina` (`idVacina`);
+  ADD CONSTRAINT `idVacina` FOREIGN KEY (`idVacina`) REFERENCES `tbvacina` (`idVacina`),
+  ADD CONSTRAINT `tbanimal_ibfk_1` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`),
+  ADD CONSTRAINT `tbanimal_ibfk_2` FOREIGN KEY (`idRaca`) REFERENCES `tbraca` (`idRaca`);
 
 --
 -- Limitadores para a tabela `tbanunciante`
@@ -1066,13 +1095,95 @@ ALTER TABLE `tbanunciante`
 -- Limitadores para a tabela `tbanuncio`
 --
 ALTER TABLE `tbanuncio`
-  ADD CONSTRAINT `tbanuncio_ibfk_1` FOREIGN KEY (`idAnunciante`) REFERENCES `tbanunciante` (`idAnunciante`);
+  ADD CONSTRAINT `idAnunciante` FOREIGN KEY (`idAnunciante`) REFERENCES `tbanunciante` (`idAnunciante`);
 
 --
--- Limitadores para a tabela `tbfotosanuncio`
+-- Limitadores para a tabela `tbapadrinhamento`
 --
-ALTER TABLE `tbfotosanuncio`
-  ADD CONSTRAINT `tbfotosanuncio_ibfk_1` FOREIGN KEY (`idAnuncio`) REFERENCES `tbanuncio` (`idAnuncio`);
+ALTER TABLE `tbapadrinhamento`
+  ADD CONSTRAINT `tbapadrinhamento_ibfk_1` FOREIGN KEY (`idAnimal`) REFERENCES `tbanimal` (`idAnimal`),
+  ADD CONSTRAINT `tbapadrinhamento_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
+  ADD CONSTRAINT `tbapadrinhamento_ibfk_3` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`);
+
+--
+-- Limitadores para a tabela `tbcampanha`
+--
+ALTER TABLE `tbcampanha`
+  ADD CONSTRAINT `tbcampanha_ibfk_1` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`);
+
+--
+-- Limitadores para a tabela `tbcartaovacina`
+--
+ALTER TABLE `tbcartaovacina`
+  ADD CONSTRAINT `tbcartaovacina_ibfk_1` FOREIGN KEY (`idAnimal`) REFERENCES `tbanimal` (`idAnimal`);
+
+--
+-- Limitadores para a tabela `tbchat`
+--
+ALTER TABLE `tbchat`
+  ADD CONSTRAINT `tbchat_ibfk_1` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`),
+  ADD CONSTRAINT `tbchat_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
+
+--
+-- Limitadores para a tabela `tbdoacao`
+--
+ALTER TABLE `tbdoacao`
+  ADD CONSTRAINT `tbdoacao_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
+  ADD CONSTRAINT `tbdoacao_ibfk_2` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`);
+
+--
+-- Limitadores para a tabela `tbfavorito`
+--
+ALTER TABLE `tbfavorito`
+  ADD CONSTRAINT `idAnimal` FOREIGN KEY (`idAnimal`) REFERENCES `tbanimal` (`idAnimal`),
+  ADD CONSTRAINT `idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
+
+--
+-- Limitadores para a tabela `tbfavoritocampanha`
+--
+ALTER TABLE `tbfavoritocampanha`
+  ADD CONSTRAINT `idCampanha` FOREIGN KEY (`idCampanha`) REFERENCES `tbcampanha` (`idCampanha`),
+  ADD CONSTRAINT `idUsuario_fk` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
+
+--
+-- Limitadores para a tabela `tbfotoanimal`
+--
+ALTER TABLE `tbfotoanimal`
+  ADD CONSTRAINT `tbfotoanimal_ibfk_1` FOREIGN KEY (`idAnimal`) REFERENCES `tbanimal` (`idAnimal`);
+
+--
+-- Limitadores para a tabela `tbfotocampanha`
+--
+ALTER TABLE `tbfotocampanha`
+  ADD CONSTRAINT `tbfotocampanha_ibfk_1` FOREIGN KEY (`idCampanha`) REFERENCES `tbcampanha` (`idCampanha`);
+
+--
+-- Limitadores para a tabela `tbinteracao`
+--
+ALTER TABLE `tbinteracao`
+  ADD CONSTRAINT `tbinteracao_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
+  ADD CONSTRAINT `tbinteracao_ibfk_2` FOREIGN KEY (`idPost`) REFERENCES `tbpost` (`idPost`);
+
+--
+-- Limitadores para a tabela `tbligprontudoen`
+--
+ALTER TABLE `tbligprontudoen`
+  ADD CONSTRAINT `tbligprontudoen_ibfk_1` FOREIGN KEY (`idDoenca`) REFERENCES `tbdoenca` (`idDoenca`),
+  ADD CONSTRAINT `tbligprontudoen_ibfk_2` FOREIGN KEY (`idProntuario`) REFERENCES `tbprontuario` (`idProntuario`);
+
+--
+-- Limitadores para a tabela `tbligvacinacartao`
+--
+ALTER TABLE `tbligvacinacartao`
+  ADD CONSTRAINT `tbligvacinacartao_ibfk_1` FOREIGN KEY (`idCartaoVacina`) REFERENCES `tbcartaovacina` (`idCartaoVacina`),
+  ADD CONSTRAINT `tbligvacinacartao_ibfk_2` FOREIGN KEY (`idVacina`) REFERENCES `tbvacina` (`idVacina`);
+
+--
+-- Limitadores para a tabela `tbmensagem`
+--
+ALTER TABLE `tbmensagem`
+  ADD CONSTRAINT `tbmensagem_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
+  ADD CONSTRAINT `tbmensagem_ibfk_2` FOREIGN KEY (`idOng`) REFERENCES `tbong` (`idOng`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
