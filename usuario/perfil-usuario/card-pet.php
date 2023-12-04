@@ -1,19 +1,10 @@
-<?php while ($pet_data = mysqli_fetch_assoc($sqlPet)) {
+<?php 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idAnimal = $_POST['animal_id'];
-    $idUsuario = $_SESSION['id'];
+while ($pet_data = mysqli_fetch_assoc($sqlPet)) {
 
-    $sql = "INSERT INTO tbFavorito(idAnimal, idUsuario) VALUES (?, ?)";
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("ii", $idAnimal, $idUsuario);
-    $stmt->execute();
 
-    $stmt->close();
-    $mysqli->close();
-    exit;  // Adicione esta linha para evitar a execução do restante do script
-}
-
+    $favoritos = $mysqli->query("SELECT count(idAnimal) as 'favoritoAnimal' FROM tbFavorito where idusuario = $id AND idanimal = '$pet_data[idAnimal]'");
+    $resultFavoritos = mysqli_fetch_assoc($favoritos);
 $numLocalPet = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.numLogOng as 'numLocal' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
 $localPet = mysqli_fetch_assoc($numLocalPet);
@@ -49,15 +40,22 @@ $nome_ong = mysqli_fetch_assoc($nomeOng);
 $idOng = $mysqli->query("SELECT tbAnimal.nomeAnimal as 'animal', tbOng.idOng as 'idOng' FROM tbAnimal INNER JOIN tbOng ON tbAnimal.idOng = tbOng.idOng WHERE tbAnimal.idAnimal = '$pet_data[idAnimal]'");
 
 $id_ong = mysqli_fetch_assoc($idOng);
-?>
-<div class="card">
-    <div class="area-foto">
-        <div class="icon-fav">
-            <i id="heartIcon1" style=".favicon:hover {
-background-color: #F44336;
-}" data-animal-id="<?php echo $pet_data['idAnimal'] ?> " class="fi-rr-heart icon favoritar-animal"></i>
-        </div>
 
+?>
+<div class="card" style="list-style: none;">
+    <div class="area-foto">
+ 
+            
+            
+    <?php if ($resultFavoritos['favoritoAnimal'] == '0') { ?>
+    <div class="icon-fav">
+        <i id="heartIcon1" data-animal-id="<?php echo $pet_data['idAnimal'] ?>" class="fi-rr-heart icon favoritar-animal"></i>
+    </div>
+<?php } else { ?>
+    <div class="icon-fav">
+        <i id="heartIcon1" data-animal-id="<?php echo $pet_data['idAnimal'] ?>" class="fi-sr-heart icon favoritar-animal"></i>
+    </div>
+<?php } ?>
         <div class="foto">
             <img src="<?php echo "../../ong/dashboard-ong/Cadastro/" . $pet_data['fotoPerfilAnimal'] ?>">
         </div>
@@ -273,31 +271,3 @@ background-color: #F44336;
 <?php } ?>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-$(document).ready(function() {
-    $(".fi-rr-heart").click(function() {
-        var animalId = $(this).data("animal-id");
-
-        // Desabilita o botão imediatamente após o clique
-        $(this).prop('disabled', true);
-
-        $.ajax({
-            url: "index.php", // Substitua pelo nome do seu arquivo PHP
-            method: "POST",
-            data: {
-                animal_id: animalId
-            },
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
-            },
-            complete: function() {
-                // Reabilita o botão após a conclusão da requisição, mesmo em caso de erro
-                $(".fi-rr-heart").prop('disabled', false);
-            }
-        });
-    });
-});
-</script>

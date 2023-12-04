@@ -4,6 +4,12 @@ $resultCampanha = $mysqli->query("SELECT *, DATE_FORMAT(diaCampanha, '%d/%m/%Y')
 
 while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
     // Consulta para a tabela de ONGs
+
+    $favoritosCampanha = $mysqli->query("SELECT count(idCampanha) as 'favoritoCampanha' FROM tbFavoritoCampanha where idusuario = $id AND idcampanha = '$campanha_Data[idCampanha]'");
+    $resultFavoritosCampanha = mysqli_fetch_assoc($favoritosCampanha);
+
+
+
     $resultOng = $mysqli->query("SELECT tbCampanha.nomeCampanha as 'campanha', tbOng.nomeOng as 'ong' FROM tbCampanha INNER JOIN tbOng ON tbCampanha.idOng = tbOng.idOng WHERE tbCampanha.idCampanha = '{$campanha_Data['idCampanha']}'");
     $ong_Data = mysqli_fetch_assoc($resultOng);
 
@@ -28,16 +34,22 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
         continue;
     }
 ?>
-    <div class="post">
+    <div class="post"  style="list-style: none;">
         <!-- Seu código HTML dentro do loop -->
         <div class="area-top">
             <div class="ong">
                 <img src="<?php echo "../../ong/cadastro/" . $foto_Data['foto'] ?>">
                 <h4><?php echo $ong_Data['ong'] ?></h4>
             </div>
-            <div class="icon-fav">
-                <i id="heartIcon1" class="fi-rr-heart icon"></i>
-            </div>
+            <?php if ($resultFavoritosCampanha['favoritoCampanha'] == '0') { ?>
+    <div class="icon-fav">
+        <i id="heartIcon2" data-campanha-id="<?php echo $campanha_Data['idCampanha'] ?>" class="fi-rr-heart icon favoritar-animal"></i>
+    </div>
+<?php } else { ?>
+    <div class="icon-fav">
+        <i id="heartIcon2" data-campanha-id="<?php echo $campanha_Data['idCampanha'] ?>" class="fi-sr-heart icon favoritar-animal"></i>
+    </div>
+<?php } ?>
         </div>
 
         <div class="campanha">

@@ -1,21 +1,30 @@
-<div class="card-ong">
+<?php 
+$resultAnuciante= $mysqli->query("SELECT * FROM tbanunciante ORDER BY idAnunciante ASC") or die($mysqli->error);
+while($anunciante_data = mysqli_fetch_assoc($resultAnuciante)){ 
+    
+
+   
+
+   
+    ?>
+<div class="card-ong card-anunciante" style="list-style: none;">
     <div class="area-foto">
         <div class="foto">
-            <img src="images/foto-ong.png">
+            <img src="<?php echo "../../anunciante/Cadastro/" . $anunciante_data['fotoAnunciante'] ?>">
         </div>
     </div>
 
     <div class="area-conteudo">
         <div class="info">
-            <div class="nome">
-                <h3>Nome do Anunciante</h3>
+            <div class="nome anunciante" id="anunciante">
+                <h3><?php echo $anunciante_data['nomeAnunciante'];?></h3>
             </div>
         </div>
 
         <div class="area-local">
             <div class="local">
                 <i class="fi fi-sr-marker"></i>
-                <p>123 Anywhere St., Any City</p>
+                <p><?php echo $anunciante_data['bairroAnunciante'];?></p>
             </div>
             <button class="open-modalPerfilAnunciante btn-visitar"> 
                 Visitar 
@@ -94,3 +103,4 @@
     </div>
 
 </div>
+<?php } ?>

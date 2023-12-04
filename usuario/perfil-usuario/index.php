@@ -36,72 +36,9 @@
                 <img src="images/bolinhas2.png">
                 <div class="search">
                     <i class="fi fi-br-search"></i>
-                    <input type="text" placeholder="Pesquisar">
+                    <input type="text" placeholder="Pesquisar" id="searchbar2" name="pesquisa" onkeyup="search_animal2()">
                     <div class="area-filtros">
-                        <div class="icon-filtros">
-                            <a><i class="fi fi-rr-settings-sliders"></i></a>
-                        </div>
-                        <div class="panel">
-                            <span>Filtros de Pesquisa</span>
-                            <div class="campo-filtro">
-                                <p>Prefere:</p>
-                                <select>
-                                    <option>Todos</option>
-                                    <option>Adotar</option>
-                                    <option>Apadrinhar</option>
-                                </select>
-                            </div>
-
-                            <div class="campo-filtro">
-                                <p>Espécie:</p>
-                                <select>
-                                    <option>Todos</option>
-                                    <option>Gatos</option>
-                                    <option>Cachorros</option>
-                                </select>
-                            </div>
-
-                            <div class="campo-filtro">
-                                <p>Gênero:</p>
-                                <select>
-                                    <option>Todos</option>
-                                    <option>Fêmea</option>
-                                    <option>Macho</option>
-                                </select>
-                            </div>
-
-                            <div class="campo-filtro">
-                                <p>Idade:</p>
-                                <select>
-                                    <option>Todos</option>
-                                    <option>Filhote</option>
-                                    <option>Adulto</option>
-                                    <option>Idoso</option>
-                                </select>
-                            </div>
-
-                            <div class="campo-filtro">
-                                <p>Porte:</p>
-                                <select>
-                                    <option>Todos</option>
-                                    <option>Pequeno</option>
-                                    <option>Médio</option>
-                                    <option>Grande</option>
-                                </select>
-                            </div>
-
-                            <div class="campo-filtro">
-                                <p>Raça:</p>
-                                <select>
-                                    <option>Todos</option>
-                                </select>
-                            </div>
-
-                            <div class="btns-filtro">
-                                <button class="fil-cancelar">Cancelar</button>
-                                <button class="fil-aplicar">Aplicar</button>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <a href="configuracoes.php"><i class="fi fi-sr-settings config"></i></a>
@@ -164,4 +101,185 @@
         <script src="js/categorias.js"></script>
 
     </body>
+    <script>
+$(document).ready(function() {
+    $(".fi-rr-heart").click(function() {
+        var animalId = $(this).data("animal-id");
+        $(this).prop('disabled', true);
+
+        $.ajax({
+            url: "index.php",
+            method: "POST",
+            data: {
+                animal_id: animalId,
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            },
+            complete: function() {
+                $(".fi-rr-heart").prop('disabled', false);
+            }
+        });
+    });
+});
+$(document).ready(function() {
+    $(".fi-rr-heart").click(function() {
+
+        var campanhaId = $(this).data("campanha-id");
+        // Desabilita o botão imediatamente após o clique
+        $(this).prop('disabled', true);
+
+        $.ajax({
+            url: "index.php", // Substitua pelo nome do seu arquivo PHP
+            method: "POST",
+            data: {
+  
+                campanha_id: campanhaId,
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            },
+            complete: function() {
+                // Reabilita o botão após a conclusão da requisição, mesmo em caso de erro
+                $(".fi-rr-heart").prop('disabled', false);
+            }
+        });
+    });
+});
+$(document).ready(function() {
+    $(".fi-rr-heart").click(function() {
+
+        var anuncioId = $(this).data("anuncio-id");
+        // Desabilita o botão imediatamente após o clique
+        $(this).prop('disabled', true);
+
+        $.ajax({
+            url: "index.php", // Substitua pelo nome do seu arquivo PHP
+            method: "POST",
+            data: {
+  
+                anuncio_id: anuncioId,
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            },
+            complete: function() {
+                // Reabilita o botão após a conclusão da requisição, mesmo em caso de erro
+                $(".fi-rr-heart").prop('disabled', false);
+            }
+        });
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+    $(".fi-sr-heart").click(function() {
+        var animalId = $(this).data("animal-id");
+ 
+        // Desabilita o botão imediatamente após o clique
+        $(this).prop('disabled', true);
+
+        $.ajax({
+            url: "index.php", // Substitua pelo nome do seu arquivo PHP
+            method: "POST",
+            data: {
+                animal_id: animalId,
+
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            },
+            complete: function() {
+                // Reabilita o botão após a conclusão da requisição, mesmo em caso de erro
+                $(".fi-rr-heart").prop('disabled', false);
+            }
+        });
+    });
+});
+$(document).ready(function() {
+    $(".fi-sr-heart").click(function() {
+        var campanhaId = $(this).data("campanha-id");
+        $(this).prop('disabled', true);
+
+        $.ajax({
+            url: "index.php",
+            method: "POST",
+            data: {
+                campanha_id: campanhaId,
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            },
+            complete: function() {
+                $(".fi-sr-heart").prop('disabled', false);
+            }
+        });
+    });
+});
+$(document).ready(function() {
+    $(".fi-sr-heart").click(function() {
+        var anuncioId = $(this).data("anuncio-id");
+        $(this).prop('disabled', true);
+
+        $.ajax({
+            url: "index.php",
+            method: "POST",
+            data: {
+                anuncio_id: anuncioId,
+            },
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            },
+            complete: function() {
+                $(".fi-sr-heart").prop('disabled', false);
+            }
+        });
+    });
+});
+</script>
+
+<script>
+
+function search_animal2() {
+        let input = document.getElementById('searchbar2').value.toLowerCase();
+   
+        let cards = document.querySelectorAll('.cards-home .card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let card = cards[i];
+    
+            let nomeAnimalElement = card.querySelector('.nome h3');
+            let nomeAnimal = nomeAnimalElement ? nomeAnimalElement.textContent.toLowerCase() : '';
+
+            let matchInput = nomeAnimal.includes(input);
+           
+          
+
+            if (matchInput) {
+    card.style.display = "list-item";
+} else {
+    card.style.display = "none";
+}
+        }
+    }
+
+</script>
 </html>

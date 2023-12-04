@@ -1,21 +1,33 @@
-<div class="card-ong">
+<?php 
+$resultOngs= $mysqli->query("SELECT idOng, nomeOng, capacidadeOng, emailOng, senhaOng, logradouroOng, 
+numLogOng, complementoOng, estadoOng, bairroOng, cnpjOng, cnasOng, cebasOng, 
+cepOng, fotoOng FROM tbOng ORDER BY idOng ASC") or die($mysqli->error);
+while($user_data = mysqli_fetch_assoc($resultOngs)){ 
+    
+
+   
+
+   
+    ?>
+
+<div class="card-ong" style="list-style: none;">
     <div class="area-foto">
         <div class="foto">
-            <img src="images/foto-ong.png">
+            <img src="<?php echo "../../ong/Cadastro/" . $user_data['fotoOng'] ?>">
         </div>
     </div>
 
     <div class="area-conteudo">
         <div class="info">
-            <div class="nome">
-                <h3>Nome da Ong</h3>
+            <div class="nome ong" id="ong">
+                <h3><?php echo $user_data['nomeOng'];?></h3>
             </div>
         </div>
 
         <div class="area-local">
             <div class="local">
                 <i class="fi fi-sr-marker"></i>
-                <p>123 Anywhere St., Any City</p>
+                <p><?php echo $user_data['bairroOng'];?></p>
             </div>
             <button class="open-modalOngPerfil btn-visitar"> 
                 Visitar 
@@ -116,3 +128,4 @@
 
     </div>
 </div>
+<?php } ?>

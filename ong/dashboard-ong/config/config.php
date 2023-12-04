@@ -54,4 +54,5 @@
     $row = mysqli_fetch_array($adocaoCount);
     $adocaoResult = $row[0];
 
+    
 ?>

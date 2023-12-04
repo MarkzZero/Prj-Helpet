@@ -6,7 +6,10 @@ $resultAnuncio = $mysqli->query("SELECT *, DATE_FORMAT(dataInicioAnuncio, '%d/%m
 
 while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
     $resultAnunciante = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.nomeAnunciante as 'anunciante' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '{$anuncio_data['idAnuncio']}'");
-
+    
+    $favoritosAnuncio = $mysqli->query("SELECT count(idAnuncio) as 'favoritoAnuncio' FROM tbAnunciofavorito where idusuario = $id AND idanuncio = '$anuncio_data[idAnuncio]'");
+    $resultFavoritosAnuncio = mysqli_fetch_assoc($favoritosAnuncio);
+   
     $anunciante_data = mysqli_fetch_assoc($resultAnunciante);
 
     $fotoAnunciante= $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.fotoAnunciante as 'fotoAnunciante' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '{$anuncio_data['idAnuncio']}'");
@@ -31,15 +34,21 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
 
 
 ?>
-    <div class="post">
+    <div class="post post-anuncio" style="list-style: none;">
         <div class="area-top">
             <div class="ong">
                 <img src="<?php echo "../../anunciante/cadastro/" . $foto_anunciante['fotoAnunciante'] ?>">
                 <h4><?php echo $anunciante_data['anunciante']  ?></h4>
             </div>
-            <div class="icon-fav">
-                <i id="heartIcon1" class="fi-rr-heart icon"></i>
-            </div>
+            <?php if ($resultFavoritosAnuncio['favoritoAnuncio'] == '0') { ?>
+    <div class="icon-fav">
+        <i id="heartIcon1" data-anuncio-id="<?php echo $anuncio_data['idAnuncio'] ?>" class="fi-rr-heart icon favoritar-animal"></i>
+    </div>
+<?php } else { ?>
+    <div class="icon-fav">
+        <i id="heartIcon1" data-anuncio-id="<?php echo $anuncio_data['idAnuncio'] ?>" class="fi-sr-heart icon favoritar-animal"></i>
+    </div>
+<?php } ?>
         </div>
 
         <div class="campanha">
