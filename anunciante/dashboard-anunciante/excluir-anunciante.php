@@ -9,7 +9,7 @@
 
     <div class="area-excluir">
         <i class="fi fi-sr-delete-user"></i>
-        <h4>Desejar excluir sua conta?</h4>
+        <span>Desejar excluir sua conta?</span>
         <p>Digite sua senha para confirmar</p>
         <form action="#" method="post">
             <div style="margin: auto;" class="input-field">
