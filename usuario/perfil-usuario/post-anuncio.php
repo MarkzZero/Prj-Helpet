@@ -68,9 +68,9 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
         <div class="fadePerfilAnuncio hide"></div>
         <div class="modalPerfilAnuncio hide">
             <div class="modal-header">
-                <div class="icon-fav">
+                <!-- <div class="icon-fav">
                     <i id="heartIcon1" class="fi-rr-heart icon"></i>
-                </div>
+                </div> -->
 
                 <div class="fechar-modal">
                     <i class="fechar fi fi-br-cross close-modalPerfilAnuncio"></i>
@@ -89,6 +89,8 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
                         </div>
                     </div>
 
+
+                    
                     <div class="area-itens">
                         <div class="item">
                             <h4>Data de Ínicio</h4>
@@ -126,7 +128,7 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
                 </div>
 
                 <div class="area-ong">
-                    <div class="galeria">
+                    <!-- <div class="galeria">
                         <div class="titulo-galeria">
                             <p>Galeria</p>
                             <i class="fi fi-br-gallery"></i>
@@ -139,10 +141,10 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
                             <img src="images/foto-ong.png">
                             <img src="images/foto-ong.png">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="info-ong">
-                        <img src="<?php echo "../../anunciante/cadastro/" . $foto_anunciante['fotoAnunciante'] ?>">
+                        <img class="open-modalPerfilAnunciante" src="<?php echo "../../anunciante/cadastro/" . $foto_anunciante['fotoAnunciante'] ?>">
 
                         <div class="item-ong">
                             <div class="nome-ong">
