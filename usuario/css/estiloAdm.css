@@ -121,18 +121,14 @@ body::before{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.logo-usuario{
+.logo-adm{
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.5s all;
 }
-.logo-usuario img{
+.logo-adm img{
   width: 22vh;
-}
-.logo-usuario:hover{
-  transform: scale(1.1);
 }
 
 .login_body h2{
