@@ -25,7 +25,7 @@
 
 
 
-            if($quantidade == 'adm'){
+            if($quantidade == '1'){
                 $_SESSION['usuario'] = $usuario || $_SESSION['senha'] = $senha;
                 while($percorrer = mysqli_fetch_array($sql_query)){
                     $adm = $percorrer['nivelUsuario'];

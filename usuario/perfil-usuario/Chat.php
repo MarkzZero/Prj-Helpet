@@ -1,5 +1,6 @@
 <?php
     include('../config/config.php');
+    ($user_data = mysqli_fetch_assoc($sqlUsuario))
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,9 +35,9 @@
                 <section class="users">
                     <header>
                         <div class="content">
-                            <img src="images/foto-ong.png" alt="">
+                            <img src="<?php echo "../Cadastro/" . $user_data['fotoUsuario'];?>" alt="">
                             <div class="details">
-                                <span>Eu</span>
+                                <span><?php echo $user_data['nomeUsuario']; ?></span>
                             </div>
                         </div>
                     </header>
@@ -73,10 +74,9 @@
             <div class="wrapper-chat">
                 <section class="chat-area">
                     <header>
-                        <img src="images/foto-ong.png" alt="" class="hide">
+                        <img src="images/img-chat/logo-azul.png" alt="" class="hide">
                         <div class="details-chat">
-                            <span class="hide">Bruna</span>
-                            <p class="hide">Online</p>
+                            <span class="hide">Inicie uma Conversa.</span>
                         </div>
                     </header>
                     <div class="chat-box">
@@ -105,16 +105,17 @@
     <script src="js/chat.js"></script>
 
     <?php
-    $id_ong_msg = $_GET['o'];
+    
 
     if (isset($_GET['o'])) {
+        $id_ong_msg = $_GET['o'];
         $query = $mysqli->query("SELECT * FROM tbOng where idOng = $id_ong_msg") or die($mysqli->error);
         $dados = mysqli_fetch_assoc($query);
 
         if (!empty($dados)) {
             ?>
             <script>
-                displayMessages('<?php echo $dados['idOng'] ?>', '../<?php echo $dados['fotoOng'] ?>', '<?php echo $dados['nomeOng'] ?>')
+                displayMessages('<?php echo $dados['idOng'] ?>', '<?php echo $dados['fotoOng'] ?>', '<?php echo $dados['nomeOng'] ?>')
             </script>
             <?php
         }

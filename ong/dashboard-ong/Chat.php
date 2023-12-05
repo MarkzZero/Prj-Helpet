@@ -27,9 +27,9 @@
                 <section class="users">
                     <header>
                         <div class="content">
-                            <img src="images/img-chat/chat-perfil.png" alt="">
+                            <img src="<?php echo "../Cadastro/" . $ong_data['fotoOng'];?>" alt="">
                             <div class="details">
-                                <span>Eu</span>
+                                <span><?php echo $ong_data['nomeOng'];?></span>
                             </div>
                         </div>
                     </header>
@@ -57,10 +57,9 @@
             <div class="wrapper-chat">
                 <section class="chat-area">
                     <header>
-                        <img src="images/img-chat/chat-perfil2.png" alt="" class="hide">
+                        <img src="images/logo-azul.png" alt="" class="hide">
                         <div class="details-chat">
-                            <span class="hide">Bruna</span>
-                            <p class="hide">Online</p>
+                            <span class="hide">Inicie uma Conversa!</span>
                         </div>
                     </header>
 

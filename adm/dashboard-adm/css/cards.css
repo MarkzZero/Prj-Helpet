@@ -89,6 +89,8 @@
     width: 8vw;
     height: 8vw;
     border-radius: 50%;
+    object-fit:cover;
+    object-position:center
 }
 .card h4{
     font-family: Regular;

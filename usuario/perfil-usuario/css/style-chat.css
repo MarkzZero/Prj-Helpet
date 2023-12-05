@@ -159,7 +159,19 @@ body{
 }
 .chat-box .outgoing{
     display: flex;
+    animation: .5s mensagem
 }
+@keyframes mensagem {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
 .outgoing .details{
     margin-left: auto;
     max-width: calc(100% - 130px);
@@ -168,11 +180,19 @@ body{
     background-color: #2063d6;
     color: #fff;
     border-radius: 1vw 1vw 0 1vw;
-    margin: 1.5vw 0;
+    margin: 0.3vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
+.details .time {
+    opacity:0.5
+  }
+
 .chat-box .incoming{
     display: flex;
     align-items: center;
+    animation: .5s mensagem
 }
 .chat-box .incoming img{
     height: 3vw;
@@ -188,7 +208,10 @@ body{
     background-color: #f08c00;
     color: #fff;
     border-radius: 1vw 1vw 1vw 0;
-    margin: 1.5vw 0;
+    margin: 0.3vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .chat-area .typing-area{

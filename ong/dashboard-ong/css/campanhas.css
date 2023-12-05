@@ -511,6 +511,8 @@ input[type='file']{
     border-top-left-radius: 1.5vw;
     border-top-right-radius: 1.5vw;
     box-shadow: 0 3px 6px #0005;
+    object-fit:cover;
+    object-position:center
 }
 .area-conteudo{
     position: relative;

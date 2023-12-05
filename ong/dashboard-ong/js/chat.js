@@ -20,12 +20,18 @@ function ShowMessages(messages) {
         conteudo.className = 'details'
         let p = document.createElement('p')
         p.innerText = item.textoMensagem
+        let hora = document.createElement('span')
+        hora.className = 'time'
+        hora.innerText = item.horaMensagem
 
+        p.append(hora)
         conteudo.append(p)
         mensagem.append(conteudo)
         chatBox.append(mensagem)
+
     })
 }
+
 
 
 async function sendMessage() {
@@ -38,7 +44,7 @@ async function sendMessage() {
         formData.append('type', type)
         formData.append('id', destino)
 
-        const r = await fetch('../../Chat/enviar-mensagem.php', {
+        fetch('../../Chat/enviar-mensagem.php', {
             method: 'POST',
             header: {
                 'Content-Type': 'application/json',
@@ -46,12 +52,10 @@ async function sendMessage() {
             },
             body: formData
         })
-        const d = await r.json()
-        console.log(d)
+
+        chatBox.scroll({ top: chatBox.scrollHeight, behavior: "smooth" })
     }
 }
-
-
 async function retrieveMessages(id) {
     let formData = new FormData()
 
@@ -82,7 +86,7 @@ async function displayMessages(id, img, name) {
     var initialData = await retrieveMessages(id)
 
     chatName.innerText = name
-    chatImg.src = "../../ong/Cadastro/"+img
+    chatImg.src = "../../usuario/Cadastro/"+img
 
     chatName.classList.remove('hide')
     chatImg.classList.remove('hide')
@@ -123,7 +127,7 @@ const fillList = async (url) => {
 
         //TODO: quando adicionar o cadastro de imagem, atualizar o .src do img de modo que chame a foto do usuário
         let img = document.createElement('img')
-        img.src = "../../ong/Cadastro/"+item.foto
+        img.src = "../../usuario/Cadastro/"+item.foto
 
         let details = document.createElement('div')
         details.className = 'details'

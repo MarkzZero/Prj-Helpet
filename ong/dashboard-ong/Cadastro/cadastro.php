@@ -101,6 +101,26 @@ if (isset($_POST['cadastrar'])) {
         }
     }
 
+    if (isset($_FILES['imagens'])) {
+        $imagens = $_FILES['imagens'];
+    
+        // Percorrer cada imagem
+        foreach ($imagens['tmp_name'] as $key => $tmp_name) {
+            $nomeImagem = $imagens['name'][$key];
+            $caminhoImagem = 'caminho/para/salvar/' . $nomeImagem; // Altere o caminho conforme necessário
+    
+            if (move_uploaded_file($tmp_name, $caminhoImagem)) {
+                // Insere no banco de dados
+                $sql = "INSERT INTO imagens (nome, caminho) VALUES ('$nomeImagem', '$caminhoImagem')";
+                if ($conn->query($sql) !== TRUE) {
+                    echo "Erro ao cadastrar imagem: " . $conn->error;
+                }
+            } else {
+                echo "Falha ao fazer upload da imagem.";
+            }
+        }
+    }
+
     $mysqli->close();
 }
 ?>

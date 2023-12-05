@@ -12,7 +12,7 @@ if ($origem == 1) {
     $idusuario = $_SESSION['id'];
 }
 
-$stmt = $pdo->prepare("SELECT textoMensagem, horaMensagem, origemMensagem, idOng, idUsuario FROM tbMensagem
+$stmt = $pdo->prepare("SELECT textoMensagem, TIME_FORMAT(horaMensagem, '%H:%i') as horaMensagem, origemMensagem, idOng, idUsuario FROM tbMensagem
                         WHERE idUsuario = ? AND idOng = ?");
 $stmt->bindValue(1, $idusuario);
 $stmt->bindValue(2, $idong);

@@ -20,10 +20,15 @@ function ShowMessages(messages) {
         conteudo.className = 'details'
         let p = document.createElement('p')
         p.innerText = item.textoMensagem
+        let hora = document.createElement('span')
+        hora.className = 'time'
+        hora.innerText = item.horaMensagem
 
+        p.append(hora)
         conteudo.append(p)
         mensagem.append(conteudo)
         chatBox.append(mensagem)
+
     })
 }
 
@@ -38,7 +43,7 @@ async function sendMessage() {
         formData.append('type', type)
         formData.append('id', destino)
 
-        const r = await fetch('../../Chat/enviar-mensagem.php', {
+        fetch('../../Chat/enviar-mensagem.php', {
             method: 'POST',
             header: {
                 'Content-Type': 'application/json',
@@ -46,8 +51,8 @@ async function sendMessage() {
             },
             body: formData
         })
-        const d = await r.json()
-        console.log(d)
+
+        chatBox.scroll({ top: chatBox.scrollHeight, behavior: "smooth" })
     }
 }
 
