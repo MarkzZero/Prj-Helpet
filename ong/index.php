@@ -52,7 +52,7 @@
             <?php
               if (isset($_SESSION['nao_autenticado'])) :
             ?>
-              <p>Email ou senha incorretos!</p>
+              <p style="margin-top: 3.5vh; color:red;">Email ou senha incorretos!</p>
             <?php
               endif;
               unset($_SESSION['nao_autenticado']);
@@ -60,7 +60,7 @@
             <?php
               if (isset($_SESSION['incompleto'])) :
             ?>
-              <p>Dados incompletos!</p>
+              <p style="margin-top: 3.5vh; color:red;">Dados incompletos!</p>
             <?php
               endif;
               unset($_SESSION['incompleto']);

@@ -295,8 +295,11 @@ form.sign-in-form {
 
 .logo-helpet-azul{
   width: 20vh;
+  transition: 0.5s all;
 }
-
+.logo-helpet-azul:hover{
+  transform: scale(1.1);
+}
 
 .input-field-azul {
   position: relative;
