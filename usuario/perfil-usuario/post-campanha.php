@@ -58,21 +58,31 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
         </div>
 
         <div class="area-bottom">
-            <p class="p-desc"><?php echo $campanha_Data['informacaoCampanha'] ?></p>
-            <button class="open-modalPerfilCamp botao-modal">
-                <p>Saiba Mais</p>
-                <i class="fi fi-br-angle-small-right"></i>
-            </button>
+            <div class="item-bottom">
+                <p class="p-desc"><?php echo $campanha_Data['informacaoCampanha'] ?></p>
+            </div>
+
+            <div class="item-bottom">
+                <button class="open-modalPerfilCamp botao-modal">
+                    <p>Saiba Mais</p>
+                    <i class="fi fi-br-angle-small-right"></i>
+                </button>
+            </div>
+
+            <div class="item-bottom">
+                <span>Campanha</span>
+            </div>
         </div>
 
-
-
+        
         <!-- Modal Saiba Mais -->
         <div class="fadePerfilCamp hide"></div>
         <div class="modalPerfilCamp hide">
             <div class="modal-header">
-                <div class="icon-fav">
-                    <i id="heartIcon1" class="fi-rr-heart icon"></i>
+                <div class="icon-fav"></div>
+
+                <div class="nome-pet">
+                    <h3><?php echo $campanha_Data['nomeCampanha'] ?></h3>
                 </div>
 
                 <div class="fechar-modal">
@@ -81,63 +91,54 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
                 </div>
             </div>
 
-            <div class="area-modal">
+            <div class="area-modal-camp">
+
                 <div class="modal-info">
                     <div class="info-pet">
-                        <div class="modal-nome">
-                            <div class="foto-modal">
-                                <img src="<?php echo "../../ong/dashboard-ong/Cadastro/"  .   $campanha_Data['fotoPerfilCampanha']; ?>">
-                            </div>
-                            <div class="nome-pet">
-                                <h3><?php echo $campanha_Data['nomeCampanha'] ?></h3>
-                            </div>
+                        <div class="foto-modal">
+                            <img src="<?php echo "../../ong/dashboard-ong/Cadastro/"  .   $campanha_Data['fotoPerfilCampanha']; ?>">
                         </div>
+                        
+                        <div class="conteudo-descricao">
+                            <div class="area-itens">
+                                <div class="item">
+                                    <h4>Data</h4>
+                                    <p><?php echo $campanha_Data['dataBrasileira'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-calendar-clock"></i>
+                                    </div>
+                                </div>
 
-                        <div class="area-itens">
-                            <div class="item">
-                                <h4>Data</h4>
-                                <p><?php echo $campanha_Data['dataBrasileira'] ?></p>
-                                <div class="icon-patinha">
-                                    <i class="fi fi-sr-calendar-clock"></i>
+                                <div class="item">
+                                    <h4>Horário</h4>
+                                    <p><?php echo $campanha_Data['horarioCampanha'] ?></p>
+                                    <div class="icon-patinha">
+                                        <i class="fi fi-sr-calendar-clock"></i>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="item">
-                                <h4>Horário</h4>
-                                <p><?php echo $campanha_Data['horarioCampanha'] ?></p>
-                                <div class="icon-patinha">
-                                    <i class="fi fi-sr-calendar-clock"></i>
+                            <div class="area-descricao">
+                                <div class="post-body">
+                                    <span class="short-text">
+                                        <p>
+                                            <?php echo $campanha_Data['informacaoCampanha'] ?>
+                                        </p>
+                                        <a class="read-more">Ler mais</a>
+                                    </span>
+                                    <span class="full-text">
+                                        <p>
+                                            <?php echo $campanha_Data['informacaoCampanha']; ?>
+                                            <a class="read-less">Ler menos</a>
+                                        </p>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="area-local">
-                            <div class="area-mapa">
-                                <div class="local">
-                                    <i class="fi fi-rr-marker"></i>
-                                    <p><?php echo $campanha_Data['logradouroCampanha'] . " N° " . $campanha_Data['numLocalCampanha'] . ", " . $campanha_Data['cidadeCampanha'] ?></p>
-                                </div>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7314.867832910044!2d-46.63305022111003!3d-23.552854412933524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1695764301953!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
+           
                     </div>
 
                     <div class="area-ong">
-                        <div class="galeria">
-                            <div class="titulo-galeria">
-                                <p>Galeria</p>
-                                <i class="fi fi-br-gallery"></i>
-                            </div>
-                            <div class="fotos">
-                                <img src="images/foto-ong.png">
-                                <img src="images/foto-ong.png">
-                                <img src="images/foto-ong.png">
-                                <img src="images/foto-ong.png">
-                                <img src="images/foto-ong.png">
-                                <img src="images/foto-ong.png">
-                            </div>
-                        </div>
-
                         <div class="info-ong">
                             <img src="<?php echo "../../ong/cadastro/" . $foto_Data['foto'] ?>">
 
@@ -156,24 +157,15 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
                             </div>
                         </div>
 
-                        <div class="area-descricao">
-                            <div class="post-body">
-                                <span class="short-text">
-                                    <p>
-                                        <?php echo $campanha_Data['informacaoCampanha'] ?>
-                                    </p>
-                                    <a class="read-more">Ler mais</a>
-                                </span>
-                                <span class="full-text">
-                                    <p>
-                                        <?php echo $campanha_Data['informacaoCampanha']; ?>
-                                        <a class="read-less">Ler menos</a>
-                                    </p>
-                                </span>
+                        <div class="area-mapa">
+                            <div class="local">
+                                <i class="fi fi-rr-marker"></i>
+                                <p><?php echo $campanha_Data['logradouroCampanha'] . " N° " . $campanha_Data['numLocalCampanha'] . ", " . $campanha_Data['cidadeCampanha'] ?></p>
                             </div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7314.867832910044!2d-46.63305022111003!3d-23.552854412933524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1695764301953!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-
                     </div>
+
                 </div>
             </div>
 
