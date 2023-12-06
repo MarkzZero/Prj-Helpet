@@ -62,8 +62,8 @@
 
                             <div class="input_box-senha">
                                 <input id="senha" type="password" name="senha" placeholder="Senha">
-                                <div class="input_box-senha-cad"><i class="bi bi-lock-fill"></i></div>
-                                <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarSenha()"></i>
+                                <div class="input_box-senha-cad"><i class="fi fi-sr-lock"></i></div>
+                                <i class="fi fi-bs-eye" id="btn-senha" onclick="mostrarSenha()"></i>
                             </div>
 
                             <div>
