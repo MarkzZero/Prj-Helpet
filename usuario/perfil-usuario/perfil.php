@@ -1,5 +1,5 @@
 <?php
-include('../config/config.php');
+    include('../config/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -151,6 +151,16 @@ include('../config/config.php');
                     <div class="bolinhas"><img src="images/informacoes/bolinhas-ongs.png"></div>
                 </div>
             </div>
+
+            <div class="toggle">
+                <div class="icon-seta">
+                    <i class="fi fi-br-angle-small-left"></i>
+                </div>
+            </div>
+
+            
+            <!-- Sugestões e Categorias -->
+            <?php require "menu-right.php"; ?>
 
     </div>
 
@@ -396,6 +406,8 @@ include('../config/config.php');
 
         </div>
 
+        <div class="area-cards-user">
+
         <?php while ($adocao_data = mysqli_fetch_assoc($resultPetAdotado)) { 
             $raca = $mysqli->query("SELECT tbanimal.nomeAnimal as 'animal', tbRaca.nomeRaca as 'raca' FROM tbAnimal INNER JOIN tbRaca ON tbAnimal.idRaca = tbRaca.idRaca WHERE tbAnimal.idAnimal = '$adocao_data[idAnimal]'");
             $raca_data = mysqli_fetch_assoc($raca);
@@ -614,6 +626,8 @@ include('../config/config.php');
                 <img src="images/tela-pets-favoritos.png">
             </div>
         </div>
+
+        <div class="area-cards-user">
 
         <?php while ($anuncio_data = mysqli_fetch_assoc($anuncioFavorito)) {
             $resultAnunciante = $mysqli->query("SELECT tbAnuncio.nomeAnuncio as 'anuncio', tbAnunciante.nomeAnunciante as 'nome' FROM tbAnuncio INNER JOIN tbAnunciante ON tbAnuncio.idAnunciante = tbAnunciante.idAnunciante WHERE tbAnuncio.idAnuncio = '$anuncio_data[idAnuncio]'");
@@ -928,6 +942,10 @@ include('../config/config.php');
             </div>
         </div>
 
+        <div class="area-cards-user">
+            
+        </div>
+
     </div>
 
 
@@ -937,6 +955,7 @@ include('../config/config.php');
     <!-- Links JS -->
     <script src="js/script.js"></script>
     <script src="js/modais.js"></script>
+    <script src="js/categorias.js"></script>
 
 </body>
 
