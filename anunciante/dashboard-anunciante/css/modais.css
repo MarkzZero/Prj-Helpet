@@ -632,7 +632,7 @@ input[type='file']{
     margin-top: 1vh;
     width: 11vw;
     height: 11vw;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     margin-bottom: 0.5vh;
 }
 
@@ -1285,4 +1285,55 @@ input[type='file']{
     position: fixed;
     top: 34vw;
     left: 27.3vw;
+}
+
+/* CSS VER MAIS MODAL DE ANUNCIO */
+.modal {
+    width: 60vw;
+    height: 25vw;
+}
+.modal .nome-anuncio{
+    /* background-color: #095D40; */
+    position: relative;
+    top: -17vw;
+    left: 15vw;
+    z-index: 900;
+}
+.modal .foto-modal{
+   /* background-color: #001CAB; */
+   position: relative;
+   width: 28vw;
+   height: 16vw;
+   border-radius: 2vh;
+   top: 2vw;
+}
+.modal .foto-modal img{
+    background-color: #001CAB;
+    width: 28vw;
+    height: 16vw;
+ }
+.modal .area-itens{
+    position: relative;
+    top: -17vw;
+    left: 28vw;
+}
+.modal .area-descricao{
+    /* background-color: red; */
+    width: 26vw;
+    height: 8.5vw;
+    position: relative;
+    left: 26.5vw;
+    top: -16vw;
+}
+.modal .short-text{
+    /* background-color: #5E17EB; */
+    position: relative;
+    width: 26vw;
+    height: 8.9vw;
+}
+.modal .full-text{
+    /* background-color: #001CAB; */
+    position: relative;
+    width: 26vw;
+    height: 8.9vw;
 }
