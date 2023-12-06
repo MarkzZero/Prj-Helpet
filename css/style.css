@@ -38,6 +38,31 @@ body{
 }
 
 
+/* Tela de Splash */
+.splash{
+  z-index: 200;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10000;
+  background-color: #122BAD;
+  overflow: hidden;
+}
+.splash img{
+  position: absolute;
+  width: 40vw;
+  height: auto;
+}
+.splash.display-none{
+  display: none;
+}
+
+
 /* Link para o topo */
 #link-top{
   position: fixed;
@@ -109,7 +134,7 @@ nav li{
   font-size: 1.5vw;
   text-transform: uppercase;
 }
-.nav-list li.active a {
+.nav-list li.active a{
   color: #ff9720;
 }
 .nav-list li a:hover{
@@ -178,6 +203,7 @@ nav .menu-btn i{
 }
 
 .dropdown-content a{
+  font-family: Regular;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -572,8 +598,8 @@ nav.ativo .dropbtn{
 }
 #cao-servicos img{
   position: relative;
-  width: 19vw;
-  left: 0;
+  width: 28vw;
+  left: -9vw;
   top: -9vw;
 }
 
