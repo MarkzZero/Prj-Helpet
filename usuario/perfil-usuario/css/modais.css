@@ -733,6 +733,7 @@
     width: auto;
     border-radius: 2vw;
     background-color: #fff;
+    box-shadow: 1px 2px 3px #0005;
     width: 20vw;
     height: 7vw;
     padding-left: 3vw;
@@ -963,4 +964,128 @@
 
 .area-local-mapa{
     margin-top: 2vw;
+}
+
+
+/* Modais de Campanhas e Anúncios */
+.modalPerfilAnuncio .modal-header .nome-pet h3,
+.modalPerfilCamp .modal-header .nome-pet h3{
+    font-family: Regular;
+    font-size: 1.8vw;
+    color: #004FDA;
+    margin: 0;
+    margin-top: 2vh;
+}
+.modalPerfilAnuncio .foto-modal img,
+.modalPerfilCamp .foto-modal img{
+    border-radius: 1vw;
+    width: 32vw;
+    height: 35vh;
+}
+
+.modalPerfilAnuncio .modal-info,
+.modalPerfilCamp .modal-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modalPerfilAnuncio .info-pet,
+.modalPerfilCamp .info-pet{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.modalPerfilAnuncio .conteudo-descricao,
+.modalPerfilCamp .conteudo-descricao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 25vw;
+    margin-top: 1vh;
+    margin-left: 1vw;
+}
+.modalPerfilAnuncio .area-descricao,
+.modalPerfilCamp .area-descricao{
+    position: relative;
+    right: 1vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 24vw;
+}
+.modalPerfilAnuncio .area-descricao span,
+.modalPerfilCamp .area-descricao span{
+    width: initial;
+}
+.modalPerfilAnuncio .area-descricao .full-text{
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: scroll;
+    max-height: 18vh;
+}
+.modalPerfilCamp .area-descricao .short-text{
+    max-height: 9vh;
+}
+.modalPerfilCamp .area-descricao .full-text{
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-y: scroll;
+    max-height: 9vh;
+}
+
+.modalPerfilAnuncio .post-body,
+.modalPerfilCamp .post-body{
+    width: 100%;
+}
+
+.modalPerfilAnuncio .area-ong{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 3vh;
+}
+.modalPerfilCamp .area-ong{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    bottom:30vw;
+}
+.modalPerfilCamp .area-mapa{
+    position: relative;
+    margin-left: 3vw;
+    bottom: 5vw;
+}
+.modalPerfilCamp .info-ong{
+    position: relative;
+    top: 4vw;
+}
+.modalPerfilCamp{
+    max-height: 80vh;
+}
+
+.modalPerfilCamp .info-pet{
+    position: relative;
+    left: 2vw;
+}
+.modalPerfilCamp .area-modal-camp{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    overflow: hidden !important;
+}
+
+.area-ong img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.5s;
 }
