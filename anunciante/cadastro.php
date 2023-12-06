@@ -42,14 +42,14 @@
 
                         <div class="input-container">		
                             <i class="fi fi-rr-id-badge"></i>
-                            <input type="text" required name="cnpj" id="cnpj"/>
+                            <input type="text" required name="cnpj" id="cnpj" onkeyup="formatCNPJ(this)" maxlength="18"/>
                             <div class="linha-input"></div>
                             <label>CNPJ</label>
                         </div>
 
                         <div class="input-container">
                             <i class="fi fi-rr-phone-call"></i>
-                            <input type="telefone" required name="telefone" id="telefone"/>
+                            <input type="telefone" required name="telefone" id="telefone" onkeyup="formatTelefone(this)" maxlength="15"/>
                             <div class="linha-input"></div>
                             <label>Telefone</label>		
                         </div>
