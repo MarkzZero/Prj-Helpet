@@ -104,10 +104,8 @@
             </div>
         </div>
 
-
-        <!-- Links JS -->
+        <script src="js/script.js"></script>
         <script src="js/mostrar-senha.js"></script>
-
 
     </body>
 </html>

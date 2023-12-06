@@ -41,34 +41,42 @@ if (isset($_GET[1]))
             <div class="modal-conteudo">
                 <div class="adicionar-fotos">
                     <div class="imageContainer">
-                        <img src="images/add-foto.png" alt="selecionar foto" id="imgPhoto">
+                        <img src="images/add-anuncio2.png" alt="selecionar foto" id="imgPhoto">
                         <input type="file" id="flImage" name="image" accept="image/*">
                         <p class="titulo-foto">Foto do Anúncio</p>
                     </div>
 
-                    <div class="area-add-fotos">
+                    <!-- <div class="area-add-fotos">
                         <div class="titulo-add">
                             <p>Adicione outras fotos do anúncio (opcional)</p>
                             <i id="photos" class="fi fi-sr-images"></i>
                             <input type="file" id="filesImgs" multiple accept="image/*" multiple onchange="handleFileSelect(event)" name="opcional[]" multiple>
                         </div>
                         <div class="galeria"></div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="campos-anuncio">
                     <div class="campo">
-                        <input type="text" placeholder="Nome do Anúncio" require name="nome" />
+                        <p class="nome-anuncio">Nome do Anúncio</p>
+                        <input type="text" placeholder="Digite" require name="nome" />
                     </div>
 
                     <div class="campo campo-data">
-                        <input type="date" placeholder="Data de Início" require name="dataInicio" />
-                        <input type="date" placeholder="Data de Término" require name="dataTermino" />
+
+                       <div class="data">
+                            <p class="data-inicio">Data Início</p>
+                            <input type="date" placeholder="Data de Início" require name="dataInicio" />
+                       </div>
+                       <div class="data">
+                            <p class="data-termino">Data Término</p>
+                            <input type="date" placeholder="Data de Término" require name="dataTermino" />
+                       </div>
                     </div>
 
-                    <div class="campo">
+                    <div class="campo-desc">
                         <textarea placeholder="Descrição" require name="descricao"></textarea>
-                    </div>
+                    </div> 
                 </div>
             </div>
 
@@ -125,13 +133,13 @@ if (isset($_GET[1]))
                             <div class="detalhe-modal">
                             </div>
                             <div class="titulo-modal">
-                                <span>Cadastro do Anúncio</span>
+                                <span>Alterar Anúncio</span>
                             </div>
                             <i class="fi fi-br-cross close-modalEdit"></i>
                         </div>
 
                         <form action="edicao/editarAnuncio.php" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="idAnuncio" value="<?php echo $anunciante_data['idAnuncio'] ?>">
+                            <input type="hidden" name="idAnuncio" value="<?php echo $user_data['idAnuncio'] ?>">
                             <div class="modal-conteudo">
                                 <div class="adicionar-fotos">
                                     <div class="imageContainer">
@@ -140,29 +148,36 @@ if (isset($_GET[1]))
                                         <p class="titulo-foto">Foto do Anúncio</p>
                                     </div>
 
-                                    <div class="area-add-fotos">
+                                    <!-- <div class="area-add-fotos">
                                         <div class="titulo-add">
                                             <p>Adicione outras fotos do anúncio (opcional)</p>
                                             <i id="photos" class="fi fi-sr-images"></i>
                                             <input type="file" id="filesImgs" multiple accept="image/*" multiple onchange="handleFileSelect(event)" name="opcional[]" multiple>
                                         </div>
                                         <div class="galeria">
-                                            <img src="<?php echo "cadastro/" . $foto_data['fotosAnuncio']; ?>">
+                                            <img src=">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <div class="campos-anuncio">
                                     <div class="campo">
+                                        <p class="nome-anuncio">Nome do Anúncio</p>
                                         <input type="text" placeholder="Nome do Anúncio" name="nome" value="<?php echo $user_data['nomeAnuncio']; ?>" />
                                     </div>
 
                                     <div class="campo campo-data">
-                                        <input type="date" placeholder="Data de Início" value="<?php echo $user_data['dataInicioAnuncio'] ?>" name="dataInicio" />
-                                        <input type="date" placeholder="Data de Término" value="<?php echo $user_data['dataTerminoAnuncio'] ?>" name="dataTermino" />
+                                        <div class="data">
+                                                <p class="data-inicio">Data Início</p>
+                                                <input type="date" placeholder="Data de Início" value="<?php echo $user_data['dataInicioAnuncio'] ?>" name="dataInicio" />
+                                        </div>
+                                        <div class="data">
+                                                <p class="data-termino">Data Término</p>
+                                                <input type="date" placeholder="Data de Término" value="<?php echo $user_data['dataTerminoAnuncio'] ?>" name="dataTermino" />
+                                        </div>
                                     </div>
 
-                                    <div class="campo">
+                                    <div class="campo-desc">
                                         <textarea placeholder="Descrição" name="descricao"><?php echo $user_data['descAnuncio'] ?></textarea>
                                     </div>
                                 </div>
@@ -195,6 +210,7 @@ if (isset($_GET[1]))
                                 <a style="text-decoration: none ;" href="Cadastro/deleteUsuario.php?id=<?php echo $user_data['idAnuncio']; ?>">
                                     <button class="botao-modalExc2">Excluir</button>
                                 </a>
+                                <button class="botao-modalExc2">Excluir</button>
                             </div>
                         </div>
                     </div>
@@ -218,7 +234,7 @@ if (isset($_GET[1]))
                                     <div class="foto-modal">
                                         <img src="<?php echo "cadastro/" . $user_data['fotoAnuncio']; ?>">
                                     </div>
-                                    <div class="nome-pet">
+                                    <div class="nome-anuncio">
                                         <h3><?php echo $user_data['nomeAnuncio']; ?></h3>
                                     </div>
                                 </div>
@@ -259,7 +275,7 @@ if (isset($_GET[1]))
                                 </div>
                             </div>
 
-                            <div class="area-ong">
+                            <!-- <div class="area-ong">
                                 <div class="galeria">
                                     <div class="titulo-galeria">
                                         <p>Galeria</p>
@@ -268,7 +284,7 @@ if (isset($_GET[1]))
                                     <div class="fotos">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

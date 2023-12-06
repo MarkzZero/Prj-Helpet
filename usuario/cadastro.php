@@ -8,7 +8,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Cadastro</title>
+        <title>Cadastro do Usuário</title>
         <link rel="shortcut icon" href="images/logo-azul.png" type="image/x-icon">
 
         <!-- Link CSS -->
@@ -86,7 +86,7 @@
                     </div>
                  
                     <div class="area-avancar">
-                        <h2>Já tem uma conta?</h2>
+                        <span>Já tem uma conta?</span>
                         <p>Faça seu login para entrar no seu perfil!</p>
                         <img src="images/img-usuario.png">
                         <a href="index.php">Login</a>

@@ -1,18 +1,23 @@
 /* Modais */
-function setupModal(openBtns, closeBtns, modal, fade) {
-    const toggleModal = () => {
-        modal.forEach((el) => el.classList.toggle("hide"));
-        fade.forEach((el) => el.classList.toggle("hide"));
+function setupModal(openBtns, closeBtns, modals, fades) {
+    const toggleModal = (modalIndex) => {
+        modals[modalIndex].classList.toggle("hide");
+        fades[modalIndex].classList.toggle("hide");
     };
 
-    openBtns.forEach((el) => {
-        el.addEventListener("click", toggleModal);
+    openBtns.forEach((el, index) => {
+        el.addEventListener("click", () => {
+            toggleModal(index);
+        });
     });
 
-    closeBtns.forEach((el) => {
-        el.addEventListener("click", toggleModal);
+    closeBtns.forEach((el, index) => {
+        el.addEventListener("click", () => {
+            toggleModal(index);
+        });
     });
 }
+
 
 // Isso Configura o Modal do Perfil do Pet
 const openModalAdd = document.querySelectorAll(".open-modalAdd");
