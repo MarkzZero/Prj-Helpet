@@ -263,7 +263,7 @@ main i{
     color: #F48503;
     height: 100%;
     cursor: pointer;
-    z-index: 10;
+    z-index: 2;
 }
 .voltar:hover, .main i:hover{
     transform: scale(1.1);

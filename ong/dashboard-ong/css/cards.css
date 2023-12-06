@@ -103,6 +103,10 @@
     font-weight: bold;
     color: #004FDA;
     margin-right: 0.7vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9vw;
 }
 .area-conteudo .info i{
     display: flex;

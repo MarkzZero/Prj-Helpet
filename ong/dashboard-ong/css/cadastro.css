@@ -30,6 +30,9 @@
     flex-direction: column;
     align-items: flex-start;
 }
+#area-campanha .area-campos .coluna{
+    margin-right: 1vw;
+}
 .coluna{
     width: auto;
 }
@@ -210,7 +213,18 @@ input[type='file']{
     position: relative;
 }
 
+#area-campanha .form-group  textarea{
+    min-height: 15vw;
+    max-height: 18vw;
+}
+
 /* Adicionar Fotos Pet */
+#area-campanha #area-fotos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
 #area-foto .area-add-fotos{
     position: relative;
     background-color: #fff;
@@ -307,4 +321,29 @@ input[type='file']{
 .botao-cadastrar:hover{
     transform: scale(1.1);
     transition: all 0.5s;
+}
+
+
+#area-campanha .imageContainer,
+.editar .imageContainer{
+    width: 30vw;
+    height: 15vw;
+}
+#area-campanha #imgPhoto, .editar #imgPhoto2{
+    width: 30vw;
+    height: 13vw;
+    margin: 2vw;
+    padding: 0.5vw;
+    border-radius: 1.5vw;
+    border: 0.5vw solid #122BAD;
+    cursor: pointer;
+    transition: background .3s;
+}
+.editar #imgPhoto2{
+    width: 30vw;
+    height: 13vw;
+}
+#area-campanha textarea{
+    min-height: 10vw !important;
+    max-width: 15vw;
 }

@@ -29,7 +29,7 @@
                 <?php
                      while ($user_data = mysqli_fetch_assoc($result)) {
                     ?>  
-                <img src="images/foto-user.png">
+                <img src="<?php echo "../cadastro/" . $user_data['fotoUsuario'] ?>">
                 <h4><?php echo $_SESSION['nome'];?></h4>
                 <p><?php echo $user_data['emailUsuario'] ?></p>
             </div>
@@ -74,14 +74,17 @@
 
                 <form action="../Update/Update.php" method="post">
                     <div class="imageContainer">
-                        <img src="images/foto-user.png" alt="selecionar foto" id="imgPhoto">
+                    <img src="<?php echo "../cadastro/" . $user_data['fotoUsuario'] ?>" alt="selecionar foto" id="imgPhoto">
                         <input type="file" id="flImage" name="image" accept="image/*">
                         <label>Foto de Perfil</label>
                     </div>
 
                     <br>
 
-                    <h3>Dados Pessoais</h3>
+                    <h3>Dados Pessoais e Endereço</h3>
+
+                    <br>
+
                     <div class="linhas">
                         <div class="input-field">
                             <label>Nome</label>
@@ -91,7 +94,7 @@
 
                         <div class="input-field">
                             <label>CPF</label>
-                            <input type="text" name="cpf" id="nomeuser" value="111.111.111-22">
+                            <input type="text" name="cpf" id="nomeuser" value="862.697.660-79">
                             <div class="underline"></div>
                         </div>
 
@@ -109,15 +112,10 @@
 
                         <div class="input-field">
                             <label>Senha</label>
-                            <input type="text" name="senhauser" id="senhauser" value="*****">
+                            <input type="password" name="senhauser" id="senhauser" value="111">
                             <div class="underline"></div>
                         </div>
-                        </div>
 
-                    <br>
-
-                    <h3>Endereço</h3>
-                    <div class="linhas">
                         <div class="input-field">
                             <label>CEP</label>
                             <input type="text" name="cep" onblur="pesquisacep(this.value);" onkeyup="formatCEP(this)" id="nomepet" value="<?php echo $user_data['cepUsuario'] ?>" required>
@@ -181,7 +179,7 @@
                     <form class="area-excluir" action="../Update/Update.php" method="post">
                         <i class="fi fi-sr-delete-user"></i>
                         <span>Desejar excluir sua conta?</span>
-                        <p>Digite Confirmar para Exclusão</p>
+                        <p>Digite sua senha parar confirmar a exclusão</p>
                         <div class="input-field">
                             <input type="text" name="senha" id="senha">
                             <div class="underline"></div>

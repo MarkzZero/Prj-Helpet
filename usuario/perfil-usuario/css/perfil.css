@@ -35,11 +35,16 @@
     cursor: pointer;
 }
 
+.container1.active .papel-parede img{
+    position: relative;
+    left: 4.5vw;
+}
+
 .papel-parede{
     width: 92vw;
 }
 .papel-parede img{
-    width: 100%;
+    width: 105%;
     height: 16vw;
     object-fit: cover;
 }

@@ -46,15 +46,6 @@
                         </div>
 
                         <hr>
-
-                        <a href="#">
-                            <div class="botao">
-                                <i class="fi fi-sr-headset"></i>
-                                <p>Suporte</p>
-                            </div>
-                        </a>
-
-                        <hr>
                     </div>
                 </div>
 

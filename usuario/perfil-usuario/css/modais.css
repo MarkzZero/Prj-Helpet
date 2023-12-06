@@ -195,18 +195,12 @@
     overflow-x: hidden;
     overflow-y: auto;
     transition: all 0.5s;
-    width: 92vw;
+    width: 93vw;
     left: 7vw;
     border-left: 0.1vw solid #D9D9D9;
     border-right: 0.1vw solid #D9D9D9;
 }
-.modalOngPerfil, .modalPerfilAnunciante, 
-.tela-fav, .tela-favCamp, .tela-favAnuncios{
-    width: 92vw;
-    left: 7vw;
-    border-left: 0.1vw solid #D9D9D9;
-    border-right: 0.1vw solid #D9D9D9;
-}
+
 .modalEdit{
     position: fixed;
     top: 0;
@@ -290,7 +284,7 @@
 }
 .modalPerfilCamp .info-pet{
     position: relative;
-    top: 0;
+    top: 2vw;
     left: -2vw;
 }
 .modalPerfilCamp .icon-fav,
@@ -1022,69 +1016,29 @@
 .modalPerfilCamp .area-descricao span{
     width: initial;
 }
+.modalPerfilCamp .area-descricao .full-text,
 .modalPerfilAnuncio .area-descricao .full-text{
     overflow-x: hidden;
     overflow-y: auto;
     overflow-y: scroll;
     max-height: 18vh;
 }
+.modalPerfilAnuncio .area-descricao .short-text,
 .modalPerfilCamp .area-descricao .short-text{
     max-height: 9vh;
 }
-.modalPerfilCamp .area-descricao .full-text{
-    overflow-x: hidden;
-    overflow-y: auto;
-    overflow-y: scroll;
-    max-height: 9vh;
-}
+
 
 .modalPerfilAnuncio .post-body,
 .modalPerfilCamp .post-body{
     width: 100%;
 }
 
-.modalPerfilAnuncio .area-ong{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    margin-top: 3vh;
-}
-.modalPerfilCamp .area-ong{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    bottom:30vw;
-}
-.modalPerfilCamp .area-mapa{
-    position: relative;
-    margin-left: 3vw;
-    bottom: 5vw;
-}
-.modalPerfilCamp .info-ong{
-    position: relative;
-    top: 4vw;
-}
-.modalPerfilCamp{
-    max-height: 80vh;
-}
-
 .modalPerfilCamp .info-pet{
     position: relative;
     left: 2vw;
 }
-.modalPerfilCamp .area-modal-camp{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: auto;
-    overflow: hidden !important;
-}
-
-.area-ong img:hover{
+.info-ong img:hover{
     cursor: pointer;
     transform: scale(1.1);
     transition: all 0.5s;

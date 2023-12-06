@@ -39,13 +39,6 @@
             </a>
         </li>
         <li>
-            <a href="Chat.php">
-                <span class="icon"><i class="fi fi-rr-messages"></i></span>
-                <span class="icon icon-hover"><i class="fi fi-sr-messages"></i></span>
-                <span class="title">Chat</span>
-            </a>
-        </li>
-        <li>
             <a href="logout.php">
                 <span class="icon"><i class="fi fi-rr-sign-out-alt"></i></span>
                 <span class="icon icon-hover"><i class="fi fi-br-sign-out-alt"></i></span>

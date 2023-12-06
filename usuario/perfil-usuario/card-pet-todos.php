@@ -94,9 +94,7 @@ $id_ong = mysqli_fetch_assoc($idOng);
     <div class="fade hide"></div>
     <div class="modal hide">
         <div class="modal-header">
-            <div class="icon-fav">
-                <i id="heartIcon1" class="fi-rr-heart icon"></i>
-            </div>
+            <div class="icon-fav"></div>
 
             <div class="fechar-modal">
                 <i class="fechar fi fi-br-cross close-modal"></i>

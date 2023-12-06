@@ -55,6 +55,41 @@ a{
 ul li{
     list-style-type: disc;
 }
+
+
+/* Barra de Rolagem */
+::-webkit-scrollbar{
+    width: 1vw;
+    display: none;
+}
+::-webkit-scrollbar-track{
+    background: #fff;
+    border-radius: 1vw;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: .5vw;
+    visibility: visible;
+    background-color: #D9D9D9;
+}
+.modalOngPerfil::-webkit-scrollbar,
+.modalPerfilAnunciante::-webkit-scrollbar,
+.tela-adocao::-webkit-scrollbar, 
+.tela-ongs::-webkit-scrollbar,
+.tela-campanhas::-webkit-scrollbar,
+.tela-anunciantes::-webkit-scrollbar,
+.tela-anuncios::-webkit-scrollbar,
+.tela-fav::-webkit-scrollbar, 
+.tela-favCamp::-webkit-scrollbar, 
+.tela-favAnuncios::-webkit-scrollbar, 
+.tela-adot::-webkit-scrollbar, 
+.tela-segOng::-webkit-scrollbar{
+    position: absolute;
+    right: -1vw;
+    width: 1vw;
+    display: block;
+}
+
+
 /* Menu Lateral */
 nav{
     position: fixed;
@@ -460,7 +495,7 @@ nav ul a i{
     transition: all 0.5s;
 }
 .container1.active{
-    width: 82vw !important;
+    width: 83vw !important;
 }
 .container2{
     display: none;
@@ -480,7 +515,7 @@ nav ul a i{
     align-items: center;
     justify-content: flex-end;
     top: 20vh;
-    right: 0;
+    right: -1vw;
     height: 10vh;
 }
 .icon-seta{
@@ -501,6 +536,11 @@ nav ul a i{
     padding: 0.5vw;
     font-size: 1.3vw;
 }
+.container1.active .icon-seta{
+    position: fixed;
+    right: 10vw !important;
+}
 .container1.active .icon-seta i{
     transform: rotate(180deg);
 }
+
