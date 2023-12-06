@@ -203,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <div class="item open-modalAnunciantes">
                 <div class="item-anunciantes">
-                    <img src="images/anunciantes.png">
+                    <img src="images/petshop.png">
                 </div>
                 <p>Anunciantes</p>
             </div>
@@ -226,7 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="seta fi fi-br-angle-small-left close-modalAdocao"></i>
         </div>
 
-        <h2>Adoção e Apadrinhamento</h2>
+        <h2>Pets</h2>
 
         <div class="icone-config">
             <a href="configuracoes.php"><i class="fi fi-sr-settings"></i></a>
