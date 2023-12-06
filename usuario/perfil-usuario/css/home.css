@@ -131,15 +131,6 @@ li{
 .gallery::-webkit-scrollbar{
     display: none;
 }
-::-webkit-scrollbar-track{
-    background: #fff;
-    border-radius: 1vw;
-}
-::-webkit-scrollbar-thumb{
-    border-radius: .5vw;
-    visibility: visible;
-    background-color: #D9D9D9;
-}
 
 .area-pets{
     display: flex;
