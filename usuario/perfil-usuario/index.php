@@ -37,9 +37,6 @@
                 <div class="search">
                     <i class="fi fi-br-search"></i>
                     <input type="text" placeholder="Pesquisar" id="searchbar2" name="pesquisa" onkeyup="search_animal2()">
-                    <div class="area-filtros">
-                        
-                    </div>
                 </div>
                 <a href="configuracoes.php"><i class="fi fi-sr-settings config"></i></a>
             </div>
@@ -69,11 +66,13 @@
                 </span>
             </div>
 
+            <div class="mundo-pet">
+                <p>Fique por dentro do que acontece no mundo pet</p>
+            </div>
+
             <div class="area-conteudo">
                 <?php require "post-anuncio.php"; ?>
             </div>
-
-            
 
             <div class="area-conteudo">
                 <?php require "post-campanha.php"; ?>
