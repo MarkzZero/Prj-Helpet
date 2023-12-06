@@ -126,6 +126,24 @@ while($user_data = mysqli_fetch_assoc($resultOngs)){
             <?php require "post-campanha.php"; ?>
         </div>
 
+        <!-- Modal Ajudar ONG -->
+        <div class="fadeAjudar hide"></div>
+        <div class="modalAjudar hide">
+            <div class="modal-header">
+                <div></div>
+                <div class="fechar-modal">
+                    <i class="fechar fi fi-br-cross close-modalAjudar"></i>
+                    <i class="seta fi fi-br-angle-small-left close-modalAjudar"></i>
+                </div>
+            </div>
+            <div class="conteudo-ajudar"> 
+                <span>Ajude esta ONG</span>
+                <img src="images/pix-ajudar-pet.png">
+                <p class="titulo-pix">Chave PIX</p>
+                <p class="chave-pix">23456789010</p>
+            </div>
+        </div>
+
     </div>
 </div>
 <?php } ?>
