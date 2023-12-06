@@ -100,7 +100,7 @@ if (isset($_GET[1]))
                 <img src="images/add-anuncio.png">
             </div>
 
-            <?php while ($user_data = mysqli_fetch_assoc($result)) { ?>
+            <?php while ($anunciante_data = mysqli_fetch_assoc($result)) { ?>
                 <div class="card">
                     <img src="<?php echo "cadastro/" . $user_data['fotoAnuncio']; ?>">
                     <h4><?php echo $user_data['nomeAnuncio']; ?></h4>
@@ -131,7 +131,7 @@ if (isset($_GET[1]))
                         </div>
 
                         <form action="edicao/editarAnuncio.php" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="idAnuncio" value="<?php echo $user_data['idAnuncio'] ?>">
+                            <input type="hidden" name="idAnuncio" value="<?php echo $anunciante_data['idAnuncio'] ?>">
                             <div class="modal-conteudo">
                                 <div class="adicionar-fotos">
                                     <div class="imageContainer">
