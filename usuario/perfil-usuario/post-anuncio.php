@@ -57,20 +57,33 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
         </div>
 
         <div class="area-bottom">
-            <p><?php echo $anuncio_data['descAnuncio'] ?></p>
-            <button class="open-modalPerfilAnuncio botao-modal">
-                <p>Saiba Mais</p>
-                <i class="fi fi-br-angle-small-right"></i>
-            </button>
+            <div class="item-bottom">
+                <p class="p-desc"><?php echo $anuncio_data['descAnuncio'] ?></p>
+            </div>
+
+            <div class="item-bottom">
+                <button class="open-modalPerfilAnuncio botao-modal">
+                    <p>Saiba Mais</p>
+                    <i class="fi fi-br-angle-small-right"></i>
+                </button>
+            </div>
+
+            <div class="item-bottom">
+                <span>Anúncio</span>
+            </div>
         </div>
 
         <!-- Modal Saiba Mais -->
         <div class="fadePerfilAnuncio hide"></div>
         <div class="modalPerfilAnuncio hide">
             <div class="modal-header">
-                <!-- <div class="icon-fav">
-                    <i id="heartIcon1" class="fi-rr-heart icon"></i>
-                </div> -->
+                <div class="icon-fav">
+                    <!--<i id="heartIcon1" class="fi-rr-heart icon"></i>-->
+                </div>
+
+                <div class="nome-pet">
+                    <h3><?php echo $anuncio_data['nomeAnuncio'] ?></h3>
+                </div>
 
                 <div class="fechar-modal">
                     <i class="fechar fi fi-br-cross close-modalPerfilAnuncio"></i>
@@ -80,69 +93,50 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
 
             <div class="modal-info">
                 <div class="info-pet">
-                    <div class="modal-nome">
-                        <div class="foto-modal">
-                            <img src="<?php echo "../../anunciante/dashboard-anunciante/Cadastro/" . $anuncio_data['fotoAnuncio'] ?>">
-                        </div>
-                        <div class="nome-pet">
-                            <h3><?php echo $anuncio_data['nomeAnuncio'] ?></h3>
-                        </div>
+
+                    <div class="foto-modal">
+                        <img src="<?php echo "../../anunciante/dashboard-anunciante/Cadastro/" . $anuncio_data['fotoAnuncio'] ?>">
                     </div>
 
-
-                    
-                    <div class="area-itens">
-                        <div class="item">
-                            <h4>Data de Ínicio</h4>
-                            <p><?php echo $anuncio_data['inicio'] ?></p>
-                            <div class="icon-patinha">
-                                <i class="fi fi-sr-calendar-clock"></i>
+                    <div class="conteudo-descricao">
+                        <div class="area-itens">
+                            <div class="item">
+                                <h4>Data de Ínicio</h4>
+                                <p><?php echo $anuncio_data['inicio'] ?></p>
+                                <div class="icon-patinha">
+                                    <i class="fi fi-sr-calendar-clock"></i>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <h4>Data de Término</h4>
+                                <p><?php echo $anuncio_data['fim'] ?></p>
+                                <div class="icon-patinha">
+                                    <i class="fi fi-sr-calendar-clock"></i>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="item">
-                            <h4>Data de Término</h4>
-                            <p><?php echo $anuncio_data['fim'] ?></p>
-                            <div class="icon-patinha">
-                                <i class="fi fi-sr-calendar-clock"></i>
+                        <div class="area-descricao">
+                            <div class="post-body">
+                                <span class="short-text">
+                                    <p>
+                                        <?php echo $anuncio_data['descAnuncio'] ?>
+                                    </p>
+                                    <a class="read-more">Ler mais</a>
+                                </span>
+                                <span class="full-text">
+                                    <p>
+                                        <?php echo $anuncio_data['descAnuncio'] ?>
+                                        <a class="read-less">Ler menos</a>
+                                    </p>
+                                </span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="area-descricao">
-                        <div class="post-body">
-                            <span class="short-text">
-                                <p>
-                                    <?php echo $anuncio_data['descAnuncio'] ?>
-                                </p>
-                                <a class="read-more">Ler mais</a>
-                            </span>
-                            <span class="full-text">
-                                <p>
-                                    <?php echo $anuncio_data['descAnuncio'] ?>
-                                    <a class="read-less">Ler menos</a>
-                                </p>
-                            </span>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="area-ong">
-                    <!-- <div class="galeria">
-                        <div class="titulo-galeria">
-                            <p>Galeria</p>
-                            <i class="fi fi-br-gallery"></i>
-                        </div>
-                        <div class="fotos">
-                            <img src="images/foto-ong.png">
-                            <img src="images/foto-ong.png">
-                            <img src="images/foto-ong.png">
-                            <img src="images/foto-ong.png">
-                            <img src="images/foto-ong.png">
-                            <img src="images/foto-ong.png">
-                        </div>
-                    </div> -->
-
                     <div class="info-ong">
                         <img class="open-modalPerfilAnunciante" src="<?php echo "../../anunciante/cadastro/" . $foto_anunciante['fotoAnunciante'] ?>">
 
@@ -153,15 +147,15 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
                                     <i class="fi fi-rr-messages icon-chat"></i>
                                 </div>
                             </div>
-
                             <div class="local">
                                 <i class="fi fi-sr-marker"></i>
                                 <p><?php echo $rua_anunciante['rua'] . " N° " . $num_anunciante['numLocal']. ", ". $bairro_anunciante['bairro']. ", ". $cidade_anunciante['cidade'] ?></p>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+
             </div>
 
         </div>
