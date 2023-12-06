@@ -49,15 +49,6 @@ include('./config/config.php');
                     </div>
 
                     <hr>
-
-                    <a href="#">
-                        <div class="botao">
-                            <i class="fi fi-sr-headset"></i>
-                            <p>Suporte</p>
-                        </div>
-                    </a>
-
-                    <hr>
                 </div>
 
                 <!-- EXCLUIR PERFIL -->
@@ -94,7 +85,8 @@ include('./config/config.php');
                         </div>
 
                         <div class="area-form">
-                            <p>Dados Pessoais</p>
+                            <p>Dados Pessoais e Endereço</p>
+                            <br>
                             <div class="linhas">
                                 <div class="input-field">
                                     <label>Nome da ONG</label>
@@ -137,12 +129,7 @@ include('./config/config.php');
                                     <input type="text" name="cebas" id="nomepet" value="<?php echo $user_data['cebasOng'] ?>">
                                     <div class="underline"></div>
                                 </div>
-                            </div>
-
-                            <br>
-
-                            <p>Endereço</p>
-                            <div class="linhas">
+                                
                                 <div class="input-field">
                                     <label>CEP</label>
                                     <input type="text" value="<?php echo $user_data['cepOng'] ?>" id="cep" onblur="pesquisacep(this.value);" onkeyup="formatCEP(this)" maxlength="9" required name="cep" />
