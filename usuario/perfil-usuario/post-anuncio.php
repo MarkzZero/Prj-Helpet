@@ -144,7 +144,7 @@ while ($anuncio_data = mysqli_fetch_assoc($resultAnuncio)) {
                             <div class="nome-ong">
                                 <h3><?php echo $anunciante_data['anunciante']  ?></h3>
                                 <div class="icons icon-chat">
-                                    <i class="fi fi-rr-messages icon-chat"></i>
+                                    <!--<i class="fi fi-rr-messages icon-chat"></i>-->
                                 </div>
                             </div>
                             <div class="local">
