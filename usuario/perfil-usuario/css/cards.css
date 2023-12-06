@@ -36,7 +36,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 1.5vw;
+    margin: 1.2vw;
 }
 /* Ícone Favoritos */
 .icon-fav{
@@ -405,24 +405,37 @@
     text-overflow: ellipsis;
     max-width: 60%;
 }
+
 .post .campanha img{
-    width: 98%;
+    width: 44vw;
     border-radius: 1vw;
 }
 
-.area-bottom .p-desc{
-    font-size: 1vw;
-    color: #3B3B3B;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 80%;
-}
-.area-bottom i{
+.area-bottom .item-bottom{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4vw;
+    width: 33%;
+}
+.area-bottom .p-desc{
+    width: 100%;
+    text-align: left;
+    font-size: 1vw;
+    color: #3B3B3B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+.area-bottom .botao-modal{
+    margin: 0;
+}
+.area-bottom .item-bottom span{
+    font-family: Regular;
+    font-size: 1.2vw;
     color: #F58614;
+    width: 100%;
+    text-align: right;
 }
 
 
