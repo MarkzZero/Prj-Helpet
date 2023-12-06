@@ -1,6 +1,5 @@
 <?php 
-        include('conexao.php');
-        include('cadastro.php');
+        include('../config/conexao.php');
         include('../../Login/login.php');
 
         if(isset($_POST['delete'])){
@@ -15,40 +14,51 @@
             $result = $query->fetch_assoc();
     
             if(password_verify($senha, $result['senhaOng'])){
-                $deleteAdocao = $mysqli->prepare("DELETE FROM tbAdocao WHERE idOng = '$id'");
+                $deleteAdocao = $mysqli->prepare("DELETE FROM tbAdocao WHERE idOng = '?'");
+                $deleteAdocao->bind_param('s', $id);
                 $deleteAdocao->execute();
     
-                $deleteAnimal = $mysqli->prepare("DELETE FROM tbAnimal WHERE idOng = '$id'");
+                $deleteAnimal = $mysqli->prepare("DELETE FROM tbAnimal WHERE idOng = '?'");
+                $deleteAnimal->bind_param('s', $id);
                 $deleteAnimal->execute();
     
-                $deleteApadrinhamento = $mysqli->prepare("DELETE FROM tbApadrinhamento WHERE idOng = '$id'");
+                $deleteApadrinhamento = $mysqli->prepare("DELETE FROM tbApadrinhamento WHERE idOng = '?'");
+                $deleteApadrinhamento->bind_param('s', $id);
                 $deleteApadrinhamento->execute();
     
-                $deleteCampanha = $mysqli->prepare("DELETE FROM tbCampanha WHERE idOng = '$id'");
+                $deleteCampanha = $mysqli->prepare("DELETE FROM tbCampanha WHERE idOng = '?'");
+                $deleteCampanha->bind_param('s', $id);
                 $deleteCampanha->execute();
     
-                $deleteChat = $mysqli->prepare("DELETE FROM tbChat WHERE idOng = '$id'");
+                $deleteChat = $mysqli->prepare("DELETE FROM tbChat WHERE idOng = '?'");
+                $deleteChat->bind_param('s', $id);
                 $deleteChat->execute();
     
-                $deleteDoacao = $mysqli->prepare("DELETE FROM tbDoacao WHERE idOng = '$id'");
+                $deleteDoacao = $mysqli->prepare("DELETE FROM tbDoacao WHERE idOng = '?'");
+                $deleteDoacao->bind_param('s', $id);
                 $deleteDoacao->execute();
     
-                $deleteOng = $mysqli->prepare("DELETE FROM tbOng WHERE idOng = '$id'");
+                $deleteOng = $mysqli->prepare("DELETE FROM tbOng WHERE idOng = '?'");
+                $deleteOng->bind_param('s', $id);
                 $deleteOng->execute();
     
-                $deletePost = $mysqli->prepare("DELETE FROM tbPost WHERE idOng = '$id'");
+                $deletePost = $mysqli->prepare("DELETE FROM tbPost WHERE idOng = '?'");
+                $deletePost->bind_param('s', $id);
                 $deletePost->execute();
     
-                $deleteTelefone = $mysqli->prepare("DELETE FROM tbTelefoneOng WHERE idOng = '$id'");
+                $deleteTelefone = $mysqli->prepare("DELETE FROM tbTelefoneOng WHERE idOng = '?'");
+                $deleteTelefone->bind_param('s', $id);
                 $deleteTelefone->execute();
     
-                if($deleteOng && $deleteAdocao && $deleteAnimal && $deleteApadrinhamento && $deleteCampanha && $deleteChat && $deleteDoacao && $deletePost && $deleteTelefone):
-                    session_destroy();
-                    header("Location: ../../index.php");
-                endif;
-            }else{
+                session_destroy();
+                header("Location: ../../index.php");
+
+                if ($deleteAdocao->errno || $deleteAnimal->errno || $deleteApadrinhamento || $deleteCampanha || $deleteChat || $deleteDoacao || $deleteOng || $deletePost || $deleteTelefone) {
+                    die('Erro ao deletar: ' . $mysqli->error);
+                }
+            } else {
                 $_SESSION['erro'] = "Senha incorreta. Por favor, tente novamente.";
-                header("Location: ../excluir-ong.php"); 
+                header("Location: ../configuracoes.php"); 
                 exit;
             }
         }

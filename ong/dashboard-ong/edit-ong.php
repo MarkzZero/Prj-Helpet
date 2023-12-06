@@ -1,72 +1,78 @@
 <?php
-    include('protect.php');
-    include('./config/config.php');
+include('protect.php');
+include('./config/config.php');
 ?>
 
 <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
 
-        <title>Configurações - Editar Perfil</title>
-        <link rel="icon" href="images/logo-azul.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Links CSS -->
-        <link rel="stylesheet" href="css/principal.css">
-        <link rel="stylesheet" type="text/css" href="css/style-config.css">
-    </head>
-    <body onload="onLoad()">
+    <title>Configurações - Editar Perfil</title>
+    <link rel="icon" href="images/logo-azul.png">
 
-        <div class="container">
-            <!-- Menu Lateral -->
-            <?php require "menu-lateral.php"; ?>
+    <!-- Links CSS -->
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" type="text/css" href="css/style-config.css">
+</head>
 
-            <!-- MENU CONFIGURAÇÕES -->
-            <div class="main">
-                <div class="menu-config">
-                    <div class="titulo-config">
-                        <span>Configurações</span>
-                    </div>
+<body onload="onLoad()">
 
-                    <div class="area-botao">
-                        <hr>
+    <div class="container">
+        <!-- Menu Lateral -->
+        <?php require "menu-lateral.php"; ?>
 
-                        <a href="edit-ong.php">
-                            <div class="botao-ativo botao">
-                                <i class="fi fi-br-arrows-repeat"></i>
-                                <p>Alterar Perfil</p>
-                            </div>
-                        </a>
-
-                        <hr>
-
-                        <div class="botao open-modalExc">
-                            <i class="fi fi-br-trash"></i>
-                            <p>Excluir Perfil</p>
-                        </div>
-
-                        <hr>
-
-                        <a href="#">
-                            <div class="botao">
-                                <i class="fi fi-sr-headset"></i>
-                                <p>Suporte</p>
-                            </div>
-                        </a>
-
-                        <hr>
-                    </div>
-
-                    <!-- EXCLUIR PERFIL -->
-                    <?php require "excluir-ong.php"; ?>
+        <!-- MENU CONFIGURAÇÕES -->
+        <div class="main">
+            <div class="menu-config">
+                <div class="titulo-config">
+                    <span>Configurações</span>
                 </div>
 
+                <div class="area-botao">
+                    <hr>
 
-                <!--  EDITAR PERFIL DA ONG -->
-                <div class="pag-editar-perfil">
-                    <form action="cadastro/editarOng.php" method="post" enctype="multipart/form-data">
-                        <?php while ($user_data = mysqli_fetch_assoc($resultOng) and $telefone_data = mysqli_fetch_assoc($telefoneOng)) {?>
+                    <a href="edit-ong.php">
+                        <div class="botao-ativo botao">
+                            <i class="fi fi-br-arrows-repeat"></i>
+                            <p>Alterar Perfil</p>
+                        </div>
+                    </a>
+
+                    <hr>
+
+                    <div class="botao open-modalExc">
+                        <i class="fi fi-br-trash"></i>
+                        <p>Excluir Perfil</p>
+                    </div>
+
+                    <hr>
+
+                    <a href="#">
+                        <div class="botao">
+                            <i class="fi fi-sr-headset"></i>
+                            <p>Suporte</p>
+                        </div>
+                    </a>
+
+                    <hr>
+                </div>
+
+                <!-- EXCLUIR PERFIL -->
+                <?php require "excluir-ong.php"; ?>
+            </div>
+
+
+            <!--  EDITAR PERFIL DA ONG -->
+            <div class="pag-editar-perfil">
+                <form action="cadastro/editarOng.php" method="post" enctype="multipart/form-data">
+                    <?php while ($user_data = mysqli_fetch_assoc($resultOng)) {
+                        $telefoneOng = $mysqli->query("SELECT tbTelefoneOng.numTelefoneOng as 'telefone', tbOng.nomeOng as 'ong' FROM tbTelefoneOng INNER JOIN tbOng ON tbTelefoneOng.idOng = tbOng.idOng WHERE tbOng.idOng = '$id'") or die($mysqli->error);
+
+                        $telefone_data = mysqli_fetch_assoc($telefoneOng);
+                    ?>
                         <div class="area-perfil-edit">
                             <div class="enfeites">
                                 <div class="enfeiteUm">
@@ -109,12 +115,6 @@
                                 </div>
 
                                 <div class="input-field">
-                                    <label>Senha</label>
-                                    <input type="password" name="senha" id="senha" value="111">
-                                    <div class="underline"></div>
-                                </div>
-
-                                <div class="input-field">
                                     <label>Capacidade</label>
                                     <input type="text" name="capacidade" id="capacidade" value="<?php echo $user_data['capacidadeOng'] ?>">
                                     <div class="underline"></div>
@@ -122,7 +122,7 @@
 
                                 <div class="input-field">
                                     <label>CNPJ</label>
-                                    <input type="text" name="cnpj" id="cnpj" value="<?php echo $user_data['cnpjOng'] ?>" onkeyup="formatCNPJ(this)" maxlength="18" >
+                                    <input type="text" name="cnpj" id="cnpj" value="<?php echo $user_data['cnpjOng'] ?>" onkeyup="formatCNPJ(this)" maxlength="18">
                                     <div class="underline"></div>
                                 </div>
 
@@ -185,24 +185,25 @@
                                     <div class="underline"></div>
                                 </div>
                             </div>
-                            
-                            <?php } ?>
 
-                            <div class="botoes">
-                                <button class="btn-salvar" name="update" type="submit">Salvar</button>
-                            </div>
+                        <?php } ?>
+
+                        <div class="botoes">
+                            <button class="btn-salvar" name="update" type="submit">Salvar</button>
                         </div>
-                    </form>
-                </div>
-
+                        </div>
+                </form>
             </div>
+
         </div>
+    </div>
 
 
-        <!-- Links JS -->
-        <script src="js/modal.js"></script>
-        <script src="js/menu.js"></script>
-        <script src="js/script.js"></script>
+    <!-- Links JS -->
+    <script src="js/modal.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/script.js"></script>
 
-    </body>
+</body>
+
 </html>

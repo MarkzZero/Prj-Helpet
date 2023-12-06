@@ -192,7 +192,9 @@ if (isset($_GET[1]))
 
                             <div class="botoes">
                                 <button class="close-modalExc botao-modalExc">Cancelar</button>
-                                <button class="botao-modalExc2">Excluir</button>
+                                <a style="text-decoration: none ;" href="Cadastro/deleteUsuario.php?id=<?php echo $user_data['idAnimal']; ?>">
+                                    <button class="botao-modalExc2">Excluir</button>
+                                </a>
                             </div>
                         </div>
                     </div>

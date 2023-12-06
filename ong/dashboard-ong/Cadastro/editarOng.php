@@ -10,7 +10,7 @@ if (isset($_POST['update'])) {
     $arquivo = $_FILES['image'];
     $foto = $_POST['foto'];
     $nome = mysqli_real_escape_string($mysqli, trim($_POST['nome']));
-    $Telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_NUMBER_INT);
+    $Telefone = $_POST['telefone'];
     $capacidade = filter_input(INPUT_POST, 'capacidade', FILTER_SANITIZE_NUMBER_INT);
     $email = mysqli_real_escape_string($mysqli, trim($_POST['email']));
     $cnpj = filter_input(INPUT_POST, 'cnpj', FILTER_SANITIZE_NUMBER_INT);

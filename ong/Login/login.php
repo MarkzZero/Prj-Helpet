@@ -1,6 +1,8 @@
 <?php 
     #Conecta com o banco.
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     include('conexao.php');
 
     #Verificação de E-mail e senha.

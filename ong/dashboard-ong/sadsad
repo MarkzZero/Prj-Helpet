@@ -1,0 +1,40 @@
+<?php 
+    include('conexao.php');
+    include('cadastro.php');
+    include('../../Login/login.php');
+
+    if (isset($_POST['delete'])) {
+        $id = $_SESSION['id-ong'];
+        $senha = mysqli_real_escape_string($mysqli, trim($_POST['senha']));
+
+        // Select
+        $selectOng = "SELECT * FROM tbOng WHERE idOng = ?";
+        $selectStatement = $mysqli->prepare($selectOng);
+        $selectStatement->bind_param('s', $id);
+        $selectStatement->execute();
+        $result = $selectStatement->get_result()->fetch_assoc();
+
+        if (password_verify($senha, $result['senhaOng'])) {
+            // Delete Queries
+            $deleteAdocao = $mysqli->prepare("DELETE FROM tbAdocao WHERE idOng = ?");
+            $deleteAdocao->bind_param('s', $id);
+            $deleteAdocao->execute();
+
+            // ... (Repeat similar blocks for other delete queries)
+
+            // Check if all delete queries executed successfully
+            if ($deleteAdocao->errno || $deleteAnimal->errno || /* ... check for other queries */) {
+                // Handle error
+                die('Error in delete queries: ' . $mysqli->error);
+            }
+
+            // If all queries executed successfully, destroy session and redirect
+            session_destroy();
+            header("Location: ../../index.php");
+        } else {
+            $_SESSION['erro'] = "Senha incorreta. Por favor, tente novamente.";
+            header("Location: ../excluir-ong.php"); 
+            exit;
+        }
+    }
+?>

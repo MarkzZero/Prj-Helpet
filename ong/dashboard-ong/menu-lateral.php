@@ -6,7 +6,7 @@
     
     <div class="logo">
         <img src="<?php echo "../Cadastro/" . $ong_data['fotoOng'];?>">
-        <span class="title-ong">Bem-Vindo <br> <?php echo $ong_data['nomeOng'];?></span>
+        <span class="title-ong">Bem-Vindo! <br> <?php echo $ong_data['nomeOng'];?></span>
     </div>
 
     <ul>
