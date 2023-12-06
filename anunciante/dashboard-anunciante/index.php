@@ -231,7 +231,7 @@ if (isset($_GET[1]))
                                     <div class="foto-modal">
                                         <img src="<?php echo "cadastro/" . $user_data['fotoAnuncio']; ?>">
                                     </div>
-                                    <div class="nome-pet">
+                                    <div class="nome-anuncio">
                                         <h3><?php echo $user_data['nomeAnuncio']; ?></h3>
                                     </div>
                                 </div>
@@ -272,7 +272,7 @@ if (isset($_GET[1]))
                                 </div>
                             </div>
 
-                            <div class="area-ong">
+                            <!-- <div class="area-ong">
                                 <div class="galeria">
                                     <div class="titulo-galeria">
                                         <p>Galeria</p>
@@ -281,7 +281,7 @@ if (isset($_GET[1]))
                                     <div class="fotos">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
