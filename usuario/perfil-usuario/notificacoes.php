@@ -1,3 +1,7 @@
+<?php
+    include('../config/config.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
