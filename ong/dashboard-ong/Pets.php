@@ -169,7 +169,7 @@
 
                         <div id="area-foto" class="coluna">
                             <div class="imageContainer">
-                                <img src="images/img-pets/select-img.png" alt="selecionar foto" id="imgPhoto">
+                                <img src="images/select-img.png" alt="selecionar foto" id="imgPhoto">
                                 <input type="file" id="flImage" name="image" accept="image/*">
                             </div>
                             <p class="titulo-foto">Foto do Pet</p>
@@ -183,7 +183,6 @@
                                 <div class="galeria"></div>
                             </div>
                         </div>
-
                     </div>
 
                 </form>
