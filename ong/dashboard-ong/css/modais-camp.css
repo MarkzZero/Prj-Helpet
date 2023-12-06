@@ -144,9 +144,8 @@
     position: relative;
 }
 .area-foto img{
-    width: 30vh;
-    shape-outside: circle();
-    clip-path: circle();
+    width: 30vw;
+    border-radius: 1.5vw;
 }
 
 .area-iconEditar{
@@ -331,7 +330,10 @@ form {
     color: #8A8A8A;
     width: 100%;
 }
-
+.editar .informacoes{
+    position: relative;
+    top: 2vw;
+}
 .input-field .select-btn{
     display: flex;
     align-items: center;
@@ -623,10 +625,9 @@ form {
 .modalVer .area-foto{
     position: relative;
 }
-.modalVer .area-foto img{
-    width: 30vh;
-    shape-outside: circle();
-    clip-path: circle();
+.modalCamp .area-foto img{
+    width: 30vw !important;
+    border-radius: 1.5vw !important;
 }
 
 .modalVer .nome-pet{
@@ -870,12 +871,12 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     width: 25vw;
     height: auto;
     margin: 0;
     padding: 0;
     left: 4vh;
-    bottom: 5vh;
 }
 .modalVer .area-modal .modal-body2,
 .modalCam .area-modal .modal-body2{
@@ -901,9 +902,8 @@ form {
 
 .modalVer .area-foto img,
 .modalCam .area-foto img{
-    width: 30vh;
-    shape-outside: circle();
-    clip-path: circle();
+    width: 20vw;
+    border-radius: 1.5vw;
 }
 
 .modalVer .nome-pet,
@@ -1168,11 +1168,14 @@ form {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 40vw;
+    bottom: 3vw;
+    background-color: #004FDA;
 }
 .editar .area-form{
     position: relative;
-    bottom: 1vw;
+    bottom: 4vw;
+    width: 30vw;
 }
 .editar .titulo-info{
     margin-top: 1vw;
@@ -1685,4 +1688,39 @@ table span{
     justify-content: center;
     width: 90% !important;
     left: 1vw;
+}
+
+.edit-cont{
+    position: relative;
+    bottom: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.edit-campos{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.editar .area-botoes-modal button{
+    position: relative;
+    bottom: 2vw;
+}
+.img-camp img{
+    width: 30vw;
+    border-radius: 1.5vw;
+}
+
+.modal-mapa iframe{
+    width: 38vw;
+    position: relative;
+    top: 2vw;
+    right: 1vw;
+}
+
+.cont-info{
+    position: relative;
+    bottom: 7vw;
 }
