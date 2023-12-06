@@ -205,64 +205,8 @@ form{
     width: 100%;
     text-align: center;
 }
-#imgPhoto{
-    width: 10vw;
-    height: 10vw;
-    padding: 0.5vw;
-    border: 0.3vw solid #122BAD;
-    cursor: pointer;
-    transition: background .3s;
-    border-radius: 50%;
-}
-#imgPhoto:hover{
-    background-color: #d7e5ff;
-    transform: scale(1.1);
-}
 input[type='file']{
     display: none;
-}
-
-.campos-anuncio{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: 4vw;
-}
-.campos-anuncio .campo input,
-.campos-anuncio .campo textarea{
-    font-family: Poppins;
-    font-size: 1.2vw;
-    border-radius: 1.5vw;
-    border: none;
-    outline: none;
-    padding: 0.5vw;
-    padding-left: 1.5vw;
-    color: #000;
-    width: 27vw;
-    background-color: #E0EBFF;
-}
-.campos-anuncio .campo textarea{
-    min-width: 27vw;
-    max-width: 27vw;
-    min-height: 13vw;
-    max-height: 16vw;
-}
-.campos-anuncio .campo-data{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 27vw;
-}
-.campos-anuncio .campo-data input{
-    width: 13vw;
-    margin: 1vw 0;
-    padding: 0.5vw;
-}
-.campos-anuncio input::placeholder,
-.campos-anuncio textarea::placeholder{
-    color: #122BAD;
 }
 
 .btn-cadastrar{
@@ -335,16 +279,6 @@ input[type='file']{
     color: #fff;
     border: 0.2vw solid #FF3131;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1070,4 +1004,285 @@ input[type='file']{
 
 .area-local-mapa{
     margin-top: 2vw;
+}
+
+/* ALTERAR MODAL CADASTRO ANÚNCIO */
+.modalAdd{
+    /* background-color: #1effb0; */
+    height: 80vh;
+}
+.modalAdd .titulo-modal{
+    position: relative;
+    left: 2vw;
+}
+.modalAdd .adicionar-fotos{
+    background-color: #8297ff;
+    position: fixed;
+    width: 25vw;
+    border-radius: 5vh;
+    left: 3vw;
+}
+.modalAdd .imageContainer{
+    background-color: #ffffff;
+    width: 20vw;
+    height: 11vw;
+    position: fixed;
+    top: 5vw;
+    border-radius: 5vh;
+}
+#imgPhoto{
+    width: 20vw;
+    height: 11vw;
+    margin-top: 1.9vw;
+    padding: 0.9vw;
+    border: 0.3vw solid #082e86;
+    cursor: pointer;
+    transition: 0.5s all;
+    border-radius: 5vh;
+    
+}
+#imgPhoto:hover{
+    background-color: #98aaff;
+    transform: scale(1.1);
+}
+.modalAdd .titulo-foto{
+    position: relative;
+    top: 1vw;
+}
+.modalAdd .campos-anuncio{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    left: 12vw;
+    top: 2vw;
+    /* background-color: #001CAB; */
+}
+.modalAdd .nome-anuncio{
+    font-size: 2.5vh;
+    color:#001CAB;
+    top: -1vh;
+    position: relative;
+    left: 0.5vw;
+
+}
+.modalAdd .data{
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    margin-top: 1vw;   
+}
+.modalAdd .data-inicio{
+    color: #001CAB;
+    position: relative;
+    top: 0.8vw;
+    left: -2.5vw;
+}
+.modalAdd .data-termino{
+    color: #001CAB;
+    position: relative;
+    top: 0.8vw;
+    left: -2.5vw;
+}
+
+.modalAdd .campos-anuncio .campo input,
+.campos-anuncio .campo-desc textarea{
+    font-family: Poppins;
+    font-size: 1.2vw;
+    border-radius: 1.5vw;
+    border: none;
+    outline: none;
+    padding: 0.5vw;
+    padding-left: 1.5vw;
+    color: #000;
+    width: 27vw;
+    background-color: #E0EBFF;
+}
+.modalAdd  .campos-anuncio .campo-decs{
+    min-width: 27vw;
+    max-width: 27vw;
+    min-height: 13vw;
+    max-height: 16vw;
+    margin-top: 10vw;
+}
+.modalAdd  .campos-anuncio .campo-data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 27vw;
+}
+.modalAdd .campos-anuncio .campo-data input{
+    width: 13vw;
+    margin: 1vw 0;
+    padding: 0.5vw;
+}
+.modalAdd .campos-anuncio input::placeholder,
+.campos-anuncio textarea::placeholder{
+    color: #122BAD;
+}
+
+.modalAdd .campo-desc{
+    /* background-color: #095D40; */
+    width: 50vw;
+    position: fixed;
+    top: 20vw;
+    left: 5.5vw;
+}
+.modalAdd textarea{
+    width: 100% !important;
+    height: 12vw;
+}
+.modalAdd .btn-cadastrar{
+    position: relative;
+    top: 14.5vw;
+}
+
+/* CSS ALTERAR MODAL ANUNCIO */
+.modalEdit{
+    /* background-color: #1effb0; */
+    width: 60vw;
+    height: 40vw;
+}
+.modalEdit .titulo-modal{
+    position: relative;
+    color: #122BAD; 
+    width: 16vw;
+    font-size: 3vh;
+    left: 4vw;
+}
+
+.modalEdit .adicionar-fotos{
+    background-color: #8297ff;
+    position: fixed;
+    width: 30vw;
+    border-radius: 5vh;
+    left: 1vw;
+}
+.modalEdit .imageContainer{
+    background-color: #ffffff;
+    width: 25vw;
+    height: 14vw;
+    position: fixed;
+    top: 5vw;
+    border-radius: 5vh;
+}
+#imgPhoto2{
+    width: 25vw;    
+    height: 14vw;
+    margin-top: 1.9vw;
+    padding: 0.9vw;
+    border: 0.3vw solid #082e86;
+    cursor: pointer;
+    transition: 0.5s all;
+    border-radius: 5vh;
+    
+}
+#imgPhoto2:hover{
+    background-color: #98aaff;
+    transform: scale(1.1);
+}
+.modalEdit .titulo-foto{
+    position: relative;
+    top: 1vw;
+}
+.modalEdit .campos-anuncio{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    left: 15vw;
+    top: 2vw;
+    /* background-color: #001CAB; */
+}
+.modalEdit .nome-anuncio{
+    font-size: 2.5vh;
+    color:#001CAB;
+    top: -1vh;
+    position: relative;
+    left: -1vw;
+
+}
+.modalEdit .data{
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    margin-top: 1vw;  
+    margin-left: -1vw; 
+}
+.modalEdit .data-inicio{
+    color: #001CAB;
+    position: relative;
+    top: 0.8vw;
+    left: -2.5vw;
+}
+.modalEdit .data-termino{
+    color: #001CAB;
+    position: relative;
+    top: 0.8vw;
+    left: -2.5vw;
+}
+
+.modalEdit .campos-anuncio .campo input,
+.campos-anuncio .campo-desc textarea{
+    font-family: Poppins;
+    font-size: 1.2vw;
+    border-radius: 1.5vw;
+    border: none;
+    outline: none;
+    padding: 0.5vw;
+    padding-left: 1.5vw;
+    color: #000;
+    width: 27vw;
+    background-color: #E0EBFF;
+   
+}
+.modalEdit .campo input{
+    margin-left: -2vw;
+}
+.modalEdit  .campos-anuncio .campo-decs{
+    min-width: 27vw;
+    max-width: 27vw;
+    min-height: 13vw;
+    max-height: 16vw;
+    margin-top: 10vw;
+}
+.modalEdit  .campos-anuncio .campo-data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 26vw;
+    margin-left: -1vw;
+}
+.modalEdit .campos-anuncio .campo-data input{
+    width: 13vw;
+    margin: 1vw 0;
+    padding: 0.5vw;
+    
+}
+.modalEdit .campos-anuncio input::placeholder,
+.campos-anuncio textarea::placeholder{
+    color: #122BAD;
+}
+
+.modalEdit .campo-desc{
+    /* background-color: #095D40; */
+    width: 50vw;
+    position: fixed;
+    top: 23vw;
+    left: 3.5vw;
+}
+.modalEdit textarea{
+    width: 107% !important;
+    height: 12vw;
+}
+.modalEdit .btn-cadastrar{
+    position: fixed;
+    top: 34vw;
+    left: 27.3vw;
 }
