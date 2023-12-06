@@ -1,3 +1,8 @@
+/* Ícones */
+@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css');
+@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
+
 /* Fontes */
 @font-face {
   font-family: National;
@@ -54,6 +59,7 @@ body::before{
   width: 300vh;
   right: 45%;
   transform: translateY(-50%);
+  background: #0557DA;
   background: linear-gradient(228deg, #0557DA 35%, rgb(115, 160, 233) 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
@@ -66,39 +72,39 @@ body::before{
   left: 0;
 }
 .pata img{
-  width: 28vh;
+  width: 13vw;
 }
 
 .patinhas{
   position: absolute;
   z-index: 20;
-  bottom: 3vh;
-  left: 3vh;
+  bottom: 1.5vw;
+  left: 1.5vw;
 }
 .patinhas img{
-  width: 10vh;
+  width: 4.5vw;
 }
 
 .bolinhas{
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: absolute;
   bottom: 0;
+  height: 75vh;
   right: 0;
-  height: 80vh;
 }
 .bolinhas img{
-  width: 26vh;
+  width: 9vw;
 }
 
 .circulo{
   position: absolute;
-  top: -8vh;
-  right: -8vh;
+  top: -4vw;
+  right: -4vw;
 }
 .circulo img{
-  width: 30vh;
+  width: 15vw;
 }
 
 
@@ -113,13 +119,14 @@ body::before{
 }
 .login_body{
   position: relative;
-  align-self: center;
+  align-items: center;
+  justify-content: center;
   z-index: 90;
-  top: 4vh;
-  padding: 5vh;
-  margin: 3vh;
-  width: 60vh;
-  border-radius: 5vh;
+  top: 5vh;
+  padding: 2vw 2.5vw;
+  margin: 2vw;
+  width: 30vw;
+  border-radius: 3vw;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -131,33 +138,37 @@ body::before{
   justify-content: center;
 }
 .logo-adm img{
-  width: 22vh;
+  width: 10vw;
+}
+.logo-adm img:hover{
+  transform: scale(1.1);
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 .login_body h2{
   font-family: National;
-  font-size: 4vh;
+  font-size: 2vw;
   color: #122BAD;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin: 1vw 0;
   text-align: center;
 }
 
 .login_body input{
   width: 100%;
-  padding: 2vh;
+  padding: 1vw;
   color: #000;
   background-color: #E0EBFF;
   border: none;
-  border-radius: 3vh;
-  padding-left: 6.5vh;
+  border-radius: 2vw;
+  padding-left: 3.2vw;
   box-sizing: border-box;
   outline: none;
   font-family: Poppins;
 }
 .login_body input::placeholder{
   color: #122BAD;
-  font-size: 2.2vh;
+  font-size: 1.2vw;
   font-weight: 500;
   font-family: Poppins;
 }
@@ -170,85 +181,83 @@ body::before{
   margin-bottom: 3.5vh;
 }
 
-.input_box i, .input_box-senha-cad, .input_box-senha #btn-senha{
-  font-size: 2.8vh;
+.input_box i, .input_box-senha-cad i, .input_box-senha #btn-senha{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
   color: #122BAD;
 }
-.input_box-senha-cad{
+.input_box i, .input_box-senha-cad{
   position: absolute;
-  left: 2.5vh;
-}
-.input_box i{
-  position: absolute;
-  left: 2.5vh;
+  left: 1.2vw;
 }
 .input_box-senha #btn-senha{
   position: absolute;
-  right: 2.5vh;
+  right: 1.2vw;
 }
 .input_box input[type=text], .input_box-senha input[type=password]{
-  padding-left: 6.5vh;
+  padding-left: 3.2vw;
 }
 
 .login_body button{
   width: 100%;
-  padding: 2.2vh;
+  padding: 1vw;
   color: #fff;
   background-color: #0557DA;
-  border-radius: 3vh;
+  border-radius: 1.5vw;
   text-transform: uppercase;
-  font-size: 2.5vh;
+  font-size: 1.3vw;
   font-family: Park;
   border: none;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin: 1vw 0;
   transition: 0.5s;
 }
-
 .login_body button:hover{
   transform: scale(1.1);
+  transition: all 0.5s;
   cursor: pointer;
 }
 
 .mensagem{
   font-family: Poppins;
-  font-size: 2.6vh;
+  font-size: 1.4vw;
   color: #F48503;
   margin-top: 2vh;
   text-align: center;
 }
 
 #cadastre-se{
-  /* background-color: #000; */
-  width: 60vh;
+  width: 30vw;
   margin-top: 3vh;
-  
 }
 
 #txt-cad{
-  font-size: 2.5vh;
+  font-size: 1.3vw;
   font-weight: 500;
   font-family: Poppins;
   text-align: center;
+  color: #000;
+  margin: 1vh 0;
 }
 .cadastrar{
   width: 100%;
-  padding: 2.2vh;
+  padding: 1vw;
   color: #fff;
   background-color: #F58614;
-  border-radius: 3vh;
+  border-radius: 1.5vw;
   text-transform: uppercase;
-  font-size: 2.5vh;
+  font-size: 1.3vw;
   font-family: Park;
   border: none;
   top: 90vh;
   margin-bottom: 10vh;
   transition: 0.5s;
-  /* position: absolute; */
 }
 
 .cadastrar:hover{
   transform: scale(1.1);
+  transition: all 0.5s;
   cursor: pointer;
 }
 
