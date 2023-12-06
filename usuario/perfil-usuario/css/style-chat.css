@@ -73,12 +73,13 @@ body{
     font-family: Poppins;
     position: absolute;
     width: 17vw;
-    border: 1px solid #ccc;
+    border: 1px solid #f08c00;
     padding: 0.6vw 1vw;
     font-size: 1vw;
     outline: none;
     border-radius: 1.5vw;
-    background-color: #f1f1f1;
+    background-color: #fff;
+    color: #000;
 }
 .users-list{
     width: 20vw;
@@ -226,12 +227,12 @@ body{
     font-family: Poppins;
     width: 60vw;
     font-size: 1.2vw;
-    border: 1px solid #ccc;
+    border: 1px solid #f08c00;
     padding: 0.7vw 1.5vw;
     border-radius: 1.5vw;
     outline: none;
     margin-right: 1.5vw;
-    color: #ccc;
+    color: #000;
 }
 .typing-area button{
     background-color: transparent;
@@ -243,7 +244,7 @@ body{
     align-items: center;
     justify-content: center;
     font-size: 2vw;
-    color: #525252;
+    color: #f08c00;
     cursor: pointer;
 }
 .typing-area i:hover{
