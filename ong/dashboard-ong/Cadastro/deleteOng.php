@@ -8,10 +8,7 @@
     
             //Select
     
-            $selectOng = "SELECT * FROM tbOng WHERE idOng = '$id'";
-            $query = $mysqli->query($selectOng) or die('Falha na execução do código SQL: ' . $mysqli->error);
-            
-            $result = $query->fetch_assoc();
+
     
             if(password_verify($senha, $result['senhaOng'])){
                 $deleteAdocao = $mysqli->prepare("DELETE FROM tbAdocao WHERE idOng = '?'");

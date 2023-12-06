@@ -100,7 +100,7 @@ if (isset($_GET[1]))
                 <img src="images/add-anuncio.png">
             </div>
 
-            <?php while ($anunciante_data = mysqli_fetch_assoc($result)) { ?>
+            <?php while ($user_data = mysqli_fetch_assoc($result)) { ?>
                 <div class="card">
                     <img src="<?php echo "cadastro/" . $user_data['fotoAnuncio']; ?>">
                     <h4><?php echo $user_data['nomeAnuncio']; ?></h4>
@@ -192,7 +192,7 @@ if (isset($_GET[1]))
 
                             <div class="botoes">
                                 <button class="close-modalExc botao-modalExc">Cancelar</button>
-                                <a style="text-decoration: none ;" href="Cadastro/deleteUsuario.php?id=<?php echo $user_data['idAnimal']; ?>">
+                                <a style="text-decoration: none ;" href="Cadastro/deleteUsuario.php?id=<?php echo $user_data['idAnuncio']; ?>">
                                     <button class="botao-modalExc2">Excluir</button>
                                 </a>
                             </div>

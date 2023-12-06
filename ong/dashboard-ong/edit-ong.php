@@ -69,7 +69,7 @@ include('./config/config.php');
             <div class="pag-editar-perfil">
                 <form action="cadastro/editarOng.php" method="post" enctype="multipart/form-data">
                     <?php while ($user_data = mysqli_fetch_assoc($resultOng)) {
-                        $telefoneOng = $mysqli->query("SELECT tbTelefoneOng.numTelefoneOng as 'telefone', tbOng.nomeOng as 'ong' FROM tbTelefoneOng INNER JOIN tbOng ON tbTelefoneOng.idOng = tbOng.idOng WHERE tbOng.idOng = '$id'") or die($mysqli->error);
+                        $telefoneOng = $mysqli->query("SELECT * FROM tbTelefoneOng WHERE idOng = '$id'") or die($mysqli->error);
 
                         $telefone_data = mysqli_fetch_assoc($telefoneOng);
                     ?>
@@ -104,7 +104,7 @@ include('./config/config.php');
 
                                 <div class="input-field">
                                     <label>Telefone</label>
-                                    <input type="text" name="telefone" id="telefone" onkeyup="formatTelefone(this)" maxlength="15" value="<?php echo $telefone_data['telefone'] ?>">
+                                    <input type="text" name="telefone" id="telefone" onkeyup="formatTelefone(this)" maxlength="15" value="<?php echo $telefone_data['numTelefoneOng'] ?>">
                                     <div class="underline"></div>
                                 </div>
 

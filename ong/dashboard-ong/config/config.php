@@ -18,6 +18,8 @@
 
     $resultOng = $mysqli->query("SELECT * FROM tbOng WHERE idOng = '$id'")or die($mysqli->error);
 
+    $telefoneOng = $mysqli->query("SELECT tbTelefoneOng.numTelefoneOng as 'telefone', tbOng.nomeOng as 'ong' FROM tbTelefoneOng INNER JOIN tbOng ON tbTelefoneOng.idOng = tbOng.idOng WHERE tbOng.idOng = '$id'") or die($mysqli->error);
+
     $sqlSolicitacao = $mysqli->query("SELECT tbAdocao.idAdocao, tbAnimal.nomeAnimal as 'nome_animal', tbAnimal.fotoPerfilAnimal as 'foto_animal' ,tbUsuario.nomeUsuario as 'nome_usuario', tbUsuario.fotoUsuario as 'foto_usuario', tbAnimal.idAnimal as 'id_animal',tbAdocao.dataSolicitacao, tbRaca.nomeRaca as 'raca' FROM tbAdocao INNER JOIN tbAnimal ON tbadocao.idAnimal = tbAnimal.idAnimal INNER JOIN tbUsuario ON tbAdocao.idUsuario = tbUsuario.idUsuario INNER JOIN tbRaca ON tbanimal.idRaca = tbRaca.idRaca WHERE tbAdocao.idOng = '$id' AND tbAdocao.STATUS = 'pendente'");
 
     $ong = $mysqli->query("SELECT * FROM tbOng WHERE idOng = '$id'")or die($mysqli->error);

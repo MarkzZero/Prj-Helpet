@@ -8,4 +8,6 @@
 
     $resultAnunciante = $mysqli->query("SELECT * FROM tbAnunciante WHERE idAnunciante = '$id'") or die($mysqli->error);
 
+    $resultTelefone = $mysqli->query("SELECT * FROM tbTelefoneAnunciante WHERE idAnunciante = '$id'");
+
 ?> 
