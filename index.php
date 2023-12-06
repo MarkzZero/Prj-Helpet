@@ -17,8 +17,17 @@
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">
+
+        <!-- Animações -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/wow.js"></script>
     </head>
     <body>
+
+        <!-- Tela de Splash -->
+        <div class="splash">
+            <img src="images/cachorro.gif">
+        </div>
 
         <!-- Home -->
         <section id="home">
@@ -106,11 +115,11 @@
         
         <!-- Quem Somos -->
         <section id="quem-somos">
-            <h1 class="titulo">Quem Somos</h1>
+            <h1 class="wow animate__animated animate__fadeInUp titulo">Quem Somos</h1>
 
             <div id="conteudo-quem-somos">
 
-                <div id="area-gato">
+                <div class="wow animate__animated animate__fadeInUp" id="area-gato">
                     <div class="area-laranja">
                         <div class="gato-quem-somos">
                             <img src="images/img-quem-somos/gato-quem-somos.png">
@@ -124,11 +133,11 @@
                     </div>
                 </div>
 
-                <div class="detalhe-quem-somos">
+                <div class="wow animate__animated animate__fadeInUp detalhe-quem-somos">
                     <img src="images/img-quem-somos/detalhe.png">
                 </div>
                 
-                <div id="area-cao">                    
+                <div class="wow animate__animated animate__fadeInUp" id="area-cao">                    
                     <div id="patinhas-direita">
                         <img src="images/img-quem-somos/patinhas-azul.png">
                     </div>
@@ -147,14 +156,14 @@
 
         <!-- Serviços -->
         <section id="servicos">
-            <h1 class="titulo">Nossos Serviços</h1>
+            <h1 class="wow animate__animated animate__fadeInUp titulo">Nossos Serviços</h1>
 
             <div class="area-servicos">
             
                 <div class="colunas">
 
-                    <div class="area-card">
-                        <div id="cao-servicos">
+                    <div class="wow animate__animated animate__fadeInUp area-card">
+                        <div class="wow animate__animated animate__fadeInLeft" id="cao-servicos">
                             <img src="images/img-serviços/serv-fundo-cachorro.png">
                         </div>
                         <div class="serv-subtitulo">
@@ -166,7 +175,7 @@
                         </div>
                     </div>
 
-                    <div class="area-card">
+                    <div class="wow animate__animated animate__fadeInUp area-card">
                         <div class="serv-subtitulo">
                             <img src="images/img-serviços/serv-comunicacao.png">
                             <h3>Comunicação</h3>
@@ -176,7 +185,7 @@
                         </div>
                     </div>
     
-                    <div class="area-card">
+                    <div class="wow animate__animated animate__fadeInUp area-card">
                         <div class="serv-subtitulo">
                             <img src="images/img-serviços/serv-conscientizacao.png">
                             <h3>Conscientização</h3>
@@ -186,7 +195,7 @@
                         </div>
                     </div>
 
-                    <div class="area-card">
+                    <div class="wow animate__animated animate__fadeInUp area-card">
                         <div class="serv-subtitulo">
                             <img src="images/img-serviços/serv-campanhas.png">
                             <h3>Campanhas</h3>
@@ -196,7 +205,7 @@
                         </div>
                     </div>
     
-                    <div class="area-card">
+                    <div class="wow animate__animated animate__fadeInUp area-card">
                         <div class="serv-subtitulo">
                             <img src="images/img-serviços/serv-vacinas.png">
                             <h3>Vacinas</h3>
@@ -206,7 +215,7 @@
                         </div>
                     </div>
 
-                    <div class="area-card">
+                    <div class="wow animate__animated animate__fadeInUp area-card">
                         <div class="serv-subtitulo">
                             <img src="images/img-serviços/serv-suporte.png">
                             <h3>Suporte</h3>
@@ -218,7 +227,7 @@
 
                 </div>
 
-                <div id="gato-servicos">
+                <div class="wow animate__animated animate__fadeInRight" id="gato-servicos">
                     <img src="images/img-serviços/serv-fundo-gato.png">
                 </div>
 
@@ -232,13 +241,13 @@
 
             <div class="area-beneficios">
                 <div class="row">
-                    <div id="card-laranja" class="card">
-                        <h2>Adote um pet e ganhe um amigo</h2>
+                    <div id="card-laranja" class="wow animate__animated animate__fadeInUp card">
+                        <h2 class="wow animate__animated animate__fadeInUp">Adote um pet e ganhe um amigo</h2>
 
                         <div id="benef-patinhas">
                             <img src="images/img-beneficios/card-laranja/patinhas-branca.png">
                         </div>
-                        <div class="area-img">
+                        <div class="wow animate__animated animate__fadeInUp area-img">
                             <img src="images/img-beneficios/card-laranja/fundo-card-laranja.png">
                             <p>Ajudamos os animais que estão abandonados nas ruas.</p>
                         </div>
@@ -276,7 +285,7 @@
                             <div class="cadastro">
                                 <h3>Cadastre-se nesse sistema</h3>
                                 <div class="area-img">
-                                    <img src="images/img-beneficios/card-laranja/img-adocao.png">
+                                    <img src="images/img-beneficios/card-laranja/img-user.png">
                                 </div>
                                 <div class="area-btn-cadastro">
                                     <a href="./usuario/index.php">
@@ -303,12 +312,12 @@
                         </div>
                     </div>
 
-                    <div id="card-azul" class="card">
-                        <h2>Nós te ajudamos a ajudar os pets</h2>
+                    <div id="card-azul" class="wow animate__animated animate__fadeInUp card">
+                        <h2 class="wow animate__animated animate__fadeInUp">Nós te ajudamos a ajudar os pets</h2>
                         <div id="benef-patinhas">
                             <img src="images/img-beneficios/card-azul/patinhas-amarela2.png">
                         </div>
-                        <div class="area-img">
+                        <div class="wow animate__animated animate__fadeInUp area-img">
                             <img src="images/img-beneficios/card-azul/fundo-card-azul.png">
                             <p>Facilitamos o processo de adoção dos animais.</p>
                         </div>
@@ -371,19 +380,19 @@
 
         <!-- Anunciantes -->
         <section id="anunciantes">
-            <h1 class="titulo">Anunciantes</h1>
+            <h1 class="wow animate__animated animate__fadeInUp titulo">Anunciantes</h1>
             <div class="area-anunciantes">
                 <div class="img-anunciante">
-                    <img src="images/img-beneficios/img-anunciante.png">
+                    <img class="wow animate__animated animate__fadeInUp" src="images/img-beneficios/img-anunciante.png">
                 </div> 
 
                 <div class="desc-anunciante">
-                    <p>
+                    <p class="wow animate__animated animate__fadeInUp">
                         Conosco os anunciantes como PetShops, veterinários, Banho&Tosa, entre outros serviços 
                         podem fazer parte do nosso sistema, anunciando seus produtos na plataforma e realizando 
                         parcerias com as ONGs cadastradas.
                     </p>
-                    <a href="./anunciante/index.php">Anuncie seus produtos!</a>
+                    <a class="wow animate__animated animate__fadeInUp" href="./anunciante/index.php">Anuncie seus produtos!</a>
                 </div>
             </div>
         </section>
@@ -400,37 +409,37 @@
         
                     <div class="secao-form">
                         <div class="area-texto">
-                            <h1>Fale Conosco</h1>
-                            <p>
+                            <h1 class="wow animate__animated animate__fadeInUp">Fale Conosco</h1>
+                            <p class="wow animate__animated animate__fadeInUp">
                                 Entre em contato para esclarecer dúvidas, 
                                 enviar sugestões ou críticas sobre nosso projeto.
                             </p>
                             <div class="secao-img cao-contato">
-                                <img src="images/img-fale-conosco/fale-conosco.png">
+                                <img class="wow animate__animated animate__fadeInUp" src="images/img-fale-conosco/fale-conosco.png">
                             </div>
                         </div>
             
                         <form method="POST" action="./forms/contato.php" id="form">
                             <div class="form-row">
                                 <div class="col">
-                                    <input type="text" id="nome" class="form-control" placeholder="Nome" name="Nome">
+                                    <input type="text" id="nome" class="wow animate__animated animate__fadeInUp form-control" placeholder="Nome" name="Nome">
                                 </div>
                                 <div class="col">
-                                    <input type="email" id="email" class="form-control" placeholder="E-mail" name="Email">
+                                    <input type="email" id="email" class="wow animate__animated animate__fadeInUp form-control" placeholder="E-mail" name="Email">
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Mensagem" rows="4" name="Mensagem"></textarea>
+                                <textarea class="wow animate__animated animate__fadeInUp form-control" id="exampleFormControlTextarea1" placeholder="Mensagem" rows="4" name="Mensagem"></textarea>
                             </div>
 
                             <div class="botoes-contato">
-                                <button name="Enviar">
+                                <button class="wow animate__animated animate__fadeInUp" name="Enviar">
                                     <span>Enviar</span>
                                     <i class="fi fi-sr-paw"></i>
                                 </button>
             
-                                <div class="icones-contato">
+                                <div class="wow animate__animated animate__fadeInUp icones-contato">
                                     <i id="icon-phone" class="fi fi-sr-circle-phone"></i>
                                     <i id="icon-email" class="fi fi-sr-circle-envelope"></i>
                                 </div>
@@ -474,6 +483,11 @@
         <script src="js/script.js"></script>
         <script src="js/main.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/splash.js"></script>
+
+        <script>
+            new WOW().init();
+        </script>
 
     </body>
 </html>
