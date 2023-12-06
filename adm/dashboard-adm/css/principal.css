@@ -133,9 +133,9 @@ a{
 .navegation ul li.hovered a{
     color: #122BAD;
 }
-.navegation ul li:nth-child(6){
+.navegation ul li:nth-child(5){
     position: relative;
-    margin-top: 8vh;
+    margin-top: 14vh;
 }
 .navegation ul li a{
     position: relative;
@@ -243,8 +243,8 @@ a{
 .navegation.active .title-ong{
     display: none;
 }
-.navegation.active ul li:nth-child(6){
-    margin-top: 10vh;
+.navegation.active ul li:nth-child(5){
+    margin-top: 14vh;
 }
 .navegation.active ul li a .icon{
     padding: 2.5vh 1vw;
