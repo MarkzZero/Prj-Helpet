@@ -58,13 +58,13 @@
                         <form action="login/login.php" method="POST">
                             <div class="input_box">
                                 <input type="text" name="email" placeholder="E-mail">
-                                <i class="bi bi-person"></i>
+                                <i class="fi fi-br-circle-user"></i>
                             </div>
 
                             <div class="input_box-senha">
                                 <input id="senha" type="password" name="senha" placeholder="Senha">
-                                <div class="input_box-senha-cad"><i class="bi bi-lock-fill"></i></div>
-                                <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarSenha()"></i>
+                                <div class="input_box-senha-cad"><i class="fi fi-sr-lock"></i></div>
+                                <i class="fi fi-bs-eye" id="btn-senha" onclick="mostrarSenha()"></i>
                             </div>
 
                             <div>
@@ -104,7 +104,9 @@
             </div>
         </div>
 
-        <script src="js/script.js"></script>
+
+        <!-- Links JS -->
+        <script src="js/mostrar-senha.js"></script>
 
 
     </body>
