@@ -56,8 +56,8 @@ while($user_data = mysqli_fetch_assoc($resultOngs)){
                 <div class="perfil">
                     <div>
                         <div class="user">
-                            <img src="images/foto-ong.png">
-                            <h2>Ampara Animal</h2>
+                            <img src="<?php echo "../../ong/Cadastro/" . $user_data['fotoOng'] ?>">
+                            <h2><?php echo $user_data['nomeOng'];?></h2>
                             <p>Olá, seja bem-vindo ao nosso perfil!</p>
                         </div>
                         <div class="area-seguir">
@@ -81,7 +81,7 @@ while($user_data = mysqli_fetch_assoc($resultOngs)){
                         <div class="area-mapa">
                             <div class="local">
                                 <i class="fi fi-rr-marker"></i>
-                                <p>123 Anywhere St., Any City</p>
+                                <p><?php echo $user_data['logradouroOng'];?> , <?php echo $user_data['numLogOng'];?> , <?php echo $user_data['bairroOng'];?></p>
                             </div>
                             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7314.867832910044!2d-46.63305022111003!3d-23.552854412933524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1695764301953!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
