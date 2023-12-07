@@ -147,7 +147,7 @@ while ($campanha_Data = mysqli_fetch_assoc($resultCampanha)) {
                                 <div class="nome-ong">
                                     <h3><?php echo $ong_Data['ong'] ?></h3>
                                     <div class="icons icon-chat">
-                                        <i class="fi fi-rr-messages icon-chat"></i>
+                                    <a href="Chat.php?o=<?php echo $id_ong['idOng']?>"><i class="fi fi-rr-messages icon-chat"></i></a>
                                     </div>
                                 </div>
 
