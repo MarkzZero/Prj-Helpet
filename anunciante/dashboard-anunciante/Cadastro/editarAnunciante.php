@@ -43,7 +43,7 @@ if (isset($_POST['update'])) {
             }
         }
     }else{
-        $sqlfoto = "UPDATE tbAnunciante SET fotoAnunciante = '$foto'";
+        $sqlfoto = "UPDATE tbAnunciante SET fotoAnunciante = '$foto' WHERE idAnunciante = '$id'";
         if ($mysqli->query($sqlFoto) == true) {
             header("Cache-Control: no-cache, no-store, must-revalidate");
             header("Pragma: no-cache");

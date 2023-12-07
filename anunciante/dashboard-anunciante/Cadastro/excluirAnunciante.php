@@ -4,29 +4,36 @@ session_start();
 $id = $_POST['id'];
 $senha = $_POST['senha'];
 
-$selectOng = "SELECT * FROM tbOng WHERE idOng = ?";
-$query = $mysqli->prepare($selectOng);
-$query->bind_param("i", $id);
+$selectOng = "SELECT * FROM tbAnunciante WHERE idAnunciante = '$id'";
+$query = $mysqli->prepare($selectOng);  
 $query->execute();
 
 $result = $query->get_result()->fetch_assoc();
 
 if ($result && password_verify($senha, $result['senhaAnunciante'])) {
-    $deleteCampa = $mysqli->prepare("DELETE FROM ligcampanunci WHERE idAnunciante = ?");
-    $deleteCampa->bind_param("i", $id);
-    $deleteCampa->execute();
+    // Verifique se há registros antes de excluir
 
-    $deleteAnunc = $mysqli->prepare("DELETE FROM tbAnunciante WHERE idAnunciante = ?");
-    $deleteAnunc->bind_param("i", $id);
-    $deleteAnunc->execute();
+    // Corrija a consulta DELETE para ligcampanunci e remova o parâmetro 'i'
+    $deleteAnunc = $mysqli->prepare("DELETE FROM tbAnunciante WHERE idAnunciante = '$id'");
+    if ($deleteAnunc->execute() === false) {
+        die('Erro na exclusão de tbAnunciante: ' . $mysqli->error);
+    }
 
-    $deleteAnuncio = $mysqli->prepare("DELETE FROM tbAnuncio WHERE idAnunciante = ?");
-    $deleteAnuncio->bind_param("i", $id);
-    $deleteAnuncio->execute();
+    $deleteCampa = $mysqli->prepare("DELETE FROM ligcampanunci WHERE idAnunciante = '$id'");
+    if ($deleteCampa->execute() === false) {
+        die('Erro na exclusão de ligcampanunci: ' . $mysqli->error);
+    }
 
-    $deleteTelefone = $mysqli->prepare("DELETE FROM tbTelefoneAnunciante WHERE idAnunciante = ?");
-    $deleteTelefone->bind_param("i", $id);
-    $deleteTelefone->execute();
+    $deleteAnuncio = $mysqli->prepare("DELETE FROM tbAnuncio WHERE idAnunciante = '$id'");
+    if ($deleteAnuncio->execute() === false) {
+        die('Erro na exclusão de tbAnuncio: ' . $mysqli->error);
+    }
+
+    $deleteTelefone = $mysqli->prepare("DELETE FROM tbTelefoneAnunciante WHERE idAnunciante = '$id'");
+
+    if ($deleteTelefone->execute() === false) {
+        die('Erro na exclusão de tbTelefoneAnunciante: ' . $mysqli->error);
+    }
 
     session_destroy();
     header("Location: ../../index.php");

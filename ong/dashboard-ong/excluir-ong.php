@@ -1,4 +1,8 @@
 <!-- Modal Excluir Perfil  -->
+<?php
+    include('config/config.php');
+    while($ong_data = mysqli_fetch_assoc($resultOng)){
+?>
 <div class="fadeExc hide"></div>
 <div class="modalExc hide">
     <div class="modal-header">
@@ -13,6 +17,7 @@
         <p>Digite sua senha para confirmar</p>
         <form action="cadastro/deleteOng.php" method="post">
             <div class="input-field">
+                <input type="text" name="id" value="<?php echo $ong_data['idOng'] ?>" id="">
                 <input type="text" name="senha" id="senha">
                 <div class="underline"></div>
             </div>
@@ -27,3 +32,4 @@
         </form>
     </div>
 </div>
+<?php } ?>

@@ -34,9 +34,9 @@
     $row = mysqli_fetch_array($campanhasCount);
     $campanhasResult = $row[0];
 
-    $padrinCount = $mysqli->query("SELECT COUNT(idApadrinhamento) FROM tbApadrinhamento WHERE idOng = '$id'") or die($mysqli->error);
+    $padrinCount = $mysqli->query("SELECT COUNT(idApadrinhamento) as 'total_apadrinhamento' FROM tbApadrinhamento WHERE idOng = '$id'") or die($mysqli->error);
     $row = mysqli_fetch_array($padrinCount);
-    $padrinResult = $row[0];
+    $padrinResult = $row['total_apadrinhamento'];
 
     //Usei pra Inserir os valores nos graficos
     $gatoCount = $mysqli->query("SELECT COUNT(idAnimal) as total_gatos from tbAnimal WHERE especieAnimal = 'Gato' AND idOng = '$id'") or die($mysqli->error);
@@ -50,9 +50,9 @@
     $countCachorro = $row['total_cachorro'];
     //echo json_encode($countCachorro);
 
-    $adocaoCount = $mysqli->query("SELECT COUNT(idAdocao) FROM tbAdocao WHERE idOng = '$id' AND STATUS = 'aprovada'") or die($mysqli->error);
+    $adocaoCount = $mysqli->query("SELECT COUNT(idAdocao) as 'total_adocao' FROM tbAdocao WHERE idOng = '$id' AND STATUS = 'aprovada'") or die($mysqli->error);
     $row = mysqli_fetch_array($adocaoCount);
-    $adocaoResult = $row[0];
+    $adocaoResult = $row['total_adocao'];
 
     
 ?>

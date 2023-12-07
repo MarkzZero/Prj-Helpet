@@ -30,7 +30,7 @@
                      while ($user_data = mysqli_fetch_assoc($result)) {
                     ?>  
                 <img src="<?php echo "../cadastro/" . $user_data['fotoUsuario'] ?>">
-                <h4><?php echo $_SESSION['nome'];?></h4>
+                <h4><?php echo $user_data['nomeUsuario'];?></h4>
                 <p><?php echo $user_data['emailUsuario'] ?></p>
             </div>
 
@@ -73,7 +73,9 @@
                 </div>
 
                 <form action="../Update/Update.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $user_data['idUsuario'] ?>">
                     <div class="imageContainer">
+                        <input type="hidden" name="foto" value="<?php echo $user_data['fotoUsuario'] ?>">
                     <img src="<?php echo "../cadastro/" . $user_data['fotoUsuario'] ?>" alt="selecionar foto" id="imgPhoto">
                         <input type="file" id="flImage" name="image" accept="image/*">
                         <label>Foto de Perfil</label>
@@ -111,32 +113,26 @@
                         </div>
 
                         <div class="input-field">
-                            <label>Senha</label>
-                            <input type="password" name="senhauser" id="senhauser" value="111">
-                            <div class="underline"></div>
-                        </div>
-
-                        <div class="input-field">
                             <label>CEP</label>
-                            <input type="text" name="cep" onblur="pesquisacep(this.value);" onkeyup="formatCEP(this)" id="nomepet" value="<?php echo $user_data['cepUsuario'] ?>" required>
+                            <input type="text" name="cep" onblur="pesquisacep(this.value);" onkeyup="formatCEP(this)" id="nomepet" value="<?php echo $user_data['cepUsuario'] ?>" >
                             <div class="underline"></div>
                         </div>
 
                         <div class="input-field">
                             <label>Estado</label>
-                            <input type="text" name="estado" id="estado" value="<?php echo $user_data['estadoUsuario'] ?>" required>
+                            <input type="text" name="estado" id="estado" value="<?php echo $user_data['estadoUsuario'] ?>" >
                             <div class="underline"></div>
                         </div>
 
                         <div class="input-field">
                             <label>Cidade</label>
-                            <input type="text" name="cidade" id="cidade" value="<?php echo $user_data['cidadeUsuario'] ?>" required>
+                            <input type="text" name="cidade" id="cidade" value="<?php echo $user_data['cidadeUsuario'] ?>" >
                             <div class="underline"></div>
                         </div>
 
                         <div class="input-field">
                             <label>Bairro</label>
-                            <input type="text" name="bairro" id="bairro" value="<?php echo $user_data['bairroUsuario'] ?>" required>
+                            <input type="text" name="bairro" id="bairro" value="<?php echo $user_data['bairroUsuario'] ?>">
                             <div class="underline"></div>
                         </div>
 
@@ -148,13 +144,13 @@
 
                         <div class="input-field">
                             <label>Número</label>
-                            <input type="text" name="numero" id="numero" value="<?php echo $user_data['numLocalUsuario'] ?>"  required>
+                            <input type="text" name="numero" id="numero" value="<?php echo $user_data['numLocalUsuario'] ?>"  >
                             <div class="underline"></div>
                         </div>
 
                         <div class="input-field">
                             <label>Complemento</label>
-                            <input type="text" name="complemento" id="complemento" value="<?php echo $user_data['complementoUsuario'] ?>" required>
+                            <input type="text" name="complemento" id="complemento" value="<?php echo $user_data['complementoUsuario'] ?>" >
                             <div class="underline"></div>
                         </div>
                     </div>

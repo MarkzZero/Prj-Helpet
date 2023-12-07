@@ -207,9 +207,6 @@ if (isset($_GET[1]))
 
                             <div class="botoes">
                                 <button class="close-modalExc botao-modalExc">Cancelar</button>
-                                <a style="text-decoration: none ;" href="Cadastro/deleteUsuario.php?id=<?php echo $user_data['idAnuncio']; ?>">
-                                    <button class="botao-modalExc2">Excluir</button>
-                                </a>
                                 <button class="botao-modalExc2">Excluir</button>
                             </div>
                         </div>

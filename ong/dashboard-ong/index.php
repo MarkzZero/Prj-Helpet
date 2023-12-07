@@ -223,6 +223,9 @@
 
             Chart.defaults.font.size = 16;
 
+            const countAdocao = <?php echo $adocaoResult; ?>;
+            const countApadrinhamento = <?php echo $padrinResult; ?>;
+
             new Chart(ctx2, {
                 type: 'pie',
                 data: {
@@ -232,7 +235,7 @@
                     ],
                     datasets: [{
                         label: 'Quantidade',
-                        data: [100, 70],
+                        data: [countAdocao, countApadrinhamento],
                         backgroundColor: [
                             '#FFBD49',
                             '#FF8903',

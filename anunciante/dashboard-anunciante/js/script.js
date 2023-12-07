@@ -1,8 +1,14 @@
-/* Modais */
 function setupModal(openBtns, closeBtns, modals, fades) {
     const toggleModal = (modalIndex) => {
-        modals[modalIndex].classList.toggle("hide");
-        fades[modalIndex].classList.toggle("hide");
+        modals.forEach((modal, index) => {
+            if (index === modalIndex) {
+                modal.classList.toggle("hide");
+                fades[index].classList.toggle("hide");
+            } else {
+                modal.classList.add("hide");
+                fades[index].classList.add("hide");
+            }
+        });
     };
 
     openBtns.forEach((el, index) => {
@@ -46,26 +52,3 @@ const closeModalExc = document.querySelectorAll(".close-modalExc");
 const modalExc = document.querySelectorAll(".modalExc");
 const fadeExc = document.querySelectorAll(".fadeExc");
 setupModal(openModalExc, closeModalExc, modalExc, fadeExc);
-
-
-
-
-
-//Menu
-let list = document.querySelectorAll('nav li');
-function activeLink(){
-    list.forEach((item) =>
-    item.classList.remove('hovered'));
-    this.classLis.add('hovered')
-}
-list.forEach((item) =>
-item.addEventListener('mouseover', activeLink));
-
-let toggle = document.querySelector('.toggle');
-let navegation = document.querySelector('nav');
-let main = document.querySelector('.main');
-
-toggle.onclick = function(){
-    navegation.classList.toggle('active');
-    main.classList.toggle('active');
-}
